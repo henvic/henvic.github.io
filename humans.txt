@@ -1,0 +1,7 @@
+/* Henrique Vicente de Oliveira Pinto */
+/* henvic.github.io */
+/* humanstxt.org */
+
+/* SITE */
+  Standards: HTML5, CSS3, JS
+  Software: PhpStorm, Tower, Git, JSLint, RECESS
