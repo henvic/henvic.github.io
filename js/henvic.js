@@ -6,15 +6,18 @@
     var headerRowH1 = document.querySelector('.header-row h1'),
         blockquoteOnBottom = document.querySelector('.blockquote-on-bottom'),
         blockquoteOnBottomListener,
-        scrollHeaderListener;
+        scrollHeaderListener,
+        hasVanilla = false;
 
     scrollHeaderListener = function () {
-        if (window.pageYOffset > 50 && !headerRowH1.classList.contains('vanilla')) {
+        if (window.pageYOffset > 50 && !hasVanilla) {
             headerRowH1.classList.add('vanilla');
+            hasVanilla = true;
         }
 
-        if (window.pageYOffset <= 50 && headerRowH1.classList.contains('vanilla')) {
+        if (window.pageYOffset <= 50 && hasVanilla) {
             headerRowH1.classList.remove('vanilla');
+            hasVanilla = false;
         }
     };
 
