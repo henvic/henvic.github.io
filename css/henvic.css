@@ -107,8 +107,8 @@ a:focus {
 }
 
 .top-links li a:hover {
-    color: #201f1c;
-    background: #fffdf5;
+    color: #fff8dc;
+    background: #3b49a0;
     transition: all 0.5s ease-in-out;
 }
 
