@@ -72,7 +72,36 @@ a:focus {
 
 .about-me {
     margin-bottom: 0;
+}
+
+.about-me, .about-me code, .top-links a {
     font-weight: 100;
+}
+
+.about-me code {
+    font-size: 80%;
+}
+
+.top-links li {
+    margin-left: 0;
+}
+
+.top-links li a {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    border-bottom: 0.1rem solid rgb(81, 121, 187);
+}
+
+.top-links li a:focus, .top-links li a:hover {
+    border-bottom-color: rgb(200, 200, 82);
+}
+
+.top-links li:first-child a {
+    padding-left: 0;
+}
+
+.top-links li:last-child a {
+    padding-right: 0;
 }
 
 .social-network {
@@ -85,33 +114,6 @@ a:focus {
 
 .social-network .twitter-follow-button {
     color: white;
-}
-
-.top-links {
-    margin: 0;
-    font-weight: 200;
-}
-
-.top-links li {
-    margin-top: 10px;
-    margin-right: 0;
-    margin-left: 0;
-}
-
-.top-links li:last-child {
-    margin-right: 0;
-}
-
-.top-links li a {
-    padding: 2px 10px;
-    color: #3b49a0;
-    transition: all 0.5s ease-in-out;
-}
-
-.top-links li a:hover {
-    color: #fff;
-    background: #3b49a0;
-    transition: all 0.5s ease-in-out;
 }
 
 @media only screen and (min-width: 768px) {
