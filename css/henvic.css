@@ -71,7 +71,7 @@ a:focus {
 }
 
 .about-me {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     font-weight: 100;
 }
 
@@ -88,16 +88,14 @@ a:focus {
 }
 
 .top-links {
-    margin-top: -10px;
-    margin-left: 0;
+    margin: 0;
     font-weight: 200;
 }
 
 .top-links li {
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 0;
     margin-left: 0;
-    background: #fff8dc;
 }
 
 .top-links li:last-child {
@@ -107,12 +105,11 @@ a:focus {
 .top-links li a {
     padding: 2px 10px;
     color: #3b49a0;
-    background: #fff8dc;
     transition: all 0.5s ease-in-out;
 }
 
 .top-links li a:hover {
-    color: #fff8dc;
+    color: #fff;
     background: #3b49a0;
     transition: all 0.5s ease-in-out;
 }
@@ -168,7 +165,7 @@ a:focus {
 .timeline-item {
     padding: 10px;
     margin-bottom: 20px;
-    background: #fffbeb;
+    background: #fffdf3;
     border-left: 10px solid #6495ed;
     transition: border-left 0.5s ease-in-out;
 }
