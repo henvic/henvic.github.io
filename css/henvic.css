@@ -63,22 +63,19 @@ a:focus {
 }
 
 .about-me {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     font-weight: 100;
 }
 
-.social-network-buttons {
-    display: block;
-    margin-bottom: 10px;
+.social-network {
+    margin-top: 0.85rem;
 }
 
-@media only screen and (max-width: 422px) {
-    .social-network-buttons {
-        min-height: 54px;
-    }
+.social-network-coderwall img {
+    vertical-align: top;
 }
 
-.social-network-buttons .twitter-follow-button {
+.social-network .twitter-follow-button {
     color: white;
 }
 
@@ -188,6 +185,8 @@ a:focus {
 
 @media only screen and (min-width: 640px) {
     .blockquote-on-bottom {
+        margin-bottom: 0;
+        padding-bottom: 1rem;
         transition: all 0.4s ease-in-out 2s;
     }
     .blockquote-on-bottom-alive {
