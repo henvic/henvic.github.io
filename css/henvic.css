@@ -71,7 +71,7 @@ a:focus {
     }
 }
 
-.profile-icon-bar {
+.timeline-item, .profile-icon-bar {
     background: rgb(251, 251, 251);
 }
 
@@ -79,6 +79,7 @@ a:focus {
     color: rgba(50, 75, 116, 0.9) !important;
 }
 
+.timeline-item:active, .timeline-item:hover,
 .profile-icon-bar:active, .profile-icon-bar:hover {
     background: rgb(252, 252, 252);
 }
@@ -129,7 +130,6 @@ a:focus {
 .timeline-item {
     padding: 10px;
     margin-bottom: 20px;
-    background: #fffdf3;
     border-left: 10px solid #6495ed;
     transition: border-left 0.5s ease-in-out;
 }
