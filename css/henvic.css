@@ -71,30 +71,20 @@ a:focus {
     }
 }
 
-.contact-me {
-    font-size: 80%;
+.profile-icon-bar {
+    background: rgb(251, 251, 251);
 }
 
-.top-links li {
-    margin-left: 0;
+.profile-icon-bar>* i, .profile-icon-bar>* label {
+    color: rgba(50, 75, 116, 0.9) !important;
 }
 
-.top-links a {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    border-bottom: 0.1rem solid rgb(81, 121, 187);
+.profile-icon-bar:active, .profile-icon-bar:hover {
+    background: rgb(252, 252, 252);
 }
 
-.top-links a:focus, .top-links a:hover {
-    border-bottom-color: rgb(200, 200, 82);
-}
-
-.top-links li:first-child a {
-    padding-left: 0;
-}
-
-.top-links li:last-child a {
-    padding-right: 0;
+.profile-icon-bar a:active, .profile-icon-bar a:hover {
+    background: rgb(230, 230, 230);
 }
 
 .social-network {
@@ -115,18 +105,20 @@ a:focus {
     }
 }
 
-.photos-row .photo {
-    float: left;
-    width: 22%;
-    margin-left: 4%;
+.photos-ul {
+    margin: 0;
 }
 
-.photos-row .photo:hover img {
+.photo {
+    padding: 0 !important;
+}
+
+.photo:hover {
     opacity: 0.85;
 }
 
-.photos-row .photo:first-child {
-    margin-left: 0;
+.photo img {
+    width: 100%;
 }
 
 .timeline-timeframe h3 {
