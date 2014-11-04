@@ -84,8 +84,13 @@ a:focus {
     background: rgb(252, 252, 252);
 }
 
+.profile-icon-bar a {
+    transition: background 0.3s ease-in 40ms;
+}
+
 .profile-icon-bar a:active, .profile-icon-bar a:hover {
-    background: rgb(230, 230, 230);
+    transition: background 0.9s ease-out -200ms;
+    background: rgb(235, 235, 235);
 }
 
 .social-network {
