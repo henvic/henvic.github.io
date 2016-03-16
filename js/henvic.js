@@ -4,8 +4,6 @@
     'use strict';
 
     var headerRowH1 = document.querySelector('.header-row h1'),
-        blockquoteOnBottom = document.querySelector('.blockquote-on-bottom'),
-        blockquoteOnBottomListener,
         scrollHeaderListener,
         hasVanilla = false;
 
@@ -22,16 +20,6 @@
     };
 
     window.addEventListener('scroll', scrollHeaderListener);
-
-    blockquoteOnBottomListener = function () {
-        blockquoteOnBottom.classList.add('blockquote-on-bottom-alive');
-        setTimeout(function () {
-            blockquoteOnBottom.classList.remove('blockquote-on-bottom-alive');
-        }, 2000);
-        blockquoteOnBottom.removeEventListener('mouseover', blockquoteOnBottomListener);
-    };
-
-    blockquoteOnBottom.addEventListener('mouseover', blockquoteOnBottomListener);
 
     /**
      * Twitter follow button code
