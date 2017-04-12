@@ -20,20 +20,26 @@ a:focus {
     text-align: center;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 300;
+}
+
+p, a {
+    font-family: 'Raleway', sans-serif;
+}
+
 .header-row h1 {
     padding-top: 4px;
     padding-bottom: 4px;
     margin: 0;
-    font-family: 'PT Sans', sans-serif;
     font-size: 20px;
-    font-weight: 700;
-    font-style: italic;
     letter-spacing: 6px;
     color: #fff;
     text-shadow: 1px 1px 1px #444;
-    background: rgba(50, 75, 116, 0.9);
+    background: rgba(0, 44, 115, 0.8);
     box-shadow: 1px 1px 1px #1a4760;
-    transition: all 0.9s ease-in-out -400ms;
+    transition: all 1s ease-out -400ms;
 }
 
 .header-row h1 a {
@@ -44,9 +50,8 @@ a:focus {
     margin-top: -50px;
     color: #333;
     text-shadow: 1px 1px 1px #444;
-    background: rgba(255, 248, 220, 0.7);
-    box-shadow: 1px 1px 1px rgba(178, 173, 154, 0.7);
-    transition: all 1.2s ease-in-out 0.8s;
+    background: black;
+    transition: all 0.5s ease-in 1.4s;
 }
 
 .clear-header {
@@ -73,6 +78,18 @@ a:focus {
 
 .timeline-item, .profile-icon-bar {
     background: rgb(251, 251, 251);
+}
+
+p, a {
+    font-size: 1.15rem;
+}
+
+.icon-large {
+    font-size: 200%;
+}
+
+.about-me {
+    margin-bottom: 0;
 }
 
 .profile-icon-bar>* i, .profile-icon-bar>* label {
