@@ -7,7 +7,7 @@ a {
 }
 
 a:hover, a:focus {
-    color: rgb(200, 200, 82);
+    color: rgb(22, 69, 144);
 }
 
 a:focus {
@@ -74,6 +74,10 @@ p, a {
         height: 40px;
         transition: height 0.5s ease-in-out;
     }
+}
+
+.profile-icon-bar {
+    margin-top: 1.5rem;
 }
 
 .timeline-item, .profile-icon-bar {
