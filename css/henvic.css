@@ -29,6 +29,16 @@ p, a {
     font-family: 'Raleway', sans-serif;
 }
 
+.fingerprint {
+    font-family: 'monospace';
+    font-weight: bold;
+    color: #333;
+}
+
+.fingerprint .space {
+    padding-left: .5em;
+}
+
 .header-row h1 {
     padding-top: 4px;
     padding-bottom: 4px;
