@@ -3,24 +3,6 @@
 (function () {
     'use strict';
 
-    var headerRowH1 = document.querySelector('.header-row h1'),
-        scrollHeaderListener,
-        hasVanilla = false;
-
-    scrollHeaderListener = function () {
-        if (window.pageYOffset > 50 && !hasVanilla) {
-            headerRowH1.classList.add('vanilla');
-            hasVanilla = true;
-        }
-
-        if (window.pageYOffset <= 50 && hasVanilla) {
-            headerRowH1.classList.remove('vanilla');
-            hasVanilla = false;
-        }
-    };
-
-    window.addEventListener('scroll', scrollHeaderListener);
-
     /**
      * Twitter follow button code
      */
