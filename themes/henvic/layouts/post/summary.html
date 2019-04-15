@@ -1,0 +1,13 @@
+<section>
+    <a href="{{ .Permalink }}">
+        <h3>{{ .Title }}</h3>
+    </a>
+    {{ if .Date }}
+    <time datetime="{{ .Date }}">
+        {{ .Date.Format "January 2, 2006" }}
+    </time>
+    {{ end }}
+    <p>
+        {{ .Summary  }}
+    </p>
+</section>

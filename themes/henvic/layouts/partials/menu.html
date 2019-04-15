@@ -1,0 +1,34 @@
+<nav class="title-bar show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title invisible">Menu</div>
+</nav>
+<nav class="top-bar" id="responsive-menu">
+    <div class="top-bar-right">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active"
+            data-dropdown-menu>
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+            {{ $active = or $active (eq .URL $currentPage.URL) }}
+            <li {{ if $active }}class="active" {{ end }}>
+                <a href="{{ .URL }}" {{ if $active }}aria-current="page" {{ end }}>
+                    {{ .Name }}
+                </a>
+                {{ if .HasChildren }}
+                <ul class="vertical menu nested">
+                    {{ range .Children }}
+                    {{ $active = eq .URL $currentPage.URL }}
+                    <li {{ if $active }}class="active" {{ end }}>
+                        <a href="{{ .URL }}" title="{{ .Name }}">
+                            {{ .Name }}
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </li>
+            {{ end }}
+            <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
+        </ul>
+    </div>
+</nav>

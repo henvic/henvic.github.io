@@ -1,0 +1,20 @@
+{{ define "main" }}
+{{ $section := .Site.GetPage "section" .Section }}
+<article class="cell medium-9 medium-cell-block-y main">
+    <header>
+        <p>
+            {{ .CurrentSection.Title }}
+        </p>
+        <h1>
+            {{- .Title -}}
+        </h1>
+        <time datetime="{{ .Date }}">
+            {{- .Date.Format "January 2, 2006" -}}
+        </time>
+    </header>
+    <section>
+        {{- .Content -}}
+        {{- partial "tags.html" . -}}
+    </section>
+</article>
+{{ end }}
