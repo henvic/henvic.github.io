@@ -25,52 +25,12 @@ div, dd, ul, ol, li, pre, form, blockquote, th, td, p {
     font-size: 1.15rem;
 }
 
-.fingerprint {
-    font-family: 'monospace';
-    font-weight: bold;
-    color: #333;
-    font-size: 1rem;
-}
-
-.fingerprint .space {
-    padding-left: .5em;
-}
-
 .button-more {
     background: #6495ed
 }
 
 .button-more:hover {
     background: #003180;
-}
-
-.timeline-item, .profile-icon-bar {
-    background: rgb(251, 251, 251);
-}
-
-.timeline-item {
-    padding: .7rem;
-    margin-bottom: 1rem;
-    border-left: 10px solid #6495ed;
-    transition: border-left 0.5s ease-in-out;
-}
-
-.timeline-item:hover {
-    border-left: 10px solid #003180;
-    transition: border-left 0.5s ease-in-out;
-}
-
-.timeline-item-date {
-    font-size: 14px;
-    font-weight: 200;
-}
-
-.timeline-item-date span {
-    color: #850000;
-}
-
-.timeline-timeframe {
-    margin-bottom: 0;
 }
 
 .orbit-caption a, .orbit-caption a:focus {
@@ -87,16 +47,8 @@ div, dd, ul, ol, li, pre, form, blockquote, th, td, p {
     padding-bottom: .5rem;
 }
 
-.title-bar, .top-bar, .top-bar ul {
+.title-bar, .top-bar, .top-bar ul, .submenu {
     background: rgb(50, 75, 116);
-}
-
-.top-bar ul a:link, .top-bar ul a:visited {
-    color: #eee;
-}
-
-.top-bar ul a:active, .top-bar ul a:hover {
-    color: #fff;
 }
 
 .button-resume {
@@ -120,28 +72,41 @@ div, dd, ul, ol, li, pre, form, blockquote, th, td, p {
     }
 }
 
-.menu-social {
-    margin-bottom: 1rem;
+.asciicast-carrier .asciicast {
+    margin: 0 !important;
+    overflow: hidden;
 }
 
-.menu-social li a, .menu-social li a:hover {
-    margin-left: .5rem;
+/* fingerprint */
+.fingerprint {
+    font-family: 'monospace';
+    font-weight: bold;
+    color: #333;
+    font-size: 1rem;
 }
 
-.menu-social li a:first-child {
-    margin-left: 0;
+.fingerprint .space {
+    padding-left: .5rem;
 }
 
-.nav-card {
-    padding-top: 0;
+@media screen and (max-width: 39.99875em) {
+    .fingerprint {
+        font-size: .8rem;
+    }
 }
 
-.main {
-    padding: 0 !important;
+/* navigation card */
+.nav-card-photo-cell {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 .nav-card-photo {
-     margin-top: 1rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav-card-photo img {
@@ -149,11 +114,97 @@ div, dd, ul, ol, li, pre, form, blockquote, th, td, p {
     border-radius: 50%;
 }
 
-.asciicast-carrier .asciicast {
-    margin: 0 !important;
-    overflow: hidden;
+.card-section h4 {
+    margin: auto;
 }
 
-.menu li.active a {
-    background: rgb(23, 53, 91);
+.nav-card {
+    background: #fbfbfb;
+}
+
+@media screen and (max-width: 39.99875em) {
+    .nav-about-me li {
+        font-size: 80% !important;
+    }
+
+    .nav-card {
+        border: 1px solid #e6e6e6;
+        margin-top: .7rem;
+        padding-left: .7rem;
+        padding-right: .7rem;
+    }
+}
+
+@media screen and (min-width: 40em) {
+    .nav-card {
+        border: 1px solid #e6e6e6;
+        border-top: none;
+        margin-top: 0;
+    }
+}
+
+/* menu-social */
+.menu-social a, .menu-social a:hover {
+    margin-left: .5rem;
+}
+
+.menu-social a:first-child {
+    margin-left: 0;
+}
+
+/* navigation bar on top */
+.top-bar ul a:link, .top-bar ul a:visited {
+    /* !important is used to force color even when on the submenu */
+    color: #eee !important;
+}
+
+.top-bar ul a:active, .top-bar ul a:hover {
+    /* !important is used to force color even when on the submenu */
+    color: #fff !important;
+}
+
+.top-bar .menu li.active a {
+    /* !important is used to force background even when on the submenu */
+    background: rgb(23, 53, 91) !important;
+}
+
+.top-bar .submenu {
+    border: none;
+    padding-top: 0;
+}
+
+.top-bar .submenu li {
+    font-size: 80% !important;
+}
+
+/* timeline items */
+ul.timeline-timeframe > li {
+    background: rgb(251, 251, 251);
+    padding: .7rem;
+    margin-bottom: 1rem;
+    border-left: 10px solid #6495ed;
+    transition: border-left 0.5s ease-in-out;
+}
+
+ul.timeline-timeframe > li:hover {
+    border-left: 10px solid #003180;
+    transition: border-left 0.5s ease-in-out;
+}
+
+ul.timeline-timeframe > li time {
+    font-size: 14px;
+    font-weight: 200;
+}
+
+ul.timeline-timeframe > li > time span {
+    color: #850000;
+}
+
+/* dropdown menu */
+.dropdown.menu > li.is-dropdown-submenu-parent > a {
+    padding-right: 1rem !important;
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border: none !important;
 }
