@@ -2,7 +2,6 @@ baseURL = "https://henvic.github.io/"
 languageCode = "en-us"
 title = "Henrique Vicente"
 theme = "henvic"
-# theme = "cupper"
 sectionPagesMenu = "main"
 googleAnalytics = "UA-43519325-1"
 
@@ -22,6 +21,7 @@ googleAnalytics = "UA-43519325-1"
   [[menu.main]]
     name = "Portfolio"
     url = "/portfolio/"
+    identifier = "portfolio"
     weight = 4
   [[menu.main]]
     name = "Opensource"
@@ -31,3 +31,51 @@ googleAnalytics = "UA-43519325-1"
     name = "Favorites"
     url = "/favorites/"
     weight = 6
+
+  [[menu.main]]
+    name = "WeDeploy CLI Tool"
+    url = "/portfolio/#wedeploy"
+    parent = "portfolio"
+    weight = 401
+
+  [[menu.main]]
+    name = "Vehikel"
+    url = "/portfolio/#vehikel"
+    parent = "portfolio"
+    weight = 402
+
+[[menu.main]]
+    name = "Tic-tac-toe"
+    url = "/portfolio/#tic-tac-toe"
+    parent = "portfolio"
+    weight = 403
+
+[[menu.main]]
+    name = "accidents"
+    url = "/portfolio/#accidents"
+    parent = "portfolio"
+    weight = 404
+
+[[menu.main]]
+    name = "to-post.it"
+    url = "/portfolio/#topostit"
+    parent = "portfolio"
+    weight = 405
+
+[[menu.main]]
+    name = "trazqueeupago.com"
+    url = "/portfolio/#trazqueeupago"
+    parent = "portfolio"
+    weight = 406
+
+[[menu.main]]
+    name = "Cahier"
+    url = "/portfolio/#cahier"
+    parent = "portfolio"
+    weight = 407
+
+[[menu.main]]
+    name = "Plifk"
+    url = "/portfolio/#plifk"
+    parent = "portfolio"
+    weight = 408

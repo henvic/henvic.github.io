@@ -3,19 +3,19 @@
     <div class="title-bar-title invisible">Menu</div>
 </nav>
 <nav class="top-bar" id="responsive-menu">
-    <div class="top-bar-right">
-        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active"
-            data-dropdown-menu>
+    <div class="top-bar-right no-js">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
+            data-dropdown-menu data-smooth-scroll>
             {{ $currentPage := . }}
             {{ range .Site.Menus.main }}
             {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
             {{ $active = or $active (eq .URL $currentPage.URL) }}
-            <li {{ if $active }}class="active" {{ end }}>
+            <li class="{{ if eq .URL "/portfolio/" }}is-dropdown-submenu-parent{{ end }} {{ if $active }} active{{ end }}">
                 <a href="{{ .URL }}" {{ if $active }}aria-current="page" {{ end }}>
                     {{ .Name }}
                 </a>
                 {{ if .HasChildren }}
-                <ul class="vertical menu nested">
+                <ul class="vertical menu nested submenu hide-for-small-only">
                     {{ range .Children }}
                     {{ $active = eq .URL $currentPage.URL }}
                     <li {{ if $active }}class="active" {{ end }}>
