@@ -1,0 +1,28 @@
+<div class="orbit" role="region" aria-label="Some of my photos" data-orbit
+    data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+    <div class="orbit-wrapper">
+        <div class="orbit-controls">
+            <button class="orbit-previous"><span class="show-for-sr">Previous
+                    Slide</span>&#9664;&#xFE0E;</button>
+            <button class="orbit-next"><span class="show-for-sr">Next
+                    Slide</span>&#9654;&#xFE0E;</button>
+        </div>
+        <ul class="orbit-container">
+            {{- range $index, $Photo := . }}
+            <li class="orbit-slide">
+                <figure class="{{ if eq $index 0 }}is-active {{ end }}orbit-figure">
+                    <img class="orbit-image" src="{{ $Photo.Thumbnail.Source }}" width="{{ $Photo.Thumbnail.Width }}"
+                        height="{{ $Photo.Thumbnail.Height}}" alt="{{ $Photo.Title }}">
+                    <figcaption class="orbit-caption"><a href="{{ $Photo.Link }}">{{ .Title }}</a></figcaption>
+                </figure>
+            </li>
+            {{- end }}
+        </ul>
+    </div>
+    <nav class="orbit-bullets hide-for-small-only">
+        {{- range $index, $Photo := . }}
+        <button {{ if eq $index 0 }}class="is-active"{{ end }} data-slide="{{ $index }}"><span class="show-for-sr">
+                slide {{ inc $index }}.</span>{{ if eq $index 0 }} <span class="show-for-sr">Current Slide</span>{{ end }}</button>
+        {{- end }}
+    </nav>
+</div>
