@@ -76,7 +76,7 @@ div, dd, ul, ol, li, pre, form, blockquote, th, td, p {
 
 @media screen and (min-width: 64em) {
     .button-resume {
-        border-radius: 30rem;
+        border-radius: 16px;
         margin-left: 1rem;
         -webkit-appearance: none;
     }
