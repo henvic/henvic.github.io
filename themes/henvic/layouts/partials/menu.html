@@ -9,12 +9,14 @@
             {{ $currentPage := . }}
             {{ range .Site.Menus.main }}
             {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
-            {{ $active = or $active (eq .URL $currentPage.URL) }}
+            {{ $active = or $active (eq .URL $currentPage.RelPermalink) }}
+            {{ if eq .Menu "main" }}
             <li class="{{ if .HasChildren}}show-for-small-only{{end}} {{ if $active }} active{{ end }}">
                 <a href="{{ .URL }}" {{ if $active }}aria-current="page" {{ end }}>
                     {{ .Name }}
                 </a>
             </li>
+            {{ end }}
             {{ if .HasChildren }}
             <li class="hide-for-small-only is-dropdown-submenu-parent {{ if $active }} active{{ end }}">
                 <a href="{{ .URL }}" {{ if $active }}aria-current="page" {{ end }}>
@@ -22,7 +24,7 @@
                 </a>
             <ul class="vertical menu nested submenu">
                 {{ range .Children }}
-                {{ $active = eq .URL $currentPage.URL }}
+                {{ $active = eq .URL $currentPage.RelPermalink }}
                 <li {{ if $active }}class="active" {{ end }}>
                     <a href="{{ .URL }}" title="{{ .Name }}">
                         {{ .Name }}

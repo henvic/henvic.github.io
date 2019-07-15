@@ -1,13 +1,12 @@
 <section>
-    <h3>
-        {{ humanize .Section }}
-    </h3>
-    <h4>
-        <a href="{{ .Permalink }}">
+    <dl>
+        <dt>
+            <a href="{{ .Permalink }}">
             {{ .Title }}
-        </a>
-    </h4>
-    <p>
-        {{ .Summary  }}
-    </p>
+            </a>
+        </dt>
+        <dd>
+            {{ .Summary  }}
+        </dd>
+    </dl>
 </section>

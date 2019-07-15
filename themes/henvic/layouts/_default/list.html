@@ -4,6 +4,9 @@
         {{- .Content -}}
     </section>
     <section>
+        <h1>
+            {{ humanize .Section }}
+        </h1>
         {{ range .Paginator.Pages }}
         {{- partial "summary.html" . -}}
         {{ end }}
