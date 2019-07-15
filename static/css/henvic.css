@@ -230,3 +230,20 @@ ul.timeline-timeframe > li > time span {
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
     border: none !important;
 }
+.toc {
+    background: #f9f9f9;
+    display: table;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.toc nav > ul {
+    margin-left: 0 !important;
+    list-style: none !important;
+}
+
+.toc nav > ul li > ul li > ul {
+    display: none;
+}
