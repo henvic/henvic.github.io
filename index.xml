@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.github.io/posts/</guid>
-      <description> CLI tool software release process Monday, 1 April 2019   Opensource and Go. What license? Monday, 25 February 2019   A Smarter and Better CLI Friday, 23 March 2018   My web development environment  Monday, 16 June 2014   </description>
+      <description>  CLI tool software release process Monday, 1 April 2019   Opensource and Go. What license? Monday, 25 February 2019   A Smarter and Better CLI Friday, 23 March 2018   My web development environment  Monday, 16 June 2014   </description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.github.io/favorites/</guid>
-      <description>Books  Inviting Disaster: Lessons from the edge of technology - James R. Chiles    Normal Accidents: Living with High-Risk Technology - Charles Perrow    The Unix Programming Environment   The Art Of Unix Programming - Eric S. Raymond    Do No Harm: Stories of Life, Death, and Brain Surgery - Henry Marsh    Clean Code: A Handbook of Agile Software Craftsmanship    The Law - Frédéric Bastiat    The Tuttle Twins (books for educating children with a foundation of liberty)    Interesting  Go Proverbs    What Every Computer Scientist Should Know About Floating-Point Arithmetic    A Tour of Go   Hypertext Transfer Protocol -- HTTP/1.</description>
+      <description>Books Technology  Inviting Disaster: Lessons from the edge of technology - James R. Chiles Normal Accidents: Living with High-Risk Technology - Charles Perrow The Unix Programming Environment The Art Of Unix Programming - Eric S. Raymond Do No Harm: Stories of Life, Death, and Brain Surgery - Henry Marsh Clean Code: A Handbook of Agile Software Craftsmanship  Free markets, libertarianism  The Bastiat Collection (contains both works below) That Which Is Seen, and That Which Is Not Seen - Frédéric Bastiat The Law - Frédéric Bastiat The Production of Security - Gustave de Molinari The Tuttle Twins (books for educating children with a foundation of liberty) Econlib - The Library of Economics and Liberty Against Intellectual Property - Stephen Kinsella  Programming  Go Proverbs What Every Computer Scientist Should Know About Floating-Point Arithmetic A Tour of Go Hypertext Transfer Protocol &amp;ndash; HTTP/1.</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@
       <guid>https://henvic.github.io/opensource/</guid>
       <description>I have created and contributed to many opensource projects. Here is a selected few.
 On my portfolio and GitHub profile, you can find more opensource projects.
-I created  kubeapply is kubeapply is a microservice for running kubectl apply through a web API. Monday, 11 February 2019   ctxsignal is a Go package that can be used to create contexts cancelable by system signals. Friday, 14 September 2018   climetrics is a software used for gathering diagnostics and metrics data for the WeDeploy CLI tool.</description>
+I created   kubeapply is kubeapply is a microservice for running kubectl apply through a web API. Monday, 11 February 2019   ctxsignal is a Go package that can be used to create contexts cancelable by system signals. Friday, 14 September 2018   climetrics is a software used for gathering diagnostics and metrics data for the WeDeploy CLI tool.</description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@ I created  kubeapply is kubeapply is a microservice for running kubectl apply th
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.github.io/talks/</guid>
-      <description>Year 2018  Using a Socket.Io Client Implementation for Go  Westside GoLang Meetup Los Angeles, CA Thursday, 12 April 2018    CLI: How can people contribute? WeDeploy&#39;s Retreat, Liferay Tuesday, 23 January 2018    Year 2017  picel - HTTP middleware for image processing (undergraduate project)  UFPE Tuesday, 12 December 2017   Write in Go: The Go Programming Language (slides). Liferay&#39;s Developer Retreat 2017 Thursday, 27 January 2017   Year 2016  Writing a modern CLI tool Liferay Friday, 2 September 2016   Year 2015  Writing CLI tools with Node (slides, notes).</description>
+      <description>Year 2018   Using a Socket.Io Client Implementation for Go  Westside GoLang Meetup Los Angeles, CA Thursday, 12 April 2018    CLI: How can people contribute? WeDeploy&#39;s Retreat, Liferay Tuesday, 23 January 2018    Year 2017   picel - HTTP middleware for image processing (undergraduate project)  UFPE Tuesday, 12 December 2017   Write in Go: The Go Programming Language (slides). Liferay&#39;s Developer Retreat 2017 Thursday, 27 January 2017   Year 2016   Writing a modern CLI tool Liferay Friday, 2 September 2016   Year 2015   Writing CLI tools with Node (slides, notes).</description>
     </item>
     
   </channel>

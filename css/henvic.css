@@ -3,11 +3,11 @@ iframe {
 }
 
 a {
-    color: rgb(81, 121, 187);
+    color: #08419D;
 }
 
 a:hover, a:focus {
-    color: rgb(22, 69, 144);
+    color: #19458D;
 }
 
 a:focus {
@@ -76,7 +76,7 @@ div, dd, ul, ol, li, pre, form, blockquote, th, td, p {
 
 @media screen and (min-width: 64em) {
     .button-resume {
-        border-radius: 30rem;
+        border-radius: 16px;
         margin-left: 1rem;
         -webkit-appearance: none;
     }
@@ -199,8 +199,13 @@ pre, samp, code, kbd {
     font-size: 80% !important;
 }
 
-/* timeline items */
-ul.timeline-timeframe > li {
+/* .main list */
+.main > ul {
+    margin-left: 0;
+    list-style: none;
+}
+
+.main > ul > li {
     background: rgb(251, 251, 251);
     padding: .7rem;
     margin-bottom: 1rem;
@@ -208,17 +213,17 @@ ul.timeline-timeframe > li {
     transition: border-left 0.5s ease-in-out;
 }
 
-ul.timeline-timeframe > li:hover {
+.main > ul > li:hover {
     border-left: 10px solid #003180;
     transition: border-left 0.5s ease-in-out;
 }
 
-ul.timeline-timeframe > li time {
+.main > ul > li time {
     font-size: 14px;
     font-weight: 200;
 }
 
-ul.timeline-timeframe > li > time span {
+.main > ul > li > time span {
     color: #850000;
 }
 
@@ -229,4 +234,22 @@ ul.timeline-timeframe > li > time span {
 
 .dropdown.menu > li.is-dropdown-submenu-parent > a::after {
     border: none !important;
+}
+
+.toc {
+    background: #f9f9f9;
+    display: table;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.toc nav > ul {
+    margin-left: 0 !important;
+    list-style: none !important;
+}
+
+.toc nav > ul li > ul li > ul {
+    display: none;
 }
