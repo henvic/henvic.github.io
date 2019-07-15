@@ -3,11 +3,11 @@ iframe {
 }
 
 a {
-    color: rgb(81, 121, 187);
+    color: #08419D;
 }
 
 a:hover, a:focus {
-    color: rgb(22, 69, 144);
+    color: #19458D;
 }
 
 a:focus {
