@@ -11,26 +11,30 @@ googleAnalytics = "UA-43519325-1"
     url = "/"
     weight = 1
   [[menu.main]]
+    name = "About me"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
     name = "Blog posts"
     url = "/posts/"
-    weight = 2
+    weight = 3
   [[menu.main]]
     name = "Talks"
     url = "/talks/"
-    weight = 3
+    weight = 4
   [[menu.main]]
     name = "Portfolio"
     url = "/portfolio/"
     identifier = "portfolio"
-    weight = 4
+    weight = 5
   [[menu.main]]
     name = "Opensource"
     url = "/opensource/"
-    weight = 5
+    weight = 6
   [[menu.main]]
     name = "Favorites"
     url = "/favorites/"
-    weight = 6
+    weight = 7
 
   [[menu.main]]
     name = "WeDeploy CLI Tool"
@@ -54,28 +58,28 @@ googleAnalytics = "UA-43519325-1"
     name = "accidents"
     url = "/portfolio/#accidents"
     parent = "portfolio"
-    weight = 404
+    weight = 504
 
 [[menu.main]]
     name = "to-post.it"
     url = "/portfolio/#topostit"
     parent = "portfolio"
-    weight = 405
+    weight = 505
 
 [[menu.main]]
     name = "trazqueeupago.com"
     url = "/portfolio/#trazqueeupago"
     parent = "portfolio"
-    weight = 406
+    weight = 506
 
 [[menu.main]]
     name = "Cahier"
     url = "/portfolio/#cahier"
     parent = "portfolio"
-    weight = 407
+    weight = 507
 
 [[menu.main]]
     name = "Plifk"
     url = "/portfolio/#plifk"
     parent = "portfolio"
-    weight = 408
+    weight = 508
