@@ -21,6 +21,8 @@ kind: list
 * [The Tuttle Twins (books for educating children with a foundation of liberty)](https://tuttletwins.com/)
 * [Econlib - The Library of Economics and Liberty](https://www.econlib.org)
 * [Against Intellectual Property - Stephen Kinsella](https://mises.org/library/against-intellectual-property-0)
+* [Tom Woods](https://tomwoods.com)
+* [Foundation for Economic Education](https://fee.org)
 
 <hr />
 
