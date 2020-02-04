@@ -37,6 +37,12 @@ googleAnalytics = "UA-43519325-1"
     weight = 7
 
   [[menu.main]]
+    name = "httpretty"
+    url = "/portfolio/#httpretty"
+    parent = "portfolio"
+    weight = 400
+
+  [[menu.main]]
     name = "WeDeploy CLI Tool"
     url = "/portfolio/#wedeploy"
     parent = "portfolio"

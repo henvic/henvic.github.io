@@ -3,6 +3,35 @@ title: "Portfolio"
 ---
 <ul>
     <li>
+        <h2 id="httpretty">httpretty</h2>
+        <div class="grid-x">
+            <div class="cell large-5">
+                <p>
+                    <a href="https://github.com/henvic/httpretty">httpretty</a> is a Go package to print the HTTP requests of your Go programs on the terminal screen.</p>
+                <p>It is mostly inspired in
+                    <a href="https://curl.haxx.se/">curl</a>'s verbose mode, and also on the <a href="https://golang.org/pkg/net/http/httputil/">httputil.DumpRequest</a> and similar functions.
+                </p>
+                <p>
+                    It implements a <a href="https://pkg.go.dev/net/http">net/http</a> RoundTripper for the HTTP client and an HTTP Handler for the server that intercepts the requests and extracts information out of it in a safe way, without modifying the original values wrapping your HTTP client transport layer or HTTP request multiplexer.
+                </p>
+                <p>
+                    You can use it to debug your server, to provide networking context about requests on your CLI by adding or improving your --verbose flag, and even create an HTTP client <abbr title="Read–eval–print loop">REPL</abbr> with minimal effort as shown!
+                </p>
+            </div>
+            <div class="cell large-7">
+                <div class="asciicast-carrier text-right">
+                    <script id="asciicast-297429" src="https://asciinema.org/a/297429.js" data-autoplay="true" data-loop="true"
+                        async></script>
+                </div>
+            </div>
+        </div>
+        <div class="button-group">
+            <a href="https://github.com/henvic/httpretty" class="button">Code</a>
+            <a href="https://asciinema.org/a/297429" class="button">asciinema</a>
+        </div>
+        <time datetime="2020-02-02"><span>Released</span> Sunday, 2 February 2020</time>
+    </li>
+    <li>
         <h2 id="wedeploy">WeDeploy Command-Line Interface Tool</h2>
         <div class="grid-x">
             <div class="cell large-7">
