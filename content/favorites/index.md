@@ -23,6 +23,7 @@ kind: list
 * [Against Intellectual Property - Stephen Kinsella](https://mises.org/library/against-intellectual-property-0)
 * [Tom Woods](https://tomwoods.com)
 * [Foundation for Economic Education](https://fee.org)
+* [The Online Library of Liberty](https://oll.libertyfund.org)
 
 <hr />
 
@@ -41,6 +42,9 @@ kind: list
 * [GitHub Guides](https://guides.github.com/)
 * [GitHub Training & Guides videos](https://www.youtube.com/user/GitHubGuides/)
 * [Learn Clean Code - Uncle Bob](https://www.youtube.com/watch?v=SXkgYZw0evs)
+* [Fossil / Rebase Considered Harmful](https://www.fossil-scm.org/home/doc/trunk/www/rebaseharm.md)
+* [The Unix Heritage Wiki](https://wiki.tuhs.org/doku.php)
+* [Modular conversion, encoding and encryption online — Cryptii](https://cryptii.com) (Enigma machine, Base64, HMAC, and so on)
 
 <hr />
 
@@ -77,6 +81,12 @@ kind: list
 * [crt.sh | Certificate Search](https://crt.sh)
 * [Unicode - Compart](https://www.compart.com/en/unicode/)
 * [Why three prongs?](http://amasci.com/amateur/whygnd.html)
+* [AmIUnique](https://amiunique.org/) (your browser fingerprint)
+* [lcamtuf.coredump.cx](http://lcamtuf.coredump.cx) (home of American Fuzzy Lop and more)
+* [HSTS Preload List](https://hstspreload.org)
+* [git](https://git-scm.com) distributed version control system
+* [Fossil](https://www.fossil-scm.org/) is a great and opensource alternative to git by the people behind [SQLite](https://sqlite.org/whynotgit.html) (see [Why not git](https://sqlite.org/whynotgit.html) explains why SQLite)
+* [Dash for macOS - API Documentation Browser, Snippet Manager](https://kapeli.com/dash) (a great web alternative is [DevDocs API Documentation](https://devdocs.io))
 
 <hr />
 
@@ -84,6 +94,9 @@ kind: list
 * [Mises Institute](https://mises.org/)
 * [Reason.com – Free Minds and Free Markets](https://reason.com/)
 * [PorcFest](http://porcfest.com/) (want to go)
+* [The 2019 Fall Foliage Prediction Map](https://smokymountains.com/fall-foliage-map/)
+* [Don't Talk to the Police - Regent Law Professor James Duane](https://www.youtube.com/watch?v=d-7o9xYp7eE) (video)
+* [The Right to Remain Silent: A New Answer to an Old Question, James Duane, Criminal Justice, Vol. 25, No. 2, 2010](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1998119)
 
 <hr />
 
