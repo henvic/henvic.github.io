@@ -34,7 +34,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.github.io/favorites/</guid>
-      <description>Books Technology  Inviting Disaster: Lessons from the edge of technology - James R. Chiles Normal Accidents: Living with High-Risk Technology - Charles Perrow The Unix Programming Environment The Art Of Unix Programming - Eric S. Raymond Do No Harm: Stories of Life, Death, and Brain Surgery - Henry Marsh Clean Code: A Handbook of Agile Software Craftsmanship  Free markets, libertarianism  The Bastiat Collection (contains both works below) That Which Is Seen, and That Which Is Not Seen - Frédéric Bastiat The Law - Frédéric Bastiat The Production of Security - Gustave de Molinari The Tuttle Twins (books for educating children with a foundation of liberty) Econlib - The Library of Economics and Liberty Against Intellectual Property - Stephen Kinsella Tom Woods Foundation for Economic Education  Programming  Go Proverbs What Every Computer Scientist Should Know About Floating-Point Arithmetic A Tour of Go Hypertext Transfer Protocol &amp;ndash; HTTP/1.</description>
+      <description>Books Technology  Inviting Disaster: Lessons from the edge of technology - James R. Chiles Normal Accidents: Living with High-Risk Technology - Charles Perrow The Unix Programming Environment The Art Of Unix Programming - Eric S. Raymond Do No Harm: Stories of Life, Death, and Brain Surgery - Henry Marsh Clean Code: A Handbook of Agile Software Craftsmanship  Free markets, libertarianism  The Bastiat Collection (contains both works below) That Which Is Seen, and That Which Is Not Seen - Frédéric Bastiat The Law - Frédéric Bastiat The Production of Security - Gustave de Molinari The Tuttle Twins (books for educating children with a foundation of liberty) Econlib - The Library of Economics and Liberty Against Intellectual Property - Stephen Kinsella Tom Woods Foundation for Economic Education The Online Library of Liberty  Programming  Go Proverbs What Every Computer Scientist Should Know About Floating-Point Arithmetic A Tour of Go Hypertext Transfer Protocol &amp;ndash; HTTP/1.</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@
       <guid>https://henvic.github.io/opensource/</guid>
       <description>I have created and contributed to many opensource projects. Here is a selected few.
 On my portfolio and GitHub profile, you can find more opensource projects.
-I created   kubeapply is kubeapply is a microservice for running kubectl apply through a web API. Monday, 11 February 2019   ctxsignal is a Go package that can be used to create contexts cancelable by system signals. Friday, 14 September 2018   climetrics is a software used for gathering diagnostics and metrics data for the WeDeploy CLI tool.</description>
+I created   httpretty is Go package for printing your HTTP requests on the terminal. Sunday, 2 February 2020   kubeapply is kubeapply is a microservice for running kubectl apply through a web API. Monday, 11 February 2019   ctxsignal is a Go package that can be used to create contexts cancelable by system signals.</description>
     </item>
     
     <item>
@@ -54,7 +54,8 @@ I created   kubeapply is kubeapply is a microservice for running kubectl apply t
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.github.io/portfolio/</guid>
-      <description>WeDeploy Command-Line Interface Tool  I designed, implemented we in Go, and currently maintain it. I also contributed to other areas of the whole project. Now, WeDeploy is being phased out, and Liferay DXP Cloud is taking its place. The CLI tool is going to stay, but it is to be rebranded.  Two things I enjoyed building are the shell access over socket.io (which introduced me to reverse engineering in the real world) and adapting git to work as a reliable transport layer for our deployment system.</description>
+      <description>httpretty  httpretty is a Go package to print the HTTP requests of your Go programs on the terminal screen.
+It is mostly inspired in curl&#39;s verbose mode, and also on the httputil.DumpRequest and similar functions.  It implements a net/http RoundTripper for the HTTP client and an HTTP Handler for the server that intercepts the requests and extracts information out of it in a safe way, without modifying the original values wrapping your HTTP client transport layer or HTTP request multiplexer.</description>
     </item>
     
     <item>
