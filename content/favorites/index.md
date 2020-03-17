@@ -87,6 +87,11 @@ kind: list
 * [git](https://git-scm.com) distributed version control system
 * [Fossil](https://www.fossil-scm.org/) is a great and opensource alternative to git by the people behind [SQLite](https://sqlite.org/whynotgit.html) (see [Why not git](https://sqlite.org/whynotgit.html) explains why SQLite)
 * [Dash for macOS - API Documentation Browser, Snippet Manager](https://kapeli.com/dash) (a great web alternative is [DevDocs API Documentation](https://devdocs.io))
+* [Can I use... Support tables for HTML5, CSS3, etc.{}](https://caniuse.com/)
+* [Reproducible Builds](https://reproducible-builds.org)
+* [FIRST - Common Vulnerability Scoring System SIG](https://www.first.org/cvss/)
+* [CERT Vulnerability Notes Database](https://www.kb.cert.org/vuls/)
+* [National Vulnerability Database](https://nvd.nist.gov)
 
 <hr />
 
@@ -97,6 +102,10 @@ kind: list
 * [The 2019 Fall Foliage Prediction Map](https://smokymountains.com/fall-foliage-map/)
 * [Don't Talk to the Police - Regent Law Professor James Duane](https://www.youtube.com/watch?v=d-7o9xYp7eE) (video)
 * [The Right to Remain Silent: A New Answer to an Old Question, James Duane, Criminal Justice, Vol. 25, No. 2, 2010](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1998119)
+* [Netflix: Freedom & Responsibility Culture](https://www.slideshare.net/reed2001/culture-2009)
+* [Netflix: Freedom & Responsibility Culture (2ⁿᵈ edition)](https://www.slideshare.net/reed2001/culture-1798664)
+* [Spotify Engineering Culture - Part 1](https://www.youtube.com/watch?v=Yvfz4HGtoPc)
+* [Spotify Engineering Culture - Part 2](https://www.youtube.com/watch?v=vOt4BbWLWQw)
 
 <hr />
 
