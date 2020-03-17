@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Henrique Vicente</title>
-    <link>https://henvic.github.io/</link>
+    <link>https://henvic.dev/</link>
     <description>Recent content in Home on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://henvic.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://henvic.dev/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About me</title>
-      <link>https://henvic.github.io/about/</link>
+      <link>https://henvic.dev/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://henvic.github.io/about/</guid>
+      <guid>https://henvic.dev/about/</guid>
       <description>During kindergarten, I would come back home from school and turn on an IBM XT clone with a CRT phosphorous monochrome (green) monitor to play with it. It used floppy disks, ran DOS, and barely had any disk space. I would sometimes just type random garbage on it. It was connected to a noisy dot matrix printer too. I also had limited access to other better computers from time to time during my childhood.</description>
     </item>
     
     <item>
       <title>Blog posts</title>
-      <link>https://henvic.github.io/posts/</link>
+      <link>https://henvic.dev/posts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://henvic.github.io/posts/</guid>
+      <guid>https://henvic.dev/posts/</guid>
       <description>  CLI tool software release process Monday, 1 April 2019   Opensource and Go. What license? Monday, 25 February 2019   A Smarter and Better CLI Friday, 23 March 2018   My web development environment  Monday, 16 June 2014   </description>
     </item>
     
     <item>
       <title>Favorites</title>
-      <link>https://henvic.github.io/favorites/</link>
+      <link>https://henvic.dev/favorites/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://henvic.github.io/favorites/</guid>
+      <guid>https://henvic.dev/favorites/</guid>
       <description>Books Technology  Inviting Disaster: Lessons from the edge of technology - James R. Chiles Normal Accidents: Living with High-Risk Technology - Charles Perrow The Unix Programming Environment The Art Of Unix Programming - Eric S. Raymond Do No Harm: Stories of Life, Death, and Brain Surgery - Henry Marsh Clean Code: A Handbook of Agile Software Craftsmanship  Free markets, libertarianism  The Bastiat Collection (contains both works below) That Which Is Seen, and That Which Is Not Seen - Frédéric Bastiat The Law - Frédéric Bastiat The Production of Security - Gustave de Molinari The Tuttle Twins (books for educating children with a foundation of liberty) Econlib - The Library of Economics and Liberty Against Intellectual Property - Stephen Kinsella Tom Woods Foundation for Economic Education The Online Library of Liberty  Programming  Go Proverbs What Every Computer Scientist Should Know About Floating-Point Arithmetic A Tour of Go Hypertext Transfer Protocol &amp;ndash; HTTP/1.</description>
     </item>
     
     <item>
       <title>Opensource</title>
-      <link>https://henvic.github.io/opensource/</link>
+      <link>https://henvic.dev/opensource/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://henvic.github.io/opensource/</guid>
+      <guid>https://henvic.dev/opensource/</guid>
       <description>I have created and contributed to many opensource projects. Here is a selected few.
 On my portfolio and GitHub profile, you can find more opensource projects.
 I created   httpretty is Go package for printing your HTTP requests on the terminal. Sunday, 2 February 2020   kubeapply is kubeapply is a microservice for running kubectl apply through a web API. Monday, 11 February 2019   ctxsignal is a Go package that can be used to create contexts cancelable by system signals.</description>
@@ -50,20 +50,20 @@ I created   httpretty is Go package for printing your HTTP requests on the termi
     
     <item>
       <title>Portfolio</title>
-      <link>https://henvic.github.io/portfolio/</link>
+      <link>https://henvic.dev/portfolio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://henvic.github.io/portfolio/</guid>
+      <guid>https://henvic.dev/portfolio/</guid>
       <description>httpretty  httpretty is a Go package to print the HTTP requests of your Go programs on the terminal screen.
 It is mostly inspired in curl&#39;s verbose mode, and also on the httputil.DumpRequest and similar functions.  It implements a net/http RoundTripper for the HTTP client and an HTTP Handler for the server that intercepts the requests and extracts information out of it in a safe way, without modifying the original values wrapping your HTTP client transport layer or HTTP request multiplexer.</description>
     </item>
     
     <item>
       <title>Talks</title>
-      <link>https://henvic.github.io/talks/</link>
+      <link>https://henvic.dev/talks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://henvic.github.io/talks/</guid>
+      <guid>https://henvic.dev/talks/</guid>
       <description>Year 2018   Using a Socket.Io Client Implementation for Go  Westside GoLang Meetup Los Angeles, CA Thursday, 12 April 2018    CLI: How can people contribute? WeDeploy&#39;s Retreat, Liferay Tuesday, 23 January 2018    Year 2017   picel - HTTP middleware for image processing (undergraduate project)  UFPE Tuesday, 12 December 2017   Write in Go: The Go Programming Language (slides). Liferay&#39;s Developer Retreat 2017 Thursday, 27 January 2017   Year 2016   Writing a modern CLI tool Liferay Friday, 2 September 2016   Year 2015   Writing CLI tools with Node (slides, notes).</description>
     </item>
     
