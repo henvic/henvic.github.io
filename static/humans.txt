@@ -1,5 +1,5 @@
 /* Henrique Vicente de Oliveira Pinto */
-/* henvic.github.io */
+/* henvic.dev */
 /* humanstxt.org */
 
 /* SITE */
