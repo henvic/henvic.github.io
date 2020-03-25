@@ -45,7 +45,7 @@
       <guid>https://henvic.dev/opensource/</guid>
       <description>I have created and contributed to many opensource projects. Here is a selected few.
 On my portfolio and GitHub profile, you can find more opensource projects.
-I created   httpretty is Go package for printing your HTTP requests on the terminal. Sunday, 2 February 2020   kubeapply is kubeapply is a microservice for running kubectl apply through a web API. Monday, 11 February 2019   ctxsignal is a Go package that can be used to create contexts cancelable by system signals.</description>
+I created   clino is Go package for creating CLI (command-line interface) tools with multiple commands. Wednesday, 25 March 2020   httpretty is Go package for printing your HTTP requests on the terminal. Sunday, 2 February 2020   kubeapply is kubeapply is a microservice for running kubectl apply through a web API.</description>
     </item>
     
     <item>
