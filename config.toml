@@ -4,6 +4,12 @@ title = "Henrique Vicente"
 theme = "henvic"
 sectionPagesMenu = "main"
 googleAnalytics = "UA-43519325-1"
+pygmentsStyle = "monokai"
+
+[markup]
+  [markup.highlight]
+    tabWidth = 8
+    lineNos = true
 
 [menu]
   [[menu.main]]
