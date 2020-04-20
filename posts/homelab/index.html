@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Homelab: Intel NUC with the ESXi hypervisor | Henrique Vicente</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono|Comfortaa:300" rel="stylesheet">
+    <link rel="stylesheet" href="/css/foundation-icons.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/webicons/webicons.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/henvic.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta property="og:title" content="Henrique Vicente">
+    <meta property="og:description" content="Portfolio of Software Engineer Henrique Vicente.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://henvic.dev/">
+    <meta property="og:image" content="https://henvic.dev/img/me.jpg">
+</head><body><div class="grid-y medium-grid-frame">
+        <nav class="title-bar show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title invisible">Menu</div>
+</nav>
+<nav class="top-bar" id="responsive-menu">
+    <div class="top-bar-right no-js">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
+            data-dropdown-menu data-smooth-scroll>
+            
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/" >
+                    Home
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/about/" >
+                    About me
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/posts/" >
+                    Blog posts
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/talks/" >
+                    Talks
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class="show-for-small-only ">
+                <a href="/portfolio/" >
+                    Portfolio
+                </a>
+            </li>
+            
+            
+            <li class="hide-for-small-only is-dropdown-submenu-parent ">
+                <a href="/portfolio/" >
+                    Portfolio
+                </a>
+            <ul class="vertical menu nested submenu">
+                
+                
+                <li >
+                    <a href="/portfolio/#httpretty" title="httpretty">
+                        httpretty
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#wedeploy" title="WeDeploy CLI Tool">
+                        WeDeploy CLI Tool
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#vehikel" title="Vehikel">
+                        Vehikel
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#tic-tac-toe" title="Tic-tac-toe">
+                        Tic-tac-toe
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#accidents" title="accidents">
+                        accidents
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#topostit" title="to-post.it">
+                        to-post.it
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#trazqueeupago" title="trazqueeupago.com">
+                        trazqueeupago.com
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#cahier" title="Cahier">
+                        Cahier
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#plifk" title="Plifk">
+                        Plifk
+                    </a>
+                </li>
+                
+            </ul>
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/opensource/" >
+                    Opensource
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/favorites/" >
+                    Favorites
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            
+            </li>
+            
+            <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
+        </ul>
+    </div>
+</nav>
+
+        <div class="cell medium-auto medium-cell-block-container">
+            <div class="grid-x grid-padding-x">
+                <div class="nav cell large-3 medium-4 large-cell-block-y medium-cell-block-y"><div itemscope itemtype="http://schema.org/Person">
+    <div class="nav-card grid-x">
+        <div class="cell small-2 medium-12 nav-card-photo-cell">
+            <a href="https://www.instagram.com/p/BQ-lcVEF88y/" itemprop="photo" class="nav-card-photo">
+                <img src="/img/me_at_gullfoss_cropped.jpg" alt="me at Gullfoss" width="549" height="549" />
+            </a>
+        </div>
+        <div class="cell card-section small-10 medium-12 medium-text-center">
+            <h4 itemprop="name">Henrique Vicente</h4>
+            <p>
+                <span itemprop="title">Software Engineer</span>
+            </p>
+        </div>
+    </div>
+    <ul class="nav-about-me no-bullet">
+        <li>
+            <p>I write Go daily at <a href="https://housinganywhere.com/" itemprop="affiliation">HousingAnywhere</a> in Rotterdam, The&nbsp;Netherlands.<br /><br />
+                I enjoy photography, drones, and traveling.</p>
+        </li>
+        <li>
+            <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
+                    class="space"></span>DFBD<span class="space"></span>257C<span class="space"></span>1575</a>
+        </li>
+    </ul>
+    <p><small>
+        I created my first website when I was 9 years old using first Netscape Composer and then FrontPage Express.
+    </small></p>
+    <div class="menu-social">
+        <a class="webicon github" href="https://github.com/henvic">
+            GitHub
+        </a>
+        <a class="webicon twitter" href="https://twitter.com/henriquev">
+            Twitter
+        </a>
+        <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
+            Linkedin
+        </a>
+        <a class="webicon instagram" href="https://www.instagram.com/henvic/">
+            Instagram
+        </a>
+        <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
+            Flickr
+        </a>
+        <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
+            henriquevicente@gmail.com
+        </a>
+    </div>
+</div>
+</div>
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
+        <h1>Homelab: Intel NUC with the ESXi hypervisor</h1>
+        
+        
+        <p class="post-date">Posted in <time class="stat" datetime="2020-04-20 00:00:00 &#43;0000 UTC"></time>Monday, 20 April 2020</time>.</p>
+        
+        <p>In this blog post, I&rsquo;m going to talk a little about my experience running multiple operating systems with an Intel NUC I recently bought and the ESXi 7 hypervisor. My main idea was to use this homelab for:</p>
+<ul>
+<li>
+<p>Network Area Storage (NAS)</p>
+</li>
+<li>
+<p>Kubernetes cluster</p>
+</li>
+<li>
+<p>FreeBSD playground</p>
+</li>
+<li>
+<p>Managing backup</p>
+</li>
+<li>
+<p>Stage and development machine for Go projects</p>
+</li>
+</ul>
+<h2 id="hardware">Hardware</h2>
+<p>I thought I&rsquo;d get a full-size ATX tower case with plenty of space for expansion and components, but I was always open to any <a href="https://en.wikipedia.org/wiki/Computer_form_factor">form factor</a>. When browsing <a href="https://www.reddit.com/r/homelab/">r/homelab</a> and asking for opinions from people elsewhere, I noticed Intel&rsquo;s <a href="https://en.wikipedia.org/wiki/Next_Unit_of_Computing">Next Unit of Computing</a> (also known as Intel NUC) line of <a href="https://en.wikipedia.org/wiki/Barebone_computer">barebone computers</a> stood out as a popular choice, and I decided to give it a chance.</p>
+<p><a href="/img/posts/homelab/intel-nuc-10.jpg"><img src="/img/posts/homelab/intel-nuc-10_small.jpg" alt="Intel NUC Performance Kit photo"></a></p>
+<h3 id="if-you-want-to-buy-the-same-thing">If you want to buy the same thing</h3>
+<ul>
+<li>
+<p><a href="https://www.intel.com/content/www/us/en/products/boards-kits/nuc/kits/nuc10i7fnh.html">INTEL® NUC 10 Performance Kit — NUC10I7FNH</a> (Buy <a href="https://amzn.to/3ewroRS">from Amazon</a>)</p>
+</li>
+<li>
+<p><a href="https://www.samsung.com/us/computing/memory-storage/solid-state-drives/ssd-970-evo-plus-nvme-m-2-500gb-mz-v7s500b-am/">Samsung 970 EVO Plus NVMe M.2 500GB</a> (Buy <a href="https://amzn.to/34LvpNK">from Amazon</a>)</p>
+</li>
+<li>
+<p><a href="https://www.crucial.com/memory/ddr4/ct2k16g4s266m">Crucial 32GB Kit (2 x 16GB) DDR4 2666MHz SODIMM</a> (Buy <a href="https://amzn.to/2xyv4Sx">from Amazon</a>)</p>
+</li>
+<li>
+<p><a href="https://www.lacie.com/products/d2/">LaCie d2 Professional 8TB</a> (Buy <a href="https://amzn.to/2yn5S1b">from Amazon</a>)</p>
+</li>
+</ul>
+<p><em>Disclaimer: As an Amazon Associate I earn from qualifying purchases.</em> <!-- raw HTML omitted --></p>
+<p>The best thing about this kit is the small factor. Unfortunately, it comes with a low-end GPU — otherwise, I&rsquo;d use it to run the <a href="https://www.x-plane.com">X-Plane 11</a> flight simulator too. I wished they made a model that supported <a href="https://en.wikipedia.org/wiki/ECC_memory">ECC memory</a> for reliability too…</p>
+<p><a href="/img/posts/homelab/intel-nuc-10-inside.jpg"><img src="/img/posts/homelab/intel-nuc-10-inside_small.jpg" alt="Next Unit of Computing (or NUC) is an Intel line of small-factor barebone computers."></a></p>
+<p><em>Next Unit of Computing (or NUC) is an Intel line of small-factor barebone computers.</em></p>
+<p>I&rsquo;m going to use the LaCie d2 Professional external drive with <a href="https://www.freenas.org/">FreeNAS</a>, mostly to store my Lightroom library files.</p>
+<p>In an ideal scenario, I&rsquo;d be using at least an SSD, maybe with RAID 0. However, this would be too expensive, and this is a great alternative.</p>
+<p>The Intel NUC has a 2.5-inch hard-drive bay unused by now, but I should eventually add an extra SSD there — perhaps, a small and fast SSD dedicated to Lightroom previews and video editing.</p>
+<p>At this time, I&rsquo;m using Backblaze for backups, but for this setup, I&rsquo;ll be moving off the cloud as this will be way cheaper (break-even is months), and I&rsquo;ll be under the control of my data.</p>
+<h2 id="hypervisor-and-operating-systems">Hypervisor and operating systems</h2>
+<p>I decided to use <a href="https://www.vmware.com/products/esxi-and-esx.html">VMware ESXi</a>, a type-1 or native <a href="https://en.wikipedia.org/wiki/Hypervisor">hypervisor</a>, to be able to run multiple operating systems on my new Intel NUC. ESXi is free for personal use, and you can download it from VMware&rsquo;s website after registering for an account and getting a trial license.</p>
+<p><a href="/img/posts/homelab/dcui.png"><img src="/img/posts/homelab/dcui_small.png" alt="If you plug a display on your machine, all you&rsquo;ll see the ESXi Direct Console User Interface."></a></p>
+<p><em>If you plug a display on your machine, all you&rsquo;ll see the ESXi Direct Console User Interface.</em></p>
+<p>ESXi is a host for virtual machines, instead of an operating system for you to use directly. The only time you need to use a display on your NUC is when configuring it for the first time or if you can&rsquo;t access the web interface for some reason.</p>
+<p>Note: while you can passthrough your video card control to your guest operating system, you can&rsquo;t passthrough your mouse and keyboard. If you want your virtual machine to control them, you&rsquo;ll have to passthrough an entire USB controller. Unfortunately, you won&rsquo;t find a slot for an extra <a href="https://amzn.to/2VgZgud">PCI USB controller</a> in such a small computer.</p>
+<p><a href="/img/posts/homelab/dcui-settings.png"><img src="/img/posts/homelab/dcui-settings_small.png" alt="You can control a few essential settings and do some troubleshooting from the DCUI, if necessary."></a></p>
+<p><em>You can control a few essential settings and do some troubleshooting from the DCUI, if necessary.</em></p>
+<p>You also have access to a shell that resembles a regular Unix system, but it <a href="https://blogs.vmware.com/vsphere/2013/06/its-a-unix-system-i-know-this.html">isn&rsquo;t one</a>. It&rsquo;s not a Unix-like system, and is only partially POSIX compliant.</p>
+<p><a href="/img/posts/homelab/ssh.png"><img src="/img/posts/homelab/ssh_small.png" alt="Shell access is seldom required, and using it to manage your system is frowned upon. You want to keep SSH disabled."></a></p>
+<p><em>Shell access is seldom required, and using it to manage your system is frowned upon. You want to keep SSH disabled.</em></p>
+<h2 id="web-client">Web client</h2>
+<p><a href="/img/posts/homelab/esxi.png"><img src="/img/posts/homelab/esxi_small.png" alt="VMware ESXi 7 web client showing a virtual machine console running Plan 9 from Bell Labs"></a></p>
+<p><em>VMware ESXi 7 web client showing a virtual machine console running <a href="https://plan9.io/plan9/">Plan 9</a> from Bell Labs</em></p>
+<p>You should download the hypervisor and run on your server on a dedicated storage unit that can be something as simple as a USB pen-drive. You cannot install it on a device along with any other operating system. It&rsquo;s going to partition the disk destructively. The installation process is pretty-straightforward if everything works fine.</p>
+<h3 id="using-https-certificates">Using HTTPS certificates</h3>
+<p><a href="/img/posts/homelab/gen-certificate.png"><img src="/img/posts/homelab/gen-certificate_small.png" alt="Replace the built-in certificate with one of your own."></a></p>
+<p><em>Replace the built-in certificate with one of your own.</em></p>
+<p>I used <a href="https://filippo.io">Filippo Valsorda</a>&lsquo;s <a href="https://mkcert.dev/">mkcert</a> program to generate a HTTPS certificate to use on the hypervisor and on my <a href="https://www.freenas.org/">FreeNAS</a> instance.</p>
+<p>For me, it doesn&rsquo;t matter if we are talking about servers on the local network. If you are using it seriously, you should consider doing the same regardless if you&rsquo;re going to be accessing it from inside your own home or not. Don&rsquo;t trust your network.</p>
+<p>Please notice I use a .dev TLD here, and modern browsers force .dev domains to use HTTPS — what is interesting because it will mitigate some security risks by avoiding sending data over plain HTTP.</p>
+<h2 id="back-to-intel-nuc-10">Back to Intel NUC 10</h2>
+<p>VMware doesn&rsquo;t list the Intel NUC line on its <a href="https://www.vmware.com/resources/compatibility/search.php">compatibility guide</a>. However, many people have a positive experience running ESXi with it. I was confident everything would work out of the box, and only during installation, I discovered the <a href="https://www.vmware.com/resources/compatibility/search.php">Ethernet NIC</a> wasn&rsquo;t working. This hardware was released in Q4/2019 and used a new network card.</p>
+<p>I lost some time trying to solve this issue, and here is how I fixed it:</p>
+<ol>
+<li>
+<p>Use a second (maybe virtual?) machine with Internet connection working fine to install ESXi on your boot device.</p>
+</li>
+<li>
+<p>Open a shell or an SSH connection and execute the commands below.</p>
+</li>
+<li>
+<p>Move the boot device to your Intel NUC 10th generation.</p>
+</li>
+</ol>
+<p>Thanks to William Lam and Andrew Roderos for the articles and help figuring out what was going on.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ esxcli network firewall ruleset set -e true -r httpClient
+$ wget https://download3.vmware.com/software/vmw-tools/ESXi670-NE1000-32543355-offline_bundle-15486963.zip
+$ esxcli software vib install -d /ESXi670-NE1000–32543355-offline_bundle-15486963.zip
+</code></pre></td></tr></table>
+</div>
+</div><p>You can run esxcli with the <strong>&ndash;dry-run</strong> flag to see what changes it&rsquo;ll make on your system. Be aware that the drivers versioning is a little confusing.</p>
+<p><a href="/imsr/posts/homelab/thunderbolt-nic.jpg"><img src="/img/posts/homelab/thunderbolt-nic_small.jpg" alt="Perhaps this one would work out of the box? Unfortunately, I lost mine."></a></p>
+<p><em>Perhaps this one would work out of the box? Unfortunately, I lost mine.</em></p>
+<p>While I was at it, I bought an Ethernet dongle. It didn&rsquo;t work out of the box either, and I had to install the NIC Fling.</p>
+<p>To manage the network with it, you need some initialization scripts changes. See <a href="https://flings.vmware.com/usb-network-native-driver-for-esxi">USB Network Native Driver for ESXi</a> for details.</p>
+<h3 id="virtual-switch">Virtual switch</h3>
+<p><a href="/img/posts/homelab/virtual-switch.png"><img src="/img/posts/homelab/virtual-switch_small.png" alt="Virtual switch screenshot"></a></p>
+<h4 id="fail-over">Fail-over</h4>
+<p>An exciting surprise is that by using two NICs, I&rsquo;ve now, out of the box, fail-over. You can check your virtual switch settings for more options and play with active/standby possibilities.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>root@homelab:~<span style="color:#f92672">]</span> esxcfg-nics --list
+Name    PCI             Driver  Link    Speed       Duplex MAC Address       MTU    Description
+vmnic0  0000:00:1f.6    ne1000  Up      1000Mbps    Full   1c:69:7a:61:30:c0 <span style="color:#ae81ff">1500</span>   Intel Corporation Ethernet Connection <span style="color:#f92672">(</span>10<span style="color:#f92672">)</span> 1219-V
+vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <span style="color:#ae81ff">1500</span>   ASIX Elec. Corp. AX88179
+</code></pre></td></tr></table>
+</div>
+</div><p>See also:
+<code>$ esxcli network list</code></p>
+<h3 id="more-ethernet-issues">More Ethernet issues</h3>
+<p>I&rsquo;m using my cablemodem Ethernet ports to connect everything. I experienced the following problems so far:</p>
+<ul>
+<li>
+<p>Sometimes I&rsquo;m getting only 100Mbps when using my cablemodem&rsquo;s CAT5e cable (on any interface).</p>
+</li>
+<li>
+<p>The cheap Ethernet dongle works on my server and my Macbook. However, if I use the dongle on my Macbook, the NUC becomes unreachable.</p>
+</li>
+<li>
+<p>Once, the server was unreachable when using both NICs. I removed the USB NIC from the server, immediately everything worked (through the internal NIC).</p>
+</li>
+</ul>
+<p>I also had some issues reserving IP addresses on my cablemodem admin page, so I suspect the routing problem might be on the modem. I don&rsquo;t have a way to test for it, though.</p>
+<p>I don&rsquo;t know when I&rsquo;ll be getting a new Ethernet dongle later for my laptop, though, because my 5G Wi-Fi connection is good enough so far. If I get it at all will be to avoid losing packets and for lower jitter and latency (for better NAS experience).</p>
+<h2 id="running-virtual-machines">Running virtual machines</h2>
+<p><a href="/img/posts/homelab/vms.png"><img src="/img/posts/homelab/vms_small.png" alt="Web client showing multiple virtual machines"></a></p>
+<p>You can create or register a VM on the web client or with the vCenter server, but I haven&rsquo;t tried it.</p>
+<p>If you are running only a single ESXi host with a few guests (operating system on your virtual machines), I find that using the web client is pretty straight-forward. However, integration with VMware Fusion Pro 11 is also possible — and albeit a little limited, it provides a great user experience.</p>
+<p><a href="/img/posts/homelab/fusion.png"><img src="/img/posts/homelab/fusion_small.png" alt="VMware Fusion screenshot"></a></p>
+<p>I was able to move the virtual machines I had on my laptop to ESXi drag &amp; dropping. I still need to migrate a Ubuntu image not listed there that I used to use a decade ago or so :)</p>
+<p><a href="/img/posts/homelab/uploading-vm.png"><img src="/img/posts/homelab/uploading-vm_small.png" alt="Uploading VM screenshot"></a></p>
+<h2 id="operating-systems">Operating systems</h2>
+<h3 id="freebsd">FreeBSD</h3>
+<p><a href="https://www.freebsd.org/">FreeBSD</a> is an open-source operating system liked for its robustness and security model. I want to learn more about it, so I&rsquo;ll be trying to use it first instead of any other operating systems for deploying my projects — and given <a href="https://papers.freebsd.org/2019/FOSDEM/looney-Netflix_and_FreeBSD.files/FOSDEM_2019_Netflix_and_FreeBSD.pdf">Netflix&rsquo;s positive experience with it</a>, I know it&rsquo;s a great choice.</p>
+<p><img src="/img/posts/homelab/freebsd.png" alt="FreeBSD boot screenshot"></p>
+<p>FreeBSD supports installation of <a href="https://www.freshports.org/faq.php#port">packages and ports</a>. Packages are compiled ports. Installing port for the first time in FreeBSD:</p>
+<p><code>$ portsnap fetch extract</code></p>
+<p>You might want to read <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/ports-using.html">Using ports</a> for more details.</p>
+<p>To use <a href="https://tailscale.com">Tailscale</a> with FreeBSD, you can do this:</p>
+<p><code>$ cd /usr/ports/security/tailscale/ &amp;&amp; make install clean &amp;&amp; kg install tailscale</code></p>
+<p>Once installed, you want to run it as a service:</p>
+<p><code>$ service tailscaled enable</code></p>
+<p>and start it with:</p>
+<p><code>$ service tailscaled start</code></p>
+<h3 id="freenas">FreeNAS</h3>
+<p><a href="/img/posts/homelab/freenas.png"><img src="/img/posts/homelab/freenas_small.png" alt="FreeNAS screenshot"></a></p>
+<p>I&rsquo;ll be using FreeNAS as if my external 8TB hard-drive was my network-attached storage appliance. It supports sharing your data using multiple protocols, including, but not limited to, Microsoft&rsquo;s <a href="https://en.wikipedia.org/wiki/Server_Message_Block">SMB</a>, Apple&rsquo;s <a href="https://eclecticlight.co/2019/12/09/can-you-still-use-afp-sharing/">deprecated</a> <a href="https://en.wikipedia.org/wiki/Apple_Filing_Protocol">AFP</a>(<a href="https://support.apple.com/en-us/HT207828">announcement</a>), Sun&rsquo;s <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, <a href="http://en.wikipedia.org/wiki/rsync">rsync</a>, and <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a>.</p>
+<p>There&rsquo;s also the possibility of mounting network devices using <a href="http://en.wikipedia.org/wiki/iSCSI">iSCSI</a>. You might want to read more about the <a href="https://www.backblaze.com/blog/whats-the-diff-nas-vs-san/">difference between NAS and SAN</a>. Still, when you set up SAN with iSCSI, it means you&rsquo;ll be using a remote block device. When you set up a NAS, instead of controlling a storage device, you&rsquo;ll be accessing the files remote filesystem.</p>
+<p><strong>Importing data:</strong> I&rsquo;m having a hard time reading my encrypted <a href="https://amzn.to/3ey2fGm">LaCie Rugged USB-C 2 TB</a> disk formatted with <a href="https://en.wikipedia.org/wiki/Apple_File_System">Apple File System</a>(APFS).</p>
+<p>I&rsquo;m using rsync -auv /Volumes/media nas.henvic.dev:/mnt/henvic/media to transfer my files to the NAS— using SSH as the transport layer, so no need to run the rsync service on FreeNAS.</p>
+<p>I tried to tweak this my settings a bit without much success. I gained about 1MB/s by passing the flag -e &ldquo;ssh -T -c <a href="mailto:aes128-gcm@openssh.com">aes128-gcm@openssh.com</a> -o Compression=no&rdquo; to rsync to tweak the SSH connection and the encryption cipher.</p>
+<p>List the SSH ciphers available on your system by running ssh -Q cipher. For the sake of security, <strong>I recommend against messing with this, though.</strong></p>
+<ul>
+<li>
+<p>FreeNAS doesn&rsquo;t recognize APFS, and I decided that using my Macbook to migrate the data was safer.</p>
+</li>
+<li>
+<p>I&rsquo;m leaving my MacBook turned on during nights to upload the data to the NAS. I avoid coffee, but my MacBook uses <a href="http://lightheadsw.com/caffeine/">caffeine</a> to avoid sleeping.</p>
+</li>
+<li>
+<p>The transfer rate between my Macbook and the NAS is a little slower than it should, I think. Perhaps decrypting the data from disk or the SSH encryption  is getting in the way?</p>
+</li>
+</ul>
+<p><a href="/img/posts/homelab/storage.png"><img src="/img/posts/homelab/storage_small.png" alt="Storage transfer rate"></a></p>
+<p><a href="(/img/posts/homelab/network.png)"><img src="/img/posts/homelab/network_small.png" alt="iStat Menus showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world."></a></p>
+<p><em><a href="https://bjango.com/mac/istatmenus/">iStat Menus</a> showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world.</em></p>
+<p><strong>Day-to-day:</strong> I&rsquo;m going to use SMB since APFS was deprecated (I only discovered this by chance).</p>
+<p>FreeNAS also comes with a few useful services that you can enable and use, like <a href="https://min.io">MinIO</a> — , a cloud storage server that is API compatible with <a href="https://aws.amazon.com/s3/">Amazon S3</a>.</p>
+<p>Other plugins include:</p>
+<ul>
+<li>
+<p>A few to automate backing up on services or other NAS.</p>
+</li>
+<li>
+<p>Self-hosted git service using <a href="https://gogs.io">Gogs</a>.</p>
+</li>
+<li>
+<p><a href="https://emby.media">Emby</a> and <a href="https://www.plex.tv">Plex</a> media players.</p>
+</li>
+<li>
+<p><a href="https://zoneminder.com">Zone Minder</a> is an opensource video surveilance (CCTV) software system.</p>
+</li>
+<li>
+<p><a href="https://transmissionbt.com">Transmission</a>, BitTorrent client.</p>
+</li>
+<li>
+<p><a href="https://quassel-irc.org">Quassel IRC</a> bouncer</p>
+</li>
+</ul>
+<p>FreeBSD <a href="https://www.ixsystems.com/documentation/freenas/11.3-U2/jails.html">Jails</a> are used as the basis of these plugins.</p>
+<p><strong>Remote access:</strong> I plan to run <a href="https://tailscale.com">TailScale</a> on a Jail to access my files remotely when I&rsquo;m not at home. I wish FreeNAS came with a plugin for it.</p>
+<h3 id="clear-linux-os">Clear Linux OS</h3>
+<p>Clear Linux is one of the best Linux distributions out there. It is created and maintained by Intel and has excellent hardware compatibility, <a href="https://arstechnica.com/gadgets/2020/02/linux-distro-review-intels-own-clear-linux-os/">and it&rsquo;s the best in the benchmarks</a>. It might as well be one of the best Linux distribution I have ever used in regards to attention to detail.</p>
+<p>It is well-documented and follows a functional style for software installation, too, with the concept of bundles — making your life supposedly easier.</p>
+<p><a href="/img/posts/homelab/linux.png"><img src="/img/posts/homelab/linux_small.png" alt="Clear Linux is a Linux distribution created by Intel."></a></p>
+<p><em><a href="https://clearlinux.org">Clear Linux</a> is a Linux distribution created by Intel.</em></p>
+<p>I&rsquo;ll be using it to run a Kubernetes cluster and get rid of Docker on my main MacBook Pro. <a href="https://github.com/docker/for-mac/issues/371">Adieu, Docker.qcow2</a>! 🐄</p>
+<p>Installing <a href="https://docs.01.org/clearlinux/latest/tutorials/docker.html">Docker</a> and <a href="https://docs.01.org/clearlinux/latest/tutorials/kubernetes.html">Kubernetes</a>:</p>
+<p><code>$ sudo swupd bundle-add cloud-native-basic bundle-add cloud-control containers-basic</code></p>
+<p>You&rsquo;ll probably want to read a bit about <a href="https://katacontainers.io">Kata Containers</a> and the <a href="https://cri-o.io">cri-o</a> runtimes.</p>
+<p>Perhaps I&rsquo;ll install <a href="https://en.wikipedia.org/wiki/TetriNET">TetriNET</a> and <a href="http://www.frozen-bubble.org/">Frozen Bubble</a> on it too (on a second VM for the sake of isolation?).</p>
+<h3 id="openindiana">OpenIndiana</h3>
+<p><a href="https://www.openindiana.org">OpenIndiana</a> is a i<a href="https://illumos.org">llumos</a> distribution. Illumos is an opensource operating system based in OpenSolaris, which itself is based in Solaris.</p>
+<p><a href="/img/posts/homelab/openindiana.png"><img src="/img/posts/homelab/openindiana_small.png" alt="OpenIndiana screenshot"></a></p>
+<p>Solaris is an interesting operating system with great contributions to the opensource ecosystem such as <a href="https://en.wikipedia.org/wiki/ZFS">ZFS</a> (which is also used by FreeBSD and FreeNAS).</p>
+<h3 id="haiku">Haiku</h3>
+<p><a href="https://www.haiku-os.org">Haiku</a> is an opensource operating system compatible with the discontinued <a href="https://en.wikipedia.org/wiki/BeOS">BeOS</a>. BeOS <a href="https://discuss.haiku-os.org/t/history-why-apple-chose-next-instead-of-beos/7133">could have been</a> what <a href="https://en.wikipedia.org/wiki/NeXTSTEP">NeXTSTEP</a> became to Apple: a replacement for the <a href="https://en.wikipedia.org/wiki/Classic_Mac_OS">Classic Mac OS</a>.</p>
+<p><a href="/img/posts/homelab/haiku.png"><img src="/img/posts/homelab/haiku_small.png" alt="Haiku"></a></p>
+<h3 id="templeos">TempleOS</h3>
+<p>Out of curiosity, I installed the psychedelic <a href="https://en.wikipedia.org/wiki/TempleOS">TempleOS</a>. An operating system created by <a href="https://en.wikipedia.org/wiki/Terry_A._Davis">Terry A. Davis</a>, who had schizophrenia. I had mostly no idea what I&rsquo;d found. If you “take the tour” and choose to run the TempleOS Test Suite, this is what you see.</p>
+<!-- raw HTML omitted -->
+<p><strong>Warning:</strong> Risk of epileptic seizures! Run this video or the operating system at your own risk!</p>
+<h3 id="cpu-memory-and-storage-for-each-virtual-machine">CPU, memory, and storage for each virtual machine</h3>
+<p>I&rsquo;m still playing with fine tunning it, but for my use case, there is not much secret. I don&rsquo;t have a reason to have all virtual machines up at once.</p>
+<p><a href="/img/posts/homelab/cpu-usage.png"><img src="/img/posts/homelab/cpu-usage_small.png" alt="CPU usage: it shows 12 CPUs instead of 6 because of hyper-threading."></a></p>
+<p><em>CPU usage: it shows 12 CPUs instead of 6 because of <a href="https://en.wikipedia.org/wiki/Hyper-threading">hyper-threading</a>.</em></p>
+<h3 id="fuchsia">Fuchsia</h3>
+<p>I tried to run Fuchsia on ESXi, but the system never booted. It <a href="https://fuchsia.dev/fuchsia-src/development/hardware/intel_nuc">seems to work fine</a> with the older Intel NUC 6 and 7, though, so I suppose it is doable with a little more effort. I had more luck just running it with <a href="https://www.qemu.org">qemu</a> instead.</p>
+<h3 id="virtual-machines-and-emulators">Virtual machines and emulators</h3>
+<p>It&rsquo;s important to remind that VMware ESXi is a hypervisor that you can use to run <a href="https://en.wikipedia.org/wiki/X86">x86</a> and <a href="https://en.wikipedia.org/wiki/X86-64">x86–64</a> virtual machines on 64-bit PC hardware. It&rsquo;s not an emulator for different architectures, so it&rsquo;s not possible to run <a href="https://www.amigaos.net/">AmigaOS</a> or <a href="https://en.wikipedia.org/wiki/Classic_Mac_OS">Classic Mac OS</a> on it.</p>
+<p>I got excited about running different things and tried to run <a href="https://morphos-team.net/">MorphOS</a> without realizing it is designed for <a href="https://en.wikipedia.org/wiki/PowerPC">PowerPC</a> (PPC). I only discovered this after it never booted up ¯\_(ツ)_/¯.</p>
+<h2 id="accessing-from-the-outside-world">Accessing from the outside world</h2>
+<p>I give each of my virtual machine a hostname that I can use to access them internally. I use only a single level of subdomain to keep things tidy,  and to avoid any implication regarding HTTP cookie management.</p>
+<p>I decided to use <a href="https://tailscale.com">Tailscale</a> to expose each node individually. However, I can&rsquo;t install it on the host (ESXi), but this is fine because if I ever need access to it, I can always use something like ssh -L 127.0.0.1:443:homelab.henvic.dev:443 gateway.henvic.dev and access the admin web client as usual on my web browser, pointing it to <a href="https://localhost">https://localhost</a>.</p>
+<h2 id="virtual-private-network-vpn">Virtual Private Network (VPN)</h2>
+<p>Despite being able to access it remotely through TailScale (which uses <a href="https://en.wikipedia.org/wiki/WireGuard">WireGuard</a> behind the scenes), sometimes, I may want to access my home network directly. I might want to do this to bypass IP geolocation verification if I&rsquo;m traveling or to rely on a secure termination point if I&rsquo;m accessing the web through a suspicious access point and want to mitigate the risk of a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle attack</a>.</p>
+<h3 id="openvpn">OpenVPN</h3>
+<p><a href="https://openvpn.net/">OpenVPN</a> is a great option to solve this. I installed its appliance image on ESXi, and it worked out of the box like a charm.</p>
+<p><a href="/img/posts/homelab/openvpn.png"><img src="/img/posts/homelab/openvpn_small.png" alt="OpenVPN web client)"></a></p>
+<p><a href="/img/posts/homelab/openvpn-connect.png"><img src="/img/posts/homelab/openvpn-connect_small.png" alt="You can install OpenVPN Connect on your computer or smartphone for easy installation.)"></a></p>
+<p><em>You can install OpenVPN Connect on your computer or smartphone for easy installation.</em></p>
+<p>Now, all I need to use it from outside home is to expose it through the web. I don&rsquo;t have a static IP address at home, so this would be something else to solve too. In theory, I could always use Tailscale there also (for VPN inception).</p>
+<h2 id="protecting-your-system">Protecting your system</h2>
+<p>I recommend you use SSH with <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public-key cryptography</a> (with the <a href="https://ed25519.cr.yp.to">ed25519</a> cipher) to access everything you can, and disable password authentication or use it as a second-factor.</p>
+<p>If you plan on having multiple systems, at first it might sound like a good idea to share your private key between them to avoid the hassle of changing files between machines, etc. However, you might want to limit the surface attack by generating a new key  with:</p>
+<p><code>$ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C &lt;comment&gt;</code></p>
+<p>and sharing them between machines (at least the ones you don&rsquo;t trust too much, or if you share with other people). Maybe you want to read <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-ubuntu-16-04">how to set up Multi-Factor Authentication for SSH</a> using the <a href="https://github.com/google/google-authenticator-libpam">google-authenticator-libpam</a>.</p>
+<h2 id="ideas">Ideas</h2>
+<h3 id="importing-data-from-the-cloud">Importing data from the cloud</h3>
+<p>I want to use <a href="https://perkeep.org">Perkeep</a> to import data from the cloud. I&rsquo;ve photos and videos in both Google Photos and iCloud that I need to safely store on premises and off-site because we never know when a cloud provider might go away or, in practice, hijack your data — even when unwilling.</p>
+<p><a href="https://perkeep.org">Perkeep</a> is a set of open source formats, protocols, and software for modeling, storing, searching, sharing, and syncronizing data. I&rsquo;ll be using it along with <a href="https://github.com/perkeep/gphotos-cdp">gphotos-cdp</a> to download my data from Google Photos for safekeeping.</p>
+<h3 id="continuous-integration">Continuous Integration</h3>
+<p>I work with software development, and for the last five years or so, I use most the <a href="https://golang.org/">Go programming language</a>, a language known to have fast tests and build times.</p>
+<p>However, sometimes a project might have an architecture that takes too long to test, or you might find differences between operating systems that are usually only discovered on a CI. So, perhaps running <a href="https://buildkite.com/">Buildkite</a> on the Intel NUC would be a great idea. Another possibility is to write a small program that would run tests on different machines and output the results.</p>
+<h3 id="backup--restore-plan">Backup &amp; restore plan</h3>
+<p>One common mistake many people make is never testing their backups. I&rsquo;m guilt of this myself.</p>
+<p>Back to around 2010, I had just started using OS X and relied on FileVault to back up my data. However, it only backed up data when you logged out your machine, but I just never logged out. I was tired from working overnight on this project of my own and removed a directory with rm -rf . It was the directory where I kept all my projects, and I wasn&rsquo;t using git + GitHub back then, but a local copy of <a href="https://www.mercurial-scm.org">Mercurial</a> without any remotes. I freaked out, but then I remembered I had just renamed the directory minutes before.</p>
+<p>Then a couple of years ago, I was unfortunate enough to have my backpack stolen from a beach house in California. My TimeMachine backup disk (cold) was in Brazil, and I discovered the hard way <a href="https://secure.backblaze.com/r/01v1py">Backblaze</a> backup didn&rsquo;t restore permissions correctly. My operating system was so screwed up due to wrong permissions that I asked my parents to mail me my backup disk (and I&rsquo;ve to admit they sent it without making a backup first), even though my data loss was minimal thanks to Backblaze.</p>
+<p>An excellent backup &amp; restore plan should account for things like this from happening, and account for things such as:</p>
+<ul>
+<li>
+<p>Cold backup storage on multiple sites (considering distance and jurisdiction), and syncing plan.</p>
+</li>
+<li>
+<p>Hot backup.</p>
+</li>
+<li>
+<p>Logical and physical security.</p>
+</li>
+<li>
+<p>Recovery strategy (dry-run!) and data validation.</p>
+</li>
+</ul>
+<h3 id="processing-photos-and-videos">Processing photos and videos</h3>
+<p>Ideally, I&rsquo;d love to offload processing photos and videos to my Intel NUC. I have a <a href="https://en.wikipedia.org/wiki/Canon_EOS_6D_Mark_II">Canon 6D Mark II</a> and a <a href="https://www.dji.com/nl/phantom-4-pro">DJI Phantom Pro</a>, and I enjoy <a href="https://www.flickr.com/photos/henriquev/">taking pictures and sharing them</a>. Still, I keep slacking in editing and publishing them because I used to keep them on an external drive, and, as silly as it is, I hate to have a USB drive connected to my laptop because I know I&rsquo;ll disconnect the cable every dozen minutes or so. My computer is powerful, but my internal storage is minimal.</p>
+<p>I use <a href="https://www.adobe.com/products/photoshop-lightroom.html">Adobe Lightroom Classic</a> to manage my photo and video collections and to edit photos. Perhaps I&rsquo;ll move to something like <a href="https://github.com/photoprism/photoprism">PhotoPrism</a> for managing my collection as I&rsquo;d prefer something that had a client/server architecture, and to use Adobe Photoshop for editing.</p>
+<p>Processing offloading would be the best option. For photos, it would mean the server could be responsible for things like AI tagging or batch tasks such as creating previews. I wonder why Lightroom doesn&rsquo;t have this. For videos, offloading is way more common. If I had a Mac mini instead of an Intel NUC, I could even run macOS as a guest operating system to help with this task a little, as the Adobe suite isn&rsquo;t available for Linux.</p>
+<h3 id="tor">ToR</h3>
+<p><a href="https://www.torproject.org">ToR</a> is a fundamental piece of the Internet ecosystem. It allows people to browse the Internet with privacy — essential to liberty and a way to avoid persecution from the state (especially important in conflict zones).</p>
+<p>You can help the ToR project by running a <a href="https://trac.torproject.org/projects/tor/wiki/TorRelayGuide">Tor relay</a> to relay traffic inside the network, or you can even set up an exit node so people can use your Internet connection as the “exit” point to the “mundane” Internet.</p>
+<p>You can also host an onion service (formerly known as “hidden service”).</p>
+<p><a href="/img/posts/homelab/tor.png"><img src="/img/posts/homelab/tor_small.png" alt="Using the Tor Browser. Facebook is one of the few major websites that has an onion service."></a></p>
+<p><em>Using the <a href="https://www.torproject.org/download/">Tor Browser</a> to access Facebook, one of the few major websites that has an <a href="https://en.wikipedia.org/wiki/List_of_Tor_onion_services">onion service</a> — meaning no exit nodes as the connection is routed end-to-end through the Tor network.</em></p>
+<h3 id="eternalterminal">EternalTerminal</h3>
+<p>One problem I&rsquo;ve with SSH is that it&rsquo;s easy to close my laptop lid and to lose a connection. Usually, this is not a problem, but eventually, I happen to be doing some heavy-lifting on a server that will take a while, and I get stuck with it. You can use tmux to avoid this, but why not <a href="https://github.com/MisterTea/EternalTerminal">EternalTerminal</a>? I need to configure this in my primary virtual machines (FreeBSD and Linux).</p>
+<h2 id="reviews-from-others">Reviews from others</h2>
+<ul>
+<li>
+<p><a href="https://andrewroderos.com/vmware-esxi-home-lab-intel-nuc-frost-canyon/">Andrew Ronderos: VMware ESXi Home Lab — Intel NUC 10 (Frost Canyon)</a></p>
+</li>
+<li>
+<p><a href="https://www.virten.net/2020/04/homelab-will-esxi-7-0-run-on-intel-nuc/">Virten.net: Homelab — Will ESXi 7.0 run on Intel NUC?</a></p>
+</li>
+<li>
+<p><a href="https://www.virten.net/2020/03/esxi-on-10th-gen-intel-nuc-comet-lake-frost-canyon/">Virten.net: ESXi on 10th Gen Intel NUC (Comet Lake — Frost Canyon)</a></p>
+</li>
+<li>
+<p><a href="https://www.virtuallyghetto.com/2020/01/esxi-on-10th-gen-intel-nuc-frost-canyon.html">virtuallyGhetto: ESXi on 10th Gen Intel NUC (Frost Canyon)</a></p>
+</li>
+</ul>
+<h2 id="thanks">Thanks</h2>
+<p>I hope you enjoyed this blog post. If you have any tips for me, interesting stuff to share or just want to talk about this article, please reach out.</p>
+<p>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</p>
+
+</article>
+
+            </div>
+        </div>
+    </div>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-43519325-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script src="/js/vendor/modernizr-custom-svg.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/foundation.min.js"></script>
+<script>
+        $(document).ready(function () {
+                $(document).foundation();
+        });
+</script>
+</body>
+</html>

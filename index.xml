@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Henrique Vicente</title>
@@ -6,9 +6,25 @@
     <description>Recent content in Home on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://henvic.dev/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Homelab: Intel NUC with the ESXi hypervisor</title>
+      <link>https://henvic.dev/posts/homelab/</link>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/homelab/</guid>
+      <description>In this blog post, I&amp;rsquo;m going to talk a little about my experience running multiple operating systems with an Intel NUC I recently bought and the ESXi 7 hypervisor. My main idea was to use this homelab for:
+  Network Area Storage (NAS)
+  Kubernetes cluster
+  FreeBSD playground
+  Managing backup
+  Stage and development machine for Go projects
+  Hardware I thought I&amp;rsquo;d get a full-size ATX tower case with plenty of space for expansion and components, but I was always open to any form factor.</description>
+    </item>
     
     <item>
       <title>About me</title>
@@ -16,16 +32,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.dev/about/</guid>
-      <description>During kindergarten, I would come back home from school and turn on an IBM XT clone with a CRT phosphorous monochrome (green) monitor to play with it. It used floppy disks, ran DOS, and barely had any disk space. I would sometimes just type random garbage on it. It was connected to a noisy dot matrix printer too. I also had limited access to other better computers from time to time during my childhood.</description>
-    </item>
-    
-    <item>
-      <title>Blog posts</title>
-      <link>https://henvic.dev/posts/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://henvic.dev/posts/</guid>
-      <description>  CLI tool software release process Monday, 1 April 2019   Opensource and Go. What license? Monday, 25 February 2019   A Smarter and Better CLI Friday, 23 March 2018   My web development environment  Monday, 16 June 2014   </description>
+      <description>During kindergarten, I would come back home from school and turn on an IBM XT clone with a CRTphosphorous monochrome (green) monitor to play with it. It used floppy disks, ran DOS, and barely had any disk space. I would sometimes just type random garbage on it. It was connected to a noisy dot matrix printer too. I also had limited access to other better computers from time to time during my childhood.</description>
     </item>
     
     <item>
