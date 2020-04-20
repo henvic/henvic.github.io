@@ -1,7 +1,9 @@
 ---
 title: "Homelab: Intel NUC with the ESXi hypervisor"
 type: post
+description: "In this blog post I tell my experience mounting a minimalist homelab with a Intel NUC and the ESXi hypervisor."
 date: "2020-04-20"
+image: "/img/posts/homelab/intel-nuc-10.jpg"
 ---
 In this blog post, I'm going to talk a little about my experience running multiple operating systems with an Intel NUC I recently bought and the ESXi 7 hypervisor. My main idea was to use this homelab for:
 
