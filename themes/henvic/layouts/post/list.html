@@ -1,0 +1,17 @@
+{{ define "main" }}
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y page-main main">
+    <h1>
+        {{ .Title }}
+    </h1>
+    <ul>
+        {{ range .Paginator.Pages }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <time datetime="2006-01-02">{{ .Date.Format "Monday 2, January 2006" }}</time>
+        </li>
+        {{ end }}
+        {{ .Content }}
+    </ul>
+    {{- template "_internal/pagination.html" . -}}
+</article>
+{{ end }}
