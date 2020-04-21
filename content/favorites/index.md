@@ -134,8 +134,6 @@ kind: list
 <hr />
 
 ## Travel
-My <a href="/favorites/food">favorite food</a> page contains a list of hundreds of restaurants from around the world.
-
 * [Google Flights](https://www.google.com/flights)
 * [Atlas Obscura](https://www.atlasobscura.com)
 * [Wikivoyage](https://en.wikivoyage.org/)
