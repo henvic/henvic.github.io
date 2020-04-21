@@ -4,6 +4,7 @@ type: post
 description: "In this blog post I tell my experience mounting a minimalist homelab with a Intel NUC and the ESXi hypervisor."
 date: "2020-04-20"
 image: "/img/posts/homelab/intel-nuc-10.jpg"
+hashtags: "vmware,esxi,homelab"
 ---
 In this blog post, I'm going to talk a little about my experience running multiple operating systems with an Intel NUC I recently bought and the ESXi 7 hypervisor. My main idea was to use this homelab for:
 
@@ -63,9 +64,9 @@ At this time, I'm using Backblaze for backups, but for this setup, I'll be movin
 
 I decided to use [VMware ESXi](https://www.vmware.com/products/esxi-and-esx.html), a type-1 or native [hypervisor](https://en.wikipedia.org/wiki/Hypervisor), to be able to run multiple operating systems on my new Intel NUC. ESXi is free for personal use, and you can download it from VMware's website after registering for an account and getting a trial license.
 
-[![If you plug a display on your machine, all you'll see the ESXi Direct Console User Interface.](/img/posts/homelab/dcui_small.png)](/img/posts/homelab/dcui.png)
+[![If you plug a display on your machine, all you'll see is the ESXi Direct Console User Interface.](/img/posts/homelab/dcui_small.png)](/img/posts/homelab/dcui.png)
 
-*If you plug a display on your machine, all you'll see the ESXi Direct Console User Interface.*
+*If you plug a display on your machine, all you'll see is the ESXi Direct Console User Interface.*
 
 ESXi is a host for virtual machines, instead of an operating system for you to use directly. The only time you need to use a display on your NUC is when configuring it for the first time or if you can't access the web interface for some reason.
 
@@ -159,7 +160,7 @@ I'm using my cablemodem Ethernet ports to connect everything. I experienced the 
 
 I also had some issues reserving IP addresses on my cablemodem admin page, so I suspect the routing problem might be on the modem. I don't have a way to test for it, though.
 
-I don't know when I'll be getting a new Ethernet dongle later for my laptop, though, because my 5G Wi-Fi connection is good enough so far. If I get it at all will be to avoid losing packets and for lower jitter and latency (for better NAS experience).
+I don't know when I'll be getting a new Ethernet dongle later for my laptop, though, because my 5GHz Wi-Fi connection is good enough so far. If I get it at all will be to avoid losing packets and for lower jitter and latency (for better NAS experience).
 
 ## Running virtual machines
 
@@ -204,17 +205,25 @@ and start it with:
 ### FreeNAS
 [![FreeNAS screenshot](/img/posts/homelab/freenas_small.png)](/img/posts/homelab/freenas.png)
 
-I'll be using FreeNAS as if my external 8TB hard-drive was my network-attached storage appliance. It supports sharing your data using multiple protocols, including, but not limited to, Microsoft's [SMB](https://en.wikipedia.org/wiki/Server_Message_Block), Apple's [deprecated](https://eclecticlight.co/2019/12/09/can-you-still-use-afp-sharing/) [AFP](https://en.wikipedia.org/wiki/Apple_Filing_Protocol)([announcement](https://support.apple.com/en-us/HT207828)), Sun's [NFS](https://en.wikipedia.org/wiki/Network_File_System), [rsync](http://en.wikipedia.org/wiki/rsync), and [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
+I'll be using FreeNAS as if my external 8TB hard-drive was my network-attached storage appliance. It supports sharing your data using multiple protocols, including, but not limited to, Microsoft's [SMB](https://en.wikipedia.org/wiki/Server_Message_Block), Apple's [deprecated](https://eclecticlight.co/2019/12/09/can-you-still-use-afp-sharing/) [AFP](https://en.wikipedia.org/wiki/Apple_Filing_Protocol) ([announcement](https://support.apple.com/en-us/HT207828)), Sun's [NFS](https://en.wikipedia.org/wiki/Network_File_System), [rsync](http://en.wikipedia.org/wiki/rsync), and [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
 
 There's also the possibility of mounting network devices using [iSCSI](http://en.wikipedia.org/wiki/iSCSI). You might want to read more about the [difference between NAS and SAN](https://www.backblaze.com/blog/whats-the-diff-nas-vs-san/). Still, when you set up SAN with iSCSI, it means you'll be using a remote block device. When you set up a NAS, instead of controlling a storage device, you'll be accessing the files remote filesystem.
 
-**Importing data:** I'm having a hard time reading my encrypted [LaCie Rugged USB-C 2 TB](https://amzn.to/3ey2fGm) disk formatted with [Apple File System](https://en.wikipedia.org/wiki/Apple_File_System)(APFS).
+**Importing data:** I'm having a hard time reading my encrypted [LaCie Rugged USB-C 2 TB](https://amzn.to/3ey2fGm) disk formatted with [Apple File System](https://en.wikipedia.org/wiki/Apple_File_System) (APFS).
 
-I'm using rsync -auv /Volumes/media nas.henvic.dev:/mnt/henvic/media to transfer my files to the NAS— using SSH as the transport layer, so no need to run the rsync service on FreeNAS.
+I'm using:
 
-I tried to tweak this my settings a bit without much success. I gained about 1MB/s by passing the flag -e "ssh -T -c aes128-gcm@openssh.com -o Compression=no" to rsync to tweak the SSH connection and the encryption cipher.
+`rsync -auv /Volumes/media nas.henvic.dev:/mnt/henvic/media`
 
-List the SSH ciphers available on your system by running ssh -Q cipher. For the sake of security, **I recommend against messing with this, though.**
+to transfer my files to the NAS — using SSH as the transport layer, so no need to run the rsync service on FreeNAS.
+
+I tried to tweak this my settings a bit without much success. I gained about 1MB/s by passing the flag:
+
+`-e "ssh -T -c aes128-gcm@openssh.com -o Compression=no"`
+
+to rsync to tweak the SSH connection and the encryption cipher.
+
+List the SSH ciphers available on your system by running ssh `-Q` cipher. For the sake of security, **I recommend against messing with this, though.**
 
 * FreeNAS doesn't recognize APFS, and I decided that using my Macbook to migrate the data was safer.
 
@@ -230,7 +239,7 @@ List the SSH ciphers available on your system by running ssh -Q cipher. For the 
 
 **Day-to-day:** I'm going to use SMB since APFS was deprecated (I only discovered this by chance).
 
-FreeNAS also comes with a few useful services that you can enable and use, like [MinIO](https://min.io) — , a cloud storage server that is API compatible with [Amazon S3](https://aws.amazon.com/s3/).
+FreeNAS also comes with a few useful services that you can enable and use, like [MinIO](https://min.io) — a cloud storage server that is API compatible with [Amazon S3](https://aws.amazon.com/s3/).
 
 Other plugins include:
 
@@ -288,7 +297,14 @@ Solaris is an interesting operating system with great contributions to the opens
 
 Out of curiosity, I installed the psychedelic [TempleOS](https://en.wikipedia.org/wiki/TempleOS). An operating system created by [Terry A. Davis](https://en.wikipedia.org/wiki/Terry_A._Davis), who had schizophrenia. I had mostly no idea what I'd found. If you “take the tour” and choose to run the TempleOS Test Suite, this is what you see.
 
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/WkA0dMudUG0" frameborder="0" allowfullscreen></iframe></center>
+<div class="grid-x">
+  <div class="cell auto large-8">
+    <div class="responsive-embed">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/WkA0dMudUG0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <a href="https://www.youtube.com/watch?v=WkA0dMudUG0">TempleOS Test Suite</a> video on YouTube.
+  </div>
+</div>
 
 **Warning:** Risk of epileptic seizures! Run this video or the operating system at your own risk!
 
@@ -314,7 +330,11 @@ I got excited about running different things and tried to run [MorphOS](https://
 
 I give each of my virtual machine a hostname that I can use to access them internally. I use only a single level of subdomain to keep things tidy,  and to avoid any implication regarding HTTP cookie management.
 
-I decided to use [Tailscale](https://tailscale.com) to expose each node individually. However, I can't install it on the host (ESXi), but this is fine because if I ever need access to it, I can always use something like ssh -L 127.0.0.1:443:homelab.henvic.dev:443 gateway.henvic.dev and access the admin web client as usual on my web browser, pointing it to [https://localhost](https://localhost).
+I decided to use [Tailscale](https://tailscale.com) to expose each node individually. However, I can't install it on the host (ESXi), but this is fine because if I ever need access to it, I can always use something like:
+
+`ssh -L 127.0.0.1:443:homelab.henvic.dev:443 gateway.henvic.dev`
+
+and access the admin web client as usual on my web browser, pointing it to [https://localhost](https://localhost).
 
 ## Virtual Private Network (VPN)
 
@@ -328,7 +348,7 @@ Despite being able to access it remotely through TailScale (which uses [WireGuar
 
 [![You can install OpenVPN Connect on your computer or smartphone for easy installation.)](/img/posts/homelab/openvpn-connect_small.png)](/img/posts/homelab/openvpn-connect.png)
 
-*You can install OpenVPN Connect on your computer or smartphone for easy installation.*
+*You can install OpenVPN Connect on your computer or smartphone for easy connection.*
 
 Now, all I need to use it from outside home is to expose it through the web. I don't have a static IP address at home, so this would be something else to solve too. In theory, I could always use Tailscale there also (for VPN inception).
 
@@ -364,9 +384,9 @@ Back to around 2010, I had just started using OS X and relied on FileVault to ba
 
 Then a couple of years ago, I was unfortunate enough to have my backpack stolen from a beach house in California. My TimeMachine backup disk (cold) was in Brazil, and I discovered the hard way [Backblaze](https://secure.backblaze.com/r/01v1py) backup didn't restore permissions correctly. My operating system was so screwed up due to wrong permissions that I asked my parents to mail me my backup disk (and I've to admit they sent it without making a backup first), even though my data loss was minimal thanks to Backblaze.
 
-An excellent backup & restore plan should account for things like this from happening, and account for things such as:
+An excellent backup & restore plan should account for things like this from happening, and consider things such as:
 
-* Cold backup storage on multiple sites (considering distance and jurisdiction), and syncing plan.
+* Cold backup storage on multiple sites (aware of distance and jurisdiction), and syncing plan.
 
 * Hot backup.
 
@@ -413,3 +433,5 @@ One problem I've with SSH is that it's easy to close my laptop lid and to lose a
 I hope you enjoyed this blog post. If you have any tips for me, interesting stuff to share or just want to talk about this article, please reach out.
 
 If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).
+
+{{< tweet 1252360422683897856 >}}
