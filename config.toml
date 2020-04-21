@@ -10,6 +10,12 @@ pygmentsStyle = "monokai"
   [markup.highlight]
     tabWidth = 8
     lineNos = true
+    # see https://gohugo.io/getting-started/configuration-markup/#configure-markup
+    # see https://jdhao.github.io/2019/12/29/hugo_html_not_shown/
+    defaultMarkdownHandler = "goldmark"
+    [markup.goldmark]
+      [markup.goldmark.renderer]
+        unsafe = true
 
 [menu]
   [[menu.main]]
