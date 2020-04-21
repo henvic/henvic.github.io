@@ -8,5 +8,8 @@
         </time>.</p>
         {{ end }}
         {{ .Content }}
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="{{ .Title }}" data-url="{{ .Permalink }}" data-via="henriquev"
+                        {{ if .Params.Hashtags }}data-hashtags="{{ .Params.Hashtags }}" {{ end }} data-show-count="false">Tweet</a>
 </article>
 {{ end }}
