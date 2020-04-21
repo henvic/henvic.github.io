@@ -297,7 +297,7 @@
 <p><a href="https://www.lacie.com/products/d2/">LaCie d2 Professional 8TB</a> (Buy <a href="https://amzn.to/2yn5S1b">from Amazon</a>)</p>
 </li>
 </ul>
-<p><em>Disclaimer: As an Amazon Associate I earn from qualifying purchases.</em> <!-- raw HTML omitted --></p>
+<p><em>Disclaimer: As an Amazon Associate I earn from qualifying purchases.</em> <!-- Amazon requires me to post this --></p>
 <p>The best thing about this kit is the small factor. Unfortunately, it comes with a low-end GPU — otherwise, I&rsquo;d use it to run the <a href="https://www.x-plane.com">X-Plane 11</a> flight simulator too. I wished they made a model that supported <a href="https://en.wikipedia.org/wiki/ECC_memory">ECC memory</a> for reliability too…</p>
 <p><a href="/img/posts/homelab/intel-nuc-10-inside.jpg"><img src="/img/posts/homelab/intel-nuc-10-inside_small.jpg" alt="Next Unit of Computing (or NUC) is an Intel line of small-factor barebone computers."></a></p>
 <p><em>Next Unit of Computing (or NUC) is an Intel line of small-factor barebone computers.</em></p>
@@ -307,8 +307,8 @@
 <p>At this time, I&rsquo;m using Backblaze for backups, but for this setup, I&rsquo;ll be moving off the cloud as this will be way cheaper (break-even is months), and I&rsquo;ll be under the control of my data.</p>
 <h2 id="hypervisor-and-operating-systems">Hypervisor and operating systems</h2>
 <p>I decided to use <a href="https://www.vmware.com/products/esxi-and-esx.html">VMware ESXi</a>, a type-1 or native <a href="https://en.wikipedia.org/wiki/Hypervisor">hypervisor</a>, to be able to run multiple operating systems on my new Intel NUC. ESXi is free for personal use, and you can download it from VMware&rsquo;s website after registering for an account and getting a trial license.</p>
-<p><a href="/img/posts/homelab/dcui.png"><img src="/img/posts/homelab/dcui_small.png" alt="If you plug a display on your machine, all you&rsquo;ll see the ESXi Direct Console User Interface."></a></p>
-<p><em>If you plug a display on your machine, all you&rsquo;ll see the ESXi Direct Console User Interface.</em></p>
+<p><a href="/img/posts/homelab/dcui.png"><img src="/img/posts/homelab/dcui_small.png" alt="If you plug a display on your machine, all you&rsquo;ll see is the ESXi Direct Console User Interface."></a></p>
+<p><em>If you plug a display on your machine, all you&rsquo;ll see is the ESXi Direct Console User Interface.</em></p>
 <p>ESXi is a host for virtual machines, instead of an operating system for you to use directly. The only time you need to use a display on your NUC is when configuring it for the first time or if you can&rsquo;t access the web interface for some reason.</p>
 <p>Note: while you can passthrough your video card control to your guest operating system, you can&rsquo;t passthrough your mouse and keyboard. If you want your virtual machine to control them, you&rsquo;ll have to passthrough an entire USB controller. Unfortunately, you won&rsquo;t find a slot for an extra <a href="https://amzn.to/2VgZgud">PCI USB controller</a> in such a small computer.</p>
 <p><a href="/img/posts/homelab/dcui-settings.png"><img src="/img/posts/homelab/dcui-settings_small.png" alt="You can control a few essential settings and do some troubleshooting from the DCUI, if necessary."></a></p>
@@ -392,7 +392,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 </li>
 </ul>
 <p>I also had some issues reserving IP addresses on my cablemodem admin page, so I suspect the routing problem might be on the modem. I don&rsquo;t have a way to test for it, though.</p>
-<p>I don&rsquo;t know when I&rsquo;ll be getting a new Ethernet dongle later for my laptop, though, because my 5G Wi-Fi connection is good enough so far. If I get it at all will be to avoid losing packets and for lower jitter and latency (for better NAS experience).</p>
+<p>I don&rsquo;t know when I&rsquo;ll be getting a new Ethernet dongle later for my laptop, though, because my 5GHz Wi-Fi connection is good enough so far. If I get it at all will be to avoid losing packets and for lower jitter and latency (for better NAS experience).</p>
 <h2 id="running-virtual-machines">Running virtual machines</h2>
 <p><a href="/img/posts/homelab/vms.png"><img src="/img/posts/homelab/vms_small.png" alt="Web client showing multiple virtual machines"></a></p>
 <p>You can create or register a VM on the web client or with the vCenter server, but I haven&rsquo;t tried it.</p>
@@ -415,12 +415,16 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <p><code>$ service tailscaled start</code></p>
 <h3 id="freenas">FreeNAS</h3>
 <p><a href="/img/posts/homelab/freenas.png"><img src="/img/posts/homelab/freenas_small.png" alt="FreeNAS screenshot"></a></p>
-<p>I&rsquo;ll be using FreeNAS as if my external 8TB hard-drive was my network-attached storage appliance. It supports sharing your data using multiple protocols, including, but not limited to, Microsoft&rsquo;s <a href="https://en.wikipedia.org/wiki/Server_Message_Block">SMB</a>, Apple&rsquo;s <a href="https://eclecticlight.co/2019/12/09/can-you-still-use-afp-sharing/">deprecated</a> <a href="https://en.wikipedia.org/wiki/Apple_Filing_Protocol">AFP</a>(<a href="https://support.apple.com/en-us/HT207828">announcement</a>), Sun&rsquo;s <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, <a href="http://en.wikipedia.org/wiki/rsync">rsync</a>, and <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a>.</p>
+<p>I&rsquo;ll be using FreeNAS as if my external 8TB hard-drive was my network-attached storage appliance. It supports sharing your data using multiple protocols, including, but not limited to, Microsoft&rsquo;s <a href="https://en.wikipedia.org/wiki/Server_Message_Block">SMB</a>, Apple&rsquo;s <a href="https://eclecticlight.co/2019/12/09/can-you-still-use-afp-sharing/">deprecated</a> <a href="https://en.wikipedia.org/wiki/Apple_Filing_Protocol">AFP</a> (<a href="https://support.apple.com/en-us/HT207828">announcement</a>), Sun&rsquo;s <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, <a href="http://en.wikipedia.org/wiki/rsync">rsync</a>, and <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a>.</p>
 <p>There&rsquo;s also the possibility of mounting network devices using <a href="http://en.wikipedia.org/wiki/iSCSI">iSCSI</a>. You might want to read more about the <a href="https://www.backblaze.com/blog/whats-the-diff-nas-vs-san/">difference between NAS and SAN</a>. Still, when you set up SAN with iSCSI, it means you&rsquo;ll be using a remote block device. When you set up a NAS, instead of controlling a storage device, you&rsquo;ll be accessing the files remote filesystem.</p>
-<p><strong>Importing data:</strong> I&rsquo;m having a hard time reading my encrypted <a href="https://amzn.to/3ey2fGm">LaCie Rugged USB-C 2 TB</a> disk formatted with <a href="https://en.wikipedia.org/wiki/Apple_File_System">Apple File System</a>(APFS).</p>
-<p>I&rsquo;m using rsync -auv /Volumes/media nas.henvic.dev:/mnt/henvic/media to transfer my files to the NAS— using SSH as the transport layer, so no need to run the rsync service on FreeNAS.</p>
-<p>I tried to tweak this my settings a bit without much success. I gained about 1MB/s by passing the flag -e &ldquo;ssh -T -c <a href="mailto:aes128-gcm@openssh.com">aes128-gcm@openssh.com</a> -o Compression=no&rdquo; to rsync to tweak the SSH connection and the encryption cipher.</p>
-<p>List the SSH ciphers available on your system by running ssh -Q cipher. For the sake of security, <strong>I recommend against messing with this, though.</strong></p>
+<p><strong>Importing data:</strong> I&rsquo;m having a hard time reading my encrypted <a href="https://amzn.to/3ey2fGm">LaCie Rugged USB-C 2 TB</a> disk formatted with <a href="https://en.wikipedia.org/wiki/Apple_File_System">Apple File System</a> (APFS).</p>
+<p>I&rsquo;m using:</p>
+<p><code>rsync -auv /Volumes/media nas.henvic.dev:/mnt/henvic/media</code></p>
+<p>to transfer my files to the NAS — using SSH as the transport layer, so no need to run the rsync service on FreeNAS.</p>
+<p>I tried to tweak this my settings a bit without much success. I gained about 1MB/s by passing the flag:</p>
+<p><code>-e &quot;ssh -T -c aes128-gcm@openssh.com -o Compression=no&quot;</code></p>
+<p>to rsync to tweak the SSH connection and the encryption cipher.</p>
+<p>List the SSH ciphers available on your system by running ssh <code>-Q</code> cipher. For the sake of security, <strong>I recommend against messing with this, though.</strong></p>
 <ul>
 <li>
 <p>FreeNAS doesn&rsquo;t recognize APFS, and I decided that using my Macbook to migrate the data was safer.</p>
@@ -436,7 +440,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <p><a href="(/img/posts/homelab/network.png)"><img src="/img/posts/homelab/network_small.png" alt="iStat Menus showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world."></a></p>
 <p><em><a href="https://bjango.com/mac/istatmenus/">iStat Menus</a> showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world.</em></p>
 <p><strong>Day-to-day:</strong> I&rsquo;m going to use SMB since APFS was deprecated (I only discovered this by chance).</p>
-<p>FreeNAS also comes with a few useful services that you can enable and use, like <a href="https://min.io">MinIO</a> — , a cloud storage server that is API compatible with <a href="https://aws.amazon.com/s3/">Amazon S3</a>.</p>
+<p>FreeNAS also comes with a few useful services that you can enable and use, like <a href="https://min.io">MinIO</a> — a cloud storage server that is API compatible with <a href="https://aws.amazon.com/s3/">Amazon S3</a>.</p>
 <p>Other plugins include:</p>
 <ul>
 <li>
@@ -479,7 +483,14 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <p><a href="/img/posts/homelab/haiku.png"><img src="/img/posts/homelab/haiku_small.png" alt="Haiku"></a></p>
 <h3 id="templeos">TempleOS</h3>
 <p>Out of curiosity, I installed the psychedelic <a href="https://en.wikipedia.org/wiki/TempleOS">TempleOS</a>. An operating system created by <a href="https://en.wikipedia.org/wiki/Terry_A._Davis">Terry A. Davis</a>, who had schizophrenia. I had mostly no idea what I&rsquo;d found. If you “take the tour” and choose to run the TempleOS Test Suite, this is what you see.</p>
-<!-- raw HTML omitted -->
+<div class="grid-x">
+  <div class="cell auto large-8">
+    <div class="responsive-embed">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/WkA0dMudUG0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <a href="https://www.youtube.com/watch?v=WkA0dMudUG0">TempleOS Test Suite</a> video on YouTube.
+  </div>
+</div>
 <p><strong>Warning:</strong> Risk of epileptic seizures! Run this video or the operating system at your own risk!</p>
 <h3 id="cpu-memory-and-storage-for-each-virtual-machine">CPU, memory, and storage for each virtual machine</h3>
 <p>I&rsquo;m still playing with fine tunning it, but for my use case, there is not much secret. I don&rsquo;t have a reason to have all virtual machines up at once.</p>
@@ -492,14 +503,16 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <p>I got excited about running different things and tried to run <a href="https://morphos-team.net/">MorphOS</a> without realizing it is designed for <a href="https://en.wikipedia.org/wiki/PowerPC">PowerPC</a> (PPC). I only discovered this after it never booted up ¯\_(ツ)_/¯.</p>
 <h2 id="accessing-from-the-outside-world">Accessing from the outside world</h2>
 <p>I give each of my virtual machine a hostname that I can use to access them internally. I use only a single level of subdomain to keep things tidy,  and to avoid any implication regarding HTTP cookie management.</p>
-<p>I decided to use <a href="https://tailscale.com">Tailscale</a> to expose each node individually. However, I can&rsquo;t install it on the host (ESXi), but this is fine because if I ever need access to it, I can always use something like ssh -L 127.0.0.1:443:homelab.henvic.dev:443 gateway.henvic.dev and access the admin web client as usual on my web browser, pointing it to <a href="https://localhost">https://localhost</a>.</p>
+<p>I decided to use <a href="https://tailscale.com">Tailscale</a> to expose each node individually. However, I can&rsquo;t install it on the host (ESXi), but this is fine because if I ever need access to it, I can always use something like:</p>
+<p><code>ssh -L 127.0.0.1:443:homelab.henvic.dev:443 gateway.henvic.dev</code></p>
+<p>and access the admin web client as usual on my web browser, pointing it to <a href="https://localhost">https://localhost</a>.</p>
 <h2 id="virtual-private-network-vpn">Virtual Private Network (VPN)</h2>
 <p>Despite being able to access it remotely through TailScale (which uses <a href="https://en.wikipedia.org/wiki/WireGuard">WireGuard</a> behind the scenes), sometimes, I may want to access my home network directly. I might want to do this to bypass IP geolocation verification if I&rsquo;m traveling or to rely on a secure termination point if I&rsquo;m accessing the web through a suspicious access point and want to mitigate the risk of a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle attack</a>.</p>
 <h3 id="openvpn">OpenVPN</h3>
 <p><a href="https://openvpn.net/">OpenVPN</a> is a great option to solve this. I installed its appliance image on ESXi, and it worked out of the box like a charm.</p>
 <p><a href="/img/posts/homelab/openvpn.png"><img src="/img/posts/homelab/openvpn_small.png" alt="OpenVPN web client)"></a></p>
 <p><a href="/img/posts/homelab/openvpn-connect.png"><img src="/img/posts/homelab/openvpn-connect_small.png" alt="You can install OpenVPN Connect on your computer or smartphone for easy installation.)"></a></p>
-<p><em>You can install OpenVPN Connect on your computer or smartphone for easy installation.</em></p>
+<p><em>You can install OpenVPN Connect on your computer or smartphone for easy connection.</em></p>
 <p>Now, all I need to use it from outside home is to expose it through the web. I don&rsquo;t have a static IP address at home, so this would be something else to solve too. In theory, I could always use Tailscale there also (for VPN inception).</p>
 <h2 id="protecting-your-system">Protecting your system</h2>
 <p>I recommend you use SSH with <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public-key cryptography</a> (with the <a href="https://ed25519.cr.yp.to">ed25519</a> cipher) to access everything you can, and disable password authentication or use it as a second-factor.</p>
@@ -517,10 +530,10 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <p>One common mistake many people make is never testing their backups. I&rsquo;m guilt of this myself.</p>
 <p>Back to around 2010, I had just started using OS X and relied on FileVault to back up my data. However, it only backed up data when you logged out your machine, but I just never logged out. I was tired from working overnight on this project of my own and removed a directory with rm -rf . It was the directory where I kept all my projects, and I wasn&rsquo;t using git + GitHub back then, but a local copy of <a href="https://www.mercurial-scm.org">Mercurial</a> without any remotes. I freaked out, but then I remembered I had just renamed the directory minutes before.</p>
 <p>Then a couple of years ago, I was unfortunate enough to have my backpack stolen from a beach house in California. My TimeMachine backup disk (cold) was in Brazil, and I discovered the hard way <a href="https://secure.backblaze.com/r/01v1py">Backblaze</a> backup didn&rsquo;t restore permissions correctly. My operating system was so screwed up due to wrong permissions that I asked my parents to mail me my backup disk (and I&rsquo;ve to admit they sent it without making a backup first), even though my data loss was minimal thanks to Backblaze.</p>
-<p>An excellent backup &amp; restore plan should account for things like this from happening, and account for things such as:</p>
+<p>An excellent backup &amp; restore plan should account for things like this from happening, and consider things such as:</p>
 <ul>
 <li>
-<p>Cold backup storage on multiple sites (considering distance and jurisdiction), and syncing plan.</p>
+<p>Cold backup storage on multiple sites (aware of distance and jurisdiction), and syncing plan.</p>
 </li>
 <li>
 <p>Hot backup.</p>
@@ -562,7 +575,13 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <h2 id="thanks">Thanks</h2>
 <p>I hope you enjoyed this blog post. If you have any tips for me, interesting stuff to share or just want to talk about this article, please reach out.</p>
 <p>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I bought an Intel NUC 10th generation and installed the VMware ESXi hypervisor, FreeBSD, FreeNAS, Clear Linux, and more to serve as my homeserver, run containers, backup data, etc. :)<br><br>Sharing my experience here...<a href="https://t.co/gscoxPDuTa">https://t.co/gscoxPDuTa</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1252360422683897856?ref_src=twsrc%5Etfw">April 20, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="Homelab: Intel NUC with the ESXi hypervisor" data-url="https://henvic.dev/posts/homelab/" data-via="henriquev"
+                        data-hashtags="vmware,esxi,homelab"  data-show-count="false">Tweet</a>
 </article>
 
             </div>
