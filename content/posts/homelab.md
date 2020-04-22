@@ -50,15 +50,7 @@ The Intel NUC has a 2.5-inch hard-drive bay unused by now, but I should eventual
 
 At this time, I'm using Backblaze for backups, but for this setup, I'll be moving off the cloud as this will be way cheaper (break-even is months), and I'll be under the control of my data.
 
-
-
-
-
-
-
-
-
-
+<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
 
 ## Hypervisor and operating systems
 
@@ -431,6 +423,8 @@ One problem I've with SSH is that it's easy to close my laptop lid and to lose a
 ## Thanks
 
 I hope you enjoyed this blog post. If you have any tips for me, interesting stuff to share or just want to talk about this article, please reach out.
+
+<div id="amzn-assoc-ad-d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></script>
 
 If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).
 
