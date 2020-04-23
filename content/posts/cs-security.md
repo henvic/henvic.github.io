@@ -1,10 +1,10 @@
 ---
-title: "Counter-Strike code leaked: should you worry? What if your code leaks?"
+title: "Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely."
 type: post
-description: "In this blog post I talk about what it takes to delivery software securely to the general public."
+description: "In this blog post I talk about what it takes to delivery software securely to the general public. Some gamers are worried the leaked CS source code might mean their machines are unprotected. Their concerns are valid, but this shouldn't be something they should worry about if developers do their work right... and I believe Valve is probably doing it right, so no need to panic."
 date: "2020-04-22"
 image: "/img/posts/cs-security/cs.png"
-hashtags: "counterstrike,cs,valve,game,security,leak,software,dev"
+hashtags: "counterstrike,cs,valve,game,security,leak,software,dev,devops"
 ---
 [![Counter-Strike code leaked!](/img/posts/cs-security/cs.png)](https://blog.counter-strike.net)
 
@@ -57,7 +57,7 @@ If you use any Unix-like computer and are reading this post, there is a high cha
 
 `$ curl http://example.com/unsafe | sh`
 
-If not created something like this yourself! I'm guilt of this myself.
+And maybe you even created something like this! I'm guilty of taking this shortcut myself.
 
 There [are](https://news.ycombinator.com/item?id=12766049) just [too](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) many [reasons](https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install) why this is, overall, a bad idea.
 
