@@ -1,14 +1,14 @@
 ---
-title: "Counter-Strike: leaked code ≠ gamers have to worry"
+title: "Counter-Strike code leaked: should you worry? What if your code leaks?"
 type: post
 description: "In this blog post I talk about what it takes to delivery software securely to the general public."
 date: "2020-04-22"
 image: "/img/posts/cs-security/cs.png"
-hashtags: "counter-strike,cs,valve,game,security,leak,software"
+hashtags: "counterstrike,cs,valve,game,security,leak,software"
 ---
-[![Counter-Strike source leaked!](/img/posts/cs-security/cs.png)](https://blog.counter-strike.net)
+[![Counter-Strike code leaked!](/img/posts/cs-security/cs.png)](https://blog.counter-strike.net)
 
-The [source code](https://en.wikipedia.org/wiki/Source_code) for the game [Counter-Strike: GO](https://www.igdb.com/games/counter-strike-global-offensive) has leaked today. I'm sad to see many concerned users decided not to play the game anymore for now, worried about [Remote Code Execution](https://en.wikipedia.org/wiki/Arbitrary_code_execution) (RCE). [Valve](https://www.valvesoftware.com/) told they've reviewed the code and there's no reason for users to worry.
+The [source code](https://en.wikipedia.org/wiki/Source_code) for the game [Counter-Strike: GO](https://www.igdb.com/games/counter-strike-global-offensive) has leaked today. I'm sad to see many concerned users decided not to play the game anymore, for now, worried about [Remote Code Execution](https://en.wikipedia.org/wiki/Arbitrary_code_execution) (RCE). [Valve](https://www.valvesoftware.com/) told them they've reviewed the code, and there's no reason for users to worry.
 
 Here's I discuss what everyone should be doing about distributing software to the general public safely, and why I trust this statement:
 
@@ -17,53 +17,59 @@ Here's I discuss what everyone should be doing about distributing software to th
 
 The reason why people are concerned is because bad practices such as [security through obscurity](https://en.wikipedia.org/wiki/Security_through_obscurity) or blindly trusting "secure servers" to invoke remote code are widespread in the software industry.
 
-If you have an iPhone you probably know applications are sandboxed: files of a given application aren't blindly shared with another. You have a great amount of permissions and fine controls. Some people complain this makes the iOS operating system really closed but this is actually one of its greatest strengths.
+If you have an iPhone, you probably know applications are sandboxed. In essence, files of a given application aren't blindly shared with another. You have some permissions settings and fine controls. Some people complain this makes the iOS operating system really closed, but this is actually one of its greatest strengths.
 
 ## Who gets it right
-Apple is definitely [a lead](https://support.apple.com/en-us/HT210897) when talking about respecting user security and privacy, especially in the smartphone ecosystem. It has set a really high bar not only with its [Differential Privacy](https://www.apple.com/privacy/docs/Differential_Privacy_Overview.pdf) approach, which leverages processing private user data on their own devices a first-class citizen , not only when fighting the [coronavirus (COVID-19) outbreak](https://simple.wikipedia.org/wiki/Coronavirus_disease_2019) respecting privacy with their [Privacy-Preserving Contact Tracing](https://www.apple.com/covid19/contacttracing/) protocol jointly developed with Google, but also with [code signing](https://developer.apple.com/support/code-signing/) – making it possible for you to release software safely to your users.
+Apple is definitely [a leader](https://support.apple.com/en-us/HT210897) when talking about respecting user security and privacy, especially in the smartphone ecosystem. It's [Differential Privacy](https://www.apple.com/privacy/docs/Differential_Privacy_Overview.pdf) approach leverages processing private user data on their own devices . Its [Privacy-Preserving Contact Tracing](https://www.apple.com/covid19/contacttracing/) protocol jointly developed with Google to fight [coronavirus (COVID-19)](https://simple.wikipedia.org/wiki/Coronavirus_disease_2019) has user privacy as a first-class citizen. **It is no different when we talk about software distribution.**
 
 Application sandboxing appeared in iOS since its very beginning. Android is also [moving towards this direction ](https://developer.android.com/training/data-storage#scoped-storage) as users are getting more concerned over the topic.
 
-[FreeBSD](https://www.freebsd.org) and Linux distributions that distribute packages using public mirrors but rely on package signature to verify [if a package was signed properly](https://en.wikipedia.org/wiki/Code_signing) also does at least something right, with different degrees and concepts. For example, FreeBSD has the concept of jails, that allows you to isolate processes and what computer resources they can access.
+[FreeBSD](https://www.freebsd.org) and Linux distributions have a history of mirroring packages in public mirrors safely thanks to package signature. By the way, FreeBSD has the concept of jails, that allows you to isolate processes and what computer resources they can access. Something useful to mitigate attack vectors.
 
-Google also has been doing a great work bringing safer machines to the general public with its [Chrome OS](https://www.google.com/chromebook/chrome-os/).
+Google also has been doing great work bringing safer machines to the general public with its [Chrome OS](https://www.google.com/chromebook/chrome-os/) too.
 
 <div id="amzn-assoc-ad-650fc264-1310-445e-ba75-6bf6849026cc"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=650fc264-1310-445e-ba75-6bf6849026cc"></script>
 
 ## Traditional computers
-However, the situation for "general" computers is not good, with [sandboxing](https://en.wikipedia.org/wiki/Sandbox_(computer_security)) still flourishing. Therefore, it is an essential responsibility of any company that develops and publishes software for the public at large to enforce boundaries and limits to deal with their practically unrestricted trust and the risks associated to it.
+However, the situation for "general" computers is not good, with [sandboxing](https://en.wikipedia.org/wiki/Sandbox_(computer_security)) still flourishing. It is an essential responsibility of any company that develops and publishes software for the public at large to enforce boundaries and limits to deal with their practically unrestricted trust and risks.
 
-Browsers are, perhaps, the only greatly understood example of successful sandbox on traditional computers.
+Browsers are, perhaps, the only understood example of a successful sandbox on traditional computers.
 
 ## Code signing
 Code signing is a technique used to confirm software authorship and to provide an indication of provenance, guaranteeing that a program has not been tampered or corrupted.
 
-If you sign your code, you can distribute your software over unsecure channels and still guarantee that the end-user of your software will still get what was distributed - and this is auditable. If you don't, you would require to have control over all the chain of custody of your application and its communication from the distribution channel to the end-user - impractical.
+If you sign your software, you can:
+
+* Distribute your software over unsecured channels
+* Guarantee that the end-user of your software get what was distributed
+* Make your builds auditable if [reproducible](https://reproducible-builds.org)
+
+If you don’t, you must have control over all the chain of custody of your application and its communication from the distribution channel to the end-user to assure its security.
 
 ## Notarization
-[Notarization](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution) is process of sending your application to Apple so it can sign that your software is free from malware or malicious components. You can automate this process on your delivery pipeline, so there is no reason why not to use it if you distribute applications to end users.
+[Notarization](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution) is a process of sending your application to Apple so it can sign that your software is free from malware or malicious components. You can automate this process on your delivery pipeline, so there is no reason why not to use it if you distribute applications to end-users.
 
 ## It starts from the firmware
 [Jessie Frazelle](https://jess.dev/) from the [Oxide Computer Company](https://oxide.computer) has a great article about [Why open source firmware is important for security](https://blog.jessfraz.com/post/why-open-source-firmware-is-important-for-security/).
 
 ## curl | sh: shame on you! and me!
-If you use any Unix-like computer and are reading this post, there is a great chance you installed something with
+If you use any Unix-like computer and are reading this post, there is a high chance you installed something with:
 
 `$ curl http://example.com/unsafe | sh`
 
-If not created something that installs like this yourself! I'm guilt of this myself.
+If not created something like this yourself! I'm guilt of this myself.
 
 There [are](https://news.ycombinator.com/item?id=12766049) just [too](https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/) many [reasons](https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install) why this is, overall, a bad idea.
 
-### Why even bother code signing?
-If you don't code sign and your server is compromised, you'd put your users at risk.
+### Why even bother signing?
+If you don't sign and your server is compromised, your users are at risk, and this is unfair.
 
 You don't want to let your users down by exposing or destroying their data, and you don't want to face legal consequences os lose their trust.
 
 This risk can only be partly mitigated by using HTTPS. However, this lacks a defense in depth or Castle Approach. You want to minimize your attack surface.
 
 ### Why even bother code notarizing?
-If you notarize your application (on platforms that allows it), your users (and their operating systems) will likely trust you more and have a smoother user experience when installing your application.
+If you notarize your application, your Apple users will likely trust you more and have a smoother user experience when installing your application.
 
 <div id="amzn-assoc-ad-867f8b7d-ea56-4a22-8a65-086e6d53aa5a"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=867f8b7d-ea56-4a22-8a65-086e6d53aa5a"></script>
 
@@ -76,19 +82,19 @@ This is what you see if you only allow downloading from the App Store and try to
 
 [![Failure installing from outside App Store](/img/posts/cs-security/cannot-download_small.png)](/img/posts/cs-security/cannot-download.png)
 
-This is what happens if you try to install an application that wasn't code signed now.
+This is what happens if you try to install an application that wasn't product signed now:
 
 [![SourceTree cannot be installed](/img/posts/cs-security/sourcetree-cannot-be-open_small.png)](/img/posts/cs-security/sourcetree-cannot-be-open.png)
 
-You can easily get around installing apps from outside the App Store that are code signed:
+You can quickly get around installing apps from outside the App Store that are product signed:
 
 [![SourceTree cannot be installed](/img/posts/cs-security/go-installer-certificate_small.png)](/img/posts/cs-security/go-installer-certificate.png)
 
-However, things looks slightly more hostile to applications that aren't code signed:
+However, things look slightly more hostile to applications that aren't product signed:
 
-[![Atlassian needs to code sign SourceTree urgently](/img/posts/cs-security/sourcetree-blocked_small.png)](/img/posts/cs-security/sourcetree-blocked.png)
+[![Atlassian needs to sign SourceTree urgently](/img/posts/cs-security/sourcetree-blocked_small.png)](/img/posts/cs-security/sourcetree-blocked.png)
 
-_[Atlassian](https://www.atlassian.com/) surely forgot to request an Apple certificate to code sign SourceTree. Certainly, they're already on it by now._
+_[Atlassian](https://www.atlassian.com/) evidently forgot to request an Apple certificate to sign SourceTree._
 
 ## Writing an application for macOS
 Please notice that Apple has two programs with similar names:
@@ -107,6 +113,7 @@ Tip: verify macOS .pkg installers with the native `installer` program or with [
 
 ### Further reading list
 
+* [Code signing](https://developer.apple.com/support/code-signing)
 * [About Code Signing](https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Introduction/Introduction.html)
 * [How to sign your Mac OS X App for Gatekeeper](https://successfulsoftware.net/2012/08/30/how-to-sign-your-mac-os-x-app-for-gatekeeper/)
 * [Panic: About Gatekeeper](https://panic.com/blog/about-gatekeeper/)
@@ -114,11 +121,11 @@ Tip: verify macOS .pkg installers with the native `installer` program or with [
 * [How To Sign macOS PKGs for Deployment with MDM](https://simplemdm.com/certificate-sign-macos-packages/)
 
 ## Writing an application for Windows
-For Windows, you can request a certificate from multiple [Certificate Authorities](https://en.wikipedia.org/wiki/Certificate_authority) (CAs). Make sure you don't make the mistake of not getting a certificate on a web server for a domain, though. Both rely on [Public-key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure), but are not compatible with each other.
+For Windows, you can request a Windows Code Signing certificate from multiple [Certificate Authorities](https://en.wikipedia.org/wiki/Certificate_authority) (CAs). Make sure you don't make the mistake of getting a certificate for a domain, though. Both rely on [Public-key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure), but are not compatible with each other.
 
-[DigiCert](https://www.digicert.com/) is a reliable partner. I used it in the past. I recommend you get a certificate for the maximum amount of time possible, especially if you only use Windows sporadically.
+[DigiCert](https://www.digicert.com/) is a reliable partner. I used it in the past. I recommend you get a certificate for the maximum amount of time possible, especially if you don't use Windows regularly.
 
-If you don't code sign your application, your users might have issues with perceived security risk by Windows antiviruses, plus it will degrade the experience of installing your application.
+By the way, if you don’t codesign, your users might get weird security risk message by Windows antiviruses.
 
 ### Microsoft documentation
 
@@ -132,26 +139,26 @@ Time-stamping the signature with a remote server is recommended.
 [Source: Wikipedia article on code signing](https://en.wikipedia.org/wiki/Code_signing#Time-stamping).
 
 ## Updating your application
-To update your application safely, you also cannot simply download a new version from your server and replace a binary or files without doing any validation first.
+Your updates should be safe too. You should not directly download a binary from a server and replace your file without validation.
 
-Your application should be able to validate if new one was signed appropriately before installing a new version, and it should discard what it tries to install if the verification fails.
+Your application must validate if the downloaded files are legit before installing them.
 
-With Go, I used [equinox.io](https://equinox.io) for managing my updates safely and successfully in the past, and I recommend it. However, you don't need any 3rd party provider to do this.
+With the [Go](https://www.golang.org/) programming language, I used [equinox.io](https://equinox.io) for managing my updates safely and successfully in the past, and I recommend it. However, you don't need any 3rd party provider to do this.
 
 The essentials are:
 
 * You must have a secure device to generate releases and sign them.
 * You should keep your private keys safe.
 
-When I was working releasing a [CLI](https://en.wikipedia.org/wiki/Command-line_interface) used by hundreds of users, I used to connect to a remote server via [SSH](https://en.wikipedia.org/wiki/Secure_Shell). It was protected with public-key infrastructure through my SSH key + password + [one-time password](https://github.com/google/google-authenticator-libpam) in a secure physical location. Access to both the location (okay, I admit! Amazon Web Services datacenters!) and to the server was on a need-to basis.
+When I was working on releasing a [CLI](https://en.wikipedia.org/wiki/Command-line_interface) used by hundreds of users, I used to connect to a remote server via [SSH](https://en.wikipedia.org/wiki/Secure_Shell). It was protected with public-key infrastructure through my SSH key + password + [one-time password](https://github.com/google/google-authenticator-libpam) in a secure physical location. Access to both the physical location (okay, I admit! Amazon Web Services datacenters!) and to the server was on a need-to basis.
 
 I'd SSH to it whenever a release was ready, and do it from there, to avoid exposing the private key.
 
-Things I slacked on doing, but would be nice to have:
+Things I slacked on doing but would be nice to have:
 
 * Verification for revoked keys
 * Kill switch to stop users from downgrading/updating the application to unsafe versions, if I ever released something with a security bug
-* Second key to serve as backup if the first leaked
+* A second key pair to serve as a backup if the first leaked
 * Friendly key rotation (had no rotation)
 
 Things I would do if more users were using it and the perceived risk was greater:
@@ -161,7 +168,9 @@ Multiple keys so multiple people could validate an update before they would be a
 ## Chimera: auto update + run command
 Equinox didn't allow me to code sign a package, so I had to find a way around it.
 
-I created what I called a chimera: a binary for my program that seems to be a regular binary, but is actually a installer that will automatically download and install a new version, replace itself, and execute the new command from inside, passing environment variables, on the same current working directory, and piping the standard input, output, and error, and exiting with the very same error code.
+I created what I called a chimera: a binary for my program that seems to be a regular but is actually…
+
+An installer that will automatically download and install a new version, replacing itself, and executing the new command from inside, passing environment variables, on the same current working directory, and piping the standard input, output, and error, and exiting with the very same error code.
 
 Here is the [implementation](https://github.com/henvic/wedeploycli/tree/master/update/internal/installer), if you are curious.
 
@@ -172,9 +181,7 @@ The good thing about it was that I was free of having to use Windows to release 
 <div id="amzn-assoc-ad-6763ebda-8a65-4dde-84c8-de9b85de01d7"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=6763ebda-8a65-4dde-84c8-de9b85de01d7"></script>
 
 ## Summary
-If you are a Valve consumer, I'd say you can trust their words and expect nothing bad is going to happen. While many people resort to obfuscation when working on closed-source software, I'd say Valve probably doesn't or they would be screwed.
-
-In theory, issues might exist and get discovered by bad actors easier but I wouldn't worry about it either.
+If you are a Valve consumer, I'd say you can trust their words and expect nothing bad is going to happen. While many people resort to obfuscation when working on closed-source software, I'd say Valve probably doesn't or they would already be screwed. In theory, issues might exist and get discovered by bad actors easier but I wouldn't worry about it either.
 
 If you're worried about this, you might consider to buy a dedicated gaming machine to mitigate the risks, and this is a good measure if you can afford.
 
