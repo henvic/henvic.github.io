@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Counter-Strike code leaked: should you worry? What if your code leaks? | Henrique Vicente</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono|Comfortaa:300" rel="stylesheet">
+    <link rel="stylesheet" href="/css/foundation-icons.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/webicons/webicons.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/henvic.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta property="og:title" content="Counter-Strike code leaked: should you worry? What if your code leaks? | Henrique Vicente">
+    <meta name="twitter:title" content="Counter-Strike code leaked: should you worry? What if your code leaks? | Henrique Vicente" />
+    <meta property="og:url" content="https://henvic.dev/posts/cs-security/">
+    
+    <meta name="description" content="In this blog post I talk about what it takes to delivery software securely to the general public.">
+    <meta property="og:description" content="In this blog post I talk about what it takes to delivery software securely to the general public.">
+    <meta name="twitter:description" content="In this blog post I talk about what it takes to delivery software securely to the general public." />
+    
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2020-04-22">
+    
+    <meta property="twitter:url" content="https://henvic.dev/posts/cs-security/">
+    
+    <meta name="og:image" content="https://henvic.dev/img/posts/cs-security/cs.png" />
+    <meta name="twitter:image" content="https://henvic.dev/img/posts/cs-security/cs.png" />
+    
+</head><body><div class="grid-y medium-grid-frame">
+        <nav class="title-bar show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title invisible">Menu</div>
+</nav>
+<nav class="top-bar" id="responsive-menu">
+    <div class="top-bar-right no-js">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
+            data-dropdown-menu data-smooth-scroll>
+            
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/" >
+                    Home
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/about/" >
+                    About me
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/posts/" >
+                    Blog posts
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/talks/" >
+                    Talks
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class="show-for-small-only ">
+                <a href="/portfolio/" >
+                    Portfolio
+                </a>
+            </li>
+            
+            
+            <li class="hide-for-small-only is-dropdown-submenu-parent ">
+                <a href="/portfolio/" >
+                    Portfolio
+                </a>
+            <ul class="vertical menu nested submenu">
+                
+                
+                <li >
+                    <a href="/portfolio/#httpretty" title="httpretty">
+                        httpretty
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#wedeploy" title="WeDeploy CLI Tool">
+                        WeDeploy CLI Tool
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#vehikel" title="Vehikel">
+                        Vehikel
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#tic-tac-toe" title="Tic-tac-toe">
+                        Tic-tac-toe
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#accidents" title="accidents">
+                        accidents
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#topostit" title="to-post.it">
+                        to-post.it
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#trazqueeupago" title="trazqueeupago.com">
+                        trazqueeupago.com
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#cahier" title="Cahier">
+                        Cahier
+                    </a>
+                </li>
+                
+                
+                <li >
+                    <a href="/portfolio/#plifk" title="Plifk">
+                        Plifk
+                    </a>
+                </li>
+                
+            </ul>
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/opensource/" >
+                    Opensource
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            <li class=" ">
+                <a href="/favorites/" >
+                    Favorites
+                </a>
+            </li>
+            
+            
+            </li>
+            
+            
+            
+            
+            
+            </li>
+            
+            <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
+        </ul>
+    </div>
+</nav>
+
+        <div class="cell medium-auto medium-cell-block-container">
+            <div class="grid-x grid-padding-x">
+                <div class="nav cell large-3 medium-4 large-cell-block-y medium-cell-block-y"><div itemscope itemtype="http://schema.org/Person">
+    <div class="nav-card grid-x">
+        <div class="cell small-2 medium-12 nav-card-photo-cell">
+            <a href="https://www.instagram.com/p/BQ-lcVEF88y/" itemprop="photo" class="nav-card-photo">
+                <img src="/img/me_at_gullfoss_cropped.jpg" alt="me at Gullfoss" width="549" height="549" />
+            </a>
+        </div>
+        <div class="cell card-section small-10 medium-12 medium-text-center">
+            <h4 itemprop="name">Henrique Vicente</h4>
+            <p>
+                <span itemprop="title">Software Engineer</span>
+            </p>
+        </div>
+    </div>
+    <ul class="nav-about-me no-bullet">
+        <li>
+            <p>I write Go daily at <a href="https://housinganywhere.com/" itemprop="affiliation">HousingAnywhere</a> in Rotterdam, The&nbsp;Netherlands.<br /><br />
+                I enjoy photography, drones, and traveling.</p>
+        </li>
+        <li>
+            <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
+                    class="space"></span>DFBD<span class="space"></span>257C<span class="space"></span>1575</a>
+        </li>
+    </ul>
+    <p><small>
+        I created my first website when I was 9 years old using first Netscape Composer and then FrontPage Express.
+    </small></p>
+    <div class="menu-social">
+        <a class="webicon github" href="https://github.com/henvic">
+            GitHub
+        </a>
+        <a class="webicon twitter" href="https://twitter.com/henriquev">
+            Twitter
+        </a>
+        <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
+            Linkedin
+        </a>
+        <a class="webicon instagram" href="https://www.instagram.com/henvic/">
+            Instagram
+        </a>
+        <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
+            Flickr
+        </a>
+        <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
+            henriquevicente@gmail.com
+        </a>
+    </div>
+</div>
+</div>
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
+        <h1>Counter-Strike code leaked: should you worry? What if your code leaks?</h1>
+        
+        
+        <p class="post-date">Posted in <time class="stat" datetime="2020-04-22 00:00:00 &#43;0000 UTC"></time>Wednesday, 22 April 2020</time>.</p>
+        
+        <p><a href="https://blog.counter-strike.net"><img src="/img/posts/cs-security/cs.png" alt="Counter-Strike code leaked!"></a></p>
+<p>The <a href="https://en.wikipedia.org/wiki/Source_code">source code</a> for the game <a href="https://www.igdb.com/games/counter-strike-global-offensive">Counter-Strike: GO</a> has leaked today. I&rsquo;m sad to see many concerned users decided not to play the game anymore, for now, worried about <a href="https://en.wikipedia.org/wiki/Arbitrary_code_execution">Remote Code Execution</a> (RCE). <a href="https://www.valvesoftware.com/">Valve</a> told them they&rsquo;ve reviewed the code, and there&rsquo;s no reason for users to worry.</p>
+<p>Here&rsquo;s I discuss what everyone should be doing about distributing software to the general public safely, and why I trust this statement:</p>
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">We have reviewed the leaked code and believe it to be a reposting of a limited CS:GO engine code depot released to partners in late 2017, and originally leaked in 2018. From this review, we have not found any reason for players to be alarmed or avoid the current builds.</p>&mdash; CS:GO (@CSGO) <a href="https://twitter.com/CSGO/status/1253075594901774336?ref_src=twsrc%5Etfw">April 22, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Source code for both CS:GO and TF2 dated 2017/2018 that was made available to Source engine licencees was leaked to the public today. <a href="https://t.co/qWEQGbq9Y6">pic.twitter.com/qWEQGbq9Y6</a></p>&mdash; Steam Database (@SteamDB) <a href="https://twitter.com/SteamDB/status/1252961862058205184?ref_src=twsrc%5Etfw">April 22, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</p>
+<p>The reason why people are concerned is because bad practices such as <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">security through obscurity</a> or blindly trusting &ldquo;secure servers&rdquo; to invoke remote code are widespread in the software industry.</p>
+<p>If you have an iPhone, you probably know applications are sandboxed. In essence, files of a given application aren&rsquo;t blindly shared with another. You have some permissions settings and fine controls. Some people complain this makes the iOS operating system really closed, but this is actually one of its greatest strengths.</p>
+<h2 id="who-gets-it-right">Who gets it right</h2>
+<p>Apple is definitely <a href="https://support.apple.com/en-us/HT210897">a leader</a> when talking about respecting user security and privacy, especially in the smartphone ecosystem. It&rsquo;s <a href="https://www.apple.com/privacy/docs/Differential_Privacy_Overview.pdf">Differential Privacy</a> approach leverages processing private user data on their own devices . Its <a href="https://www.apple.com/covid19/contacttracing/">Privacy-Preserving Contact Tracing</a> protocol jointly developed with Google to fight <a href="https://simple.wikipedia.org/wiki/Coronavirus_disease_2019">coronavirus (COVID-19)</a> has user privacy as a first-class citizen. <strong>It is no different when we talk about software distribution.</strong></p>
+<p>Application sandboxing appeared in iOS since its very beginning. Android is also <a href="https://developer.android.com/training/data-storage#scoped-storage">moving towards this direction </a> as users are getting more concerned over the topic.</p>
+<p><a href="https://www.freebsd.org">FreeBSD</a> and Linux distributions have a history of mirroring packages in public mirrors safely thanks to package signature. By the way, FreeBSD has the concept of jails, that allows you to isolate processes and what computer resources they can access. Something useful to mitigate attack vectors.</p>
+<p>Google also has been doing great work bringing safer machines to the general public with its <a href="https://www.google.com/chromebook/chrome-os/">Chrome OS</a> too.</p>
+<div id="amzn-assoc-ad-650fc264-1310-445e-ba75-6bf6849026cc"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=650fc264-1310-445e-ba75-6bf6849026cc"></script>
+<h2 id="traditional-computers">Traditional computers</h2>
+<p>However, the situation for &ldquo;general&rdquo; computers is not good, with <a href="https://en.wikipedia.org/wiki/Sandbox_(computer_security)">sandboxing</a> still flourishing. It is an essential responsibility of any company that develops and publishes software for the public at large to enforce boundaries and limits to deal with their practically unrestricted trust and risks.</p>
+<p>Browsers are, perhaps, the only understood example of a successful sandbox on traditional computers.</p>
+<h2 id="code-signing">Code signing</h2>
+<p>Code signing is a technique used to confirm software authorship and to provide an indication of provenance, guaranteeing that a program has not been tampered or corrupted.</p>
+<p>If you sign your software, you can:</p>
+<ul>
+<li>Distribute your software over unsecured channels</li>
+<li>Guarantee that the end-user of your software get what was distributed</li>
+<li>Make your builds auditable if <a href="https://reproducible-builds.org">reproducible</a></li>
+</ul>
+<p>If you don’t, you must have control over all the chain of custody of your application and its communication from the distribution channel to the end-user to assure its security.</p>
+<h2 id="notarization">Notarization</h2>
+<p><a href="https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution">Notarization</a> is a process of sending your application to Apple so it can sign that your software is free from malware or malicious components. You can automate this process on your delivery pipeline, so there is no reason why not to use it if you distribute applications to end-users.</p>
+<h2 id="it-starts-from-the-firmware">It starts from the firmware</h2>
+<p><a href="https://jess.dev/">Jessie Frazelle</a> from the <a href="https://oxide.computer">Oxide Computer Company</a> has a great article about <a href="https://blog.jessfraz.com/post/why-open-source-firmware-is-important-for-security/">Why open source firmware is important for security</a>.</p>
+<h2 id="curl--sh-shame-on-you-and-me">curl | sh: shame on you! and me!</h2>
+<p>If you use any Unix-like computer and are reading this post, there is a high chance you installed something with:</p>
+<p><code>$ curl http://example.com/unsafe | sh</code></p>
+<p>If not created something like this yourself! I&rsquo;m guilt of this myself.</p>
+<p>There <a href="https://news.ycombinator.com/item?id=12766049">are</a> just <a href="https://www.idontplaydarts.com/2016/04/detecting-curl-pipe-bash-server-side/">too</a> many <a href="https://sandstorm.io/news/2015-09-24-is-curl-bash-insecure-pgp-verified-install">reasons</a> why this is, overall, a bad idea.</p>
+<h3 id="why-even-bother-signing">Why even bother signing?</h3>
+<p>If you don&rsquo;t sign and your server is compromised, your users are at risk, and this is unfair.</p>
+<p>You don&rsquo;t want to let your users down by exposing or destroying their data, and you don&rsquo;t want to face legal consequences os lose their trust.</p>
+<p>This risk can only be partly mitigated by using HTTPS. However, this lacks a defense in depth or Castle Approach. You want to minimize your attack surface.</p>
+<h3 id="why-even-bother-code-notarizing">Why even bother code notarizing?</h3>
+<p>If you notarize your application, your Apple users will likely trust you more and have a smoother user experience when installing your application.</p>
+<div id="amzn-assoc-ad-867f8b7d-ea56-4a22-8a65-086e6d53aa5a"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=867f8b7d-ea56-4a22-8a65-086e6d53aa5a"></script>
+<h2 id="apples-gatekeeper">Apple&rsquo;s Gatekeeper</h2>
+<p>Apple tightened up software installation making the operating system more likely to stop users from executing untrusted code. Some people complain that they are closing down the platform and that this is a bad thing, and I must disagree. For me, they are trying to make macOS as safe to use as iOS.</p>
+<p><a href="/img/posts/cs-security/gatekeeper.png"><img src="/img/posts/cs-security/gatekeeper_small.png" alt="Gatekeeper screenshot"></a></p>
+<p>This is what you see if you only allow downloading from the App Store and try to install something from outside:</p>
+<p><a href="/img/posts/cs-security/cannot-download.png"><img src="/img/posts/cs-security/cannot-download_small.png" alt="Failure installing from outside App Store"></a></p>
+<p>This is what happens if you try to install an application that wasn&rsquo;t product signed now:</p>
+<p><a href="/img/posts/cs-security/sourcetree-cannot-be-open.png"><img src="/img/posts/cs-security/sourcetree-cannot-be-open_small.png" alt="SourceTree cannot be installed"></a></p>
+<p>You can quickly get around installing apps from outside the App Store that are product signed:</p>
+<p><a href="/img/posts/cs-security/go-installer-certificate.png"><img src="/img/posts/cs-security/go-installer-certificate_small.png" alt="SourceTree cannot be installed"></a></p>
+<p>However, things look slightly more hostile to applications that aren&rsquo;t product signed:</p>
+<p><a href="/img/posts/cs-security/sourcetree-blocked.png"><img src="/img/posts/cs-security/sourcetree-blocked_small.png" alt="Atlassian needs to sign SourceTree urgently"></a></p>
+<p><em><a href="https://www.atlassian.com/">Atlassian</a> evidently forgot to request an Apple certificate to sign SourceTree.</em></p>
+<h2 id="writing-an-application-for-macos">Writing an application for macOS</h2>
+<p>Please notice that Apple has two programs with similar names:</p>
+<ul>
+<li>codesign is for signing code and the like</li>
+<li>productsign is for signing packages and the like</li>
+</ul>
+<p>For this subject, productsign is what you need.</p>
+<ul>
+<li><a href="https://developer.apple.com/macos/distribution/">Distributing Your Mac Apps</a></li>
+<li><a href="https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution">Notarizing macOS Software Before Distribution</a></li>
+</ul>
+<p>Please don&rsquo;t do the curl | sh workaround if you have a public user base even though I did it in the past. You can do better than me.</p>
+<p>Tip: verify macOS .pkg installers with the native <code>installer</code> program or with <a href="https://www.mothersruin.com/software/SuspiciousPackage/">Suspicious Package</a>.</p>
+<h3 id="further-reading-list">Further reading list</h3>
+<ul>
+<li><a href="https://developer.apple.com/support/code-signing">Code signing</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Introduction/Introduction.html">About Code Signing</a></li>
+<li><a href="https://successfulsoftware.net/2012/08/30/how-to-sign-your-mac-os-x-app-for-gatekeeper/">How to sign your Mac OS X App for Gatekeeper</a></li>
+<li><a href="https://panic.com/blog/about-gatekeeper/">Panic: About Gatekeeper</a></li>
+<li><a href="https://support.apple.com/en-sg/HT201601">How to use the Apple Product Security PGP Key</a></li>
+<li><a href="https://simplemdm.com/certificate-sign-macos-packages/">How To Sign macOS PKGs for Deployment with MDM</a></li>
+</ul>
+<h2 id="writing-an-application-for-windows">Writing an application for Windows</h2>
+<p>For Windows, you can request a Windows Code Signing certificate from multiple <a href="https://en.wikipedia.org/wiki/Certificate_authority">Certificate Authorities</a> (CAs). Make sure you don&rsquo;t make the mistake of getting a certificate for a domain, though. Both rely on <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">Public-key infrastructure</a>, but are not compatible with each other.</p>
+<p><a href="https://www.digicert.com/">DigiCert</a> is a reliable partner. I used it in the past. I recommend you get a certificate for the maximum amount of time possible, especially if you don&rsquo;t use Windows regularly.</p>
+<p>By the way, if you don’t codesign, your users might get weird security risk message by Windows antiviruses.</p>
+<h3 id="microsoft-documentation">Microsoft documentation</h3>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/win32/seccrypto/cryptography-tools">Cryptography Tools</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/win32/seccrypto/signtool">SignTool</a></li>
+</ul>
+<p>Time-stamping the signature with a remote server is recommended.</p>
+<blockquote>
+<p>Time-stamping was designed to circumvent the trust warning that will appear in the case of an expired certificate. In effect, time-stamping extends the code trust beyond the validity period of a certificate. In the event that a certificate has to be revoked due to a compromise, a specific date and time of the compromising event will become part of the revocation record. In this case, time-stamping helps establish whether the code was signed before or after the certificate was compromised.</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Code_signing#Time-stamping">Source: Wikipedia article on code signing</a>.</p>
+<h2 id="updating-your-application">Updating your application</h2>
+<p>Your updates should be safe too. You should not directly download a binary from a server and replace your file without validation.</p>
+<p>Your application must validate if the downloaded files are legit before installing them.</p>
+<p>With the <a href="https://www.golang.org/">Go</a> programming language, I used <a href="https://equinox.io">equinox.io</a> for managing my updates safely and successfully in the past, and I recommend it. However, you don&rsquo;t need any 3rd party provider to do this.</p>
+<p>The essentials are:</p>
+<ul>
+<li>You must have a secure device to generate releases and sign them.</li>
+<li>You should keep your private keys safe.</li>
+</ul>
+<p>When I was working on releasing a <a href="https://en.wikipedia.org/wiki/Command-line_interface">CLI</a> used by hundreds of users, I used to connect to a remote server via <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a>. It was protected with public-key infrastructure through my SSH key + password + <a href="https://github.com/google/google-authenticator-libpam">one-time password</a> in a secure physical location. Access to both the physical location (okay, I admit! Amazon Web Services datacenters!) and to the server was on a need-to basis.</p>
+<p>I&rsquo;d SSH to it whenever a release was ready, and do it from there, to avoid exposing the private key.</p>
+<p>Things I slacked on doing but would be nice to have:</p>
+<ul>
+<li>Verification for revoked keys</li>
+<li>Kill switch to stop users from downgrading/updating the application to unsafe versions, if I ever released something with a security bug</li>
+<li>A second key pair to serve as a backup if the first leaked</li>
+<li>Friendly key rotation (had no rotation)</li>
+</ul>
+<p>Things I would do if more users were using it and the perceived risk was greater:</p>
+<p>Multiple keys so multiple people could validate an update before they would be allowed to be used by users. I know Apple uses something like this to roll their operating system updates, but I couldn&rsquo;t find a reference. If you know, please let me know to update here.</p>
+<h2 id="chimera-auto-update--run-command">Chimera: auto update + run command</h2>
+<p>Equinox didn&rsquo;t allow me to code sign a package, so I had to find a way around it.</p>
+<p>I created what I called a chimera: a binary for my program that seems to be a regular but is actually…</p>
+<p>An installer that will automatically download and install a new version, replacing itself, and executing the new command from inside, passing environment variables, on the same current working directory, and piping the standard input, output, and error, and exiting with the very same error code.</p>
+<p>Here is the <a href="https://github.com/henvic/wedeploycli/tree/master/update/internal/installer">implementation</a>, if you are curious.</p>
+<p>The good thing about it was that I was free of having to use Windows to release a new code signed version each time I decided to do it.</p>
+<p><a href="https://cli.github.com">GitHub&rsquo;s official command line tool</a> (gh; but not related to the <a href="http://nodegh.io">NodeGH</a> I used to maintain a long time ago!) does the code signing on every release. If you want it, take a look at <a href="https://github.com/cli/cli/blob/master/.github/workflows/releases.yml">their code</a>.</p>
+<div id="amzn-assoc-ad-6763ebda-8a65-4dde-84c8-de9b85de01d7"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=6763ebda-8a65-4dde-84c8-de9b85de01d7"></script>
+<h2 id="summary">Summary</h2>
+<p>If you are a Valve consumer, I&rsquo;d say you can trust their words and expect nothing bad is going to happen. While many people resort to obfuscation when working on closed-source software, I&rsquo;d say Valve probably doesn&rsquo;t or they would already be screwed. In theory, issues might exist and get discovered by bad actors easier but I wouldn&rsquo;t worry about it either.</p>
+<p>If you&rsquo;re worried about this, you might consider to buy a dedicated gaming machine to mitigate the risks, and this is a good measure if you can afford.</p>
+<p>If you are a software developer and found this post useful, please share your experiences and ideas too!</p>
+
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="Counter-Strike code leaked: should you worry? What if your code leaks?" data-url="https://henvic.dev/posts/cs-security/" data-via="henriquev"
+                        data-hashtags="counterstrike,cs,valve,game,security,leak,software,dev"  data-show-count="false">Tweet</a>
+</article>
+
+            </div>
+        </div>
+    </div>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-43519325-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script src="/js/vendor/modernizr-custom-svg.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/foundation.min.js"></script>
+<script>
+        $(document).ready(function () {
+                $(document).foundation();
+        });
+</script>
+</body>
+</html>

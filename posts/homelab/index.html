@@ -327,6 +327,7 @@
 <p>I used <a href="https://filippo.io">Filippo Valsorda</a>&lsquo;s <a href="https://mkcert.dev/">mkcert</a> program to generate a HTTPS certificate to use on the hypervisor and on my <a href="https://www.freenas.org/">FreeNAS</a> instance.</p>
 <p>For me, it doesn&rsquo;t matter if we are talking about servers on the local network. If you are using it seriously, you should consider doing the same regardless if you&rsquo;re going to be accessing it from inside your own home or not. Don&rsquo;t trust your network.</p>
 <p>Please notice I use a .dev TLD here, and modern browsers force .dev domains to use HTTPS — what is interesting because it will mitigate some security risks by avoiding sending data over plain HTTP.</p>
+<div id="amzn-assoc-ad-adf2bdde-8955-4e72-9092-6c582f65477f"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=adf2bdde-8955-4e72-9092-6c582f65477f"></script>
 <h2 id="back-to-intel-nuc-10">Back to Intel NUC 10</h2>
 <p>VMware doesn&rsquo;t list the Intel NUC line on its <a href="https://www.vmware.com/resources/compatibility/search.php">compatibility guide</a>. However, many people have a positive experience running ESXi with it. I was confident everything would work out of the box, and only during installation, I discovered the <a href="https://www.vmware.com/resources/compatibility/search.php">Ethernet NIC</a> wasn&rsquo;t working. This hardware was released in Q4/2019 and used a new network card.</p>
 <p>I lost some time trying to solve this issue, and here is how I fixed it:</p>

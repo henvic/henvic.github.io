@@ -6,10 +6,20 @@
     <description>Recent content in Home on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://henvic.dev/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Counter-Strike code leaked: should you worry? What if your code leaks?</title>
+      <link>https://henvic.dev/posts/cs-security/</link>
+      <pubDate>Wed, 22 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/cs-security/</guid>
+      <description>The source code for the game Counter-Strike: GO has leaked today. I&amp;rsquo;m sad to see many concerned users decided not to play the game anymore, for now, worried about Remote Code Execution (RCE). Valve told them they&amp;rsquo;ve reviewed the code, and there&amp;rsquo;s no reason for users to worry.
+Here&amp;rsquo;s I discuss what everyone should be doing about distributing software to the general public safely, and why I trust this statement:</description>
+    </item>
     
     <item>
       <title>Homelab: Intel NUC with the ESXi hypervisor</title>
