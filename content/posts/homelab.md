@@ -94,6 +94,8 @@ For me, it doesn't matter if we are talking about servers on the local network. 
 
 Please notice I use a .dev TLD here, and modern browsers force .dev domains to use HTTPS — what is interesting because it will mitigate some security risks by avoiding sending data over plain HTTP.
 
+<div id="amzn-assoc-ad-adf2bdde-8955-4e72-9092-6c582f65477f"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=adf2bdde-8955-4e72-9092-6c582f65477f"></script>
+
 ## Back to Intel NUC 10
 
 VMware doesn't list the Intel NUC line on its [compatibility guide](https://www.vmware.com/resources/compatibility/search.php). However, many people have a positive experience running ESXi with it. I was confident everything would work out of the box, and only during installation, I discovered the [Ethernet NIC](https://www.vmware.com/resources/compatibility/search.php) wasn't working. This hardware was released in Q4/2019 and used a new network card.
