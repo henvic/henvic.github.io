@@ -412,7 +412,7 @@ One problem I've with SSH is that it's easy to close my laptop lid and to lose a
 
 ## Reviews from others
 
-* [Andrew Ronderos: VMware ESXi Home Lab — Intel NUC 10 (Frost Canyon)](https://andrewroderos.com/vmware-esxi-home-lab-intel-nuc-frost-canyon/)
+* [Andrew Roderos: VMware ESXi Home Lab — Intel NUC 10 (Frost Canyon)](https://andrewroderos.com/vmware-esxi-home-lab-intel-nuc-frost-canyon/)
 
 * [Virten.net: Homelab — Will ESXi 7.0 run on Intel NUC?](https://www.virten.net/2020/04/homelab-will-esxi-7-0-run-on-intel-nuc/)
 
