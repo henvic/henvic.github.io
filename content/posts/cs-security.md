@@ -4,7 +4,7 @@ type: post
 description: "In this blog post I talk about what it takes to delivery software securely to the general public."
 date: "2020-04-22"
 image: "/img/posts/cs-security/cs.png"
-hashtags: "counterstrike,cs,valve,game,security,leak,software"
+hashtags: "counterstrike,cs,valve,game,security,leak,software,dev"
 ---
 [![Counter-Strike code leaked!](/img/posts/cs-security/cs.png)](https://blog.counter-strike.net)
 
