@@ -1,5 +1,6 @@
 /* normalizing it to work with Foundation */
 code { border: inherit; background-color: inherit; color: inherit; word-wrap: inherit; padding: inherit; }
+.highlight { margin-bottom: 1.5rem !important; }
 
 /* monokai: https://xyproto.github.io/splash/docs/monokai.html */
 /* Background */ .chroma { color: #f8f8f2; background-color: #272822 }
