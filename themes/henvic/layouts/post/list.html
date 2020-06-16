@@ -6,7 +6,7 @@
     <ul>
         {{ range .Paginator.Pages }}
         <li>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <a href="{{ .Permalink }}">{{ .Title | default "untitled" }}</a>
             <time datetime="2006-01-02">{{ .Date.Format "Monday 2, January 2006" }}</time>
         </li>
         {{ end }}
