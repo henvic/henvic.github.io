@@ -6,10 +6,19 @@
     <description>Recent content in Blog posts on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>I&#39;m starting an opensource e-commerce project.</title>
+      <link>https://henvic.dev/posts/e-commerce/</link>
+      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/e-commerce/</guid>
+      <description>Most e-commerce platforms operate in a way that makes stores relying on them hostage due to vendor lock-in models. E-commerce is something that can get complex fast. Search engine optimization (SEO), inventory management, order status, and user experience are essential and can get hard quickly. Especially when in light of the danger of trying to make everything customizable. Substantial transaction fees drive away businesses operating on tight profit margins.  market is an opensource e-commerce software dedicated to the public domain to help small and medium businesses to establish their online presence with a high-quality website without gotchas.</description>
+    </item>
     
     <item>
       <title>Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely.</title>
