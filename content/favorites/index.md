@@ -55,6 +55,7 @@ kind: list
 * [DevOps Reactions](https://devopsreactions.tumblr.com/)
 * [Grumpy Website](https://grumpy.website)
 * [Blog @ tonsky.me](https://tonsky.me)
+* [Bartosz Ciechanowski](https://ciechanow.ski/)
 * [Hacker News - Y Combinator](https://news.ycombinator.com/)
 
 <hr />
@@ -106,6 +107,7 @@ kind: list
 * [Netflix: Freedom & Responsibility Culture (2ⁿᵈ edition)](https://www.slideshare.net/reed2001/culture-1798664)
 * [Spotify Engineering Culture - Part 1](https://www.youtube.com/watch?v=Yvfz4HGtoPc)
 * [Spotify Engineering Culture - Part 2](https://www.youtube.com/watch?v=vOt4BbWLWQw)
+* [Computational Photography: From Selfies to Black Holes](https://vas3k.com/blog/computational_photography/)
 
 <hr />
 

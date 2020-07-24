@@ -15,7 +15,7 @@ Year after year, it would get the following:
 
 The dial-up modem was one of the best additions. It would keep me awoke all night long to save money as you paid by the pulse and after midnight it was a single one.
 
-Way before Chrome, Firefox, or even Mozilla came along, Netscape was my first browser. With it, I quickly discovered I too could create web pages using its Netscape Composer. I created [my first webpage](http://membro.intermega.com.br/tecnologic/). Unfortunately, the [Internet Archive](https://archive.org/) was only able to recover its home page (which only had a link to the main page on a gif).
+Way before Chrome, Firefox, or even Mozilla came along, Netscape was my first browser. With it, I quickly discovered I too could create web pages using its Netscape Composer. I created [my first webpage](http://membro.intermega.com.br/tecnologic/) when I was 9 years old using Netscape Composer and then FrontPage Express. Unfortunately, the [Internet Archive](https://archive.org/) was not able to [recover much](https://web.archive.org/web/20020212164145/http://intermega.globo.com:80/tecnologic/intrhp.htm).
 
 As years passed by, I acquired experience with lots of different technical things on the web, but mostly empirically. If I had access to methodical means of learning stuff early on, I'd be way better off today. It took a while for me to start a professional career due to a few misfortunes of life, though.
 
