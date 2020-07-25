@@ -4,18 +4,19 @@ title: "Home"
 <div class="grid-container full">
   <div class="grid-x grid-margin-x">
     <div class="cell large-4">
-
-#### Highlights
-* [httpretty](https://github.com/henvic/httpretty)
-* [WeDeploy / Liferay Cloud CLI](http://localhost:1313/portfolio/#wedeploy)
-* [Homelab: Intel NUC with the ESXi hypervisor post](/posts/homelab)
-* [ctxsignal](https://github.com/henvic/ctxsignal) (see [signal.NotifyContext proposal](https://github.com/golang/go/issues/37255))
-* [pseudoterm](https://github.com/henvic/pseudoterm)
-* [picel](https://github.com/henvic/picel) ([undergraduate work](https://www.cin.ufpe.br/~tg/2017-2/hvop-tg.pdf) based on it)
-* [Vehikel marketplace](http://localhost:1313/portfolio/#vehikel) (see [video](https://www.youtube.com/watch?v=dML0FQIUcTY))
-* [Plifk file-sharing service](http://localhost:1313/portfolio/#plifk)
-* [Talks](/talks)
-* [Photos](https://www.flickr.com/photos/henriquev)
+      <h4>Highlights</h4>
+      <ul>
+        <li><a href="https://github.com/henvic/httpretty">httpretty</a></li>
+        <li><a href="http://localhost:1313/portfolio/#wedeploy">WeDeploy / Liferay Cloud CLI</a></li>
+        <li><a href="/posts/homelab">Homelab: Intel NUC with the ESXi hypervisor post</a></li>
+        <li><a href="https://github.com/henvic/ctxsignal">ctxsignal</a> (see <a href="https://github.com/golang/go/issues/37255">signal.NotifyContext proposal</a>)</li>
+        <li><a href="https://github.com/henvic/pseudoterm">pseudoterm</a></li>
+        <li><a href="https://github.com/henvic/picel">picel</a> (<a href="https://www.cin.ufpe.br/~tg/2017-2/hvop-tg.pdf">undergraduate work</a> based on it)</li>
+        <li><a href="http://localhost:1313/portfolio/#vehikel">Vehikel marketplace</a> (see <a href="https://www.youtube.com/watch?v=dML0FQIUcTY">video</a>)</li>
+        <li><a href="http://localhost:1313/portfolio/#plifk">Plifk file-sharing service</a></li>
+        <li><a href="/talks">Talks</a></li>
+        <li><a href="https://www.flickr.com/photos/henriquev">Photos</a>
+      </ul>
     </div>
     <div class="cell large-8">
     {{< photos >}}

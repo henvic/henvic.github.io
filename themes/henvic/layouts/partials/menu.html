@@ -11,29 +11,29 @@
             {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
             {{ $active = or $active (eq .URL $currentPage.RelPermalink) }}
             {{ if eq .Menu "main" }}
-            <li class="{{ if .HasChildren}}show-for-small-only{{end}} {{ if $active }} active{{ end }}">
-                <a href="{{ .URL }}" {{ if $active }}aria-current="page" {{ end }}>
-                    {{ .Name }}
-                </a>
-            </li>
-            {{ end }}
-            {{ if .HasChildren }}
-            <li class="hide-for-small-only is-dropdown-submenu-parent {{ if $active }} active{{ end }}">
-                <a href="{{ .URL }}" {{ if $active }}aria-current="page" {{ end }}>
-                    {{ .Name }}
-                </a>
-            <ul class="vertical menu nested submenu">
-                {{ range .Children }}
-                {{ $active = eq .URL $currentPage.RelPermalink }}
-                <li {{ if $active }}class="active" {{ end }}>
-                    <a href="{{ .URL }}" title="{{ .Name }}">
+                <li class="{{ if .HasChildren}}show-for-small-only{{end}} {{ if $active }} active{{ end }}">
+                    <a href="{{ .URL }}" {{ if $active }}aria-current="page" {{ end }}>
                         {{ .Name }}
                     </a>
                 </li>
-                {{ end }}
-            </ul>
             {{ end }}
-            </li>
+            {{ if .HasChildren }}
+                <li class="hide-for-small-only is-dropdown-submenu-parent {{ if $active }} active{{ end }}">
+                    <a href="{{ .URL }}" {{ if $active }}aria-current="page" {{ end }}>
+                        {{ .Name }}
+                    </a>
+                <ul class="vertical menu nested submenu">
+                    {{ range .Children }}
+                    {{ $active = eq .URL $currentPage.RelPermalink }}
+                    <li {{ if $active }}class="active" {{ end }}>
+                        <a href="{{ .URL }}" title="{{ .Name }}">
+                            {{ .Name }}
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+                </li>
+            {{ end }}
             {{ end }}
             <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
         </ul>
