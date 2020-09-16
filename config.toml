@@ -40,7 +40,7 @@ pygmentsStyle = "monokai"
     identifier = "portfolio"
     weight = 5
   [[menu.main]]
-    name = "Opensource"
+    name = "Open Source"
     url = "/opensource/"
     weight = 6
   [[menu.main]]
