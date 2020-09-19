@@ -13,7 +13,7 @@ ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
 defer stop()
 ```
 
-to control context cancelation using context, simplifying handling operating system signals in Go for certain common cases. This is my first contribution to the Go standard library, and I am very excited!
+to control context cancelation using Unix signals, simplifying handling operating system signals in Go for certain common cases. This is my first contribution to the Go standard library, and I am very excited!
 
 ## Why
 When writing <abbr title="command-line interface">CLI</abbr> code, I often needed to handle cancellation – for instance, when a user presses CTRL+C producing an interrupt signal. Another possible use case is to handle graceful termination of HTTP servers using `http.*Server.Shutdown(ctx)`.
