@@ -262,7 +262,7 @@
 <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">stop</span>()
 </code></pre></td></tr></table>
 </div>
-</div><p>to control context cancelation using context, simplifying handling operating system signals in Go for certain common cases. This is my first contribution to the Go standard library, and I am very excited!</p>
+</div><p>to control context cancelation using Unix signals, simplifying handling operating system signals in Go for certain common cases. This is my first contribution to the Go standard library, and I am very excited!</p>
 <h2 id="why">Why</h2>
 <p>When writing <abbr title="command-line interface">CLI</abbr> code, I often needed to handle cancellation – for instance, when a user presses CTRL+C producing an interrupt signal. Another possible use case is to handle graceful termination of HTTP servers using <code>http.*Server.Shutdown(ctx)</code>.</p>
 <p>I had to write code using the signal package often and in multiple places. I didn&rsquo;t want that, so I wrote the <a href="https://github.com/henvic/ctxsignal">ctxsignal</a> package to solve this common problem two years ago.</p>
