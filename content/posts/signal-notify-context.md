@@ -49,16 +49,16 @@ Please note that the second returned value of the `signal.NotifyContext` functio
 > The stop function unregisters the signal behavior, which, like signal.Reset, may restore the default behavior for a given signal.
 
 ## Timeline
-* I submitted a [proposal](https://github.com/golang/go/issues/37255) and [implementation](https://golang.org/cl/219640) on 17 February (as WithContext in the signal package)
-* After some discussions, a somewhat modified proposal was accepted on 1 April as a WithCancelSignal in the context package
-* It was moved back to the proposal stage on 15 April after some concerns were presented about having it in the context package
-* After more discussions, it was accepted again on 20 May as NotifyContext in the signal package
+* I submitted a [proposal](https://github.com/golang/go/issues/37255) and [implementation](https://golang.org/cl/219640) on 17 February (as WithContext in the signal package).
+* After some discussions, a somewhat modified proposal was accepted on 1 April as a WithCancelSignal in the context package.
+* It was moved back to the proposal stage on 15 April after some concerns were presented about having it in the context package.
+* After more discussions, it was accepted again on 20 May as NotifyContext in the signal package.
 * A couple of days ago, I restarted working on it.
-* Today it got merged and is available in the tip
-* [Go 1.16](https://tip.golang.org/doc/go1.16) is expected to be released in February
+* Today it got merged and is available [in the tip](https://tip.golang.org/pkg/os/signal/#NotifyContext).
+* [Go 1.16](https://tip.golang.org/doc/go1.16) is expected to be released in February.
 
 ## Other points
-* I delayed working on it and missed the Go 1.15 release due to its [code freeze window](https://github.com/golang/go/wiki/Go-Release-Cycle)
+* I delayed working on it and missed the Go 1.15 release due to its [code freeze window](https://github.com/golang/go/wiki/Go-Release-Cycle).
 * Go uses [Gerrit](https://www.gerritcodereview.com/) to track changes and code reviews.
 * I found Gerrit's patchsets better over GitHub's pull-requests to keep track of changes without losing context (pun intended).
 
