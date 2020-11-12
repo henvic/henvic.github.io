@@ -7,13 +7,13 @@ title: "Home"
       <h4>Highlights</h4>
       <ul>
         <li><a href="https://github.com/henvic/httpretty">httpretty</a></li>
-        <li><a href="http://localhost:1313/portfolio/#wedeploy">WeDeploy / Liferay Cloud CLI</a></li>
+        <li><a href="/portfolio/#wedeploy">WeDeploy / Liferay Cloud CLI</a></li>
         <li><a href="/posts/homelab">Homelab: Intel NUC with the ESXi hypervisor post</a></li>
         <li><a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a></li>
         <li><a href="https://github.com/henvic/pseudoterm">pseudoterm</a></li>
         <li><a href="https://github.com/henvic/picel">picel</a> (<a href="https://www.cin.ufpe.br/~tg/2017-2/hvop-tg.pdf">undergraduate work</a> based on it)</li>
-        <li><a href="http://localhost:1313/portfolio/#vehikel">Vehikel marketplace</a> (see <a href="https://www.youtube.com/watch?v=dML0FQIUcTY">video</a>)</li>
-        <li><a href="http://localhost:1313/portfolio/#plifk">Plifk file-sharing service</a></li>
+        <li><a href="/portfolio/#vehikel">Vehikel marketplace</a> (see <a href="https://www.youtube.com/watch?v=dML0FQIUcTY">video</a>)</li>
+        <li><a href="/portfolio/#plifk">Plifk file-sharing service</a></li>
         <li><a href="/talks">Talks</a></li>
         <li><a href="https://www.flickr.com/photos/henriquev">Photos</a>
       </ul>
