@@ -6,7 +6,17 @@
     <description>Recent content in Blog posts on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Environment variables, config, secrets, and globals</title>
+      <link>https://henvic.dev/posts/env/</link>
+      <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/env/</guid>
+      <description>At some point in time, perhaps with the advent of The Twelve-Factor App methodology, we saw new server-side applications moving from a file-based configuration to an environment variable configuration approach.
+Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories or in case of a directory traversal attack vulnerability.</description>
+    </item>
+    
     <item>
       <title>signal.NotifyContext: handling cancelation with Unix signals using context</title>
       <link>https://henvic.dev/posts/signal-notify-context/</link>

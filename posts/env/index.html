@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Environment variables, config, secrets, and globals | Henrique Vicente</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono|Comfortaa:300" rel="stylesheet">
+    <link rel="stylesheet" href="/css/foundation-icons.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/webicons/webicons.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/henvic.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta property="og:title" content="Environment variables, config, secrets, and globals | Henrique Vicente">
+    <meta name="twitter:title" content="Environment variables, config, secrets, and globals | Henrique Vicente" />
+    <meta property="og:url" content="https://henvic.dev/posts/env/">
+    
+    <meta name="description" content="Server-side applications are heavily relying on environment variables for holding configuration data, and even credentials like token and password. Is this a good idea?">
+    <meta property="og:description" content="Server-side applications are heavily relying on environment variables for holding configuration data, and even credentials like token and password. Is this a good idea?">
+    <meta name="twitter:description" content="Server-side applications are heavily relying on environment variables for holding configuration data, and even credentials like token and password. Is this a good idea?" />
+    
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2021-01-16">
+    
+    <meta property="twitter:url" content="https://henvic.dev/posts/env/">
+    
+    <meta name="og:image" content="https://henvic.dev/img/posts/env/airplane.jpg" />
+    <meta name="twitter:image" content="https://henvic.dev/img/posts/env/airplane.jpg" />
+    
+</head><body><div class="grid-y medium-grid-frame">
+        <nav class="title-bar show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title invisible">Menu</div>
+</nav>
+<nav class="top-bar" id="responsive-menu">
+    <div class="top-bar-right no-js">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
+            data-dropdown-menu data-smooth-scroll>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/" >
+                        Home
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/about/" >
+                        About me
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/posts/" >
+                        Blog posts
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/talks/" >
+                        Talks
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class="show-for-small-only ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                </li>
+            
+            
+                <li class="hide-for-small-only is-dropdown-submenu-parent ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                <ul class="vertical menu nested submenu">
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#httpretty" title="httpretty">
+                            httpretty
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#wedeploy" title="WeDeploy CLI Tool">
+                            WeDeploy CLI Tool
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#vehikel" title="Vehikel">
+                            Vehikel
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#tic-tac-toe" title="Tic-tac-toe">
+                            Tic-tac-toe
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#accidents" title="accidents">
+                            accidents
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#topostit" title="to-post.it">
+                            to-post.it
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#trazqueeupago" title="trazqueeupago.com">
+                            trazqueeupago.com
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#cahier" title="Cahier">
+                            Cahier
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#plifk" title="Plifk">
+                            Plifk
+                        </a>
+                    </li>
+                    
+                </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/opensource/" >
+                        Open Source
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/favorites/" >
+                        Favorites
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
+        </ul>
+    </div>
+</nav>
+
+        <div class="cell medium-auto medium-cell-block-container">
+            <div class="grid-x grid-padding-x">
+                <div class="nav cell large-3 medium-4 large-cell-block-y medium-cell-block-y"><div itemscope itemtype="http://schema.org/Person">
+    <div class="nav-card grid-x">
+        <div class="cell small-2 medium-12 nav-card-photo-cell">
+            <a href="/" itemprop="photo" class="nav-card-photo">
+                <img src="/img/me_at_gullfoss_cropped.jpg" alt="me at Gullfoss" width="549" height="549" />
+            </a>
+        </div>
+        <div class="cell card-section small-10 medium-12 medium-text-center">
+            <h4 itemprop="name">Henrique Vicente</h4>
+            <p>
+                <span itemprop="title">Software Engineer</span>
+            </p>
+        </div>
+    </div>
+    <ul class="nav-about-me no-bullet">
+        <li>
+            <p>I write Go daily at <a href="https://housinganywhere.com/" itemprop="affiliation">HousingAnywhere</a> in Rotterdam, The&nbsp;Netherlands.<br /><br />
+                I enjoy photography, drones, and traveling.</p>
+        </li>
+        <li>
+            <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
+                    class="space"></span>DFBD<span class="space"></span>257C<span class="space"></span>1575</a>
+        </li>
+    </ul>
+    <div class="menu-social">
+        <a class="webicon github" href="https://github.com/henvic">
+            GitHub
+        </a>
+        <a class="webicon twitter" href="https://twitter.com/henriquev">
+            Twitter
+        </a>
+        <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
+            Linkedin
+        </a>
+        <a class="webicon instagram" href="https://www.instagram.com/henvic/">
+            Instagram
+        </a>
+        <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
+            Flickr
+        </a>
+        <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
+            henriquevicente@gmail.com
+        </a>
+    </div>
+</div>
+</div>
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
+        <h1>Environment variables, config, secrets, and globals</h1>
+        
+        
+        <p class="post-date">Posted in <time class="stat" datetime="2021-01-16 00:00:00 &#43;0000 UTC"></time>Saturday, 16 January 2021</time>.</p>
+        
+        <p>At some point in time, perhaps with the advent of <a href="https://12factor.net/">The Twelve-Factor App</a> methodology, we saw new server-side applications moving from a file-based configuration to an environment variable configuration approach.</p>
+<p>Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories or in case of a <a href="https://en.wikipedia.org/wiki/Directory_traversal_attack">directory traversal attack</a> vulnerability.</p>
+<p>While these concerns might be worth considering, relying on environment variables doesn&rsquo;t come without risks either.</p>
+<p><strong>There is no magic way to keep secrets, secret without risks.</strong></p>
+<p>Whatever security model you decide to follow and whether you decide to use environment variables or otherwise, you should at least be aware of the points below.</p>
+<p><a data-flickr-embed="true" href="https://www.flickr.com/photos/henriquev/42847303541/in/dateposted-public/" title="Sólheimasandur DC-3 Plane Wreck"><img src="https://live.staticflickr.com/1753/42847303541_73c2267ed8_c.jpg" width="800" height="449" alt="Sólheimasandur DC-3 Plane Wreck"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<h2 id="dont-keep-secrets-on-your-code-repository">Don&rsquo;t keep secrets on your code repository</h2>
+<p>Application code should live in a repository separate from configuration data for your environments (production, staging, testing, etc.).</p>
+<p>You should also always consider that your code is a public asset available on the Internet, regardless if it is opensource or something you never intend to share with others. By having a strong separation of concerns, you can avoid a hassle down the road – regardless if you decide to open-source it one day or you need to rotate credentials because someone left your team.</p>
+<p>It might be the case that you want to have some sample configuration along with your application code. Don&rsquo;t reuse the same configuration data that gives you access to your environments or subsystems (internal or third-party).</p>
+<p>Some external services you use might provide a testing environment, and you might think it is okay to share that because you have nothing to hide. Don&rsquo;t do that. If for nothing else, think about the lost time you may incur if your tests start breaking because people elsewhere (maybe a former employee) might reuse your keys, making you end up with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429">Too Many Requests</a> HTTP errors due to rate limiting.</p>
+<h2 id="reducing-risk-with-cloud-services-and-integrations">Reducing risk with cloud services and integrations</h2>
+<p>Many developers and companies rely on services &ldquo;in the cloud&rdquo;. One of the biggest things now is Kubernetes.</p>
+<p>Let&rsquo;s suppose for a moment you&rsquo;re using Kubernetes <a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/">declaratively</a> – meaning you&rsquo;re maintaining configuration files to define the state of your systems. You might be versioning them with git, and using GitHub for a review/approval pipeline, and Continuous Integration to roll out a new release.</p>
+<p>If it is this case, your attack surface area includes at least:</p>
+<ul>
+<li>Your employees with direct access</li>
+<li>GitHub systems and their staff</li>
+<li>Continuous Integration service</li>
+<li>Third-party services with read-access to your private repositories</li>
+</ul>
+<p><strong>How to mitigate this risk?</strong>
+You&rsquo;ll want to have all your purportedly sensitive data encrypted.</p>
+<p>You also want to use a whitelist approach to grant permissions on your systems and audit them periodically.</p>
+<p><strong>What is sensitive?</strong>
+Tokens, passwords, credentials, private keys, SSH keys, etc.</p>
+<p>Hosts are not sensitive – &lsquo;til they are.</p>
+<p>Even though not widely used on the public web anymore (thankfully!), a URI scheme</p>
+<pre><code>scheme://userinfo@host/path?query#fragment
+</code></pre><p>might convey a <code>userinfo</code> field carrying a password or token – and trusting on our memory to never do this is unreliable.</p>
+<p><strong>What if I encrypt everything on the configuration repository?</strong>
+It might work great from a security perspective, although it might doom the developers&rsquo; code review process.</p>
+<h2 id="what-about-environment-variables">What about environment variables?</h2>
+<p>Given all I said above, it might appear that relying on environment variables is indeed the best you can do. Don&rsquo;t hurry to this conclusion just yet.</p>
+<p>First of all, environment variables need to be stored somewhere that isn&rsquo;t ephemeral. The protection you need to take to keep secrets on them safely is similar to the precautions you&rsquo;d need anyway if using regular configuration files.</p>
+<p>However, it is easier to overlook a series of security risks involving environment variables.</p>
+<h3 id="globals">Globals</h3>
+<p>If you use environment variables for configuration, where do you use them on your code? Is it on the functions you need to use their values? On a configuration package? Either way, you&rsquo;re relying on your application&rsquo;s global state, and your life might get miserable because this is hard to keep track of.</p>
+<p><strong>It is easier to maintain and audit code if you don&rsquo;t have to worry about globals.</strong></p>
+<h3 id="child-processes">Child processes</h3>
+<p>Take this Go code, for example:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;log&#34;</span>
+	<span style="color:#e6db74">&#34;os&#34;</span>
+	<span style="color:#e6db74">&#34;os/exec&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">cmd</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">exec</span>.<span style="color:#a6e22e">Command</span>(<span style="color:#e6db74">&#34;env&#34;</span>)
+	<span style="color:#a6e22e">cmd</span>.<span style="color:#a6e22e">Stdout</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdout</span>
+	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Running command and waiting for it to finish...&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cmd</span>.<span style="color:#a6e22e">Run</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;Command finished with error: %v\n&#34;</span>, <span style="color:#a6e22e">err</span>)
+	}
+}
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>What does this code do?</strong></p>
+<p>If you open the code for <a href="https://golang.org/pkg/os/exec/#Cmd.Run">Run</a>, you&rsquo;ll see it&rsquo;s going to call <code>cmd.Start()</code>, which, in essence, <a href="https://github.com/golang/go/blob/e0c3ded337e95ded40eb401e7d9e74716e3a445f/src/os/exec/exec.go#L422-L432">fork a new process</a> using a low-level <a href="https://golang.org/pkg/os/#StartProcess">os.StartProcess</a> API:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Process</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">StartProcess</span>(<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Path</span>, <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">argv</span>(), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">ProcAttr</span>{
+	<span style="color:#a6e22e">Dir</span>:   <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Dir</span>, <span style="color:#75715e">// Inheriting working directory.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Files</span>: <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">childFiles</span>,
+	<span style="color:#a6e22e">Env</span>:   <span style="color:#a6e22e">addCriticalEnv</span>(<span style="color:#a6e22e">dedupEnv</span>(<span style="color:#a6e22e">envv</span>)),
+	<span style="color:#a6e22e">Sys</span>:   <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">SysProcAttr</span>,
+})
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">closeDescriptors</span>(<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">closeAfterStart</span>)
+	<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">closeDescriptors</span>(<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">closeAfterWait</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>By default, <code>cmd.Env</code> (slice of key=value pairs) field will be <code>nil</code> when not explicitly initialized. In this case, <code>c.envv()</code> copies the environment variable from the parent process similarly to passing <code>cmd.Env = syscall.Environ()</code> (except on Windows, where it does slightly more).</p>
+<p>If you run this <a href="https://play.golang.org/p/UVYbqhK6Auv">code in the Go Playground</a>, you&rsquo;ll get something like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-txt" data-lang="txt">2009/11/10 23:00:00 Running command and waiting for it to finish...
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=84682c8aa3aa
+
+Program exited.
+</code></pre></td></tr></table>
+</div>
+</div><p>You should expect a similar result on any other language, as inheriting environment variables on child process is the desired default behavior when they are not explicitly set. In other words, <strong>environment variables leak easily</strong> when spawning child processes.</p>
+<p>Maybe you don&rsquo;t call any external process yourself, but are you sure no library you depend on does it? Are you sure no one will ever really add an external call on future changes?</p>
+<div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
+<h3 id="a-safer-way-of-using-environment-variables">A safer way of using environment variables?</h3>
+<p>Yes, environment variables are globals. The good (?) news is that you can set and unset them during execution.</p>
+<p>If you decide to use environment variables for configuration, you might want to read them on your main package and unset their values immediately afterward.</p>
+<p>In Go, this might translate into something along the lines of:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#75715e">// Your imports...
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">cfg</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">loadEnv</span>()
+	<span style="color:#75715e">// From now, on you cannot use
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// os.Getenv(&#34;CLOUD_PROVIDER_TOKEN&#34;)
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// anymore as it was unset.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">application</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">cfg</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+}
+
+<span style="color:#75715e">// loadEnv variables used on the application configuration,
+</span><span style="color:#75715e">// and unsets them so that no one can use them directly as globals elsewhere on your code.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">loadEnv</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">Settings</span> {
+	<span style="color:#75715e">// Defer clean up calls to just after loadEnv returns.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Unsetenv</span>(<span style="color:#e6db74">&#34;CLOUD_PROVIDER_TOKEN&#34;</span>)
+		<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Unsetenv</span>(<span style="color:#e6db74">&#34;TWITTER_TOKEN&#34;</span>)
+	}()
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">Settings</span>{
+		<span style="color:#a6e22e">StorageToken</span>: <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;CLOUD_PROVIDER_TOKEN&#34;</span>),
+		<span style="color:#a6e22e">TwitterToken</span>: <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;TWITTER_TOKEN&#34;</span>),
+	}
+}
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Possible complications:</strong></p>
+<ul>
+<li>A library might depend on an environment variable, and you won&rsquo;t be able to unset it.</li>
+<li>You might end up unsetting something that shouldn&rsquo;t be unset (for argument&rsquo;s sake, think PATH environment variables).</li>
+</ul>
+<p>Also, who guarantees that new contributions are going to follow this pattern consistently? In the end, it&rsquo;d likely just add to the burden code reviewers already have, right?</p>
+<p>Static code analysis might do this automagically, but who has the time to write one to do so and decide how to deal with the number of possibilities regarding false positives, false negatives, opt-in, opt-out approaches when you could avoid this hassle by using a configuration file?</p>
+<blockquote>
+<p>An alternative to this is to make sure you purge any secrets from your child processes environment variables when initializing them, but this might not be feasible, as already discussed.</p>
+</blockquote>
+<h3 id="use-environment-variables-to-point-to-where-secrets-live">Use environment variables to point to where secrets live</h3>
+<p><a href="https://cloud.google.com/docs/authentication/getting-started">Google</a>, <a href="https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html">AWS</a>, <a href="https://docs.microsoft.com/en-us/azure/developer/go/azure-sdk-authorization">Microsoft</a> Software Development Kits (SDK) all provide a way for you to authenticate with their client libraries using a credentials file.</p>
+<p>For example, Google uses the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable to point to a credentials file by default. Important: this is not security by obfuscation because the likelihood of a credentials file leaking somewhere is smaller than an environment variable leaking.</p>
+<p><strong>Why is that?</strong> The most overlooked problem with credentials in environment variables from the point of view of security is that it is too easy to leak in several ways, such as via a debugging probe or child process.</p>
+<h3 id="please-no-secrets-on-flags">Please, no secrets on flags!</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ ps u
+USER     PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND
+henvic <span style="color:#ae81ff">90558</span>   0.0  0.4  <span style="color:#ae81ff">5302364</span>  <span style="color:#ae81ff">63552</span> s007  S+   Sat03AM   5:31.65 app serve -token th1s-is-4wful
+</code></pre></td></tr></table>
+</div>
+</div><p>Running a virtual server is cheap nowadays, so most likely, you are not using a shared hosting system where many tenants share a single machine without proper isolation unless you live in the past.</p>
+<p>Back in the 1990s to 2000s, it was quite common to pay for a multi-tenant machine on a web hosting service where you could create a database, PHP or Perl application, and so on, controlling everything via <a href="https://en.wikipedia.org/wiki/CPanel">cPanel</a> and SSH.</p>
+<p>Serious security issues appeared day and night because the separation between users was still primitive. Any security bug used to have vast consequences (a malicious attacker would usually pay for an account on your web hosting company and run exploits from the host machine).</p>
+<p>Containers, virtual machines, and Unix jails mean that security issues that haunted multitenancy systems in the past are mostly gone. Still, we continue to use third-party monitoring tools to watch our operating system metrics and processes and page or ping us in case of problems. If environment variables might leak with these, flags are even way more likely to leak as well.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You&rsquo;ve to consider the trade-offs of each approach and choose what works for you carefully. I like to keep things simple and have the configuration for my applications living in a separate and well-protected repository.</p>
+<p>Oh, if you&rsquo;re using Kubernetes, you can
+<a href="https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod">use secrets as files from a pod</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html">OWASP Cheat Sheet: Authentication</a></li>
+<li><a href="https://amzn.to/3swOApT">Modern Operating Systems, Andrew S. Tanenbaum</a></li>
+<li><a href="https://xkcd.com/386/">xkcd: Duty Calls</a></li>
+</ul>
+<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
+<p>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</p>
+
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="Environment variables, config, secrets, and globals" data-url="https://henvic.dev/posts/env/" data-via="henriquev"
+                        data-hashtags="unix,env,config,secrets"  data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</article>
+
+            </div>
+        </div>
+    </div>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-43519325-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script src="/js/vendor/modernizr-custom-svg.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/foundation.min.js"></script>
+<script>
+        $(document).ready(function () {
+                $(document).foundation();
+        });
+</script>
+</body>
+</html>
