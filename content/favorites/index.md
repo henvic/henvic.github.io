@@ -57,6 +57,7 @@ kind: list
 * [Blog @ tonsky.me](https://tonsky.me)
 * [Bartosz Ciechanowski](https://ciechanow.ski/)
 * [Hacker News - Y Combinator](https://news.ycombinator.com/)
+* [Photography Life](https://photographylife.com/)
 
 <hr />
 
@@ -108,12 +109,17 @@ kind: list
 * [Spotify Engineering Culture - Part 1](https://www.youtube.com/watch?v=Yvfz4HGtoPc)
 * [Spotify Engineering Culture - Part 2](https://www.youtube.com/watch?v=vOt4BbWLWQw)
 * [Computational Photography: From Selfies to Black Holes](https://vas3k.com/blog/computational_photography/)
+* [Bartosz Ciechanowski](https://ciechanow.ski/) (really interesting physics articles)
+* [Awesome Go Interview Questions and Answers](https://goquiz.github.io/)
+* [The System Design Primer](https://github.com/donnemartin/system-design-primer)
+* [awesome-scalability](https://github.com/binhnguyennus/awesome-scalability)
 
 <hr />
 
 ## Conferences
 ### I attended
-* [GopherCon](https://www.gophercon.com/) 2017, 2018, and 2019
+* [FOSDEM](https://fosdem.org/) 2020
+* [GopherCon](https://www.gophercon.com/) 2017, 2018, 2019, and 2020
 * [GopherCon Iceland 2018](https://gophercon.is/)
 * [GopherCon Brasil](https://gopherconbr.org/) editions
 [2016](https://2016.gopherconbr.org/), and
