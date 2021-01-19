@@ -62,7 +62,7 @@ might convey a `userinfo` field carrying a password or token – and to trust yo
 It might work great from a security perspective, although it might doom the developers' code review process.
 
 ## What about environment variables?
-Given all I said above, it might appear that relying on environment variables is indeed the best you can do. Don't hurry to this conclusion just yet.
+Given all I said above, it might appear that relying on environment variables is indeed the best you can do. Don't rush to conclusions just yet.
 
 First of all, environment variables need to be stored somewhere that isn't ephemeral. The protection you need to take to keep secrets on them safely is similar to the precautions you'd need anyway if using regular configuration files.
 
