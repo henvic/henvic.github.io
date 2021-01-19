@@ -259,18 +259,18 @@
 <p><a data-flickr-embed="true" href="https://www.flickr.com/photos/henriquev/42847303541/in/dateposted-public/" title="Sólheimasandur DC-3 Plane Wreck"><img src="https://live.staticflickr.com/1753/42847303541_73c2267ed8_c.jpg" width="800" height="449" alt="Sólheimasandur DC-3 Plane Wreck"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 <h2 id="dont-keep-secrets-on-your-code-repository">Don&rsquo;t keep secrets on your code repository</h2>
 <p>Application code should live in a repository separate from configuration data for your environments (production, staging, testing, etc.).</p>
-<p>You should also always consider that your code is a public asset available on the Internet, regardless if it is opensource or something you never intend to share with others. By having a strong separation of concerns, you can avoid a hassle down the road – regardless if you decide to open-source it one day or you need to rotate credentials because someone left your team.</p>
+<p>You should also always consider that your code is a public asset available on the Internet, regardless if it is open source or something you never intend to share with others. By having a strong separation of concerns, you can avoid a hassle down the road – regardless if you decide to open source it one day or you need to rotate credentials because someone left your team.</p>
 <p>It might be the case that you want to have some sample configuration along with your application code. Don&rsquo;t reuse the same configuration data that gives you access to your environments or subsystems (internal or third-party).</p>
 <p>Some external services you use might provide a testing environment, and you might think it is okay to share that because you have nothing to hide. Don&rsquo;t do that. If for nothing else, think about the lost time you may incur if your tests start breaking because people elsewhere (maybe a former employee) might reuse your keys, making you end up with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429">Too Many Requests</a> HTTP errors due to rate limiting.</p>
 <h2 id="reducing-risk-with-cloud-services-and-integrations">Reducing risk with cloud services and integrations</h2>
 <p>Many developers and companies rely on services &ldquo;in the cloud&rdquo;. One of the biggest things now is Kubernetes.</p>
 <p>Let&rsquo;s suppose for a moment you&rsquo;re using Kubernetes <a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/">declaratively</a> – meaning you&rsquo;re maintaining configuration files to define the state of your systems. You might be versioning them with git, and using GitHub for a review/approval pipeline, and Continuous Integration to roll out a new release.</p>
-<p>If it is this case, your attack surface area includes at least:</p>
+<p>In this case, your attack surface area includes at least:</p>
 <ul>
-<li>Your employees with direct access</li>
-<li>GitHub systems and their staff</li>
-<li>Continuous Integration service</li>
-<li>Third-party services with read-access to your private repositories</li>
+<li>Your employees with direct access.</li>
+<li>GitHub systems and their staff.</li>
+<li>Continuous Integration service.</li>
+<li>Third-party services with read-access to your private repositories.</li>
 </ul>
 <p><strong>How to mitigate this risk?</strong>
 You&rsquo;ll want to have all your purportedly sensitive data encrypted.</p>
@@ -279,8 +279,8 @@ You&rsquo;ll want to have all your purportedly sensitive data encrypted.</p>
 Tokens, passwords, credentials, private keys, SSH keys, etc.</p>
 <p>Hosts are not sensitive – &lsquo;til they are.</p>
 <p>Even though not widely used on the public web anymore (thankfully!), a URI scheme</p>
-<pre><code>scheme://userinfo@host/path?query#fragment
-</code></pre><p>might convey a <code>userinfo</code> field carrying a password or token – and trusting on our memory to never do this is unreliable.</p>
+<p><code>scheme://userinfo@host/path?query#fragment</code></p>
+<p>might convey a <code>userinfo</code> field carrying a password or token – and to trust your memory to never do this is unreliable.</p>
 <p><strong>What if I encrypt everything on the configuration repository?</strong>
 It might work great from a security perspective, although it might doom the developers&rsquo; code review process.</p>
 <h2 id="what-about-environment-variables">What about environment variables?</h2>
@@ -412,8 +412,6 @@ Program exited.
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
@@ -422,9 +420,7 @@ Program exited.
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 	<span style="color:#a6e22e">cfg</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">loadEnv</span>()
-	<span style="color:#75715e">// From now, on you cannot use
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// os.Getenv(&#34;CLOUD_PROVIDER_TOKEN&#34;)
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// anymore as it was unset.
+	<span style="color:#75715e">// From now on, you cannot use os.Getenv(&#34;CLOUD_PROVIDER_TOKEN&#34;) anymore as it was unset.
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">application</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">cfg</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
 		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
@@ -448,12 +444,12 @@ Program exited.
 </div><p><strong>Possible complications:</strong></p>
 <ul>
 <li>A library might depend on an environment variable, and you won&rsquo;t be able to unset it.</li>
-<li>You might end up unsetting something that shouldn&rsquo;t be unset (for argument&rsquo;s sake, think PATH environment variables).</li>
+<li>You might end up unsetting something that shouldn&rsquo;t be unset (for argument&rsquo;s sake, consider the <code>$PATH</code> environment variable).</li>
 </ul>
 <p>Also, who guarantees that new contributions are going to follow this pattern consistently? In the end, it&rsquo;d likely just add to the burden code reviewers already have, right?</p>
 <p>Static code analysis might do this automagically, but who has the time to write one to do so and decide how to deal with the number of possibilities regarding false positives, false negatives, opt-in, opt-out approaches when you could avoid this hassle by using a configuration file?</p>
 <blockquote>
-<p>An alternative to this is to make sure you purge any secrets from your child processes environment variables when initializing them, but this might not be feasible, as already discussed.</p>
+<p>An alternative to this is to make sure you purge any secrets from your child processes environment variables when initializing them, but this might not be feasible everywhere.</p>
 </blockquote>
 <h3 id="use-environment-variables-to-point-to-where-secrets-live">Use environment variables to point to where secrets live</h3>
 <p><a href="https://cloud.google.com/docs/authentication/getting-started">Google</a>, <a href="https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html">AWS</a>, <a href="https://docs.microsoft.com/en-us/azure/developer/go/azure-sdk-authorization">Microsoft</a> Software Development Kits (SDK) all provide a way for you to authenticate with their client libraries using a credentials file.</p>
@@ -477,7 +473,11 @@ henvic <span style="color:#ae81ff">90558</span>   0.0  0.4  <span style="color:#
 <p>Serious security issues appeared day and night because the separation between users was still primitive. Any security bug used to have vast consequences (a malicious attacker would usually pay for an account on your web hosting company and run exploits from the host machine).</p>
 <p>Containers, virtual machines, and Unix jails mean that security issues that haunted multitenancy systems in the past are mostly gone. Still, we continue to use third-party monitoring tools to watch our operating system metrics and processes and page or ping us in case of problems. If environment variables might leak with these, flags are even way more likely to leak as well.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>You&rsquo;ve to consider the trade-offs of each approach and choose what works for you carefully. I like to keep things simple and have the configuration for my applications living in a separate and well-protected repository.</p>
+<p>Consider the trade-offs of each approach and choose what works for you carefully. I like to keep things simple and have the configuration for my applications living in a separate and well-protected repository.</p>
+<ul>
+<li>If you choose environment variables, try to minimize the risk of unintended globals propagation.</li>
+<li>If you choose files, make sure you don&rsquo;t expose them to the outside world unintentionally, and set &amp; check for proper file-system <a href="https://en.wikipedia.org/wiki/File-system_permissions">permissions</a> (or access rights).</li>
+</ul>
 <p>Oh, if you&rsquo;re using Kubernetes, you can
 <a href="https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod">use secrets as files from a pod</a>.</p>
 <h2 id="references">References</h2>
