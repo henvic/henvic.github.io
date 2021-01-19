@@ -22,7 +22,7 @@ Whatever security model you decide to follow and whether you decide to use envir
 ## Don't keep secrets on your code repository
 Application code should live in a repository separate from configuration data for your environments (production, staging, testing, etc.).
 
-You should also always consider that your code is a public asset available on the Internet, regardless if it is opensource or something you never intend to share with others. By having a strong separation of concerns, you can avoid a hassle down the road – regardless if you decide to open-source it one day or you need to rotate credentials because someone left your team.
+You should also always consider that your code is a public asset available on the Internet, regardless if it is open source or something you never intend to share with others. By having a strong separation of concerns, you can avoid a hassle down the road – regardless if you decide to open source it one day or you need to rotate credentials because someone left your team.
 
 It might be the case that you want to have some sample configuration along with your application code. Don't reuse the same configuration data that gives you access to your environments or subsystems (internal or third-party).
 
@@ -33,12 +33,12 @@ Many developers and companies rely on services "in the cloud". One of the bigges
 
 Let's suppose for a moment you're using Kubernetes [declaratively](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/) – meaning you're maintaining configuration files to define the state of your systems. You might be versioning them with git, and using GitHub for a review/approval pipeline, and Continuous Integration to roll out a new release.
 
-If it is this case, your attack surface area includes at least:
+In this case, your attack surface area includes at least:
 
-* Your employees with direct access
-* GitHub systems and their staff
-* Continuous Integration service
-* Third-party services with read-access to your private repositories
+* Your employees with direct access.
+* GitHub systems and their staff.
+* Continuous Integration service.
+* Third-party services with read-access to your private repositories.
 
 **How to mitigate this risk?**
 You'll want to have all your purportedly sensitive data encrypted.
@@ -52,11 +52,11 @@ Hosts are not sensitive – 'til they are.
 
 Even though not widely used on the public web anymore (thankfully!), a URI scheme
 
-```
+`
 scheme://userinfo@host/path?query#fragment
-```
+`
 
-might convey a `userinfo` field carrying a password or token – and trusting on our memory to never do this is unreliable.
+might convey a `userinfo` field carrying a password or token – and to trust your memory to never do this is unreliable.
 
 **What if I encrypt everything on the configuration repository?**
 It might work great from a security perspective, although it might doom the developers' code review process.
@@ -145,9 +145,7 @@ package main
 
 func main() {
 	cfg := loadEnv()
-	// From now, on you cannot use
-	// os.Getenv("CLOUD_PROVIDER_TOKEN")
-	// anymore as it was unset.
+	// From now on, you cannot use os.Getenv("CLOUD_PROVIDER_TOKEN") anymore as it was unset.
 	if err := application.Run(context.Background(), cfg); err != nil {
 		log.Fatal(err)
 	}
@@ -171,13 +169,13 @@ func loadEnv() *config.Settings {
 **Possible complications:**
 
 * A library might depend on an environment variable, and you won't be able to unset it.
-* You might end up unsetting something that shouldn't be unset (for argument's sake, think PATH environment variables).
+* You might end up unsetting something that shouldn't be unset (for argument's sake, consider the `$PATH` environment variable).
 
 Also, who guarantees that new contributions are going to follow this pattern consistently? In the end, it'd likely just add to the burden code reviewers already have, right?
 
 Static code analysis might do this automagically, but who has the time to write one to do so and decide how to deal with the number of possibilities regarding false positives, false negatives, opt-in, opt-out approaches when you could avoid this hassle by using a configuration file?
 
-> An alternative to this is to make sure you purge any secrets from your child processes environment variables when initializing them, but this might not be feasible, as already discussed.
+> An alternative to this is to make sure you purge any secrets from your child processes environment variables when initializing them, but this might not be feasible everywhere.
 
 ### Use environment variables to point to where secrets live
 [Google](https://cloud.google.com/docs/authentication/getting-started), [AWS](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html), [Microsoft](https://docs.microsoft.com/en-us/azure/developer/go/azure-sdk-authorization) Software Development Kits (SDK) all provide a way for you to authenticate with their client libraries using a credentials file.
@@ -203,7 +201,10 @@ Serious security issues appeared day and night because the separation between us
 Containers, virtual machines, and Unix jails mean that security issues that haunted multitenancy systems in the past are mostly gone. Still, we continue to use third-party monitoring tools to watch our operating system metrics and processes and page or ping us in case of problems. If environment variables might leak with these, flags are even way more likely to leak as well.
 
 ## Conclusion
-You've to consider the trade-offs of each approach and choose what works for you carefully. I like to keep things simple and have the configuration for my applications living in a separate and well-protected repository.
+Consider the trade-offs of each approach and choose what works for you carefully. I like to keep things simple and have the configuration for my applications living in a separate and well-protected repository.
+
+* If you choose environment variables, try to minimize the risk of unintended globals propagation.
+* If you choose files, make sure you don't expose them to the outside world unintentionally, and set & check for proper file-system [permissions](https://en.wikipedia.org/wiki/File-system_permissions) (or access rights).
 
 Oh, if you're using Kubernetes, you can
 [use secrets as files from a pod](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod).
