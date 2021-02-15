@@ -9,9 +9,9 @@ hashtags: "unix,env,config,secrets"
 
 At some point in time, perhaps with the advent of [The Twelve-Factor App](https://12factor.net/) methodology, we saw new server-side applications moving from a file-based configuration to an environment variable configuration approach.
 
-Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories or in case of a [directory traversal attack](https://en.wikipedia.org/wiki/Directory_traversal_attack) vulnerability.
+Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories, or in case of a [directory traversal attack](https://en.wikipedia.org/wiki/Directory_traversal_attack) vulnerability.
 
-While these concerns might be worth considering, relying on environment variables doesn't come without risks either.
+While these concerns might be worth considering, relying on environment variables doesn't come without risks.
 
 **There is no magic way to keep secrets, secret without risks.**
 
@@ -26,7 +26,7 @@ You should also always consider that your code is a public asset available on th
 
 It might be the case that you want to have some sample configuration along with your application code. Don't reuse the same configuration data that gives you access to your environments or subsystems (internal or third-party).
 
-Some external services you use might provide a testing environment, and you might think it is okay to share that because you have nothing to hide. Don't do that. If for nothing else, think about the lost time you may incur if your tests start breaking because people elsewhere (maybe a former employee) might reuse your keys, making you end up with [Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) HTTP errors due to rate limiting.
+Some external services you use might provide a testing environment, and you might think it is okay to share that because you have nothing to hide. Don't do that! If for nothing else, think about the lost time you may incur if your tests start breaking because people elsewhere (maybe a former employee) might reuse your keys, making you end up with [Too Many Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) HTTP errors due to rate limiting.
 
 ## Reducing risk with cloud services and integrations
 Many developers and companies rely on services "in the cloud". One of the biggest things now is Kubernetes.
