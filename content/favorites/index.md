@@ -25,6 +25,7 @@ kind: list
 * [Tom Woods](https://tomwoods.com)
 * [Foundation for Economic Education](https://fee.org)
 * [The Online Library of Liberty](https://oll.libertyfund.org)
+* [WTF Happened In 1971?](https://wtfhappenedin1971.com/)
 
 <hr />
 
@@ -95,6 +96,7 @@ kind: list
 * [FIRST - Common Vulnerability Scoring System SIG](https://www.first.org/cvss/)
 * [CERT Vulnerability Notes Database](https://www.kb.cert.org/vuls/)
 * [National Vulnerability Database](https://nvd.nist.gov)
+* [JSON-to-Go](https://mholt.github.io/json-to-go/)
 
 <hr />
 
