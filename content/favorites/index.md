@@ -3,6 +3,7 @@ title: "Favorites"
 kind: list
 ---
 
+{{< table_of_contents >}}
 ## Books
 
 ### Technology

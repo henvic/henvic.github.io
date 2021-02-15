@@ -1,0 +1,7 @@
+{{ if gt (len .Page.TableOfContents) 0 }}
+<aside class="toc">
+    <dl>
+        <dt>Table of Contents</dt>
+        <dd>{{ .Page.TableOfContents }}</dd>
+</aside>
+{{ end }}

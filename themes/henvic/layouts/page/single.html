@@ -1,13 +1,6 @@
 {{ define "main" }}
 <article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y page-main main">
     <h1>{{ .Title }}</h1>
-    {{ if gt (len .TableOfContents) 0 }}
-    <aside class="toc">
-        <dl>
-            <dt>Table of Contents</dt>
-            <dd>{{ .TableOfContents }}</dd>
-    </aside>
-    {{ end }}
     {{ .Content }}
 </article>
 {{ end }}

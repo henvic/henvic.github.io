@@ -251,11 +251,6 @@ pre, samp, code, kbd {
     margin-bottom: 1rem;
 }
 
-.toc nav > ul {
-    margin-left: 0 !important;
-    list-style: none !important;
-}
-
-.toc nav > ul li > ul li > ul {
-    display: none;
+.toc li, .toc a {
+    color: #333;
 }
