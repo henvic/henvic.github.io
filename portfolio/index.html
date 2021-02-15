@@ -211,8 +211,9 @@
     </div>
     <ul class="nav-about-me no-bullet">
         <li>
-            <p>I write Go daily at <a href="https://housinganywhere.com/" itemprop="affiliation">HousingAnywhere</a> in Rotterdam, The&nbsp;Netherlands.<br /><br />
-                I enjoy photography, drones, and traveling.</p>
+            <p>I'm a Software Engineer from Brazil. I live in the Netherlands, and I work for the fashion industry at <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
+                working on a Digital Showroom for wholesale fashion brands (such as Tommy Hilfiger and Calvin Klein).<br /><br />
+                I mostly use the amazing Go programming language. I enjoy photography, drones, and traveling.</p>
         </li>
         <li>
             <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
@@ -243,7 +244,6 @@
 </div>
 <article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y page-main main">
     <h1>Portfolio</h1>
-    
     <ul>
     <li>
         <h2 id="httpretty">httpretty</h2>
@@ -277,21 +277,27 @@
         <time datetime="2020-02-02"><span>Released</span> Sunday, 2 February 2020</time>
     </li>
     <li>
-        <h2 id="wedeploy">WeDeploy Command-Line Interface Tool</h2>
+        <h2 id="wedeploy">WeDeploy and Liferay DXP Cloud CLI Tool</h2>
         <div class="grid-x">
             <div class="cell large-7">
                 <p>
-                    I designed, implemented <em>we</em> in <a href="https://www.golang.org/">Go</a>, and maintained it.
-                    I also contributed to other areas of the whole project. Now, WeDeploy is being phased out, and
-                    <a href="https://www.liferay.com/products/dxp-cloud">Liferay DXP Cloud</a> is taking its place.
-                    The CLI tool is going to stay, but it is to be rebranded.
+                    I designed, implemented, and maintained the original CLI tool for WeDeploy and Liferay DXP Cloud.
+                    <em>we</em> was wrote in <a href="https://www.golang.org/">Go</a>, and later renamed as </em>lcp</em>
+                    when WeDeploy was phased out when Liferay decided to focus on its successor,
+                    <a href="https://www.liferay.com/products/dxp-cloud">Liferay DXP Cloud</a>.
                 </p>
                 <p>
-                    Two things I enjoyed building are the shell access over socket.io (which introduced me to reverse
-                    engineering in the real world) and adapting <em>git</em> to work as a reliable transport layer for our
-                    deployment system.
+                    I also collaborated on other parts of the projects, such as on planning the Docker Swarm to Kubernetes migration and
+                    writing the <a href="https://github.com/henvic/kubeapply">kubeapply</a> microservice.
                 </p>
-                <p>I also built an interesting telemetry system for collecting diagnostics and anonymized metrics from our users (<a href="https://github.com/henvic/climetrics">climetrics</a>).</p>
+                <p>
+                    The CLI tool project had many interesting aspects, such as:
+                    <ul>
+                        <li>Used <em>git</em> as a reliable transport layer after using tar deployment packages manually turned out to be suboptimal.</li>
+                        <li>Remote shell access over WebSocket with socket.io to permit our users to execute commands inside their containers (this required reverse engineering of the socket.io protocol due to lack of a formal specification).</li>
+                        <li>I built a telemetry system for collecting diagnostics and anonymized usage metrics from our users (<a href="https://github.com/henvic/climetrics">climetrics</a>).</li>
+                    </ul>
+                </p>
             </div>
             <div class="cell large-5">
                 <img src="/img/wedeploy-screenshot.png" alt="WeDeploy's screenshot" />

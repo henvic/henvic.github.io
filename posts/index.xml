@@ -14,7 +14,7 @@
       
       <guid>https://henvic.dev/posts/env/</guid>
       <description>At some point in time, perhaps with the advent of The Twelve-Factor App methodology, we saw new server-side applications moving from a file-based configuration to an environment variable configuration approach.
-Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories or in case of a directory traversal attack vulnerability.</description>
+Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories, or in case of a directory traversal attack vulnerability.</description>
     </item>
     
     <item>

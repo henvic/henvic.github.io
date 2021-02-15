@@ -14,7 +14,7 @@
       
       <guid>https://henvic.dev/posts/env/</guid>
       <description>At some point in time, perhaps with the advent of The Twelve-Factor App methodology, we saw new server-side applications moving from a file-based configuration to an environment variable configuration approach.
-Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories or in case of a directory traversal attack vulnerability.</description>
+Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories, or in case of a directory traversal attack vulnerability.</description>
     </item>
     
     <item>
@@ -77,7 +77,7 @@ Here&amp;rsquo;s I discuss what everyone should be doing about distributing soft
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.dev/favorites/</guid>
-      <description>Books Technology  Inviting Disaster: Lessons from the edge of technology - James R. Chiles Normal Accidents: Living with High-Risk Technology - Charles Perrow The Unix Programming Environment The Art Of Unix Programming - Eric S. Raymond Do No Harm: Stories of Life, Death, and Brain Surgery - Henry Marsh Clean Code: A Handbook of Agile Software Craftsmanship  Free markets, libertarianism  The Bastiat Collection (contains both works below) That Which Is Seen, and That Which Is Not Seen - Frédéric Bastiat The Law - Frédéric Bastiat The Production of Security - Gustave de Molinari The Tuttle Twins (books for educating children with a foundation of liberty) Econlib - The Library of Economics and Liberty Against Intellectual Property - Stephen Kinsella Tom Woods Foundation for Economic Education The Online Library of Liberty  Programming  Go Proverbs What Every Computer Scientist Should Know About Floating-Point Arithmetic A Tour of Go Hypertext Transfer Protocol &amp;ndash; HTTP/1.</description>
+      <description>Table of Contents  Books  Technology Free markets, libertarianism   Programming Blogs Resources Miscellaneous Conferences  I attended I am interested in attending in the future   Travel    Books Technology  Inviting Disaster: Lessons from the edge of technology - James R. Chiles Normal Accidents: Living with High-Risk Technology - Charles Perrow The Unix Programming Environment The Art Of Unix Programming - Eric S.</description>
     </item>
     
     <item>

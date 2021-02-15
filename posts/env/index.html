@@ -215,8 +215,9 @@
     </div>
     <ul class="nav-about-me no-bullet">
         <li>
-            <p>I write Go daily at <a href="https://housinganywhere.com/" itemprop="affiliation">HousingAnywhere</a> in Rotterdam, The&nbsp;Netherlands.<br /><br />
-                I enjoy photography, drones, and traveling.</p>
+            <p>I'm a Software Engineer from Brazil. I live in the Netherlands, and I work for the fashion industry at <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
+                working on a Digital Showroom for wholesale fashion brands (such as Tommy Hilfiger and Calvin Klein).<br /><br />
+                I mostly use the amazing Go programming language. I enjoy photography, drones, and traveling.</p>
         </li>
         <li>
             <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
@@ -252,8 +253,8 @@
         <p class="post-date">Posted in <time class="stat" datetime="2021-01-16 00:00:00 &#43;0000 UTC"></time>Saturday, 16 January 2021</time>.</p>
         
         <p>At some point in time, perhaps with the advent of <a href="https://12factor.net/">The Twelve-Factor App</a> methodology, we saw new server-side applications moving from a file-based configuration to an environment variable configuration approach.</p>
-<p>Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories or in case of a <a href="https://en.wikipedia.org/wiki/Directory_traversal_attack">directory traversal attack</a> vulnerability.</p>
-<p>While these concerns might be worth considering, relying on environment variables doesn&rsquo;t come without risks either.</p>
+<p>Many developers like to use environment variables for credentials because they are ephemeral. By relying on them, you might avoid leaking credentials on the web by accidentally checking them on public repositories, or in case of a <a href="https://en.wikipedia.org/wiki/Directory_traversal_attack">directory traversal attack</a> vulnerability.</p>
+<p>While these concerns might be worth considering, relying on environment variables doesn&rsquo;t come without risks.</p>
 <p><strong>There is no magic way to keep secrets, secret without risks.</strong></p>
 <p>Whatever security model you decide to follow and whether you decide to use environment variables or otherwise, you should at least be aware of the points below.</p>
 <p><a data-flickr-embed="true" href="https://www.flickr.com/photos/henriquev/42847303541/in/dateposted-public/" title="Sólheimasandur DC-3 Plane Wreck"><img src="https://live.staticflickr.com/1753/42847303541_73c2267ed8_c.jpg" width="800" height="449" alt="Sólheimasandur DC-3 Plane Wreck"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
@@ -261,7 +262,7 @@
 <p>Application code should live in a repository separate from configuration data for your environments (production, staging, testing, etc.).</p>
 <p>You should also always consider that your code is a public asset available on the Internet, regardless if it is open source or something you never intend to share with others. By having a strong separation of concerns, you can avoid a hassle down the road – regardless if you decide to open source it one day or you need to rotate credentials because someone left your team.</p>
 <p>It might be the case that you want to have some sample configuration along with your application code. Don&rsquo;t reuse the same configuration data that gives you access to your environments or subsystems (internal or third-party).</p>
-<p>Some external services you use might provide a testing environment, and you might think it is okay to share that because you have nothing to hide. Don&rsquo;t do that. If for nothing else, think about the lost time you may incur if your tests start breaking because people elsewhere (maybe a former employee) might reuse your keys, making you end up with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429">Too Many Requests</a> HTTP errors due to rate limiting.</p>
+<p>Some external services you use might provide a testing environment, and you might think it is okay to share that because you have nothing to hide. Don&rsquo;t do that! If for nothing else, think about the lost time you may incur if your tests start breaking because people elsewhere (maybe a former employee) might reuse your keys, making you end up with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429">Too Many Requests</a> HTTP errors due to rate limiting.</p>
 <h2 id="reducing-risk-with-cloud-services-and-integrations">Reducing risk with cloud services and integrations</h2>
 <p>Many developers and companies rely on services &ldquo;in the cloud&rdquo;. One of the biggest things now is Kubernetes.</p>
 <p>Let&rsquo;s suppose for a moment you&rsquo;re using Kubernetes <a href="https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/">declaratively</a> – meaning you&rsquo;re maintaining configuration files to define the state of your systems. You might be versioning them with git, and using GitHub for a review/approval pipeline, and Continuous Integration to roll out a new release.</p>
