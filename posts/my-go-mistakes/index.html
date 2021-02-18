@@ -438,7 +438,7 @@ If your API has a small surface, you&rsquo;ll be free to do internal changes wit
 </blockquote>
 <p>You can even use <a href="https://golang.org/s/apidiff-readme">apidiff</a>, a tool to detect incompatible API changes to check your API contracts. Watch the GopherCon 2019&rsquo;s <a href="https://www.youtube.com/watch?v=JhdL5AkH-AQ">Detecting Incompatible API Changes</a> talk by Jonathan Amsterdam (<a href="https://about.sourcegraph.com/go/gophercon-2019-detecting-incompatible-api-changes/">transcript</a>).</p>
 <h2 id="globals-and-configuration">Globals and configuration</h2>
-<p><em>If you haven&rsquo;t read yet, see my previous blog post on <a href="posts/env/">environment variables, config, secrets, and globals</a>.</em></p>
+<p><em>If you haven&rsquo;t read yet, see my previous blog post on <a href="/posts/env/">environment variables, config, secrets, and globals</a>.</em></p>
 <p>You want your code to look clean, but then configuration might get in the way. One possible quick solution is to use a global for passing it around, right?
 Sure! – If you don&rsquo;t mind introducing race conditions or making parallel testing impossible.
 Things can get ugly fast, and the cost of refactoring only increases.
@@ -472,24 +472,24 @@ Be careful because if you leave making things right for later. Later might never
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Config of your application.
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// cfgContextKey is the key for the configuration context.
+</span><span style="color:#75715e">// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">cfgContextKey</span> <span style="color:#66d9ef">struct</span>{}
+
+<span style="color:#75715e">// Config of your application.
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Config</span> <span style="color:#66d9ef">struct</span> {
 	<span style="color:#75715e">// Hostname of your service.
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Hostname</span> <span style="color:#66d9ef">string</span>
 	<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>}
 
-<span style="color:#75715e">// cfgContextKey is the key for the configuration context.
-</span><span style="color:#75715e">// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">cfgContextKey</span> <span style="color:#66d9ef">struct</span>{}
-
-<span style="color:#75715e">// WithContext returns a copy of the parent context with the given configuration.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Load</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">cfg</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>) <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span> {
+<span style="color:#75715e">// Context returns a copy of the parent context with the given configuration.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>) <span style="color:#a6e22e">Context</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">cfg</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>) <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span> {
 	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">WithValue</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">cfgContextKey</span>{}, <span style="color:#a6e22e">cfg</span>)
 }
 
-<span style="color:#75715e">// Get configuration from context.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span> {
+<span style="color:#75715e">// FromContext gets configuration from context.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FromContext</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span> {
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">cfg</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">Value</span>(<span style="color:#a6e22e">cfgContextKey</span>{}).(<span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>); <span style="color:#a6e22e">ok</span> {
 		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">cfg</span>
 	}
