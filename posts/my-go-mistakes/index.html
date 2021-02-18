@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>My Go mistakes | Henrique Vicente</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono|Comfortaa:300" rel="stylesheet">
+    <link rel="stylesheet" href="/css/foundation-icons.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/webicons/webicons.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/henvic.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta property="og:title" content="My Go mistakes | Henrique Vicente">
+    <meta name="twitter:title" content="My Go mistakes | Henrique Vicente" />
+    <meta property="og:url" content="https://henvic.dev/posts/my-go-mistakes/">
+    
+    <meta name="description" content="In this post, I share mistakes I&#39;ve made writing Go code for six years since the beginning of my journey with the language.">
+    <meta property="og:description" content="In this post, I share mistakes I&#39;ve made writing Go code for six years since the beginning of my journey with the language.">
+    <meta name="twitter:description" content="In this post, I share mistakes I&#39;ve made writing Go code for six years since the beginning of my journey with the language." />
+    
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2021-02-18">
+    
+    <meta property="twitter:url" content="https://henvic.dev/posts/my-go-mistakes/">
+    
+    <meta name="og:image" content="https://henvic.dev/img/posts/my-go-mistakes/help.png" />
+    <meta name="twitter:image" content="https://henvic.dev/img/posts/my-go-mistakes/help.png" />
+    
+</head><body><div class="grid-y medium-grid-frame">
+        <nav class="title-bar show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title invisible">Menu</div>
+</nav>
+<nav class="top-bar" id="responsive-menu">
+    <div class="top-bar-right no-js">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
+            data-dropdown-menu data-smooth-scroll>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/" >
+                        Home
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/about/" >
+                        About me
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/posts/" >
+                        Blog posts
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/talks/" >
+                        Talks
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class="show-for-small-only ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                </li>
+            
+            
+                <li class="hide-for-small-only is-dropdown-submenu-parent ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                <ul class="vertical menu nested submenu">
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#httpretty" title="httpretty">
+                            httpretty
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#wedeploy" title="WeDeploy CLI Tool">
+                            WeDeploy CLI Tool
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#vehikel" title="Vehikel">
+                            Vehikel
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#tic-tac-toe" title="Tic-tac-toe">
+                            Tic-tac-toe
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#accidents" title="accidents">
+                            accidents
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#topostit" title="to-post.it">
+                            to-post.it
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#trazqueeupago" title="trazqueeupago.com">
+                            trazqueeupago.com
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#cahier" title="Cahier">
+                            Cahier
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#plifk" title="Plifk">
+                            Plifk
+                        </a>
+                    </li>
+                    
+                </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/opensource/" >
+                        Open Source
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/favorites/" >
+                        Favorites
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
+        </ul>
+    </div>
+</nav>
+
+        <div class="cell medium-auto medium-cell-block-container">
+            <div class="grid-x grid-padding-x">
+                <div class="nav cell large-3 medium-4 large-cell-block-y medium-cell-block-y"><div itemscope itemtype="http://schema.org/Person">
+    <div class="nav-card grid-x">
+        <div class="cell small-2 medium-12 nav-card-photo-cell">
+            <a href="/" itemprop="photo" class="nav-card-photo">
+                <img src="/img/me_at_gullfoss_cropped.jpg" alt="me at Gullfoss" width="549" height="549" />
+            </a>
+        </div>
+        <div class="cell card-section small-10 medium-12 medium-text-center">
+            <h4 itemprop="name">Henrique Vicente</h4>
+            <p>
+                <span itemprop="title">Software Engineer</span>
+            </p>
+        </div>
+    </div>
+    <ul class="nav-about-me no-bullet">
+        <li>
+            <p>I'm a Software Engineer from Brazil. I live in the Netherlands, and I work for the fashion industry at <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
+                working on a Digital Showroom for wholesale fashion brands (such as Tommy Hilfiger and Calvin Klein).<br /><br />
+                I mostly use the amazing Go programming language. I enjoy photography, drones, and traveling.</p>
+        </li>
+        <li>
+            <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
+                    class="space"></span>DFBD<span class="space"></span>257C<span class="space"></span>1575</a>
+        </li>
+    </ul>
+    <div class="menu-social">
+        <a class="webicon github" href="https://github.com/henvic">
+            GitHub
+        </a>
+        <a class="webicon twitter" href="https://twitter.com/henriquev">
+            Twitter
+        </a>
+        <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
+            Linkedin
+        </a>
+        <a class="webicon instagram" href="https://www.instagram.com/henvic/">
+            Instagram
+        </a>
+        <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
+            Flickr
+        </a>
+        <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
+            henriquevicente@gmail.com
+        </a>
+    </div>
+</div>
+</div>
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
+        <h1>My Go mistakes</h1>
+        
+        
+        <p class="post-date">Posted in <time class="stat" datetime="2021-02-18 00:00:00 &#43;0000 UTC"></time>Thursday, 18 February 2021</time>.</p>
+        
+        <p>In this post, I share mistakes I&rsquo;ve made writing Go code for six years since the beginning of my journey with the language.</p>
+<p>
+<aside class="toc">
+    <dl>
+        <dt>Table of Contents</dt>
+        <dd><nav id="TableOfContents">
+  <ul>
+    <li><a href="#init-functions">init() functions</a></li>
+    <li><a href="#constants">Constants</a></li>
+    <li><a href="#nil-pointer-dereference">Nil pointer dereference</a></li>
+    <li><a href="#comments-and-documentation">Comments and documentation</a></li>
+    <li><a href="#creating-too-many-packages">Creating too many packages</a></li>
+    <li><a href="#exporting-names">Exporting names</a>
+      <ul>
+        <li><a href="#internal-packages">Internal packages</a></li>
+      </ul>
+    </li>
+    <li><a href="#globals-and-configuration">Globals and configuration</a></li>
+    <li><a href="#imports-and-build-size">Imports and build size</a></li>
+    <li><a href="#concurrency-and-streams">Concurrency and streams</a>
+      <ul>
+        <li><a href="#sockets-and-websocket">Sockets and WebSocket</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></dd>
+</aside>
+
+
+<a href="https://golang.org/"><img src="/img/posts/my-go-mistakes/help.png" width="114" alt="Gopher"></a></p>
+<h2 id="init-functions">init() functions</h2>
+<p>In Go, you can define the special function <strong>init</strong> multiple times on a single package or file. From <a href="https://golang.org/doc/effective_go.html#init">Effective Go</a>, we learn that:</p>
+<blockquote>
+<p>init is called after all the variable declarations in the package have evaluated their initializers, and those are evaluated only after all the imported packages have been initialized.</p>
+</blockquote>
+<p>While there are cases where using init is the sure way to go, you want to reduce the number of times you use it.
+First, the typical use of this is to initialize globals, and you probably want to reduce your amount of globals.</p>
+<p>A good reason to think twice before using it&rsquo;s that you cannot call <code>init</code> functions from code.
+Another is that, despite being deterministic, it&rsquo;s hard to predict your <code>init</code> functions' order of execution.
+The order depends on your imports and source-code filenames.
+Moving a package or renaming a file might change it.</p>
+<p>A good case of using <code>init</code> is to initialize a lookup table that is expensive to calculate.</p>
+<p><strong>Where I regret using it?</strong> I used <code>init</code> functions to define command structures and flags when using <a href="https://github.com/spf13/cobra">cobra</a> to create CLI tools, but now I see it was unnecessary.
+By the way, Go 1.16 was released yesterday and has good news.</p>
+<blockquote>
+<p>Setting the GODEBUG environment variable to inittrace=1 now causes the runtime to emit a single line to standard error for each package init, summarizing its execution time and memory allocation.
+<a href="https://golang.org/doc/go1.16">Go 1.16 Release Notes</a></p>
+</blockquote>
+<h2 id="constants">Constants</h2>
+<p>This value wasn&rsquo;t changed anywhere in the codebase:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Version of the application
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Version</span> = <span style="color:#e6db74">&#34;master&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>So I naively thought to make it a constant just for the sake of it!
+Suddenly, by changing <code>var</code> to <code>const</code>, I silently broke my application&rsquo;s update notification system because I altered it during build time:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-bash" data-lang="bash">$ go build <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -ldflags<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-X &#39;github.com/henvic/wedeploycli/defaults.Version=</span>$NEW_RELEASE_VERSION<span style="color:#e6db74">&#39; \
+</span><span style="color:#e6db74">  -X &#39;github.com/henvic/wedeploycli/defaults.Build=</span>$BUILD_COMMIT<span style="color:#e6db74">&#39; \
+</span><span style="color:#e6db74">  -X &#39;github.com/henvic/wedeploycli/defaults.BuildTime=</span>$BUILD_TIME<span style="color:#e6db74">&#39;&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>It turns out that&hellip; Constants are constants!</p>
+<h2 id="nil-pointer-dereference">Nil pointer dereference</h2>
+<p>As if breaking the update notification wasn&rsquo;t enough, I forgot to check if a pointer value was <code>nil</code> and broke the update command.
+Thankfully, it was fixed minutes afterward after I spotted it on my post-release tests, so the impact was <em>null</em>.</p>
+<div id="amzn-assoc-ad-ad25996e-b01c-41ce-9c26-7a19c265ee96"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=ad25996e-b01c-41ce-9c26-7a19c265ee96"></script>
+<h2 id="comments-and-documentation">Comments and documentation</h2>
+<p>Once I read that you should only write comments when you fail to express yourself with code because they might get outdated and out of sync with code.
+While you should aim to express your reasoning and thoughts with code using proper naming for variables, structs, interfaces, and functions, don&rsquo;t underestimate the power of comments.
+I used to underestimates comments subconsciously following this mindset.
+Thankfully, after a couple of years working with Go, I learned to value the power of good comments.
+If you have doubts about what is reasonable or not to express with comments, I suggest reading the standard library&rsquo;s source code and seeing how they do.
+The <a href="https://github.com/golang/go/wiki/CodeReviewComments#doc-comments">Go Code Review Comments section on comments</a> is also a useful reference.</p>
+<p>Documentation is also a key point. You want to use <a href="https://blog.golang.org/godoc">godoc</a> to generate documentation for your public API.
+All it takes is for you to follow some minimal and unobtrusive commenting patterns.
+It&rsquo;s relatively straight-forward to use it, and you gain consistency in following it even if it&rsquo;s not your preferred style!</p>
+<p><strong>Remember:</strong> Code is written once but read multiple times. It&rsquo;s better to spend a little more time writing comments to your code in a way that others and your future self will understand than to hurry and spend ten times more trying to make sense of it months or years later.</p>
+<h2 id="creating-too-many-packages">Creating too many packages</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-text" data-lang="text">I didn&#39;t need to write 133 packages.
+I didn&#39;t need to write 133 packages.
+I didn&#39;t need to write 133 packages.
+I didn&#39;t need to write 133 packages.
+</code></pre></td></tr></table>
+</div>
+</div><p>Shame on me for creating <a href="https://github.com/henvic/wedeploycli/tree/master/command">a package for each of the 58 commands</a> I needed on a CLI tool! That is 58 directories with at least a file each.
+I could&rsquo;ve used a single package with 10-15 medium-sized files.
+<a href="https://github.com/henvic/wedeploycli/tree/master/command/list">cmd/list package</a> is one of the worst offenders:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">./command/list
+├── instances
+│   └── instances.go <span style="color:#f92672">(</span><span style="color:#ae81ff">85</span> lines of code<span style="color:#f92672">)</span>
+├── list.go <span style="color:#f92672">(</span><span style="color:#ae81ff">121</span> lines of code<span style="color:#f92672">)</span>
+├── projects
+│   └── projects.go <span style="color:#f92672">(</span><span style="color:#ae81ff">73</span> lines of code<span style="color:#f92672">)</span>
+└── services
+    └── services.go <span style="color:#f92672">(</span><span style="color:#ae81ff">109</span> lines of code<span style="color:#f92672">)</span>
+Total: <span style="color:#ae81ff">388</span> lines of code
+</code></pre></td></tr></table>
+</div>
+</div><p>The following are indicators that maybe you&rsquo;re breaking down your code too much:</p>
+<ul>
+<li>Tiny packages or files with only dozens of lines of code.</li>
+<li>Using custom identifiers when importing packages because multiple packages share the same name.</li>
+</ul>
+<p><strong>What should I have instead?</strong>
+A list.go file with fewer than 350 lines of code inside the command package would be better.
+For an excellent example of code organization, I recommend checking out the <a href="https://golang.org/src/net/http/">net/http package</a> code.
+In a single package with a dozen or so files, you&rsquo;ll find an implementation for Go&rsquo;s HTTP client and server.</p>
+<h2 id="exporting-names">Exporting names</h2>
+<p>In Go, <a href="https://tour.golang.org/basics/3">a name is exported</a> if it begins with a capital letter.
+In other words, code that other packages should be able to address directly.</p>
+<p>Take the following functions of the <a href="https://golang.org/pkg/fmt/">fmt</a> package:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Printf</span>(<span style="color:#a6e22e">format</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">a</span> <span style="color:#f92672">...</span><span style="color:#66d9ef">interface</span>{}) (<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">...</span><span style="color:#66d9ef">interface</span>{}) (<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">newPrinter</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">pp</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Only the first two can be called outside the fmt package.
+If you try to call newPrinter externally, you&rsquo;ll end up with a compile-time error:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">./prog.go:8:2: cannot refer to unexported name fmt.newPrinter
+./prog.go:8:2: undefined: fmt.newPrinter
+</code></pre></td></tr></table>
+</div>
+</div><p>As I’ve hinted in the previous section, if I had fewer packages, I would avoid needing to export many names, reducing the dependency graph a lot.</p>
+<h3 id="internal-packages">Internal packages</h3>
+<p>Now, Go has another great feature to set boundaries on your code: <a href="https://golang.org/doc/go1.4#internalpackages">internal packages</a>.</p>
+<p><code>./a/b/c/internal/d/e/f</code> can only be imported by code within the <code>./a/b/c</code> package.</p>
+<p>Use internal packages to protect all your code but what needs a public API.
+It&rsquo;s useful to use this even on private projects not intended for public distribution.
+Set clear boundaries and expectations only exposing use-cases you intend to support.
+If your API has a small surface, you&rsquo;ll be free to do internal changes without worrying about releasing a major version due to backward incompatibility and breaking code elsewhere.</p>
+<p>If you&rsquo;re worried about this idea because for sure your code might be useful throughout your team projects, it might be a good time to reflect on the following <a href="https://go-proverbs.github.io/">Go proverb</a>:</p>
+<blockquote>
+<p>A little copying is better than a little dependency.
+<a href="https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=9m28s">Go Proverbs - Rob Pike - Gopherfest - November 18, 2015</a></p>
+</blockquote>
+<p>You can even use <a href="https://golang.org/s/apidiff-readme">apidiff</a>, a tool to detect incompatible API changes to check your API contracts. Watch the GopherCon 2019&rsquo;s <a href="https://www.youtube.com/watch?v=JhdL5AkH-AQ">Detecting Incompatible API Changes</a> talk by Jonathan Amsterdam (<a href="https://about.sourcegraph.com/go/gophercon-2019-detecting-incompatible-api-changes/">transcript</a>).</p>
+<h2 id="globals-and-configuration">Globals and configuration</h2>
+<p><em>If you haven&rsquo;t read yet, see my previous blog post on <a href="posts/env/">environment variables, config, secrets, and globals</a>.</em></p>
+<p>You want your code to look clean, but then configuration might get in the way. One possible quick solution is to use a global for passing it around, right?
+Sure! – If you don&rsquo;t mind introducing race conditions or making parallel testing impossible.
+Things can get ugly fast, and the cost of refactoring only increases.
+Be careful because if you leave making things right for later. Later might never come!</p>
+<p>Almost always, you want to pass around your configuration explicitly. For example, when initializing objects.</p>
+<p><strong>What if you need to pass your configuration between layers that don&rsquo;t need to know about it?</strong> It might be the case to use a <a href="https://golang.org/pkg/context/">context</a>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Config of your application.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Config</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#75715e">// Hostname of your service.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Hostname</span> <span style="color:#66d9ef">string</span>
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#75715e">// cfgContextKey is the key for the configuration context.
+</span><span style="color:#75715e">// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">cfgContextKey</span> <span style="color:#66d9ef">struct</span>{}
+
+<span style="color:#75715e">// WithContext returns a copy of the parent context with the given configuration.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Load</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">cfg</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>) <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">WithValue</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">cfgContextKey</span>{}, <span style="color:#a6e22e">cfg</span>)
+}
+
+<span style="color:#75715e">// Get configuration from context.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">cfg</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">Value</span>(<span style="color:#a6e22e">cfgContextKey</span>{}).(<span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>); <span style="color:#a6e22e">ok</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">cfg</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>See <a href="https://play.golang.org/p/paDWRN_K5LZ">example</a> in the Go Playground for a working example.
+Tread light, in any case! Don&rsquo;t add a context just for passing configuration that can be passed directly.
+Only use context for this if you want to pass the configuration transparently through a layer.</p>
+<h2 id="imports-and-build-size">Imports and build size</h2>
+<p>Transforming human-readable source code to a set of instructions for machines involves a brutal amount of work. Now, there are many strategies to deal with this.
+Some languages (i.e., JavaScript, Python, Tcl) are interpreted, meaning that the code gets translated into machine code during execution by an interpreter (such as your browser or a runtime).
+Go is a compiled language, meaning the code gets translated beforehand.
+The main advantage of a compiled language is the speed of execution.
+Things like <a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">Just-in-time compilation</a> combine together concepts of interpretation and compilation, but this is off-topic.
+Whenever you run <code>go build</code>, it creates a machine-friendly file containing your whole application and its dependencies after parsing your code, compiling it into machine-code, and linking its parts.</p>
+<p>This build process can easily create take as input a couple of text files containing only a few Kilobytes and generate a binary file of Megabytes after converting your code to machine-friendly format and linking dependencies.
+Even though Go is very efficient and minimal, no Gopher magic can make this cost disappear.</p>
+<p>In my case, I was working on <a href="/portfolio/#wedeploy">a CLI tool</a> that had a <code>deploy</code> command that invoked <code>git</code> quite a few times behind the scenes.
+We were using git as both a transport layer and a smart cache layer.
+The downside was that our tool now required a system-wide dependency.
+Several git bugs later, I decided to try out a git implementation written in Go, <a href="https://github.com/go-git/go-git">go-git</a> as a replacement.
+I added a new <code>--experimental</code> flag and continued to move towards a pure Go library incrementally.
+However, I forgot to measure what was the impact of adding this second implementation.
+It almost doubled the compressed file size from slightly over 4 to 9 Megabytes.
+It was a substantial increase in file size, and although not critical, I regret not spotting this. Had I noticed, I&rsquo;d hide this alternative implementation using build tags until it was ready for A/B testing.</p>
+<div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
+<h2 id="concurrency-and-streams">Concurrency and streams</h2>
+<p>I didn&rsquo;t learn about concurrency with Go, but I committed the most rookie possible quite a few times: Writing from multiple goroutines or Threads will cause text to be all mingled.</p>
+<p>I made this error even more so when writing packages for text animation in the terminal.
+If you find yourself with this issue, you can probably use a mutex to set what goroutine can write at the moment, or in more complicated cases, use channels to print from a single place.
+Also, be aware that if the output&rsquo;s order is important, you might want to sync whether you&rsquo;re printing to standard error (<code>os.Stderr</code>) or standard output (<code>os.Stdout</code>).</p>
+<blockquote>
+<p>Tip: Go has a fantastic data race detector. You can build your test or application with it by passing the <code>-race</code> flag to your <code>go test</code> or <code>go build</code> commands, respectively.</p>
+</blockquote>
+<h3 id="sockets-and-websocket">Sockets and WebSocket</h3>
+<p>Something fun I solved was when implementing “SSH over WebSocket” feature.
+We used the socket.io protocol on our backend systems already. For the sake of simplicity, we wanted to use that for this protocol.
+I forked and heavily modified an existing Go socket.io library for that.
+It required arduous work understanding how the protocol worked to make it possible to do what we needed.
+I even had to reverse-engineer the protocol because there isn&rsquo;t a formal socket.io specification!</p>
+<p>When it finally appeared to be working as expected, I sent a file to the server and ran a simple test from the connection: <code>$ cat hamlet.txt</code>, and compared the output.
+To my surprise, some phrases showed up out of order.
+The error was that the library created a new goroutine whenever it received a message.</p>
+<p>The fix was trivial: remove the go keyword from inside this routine loop to call the handler on the same routine.
+<strong>You usually want to try to postpone the creation of goroutines until the latest moment.</strong>
+The idea of creating one right away was probably thinking about performance.
+For me, this is a typical case where good documentation with examples can do wonders in explaining to the user what they need to know.
+Alternatively, there could be different ways to define blocking and non-blocking handlers!</p>
+<p>Thank you for reading.</p>
+<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
+<p>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</p>
+
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="My Go mistakes" data-url="https://henvic.dev/posts/my-go-mistakes/" data-via="henriquev"
+                        data-hashtags="go,golang,programming,mistakes"  data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</article>
+
+            </div>
+        </div>
+    </div>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-43519325-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script src="/js/vendor/modernizr-custom-svg.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/foundation.min.js"></script>
+<script>
+        $(document).ready(function () {
+                $(document).foundation();
+        });
+</script>
+</body>
+</html>
