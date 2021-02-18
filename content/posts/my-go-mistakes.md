@@ -145,7 +145,7 @@ If you're worried about this idea because for sure your code might be useful thr
 You can even use [apidiff](https://golang.org/s/apidiff-readme), a tool to detect incompatible API changes to check your API contracts. Watch the GopherCon 2019's [Detecting Incompatible API Changes](https://www.youtube.com/watch?v=JhdL5AkH-AQ) talk by Jonathan Amsterdam ([transcript](https://about.sourcegraph.com/go/gophercon-2019-detecting-incompatible-api-changes/)).
 
 ## Globals and configuration
-*If you haven't read yet, see my previous blog post on [environment variables, config, secrets, and globals](posts/env/).*
+*If you haven't read yet, see my previous blog post on [environment variables, config, secrets, and globals](/posts/env/).*
 
 You want your code to look clean, but then configuration might get in the way. One possible quick solution is to use a global for passing it around, right?
 Sure! – If you don't mind introducing race conditions or making parallel testing impossible.
