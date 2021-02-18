@@ -157,6 +157,10 @@ Almost always, you want to pass around your configuration explicitly. For exampl
 **What if you need to pass your configuration between layers that don't need to know about it?** It might be the case to use a [context](https://golang.org/pkg/context/).
 
 ```go
+// cfgContextKey is the key for the configuration context.
+// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
+type cfgContextKey struct{}
+
 // Config of your application.
 type Config struct {
 	// Hostname of your service.
@@ -164,17 +168,13 @@ type Config struct {
 	// ...
 }
 
-// cfgContextKey is the key for the configuration context.
-// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
-type cfgContextKey struct{}
-
-// WithContext returns a copy of the parent context with the given configuration.
-func Load(ctx context.Context, cfg *Config) context.Context {
+// Context returns a copy of the parent context with the given configuration.
+func (c *Config) Context(ctx context.Context, cfg *Config) context.Context {
 	return context.WithValue(ctx, cfgContextKey{}, cfg)
 }
 
-// Get configuration from context.
-func Get(ctx context.Context) *Config {
+// FromContext gets configuration from context.
+func FromContext(ctx context.Context) *Config {
 	if cfg, ok := ctx.Value(cfgContextKey{}).(*Config); ok {
 		return cfg
 	}
