@@ -25,8 +25,8 @@ Moving a package or renaming a file might change it.
 
 A good case of using `init` is to initialize a lookup table that is expensive to calculate.
 
-**Where I regret using it?** I used `init` functions to define command structures and flags when using [cobra](https://github.com/spf13/cobra) to create CLI tools, but now I see it was unnecessary.
-By the way, Go 1.16 was released yesterday and has good news.
+**Where do I regret using it?** I used `init` functions to define command structures and flags when using [cobra](https://github.com/spf13/cobra) to create CLI tools, but now I see it was unnecessary.
+By the way, Go 1.16 was released yesterday and offers some good news.
 
 > Setting the GODEBUG environment variable to inittrace=1 now causes the runtime to emit a single line to standard error for each package init, summarizing its execution time and memory allocation.
 [Go 1.16 Release Notes](https://golang.org/doc/go1.16)
@@ -53,23 +53,23 @@ It turns out that... Constants are constants!
 
 ## Nil pointer dereference
 As if breaking the update notification wasn't enough, I forgot to check if a pointer value was `nil` and broke the update command.
-Thankfully, it was fixed minutes afterward after I spotted it on my post-release tests, so the impact was *null*.
+Thankfully, it was fixed minutes afterward, after I spotted it on my post-release tests, so the impact was *null*.
 
 <div id="amzn-assoc-ad-ad25996e-b01c-41ce-9c26-7a19c265ee96"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=ad25996e-b01c-41ce-9c26-7a19c265ee96"></script>
 
 ## Comments and documentation
-Once I read that you should only write comments when you fail to express yourself with code because they might get outdated and out of sync with code.
-While you should aim to express your reasoning and thoughts with code using proper naming for variables, structs, interfaces, and functions, don't underestimate the power of comments.
-I used to underestimates comments subconsciously following this mindset.
+Once I read that you should only write comments when you fail to express yourself with code because they might get outdated and out of sync.
+While you should aim to express your reasoning and thoughts with code using proper naming for variables, structs, interfaces, and functions, don't underestimate the power of comments!
+I used to underestimate comments subconsciously following this mindset.
 Thankfully, after a couple of years working with Go, I learned to value the power of good comments.
-If you have doubts about what is reasonable or not to express with comments, I suggest reading the standard library's source code and seeing how they do.
+If you have doubts about what is reasonable or not to express with comments, I suggest reading the standard library's source code and seeing how they do it.
 The [Go Code Review Comments section on comments](https://github.com/golang/go/wiki/CodeReviewComments#doc-comments) is also a useful reference.
 
 Documentation is also a key point. You want to use [godoc](https://blog.golang.org/godoc) to generate documentation for your public API.
 All it takes is for you to follow some minimal and unobtrusive commenting patterns.
-It's relatively straight-forward to use it, and you gain consistency in following it even if it's not your preferred style!
+It's relatively straight-forward to use it, and you gain consistency following it even if it's not your preferred style!
 
-**Remember:** Code is written once but read multiple times. It's better to spend a little more time writing comments to your code in a way that others and your future self will understand than to hurry and spend ten times more trying to make sense of it months or years later.
+**Remember:** Code is written once but read multiple times. It's better to spend a little more time writing code comments in a way that others and your future self will understand than to hurry and months or years later spend much more time trying to make sense of it.
 
 ## Creating too many packages
 ```text
@@ -81,7 +81,7 @@ I didn't need to write 133 packages.
 
 Shame on me for creating [a package for each of the 58 commands](https://github.com/henvic/wedeploycli/tree/master/command) I needed on a CLI tool! That is 58 directories with at least a file each.
 I could've used a single package with 10-15 medium-sized files.
-[cmd/list package](https://github.com/henvic/wedeploycli/tree/master/command/list) is one of the worst offenders:
+Its [command/list package](https://github.com/henvic/wedeploycli/tree/master/command/list) is one of the worst offenders:
 
 ```shell
 ./command/list
@@ -132,17 +132,17 @@ Now, Go has another great feature to set boundaries on your code: [internal pack
 
 `./a/b/c/internal/d/e/f` can only be imported by code within the `./a/b/c` package.
 
-Use internal packages to protect all your code but what needs a public API.
+Use internal packages to protect all your code except what needs a public API.
 It's useful to use this even on private projects not intended for public distribution.
 Set clear boundaries and expectations only exposing use-cases you intend to support.
 If your API has a small surface, you'll be free to do internal changes without worrying about releasing a major version due to backward incompatibility and breaking code elsewhere.
 
-If you're worried about this idea because for sure your code might be useful throughout your team projects, it might be a good time to reflect on the following [Go proverb](https://go-proverbs.github.io/):
+If you're worried about this idea because certainly your code might be useful throughout your team projects, it might be a good time to reflect on the following [Go proverb](https://go-proverbs.github.io/):
 
 > A little copying is better than a little dependency.
 [Go Proverbs - Rob Pike - Gopherfest - November 18, 2015](https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s)
 
-You can even use [apidiff](https://golang.org/s/apidiff-readme), a tool to detect incompatible API changes to check your API contracts. Watch the GopherCon 2019's [Detecting Incompatible API Changes](https://www.youtube.com/watch?v=JhdL5AkH-AQ) talk by Jonathan Amsterdam ([transcript](https://about.sourcegraph.com/go/gophercon-2019-detecting-incompatible-api-changes/)).
+You can even use [apidiff](https://golang.org/s/apidiff-readme), a tool to detect incompatible API changes, to check your API contracts. Watch the GopherCon 2019's [Detecting Incompatible API Changes](https://www.youtube.com/watch?v=JhdL5AkH-AQ) talk by Jonathan Amsterdam ([transcript](https://about.sourcegraph.com/go/gophercon-2019-detecting-incompatible-api-changes/)).
 
 ## Globals and configuration
 *If you haven't read yet, see my previous blog post on [environment variables, config, secrets, and globals](/posts/env/).*
@@ -150,23 +150,23 @@ You can even use [apidiff](https://golang.org/s/apidiff-readme), a tool to detec
 You want your code to look clean, but then configuration might get in the way. One possible quick solution is to use a global for passing it around, right?
 Sure! – If you don't mind introducing race conditions or making parallel testing impossible.
 Things can get ugly fast, and the cost of refactoring only increases.
-Be careful because if you leave making things right for later. Later might never come!
+Be careful because if you leave making things right for later, later might never come!
 
 Almost always, you want to pass around your configuration explicitly. For example, when initializing objects.
 
 **What if you need to pass your configuration between layers that don't need to know about it?** It might be the case to use a [context](https://golang.org/pkg/context/).
 
 ```go
-// cfgContextKey is the key for the configuration context.
-// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
-type cfgContextKey struct{}
-
 // Config of your application.
 type Config struct {
 	// Hostname of your service.
 	Hostname string
 	// ...
 }
+
+// cfgContextKey is the key for the configuration context.
+// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
+type cfgContextKey struct{}
 
 // Context returns a copy of the parent context with the given configuration.
 func (c *Config) Context(ctx context.Context, cfg *Config) context.Context {
@@ -182,9 +182,10 @@ func FromContext(ctx context.Context) *Config {
 }
 ```
 
-See [example](https://play.golang.org/p/paDWRN_K5LZ) in the Go Playground for a working example.
-Tread light, in any case! Don't add a context just for passing configuration that can be passed directly.
+See an [example](https://play.golang.org/p/paDWRN_K5LZ) in the Go Playground.
+**Tread light, in any case!** Don't add a context just for passing configuration that can be passed directly.
 Only use context for this if you want to pass the configuration transparently through a layer.
+**Think about a better solution before doing this!**
 
 ## Imports and build size
 Transforming human-readable source code to a set of instructions for machines involves a brutal amount of work. Now, there are many strategies to deal with this.
@@ -194,34 +195,34 @@ The main advantage of a compiled language is the speed of execution.
 Things like [Just-in-time compilation](https://en.wikipedia.org/wiki/Just-in-time_compilation) combine together concepts of interpretation and compilation, but this is off-topic.
 Whenever you run `go build`, it creates a machine-friendly file containing your whole application and its dependencies after parsing your code, compiling it into machine-code, and linking its parts.
 
-This build process can easily create take as input a couple of text files containing only a few Kilobytes and generate a binary file of Megabytes after converting your code to machine-friendly format and linking dependencies.
+This build process can easily take as input a couple of text files containing only a few Kilobytes and generate a binary file of Megabytes after converting your code to machine-friendly format and linking dependencies.
 Even though Go is very efficient and minimal, no Gopher magic can make this cost disappear.
 
 In my case, I was working on [a CLI tool](/portfolio/#wedeploy) that had a `deploy` command that invoked `git` quite a few times behind the scenes.
 We were using git as both a transport layer and a smart cache layer.
 The downside was that our tool now required a system-wide dependency.
-Several git bugs later, I decided to try out a git implementation written in Go, [go-git](https://github.com/go-git/go-git) as a replacement.
+Several git bugs later, I decided to try out a git implementation written in Go – [go-git](https://github.com/go-git/go-git) – as a replacement.
 I added a new `--experimental` flag and continued to move towards a pure Go library incrementally.
 However, I forgot to measure what was the impact of adding this second implementation.
-It almost doubled the compressed file size from slightly over 4 to 9 Megabytes.
+It doubled the compressed file size from slightly over 4 to 9 Megabytes.
 It was a substantial increase in file size, and although not critical, I regret not spotting this. Had I noticed, I'd hide this alternative implementation using build tags until it was ready for A/B testing.
 
 <div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
 
 ## Concurrency and streams
-I didn't learn about concurrency with Go, but I committed the most rookie possible quite a few times: Writing from multiple goroutines or Threads will cause text to be all mingled.
+I didn't learn about concurrency with Go, but I committed the most rookie mistake possible quite a few times: writing from multiple goroutines or Threads will cause text to be all mingled.
 
 I made this error even more so when writing packages for text animation in the terminal.
-If you find yourself with this issue, you can probably use a mutex to set what goroutine can write at the moment, or in more complicated cases, use channels to print from a single place.
+If you find yourself with this issue, you can probably use a mutex to set what goroutine can write at the moment, or, in more complicated cases, use channels to print from a single goroutine.
 Also, be aware that if the output's order is important, you might want to sync whether you're printing to standard error (`os.Stderr`) or standard output (`os.Stdout`).
 
 > Tip: Go has a fantastic data race detector. You can build your test or application with it by passing the `-race` flag to your `go test` or `go build` commands, respectively.
 
 ### Sockets and WebSocket
-Something fun I solved was when implementing “SSH over WebSocket” feature.
+Something fun I solved was when implementing a “SSH over WebSocket” feature.
 We used the socket.io protocol on our backend systems already. For the sake of simplicity, we wanted to use that for this protocol.
 I forked and heavily modified an existing Go socket.io library for that.
-It required arduous work understanding how the protocol worked to make it possible to do what we needed.
+It required arduous work understanding how the protocol functioned to make it possible to do what we needed.
 I even had to reverse-engineer the protocol because there isn't a formal socket.io specification!
 
 When it finally appeared to be working as expected, I sent a file to the server and ran a simple test from the connection: `$ cat hamlet.txt`, and compared the output.
@@ -229,7 +230,7 @@ To my surprise, some phrases showed up out of order.
 The error was that the library created a new goroutine whenever it received a message.
 
 The fix was trivial: remove the go keyword from inside this routine loop to call the handler on the same routine.
-**You usually want to try to postpone the creation of goroutines until the latest moment.**
+**You usually want to try to postpone the creation of goroutines until the last moment.**
 The idea of creating one right away was probably thinking about performance.
 For me, this is a typical case where good documentation with examples can do wonders in explaining to the user what they need to know.
 Alternatively, there could be different ways to define blocking and non-blocking handlers!
