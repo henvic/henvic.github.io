@@ -218,12 +218,12 @@ pre, samp, code, kbd {
     transition: border-left 0.5s ease-in-out;
 }
 
-.page-main > ul > li time {
+.page-main > ul > li time, .read-also ul > li time {
     font-size: 14px;
     font-weight: 200;
 }
 
-.page-main > ul > li > time span {
+.page-main > ul > li > time span, .read-also ul > li time {
     color: #850000;
 }
 
@@ -231,7 +231,6 @@ pre, samp, code, kbd {
 .post-date {
     color: #aaa;
 }
-
 
 /* dropdown menu */
 .dropdown.menu > li.is-dropdown-submenu-parent > a {

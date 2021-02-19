@@ -12,5 +12,27 @@
                         data-text="{{ .Title }}" data-url="{{ .Permalink }}" data-via="henriquev"
                         {{ if .Params.Hashtags }}data-hashtags="{{ .Params.Hashtags }}" {{ end }} data-show-count="false">Tweet</a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <aside class="read-also">
+                <h3>Read also</h3>
+                {{- $pages := .Site.Pages -}}
+                <!-- BUG(henvic): This doesn't guarantee 10 entries because it limits before the filter. -->
+                <!-- See https://gohugo.io/functions/where/ to fix it later. -->
+                {{- $pages = $pages | first 10 -}}
+                {{- $original := .Page -}}
+                <ul>
+                        {{ range $pages }}
+                        {{- if hasPrefix .Dir "posts/" -}}
+                        {{- if ne . $original -}}
+                        {{- if .IsPage }}
+                        <li>
+                                <a href="{{ .RelPermalink }}">{{ .Title | default "untitled" }}</a>
+                                <time datetime="2006-01-02">{{ .Date.Format "Monday 2, January 2006" }}</time>
+                        </li>
+                        {{- end -}}
+                        {{- end -}}
+                        {{- end -}}
+                        {{ end }}
+                </ul>
+        </aside>
 </article>
 {{ end }}
