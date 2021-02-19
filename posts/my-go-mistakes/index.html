@@ -442,9 +442,9 @@ If your API has a small surface, you&rsquo;ll be free to do internal changes wit
 <p>You want your code to look clean, but then configuration might get in the way. One possible quick solution is to use a global for passing it around, right?
 Sure! – If you don&rsquo;t mind introducing race conditions or making parallel testing impossible.
 Things can get ugly fast, and the cost of refactoring only increases.
-Be careful because if you leave making things right for later, later might never come!</p>
-<p>Almost always, you want to pass around your configuration explicitly. For example, when initializing objects.</p>
-<p><strong>What if you need to pass your configuration between layers that don&rsquo;t need to know about it?</strong> It might be the case to use a <a href="https://golang.org/pkg/context/">context</a>.</p>
+Be careful because if you leave making things right for later, later might never come!
+You usually can pass your configuration explicitly when initializing objects, for example.</p>
+<p><strong>What if you need to pass params between layers that don&rsquo;t need to know about it?</strong> It might be the case to use a <a href="https://golang.org/pkg/context/">context</a>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -470,36 +470,42 @@ Be careful because if you leave making things right for later, later might never
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Config of your application.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Config</span> <span style="color:#66d9ef">struct</span> {
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Params for the metrics system.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Params</span> <span style="color:#66d9ef">struct</span> {
 	<span style="color:#75715e">// Hostname of your service.
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Hostname</span> <span style="color:#66d9ef">string</span>
+
+	<span style="color:#75715e">// Verbose flag.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Verbose</span> <span style="color:#66d9ef">bool</span>
 	<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>}
 
-<span style="color:#75715e">// cfgContextKey is the key for the configuration context.
+<span style="color:#75715e">// paramsContextKey is the key for the params context.
 </span><span style="color:#75715e">// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">cfgContextKey</span> <span style="color:#66d9ef">struct</span>{}
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">paramsContextKey</span> <span style="color:#66d9ef">struct</span>{}
 
-<span style="color:#75715e">// Context returns a copy of the parent context with the given configuration.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>) <span style="color:#a6e22e">Context</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">cfg</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>) <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span> {
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">WithValue</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">cfgContextKey</span>{}, <span style="color:#a6e22e">cfg</span>)
+<span style="color:#75715e">// Context returns a copy of the parent context with the given params.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Params</span>) <span style="color:#a6e22e">Context</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">WithValue</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">paramsContextKey</span>{}, <span style="color:#a6e22e">c</span>)
 }
 
-<span style="color:#75715e">// FromContext gets configuration from context.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FromContext</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span> {
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">cfg</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">Value</span>(<span style="color:#a6e22e">cfgContextKey</span>{}).(<span style="color:#f92672">*</span><span style="color:#a6e22e">Config</span>); <span style="color:#a6e22e">ok</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">cfg</span>
+<span style="color:#75715e">// FromContext gets params from context.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FromContext</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Params</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">params</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">Value</span>(<span style="color:#a6e22e">paramsContextKey</span>{}).(<span style="color:#f92672">*</span><span style="color:#a6e22e">Params</span>); <span style="color:#a6e22e">ok</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">params</span>, <span style="color:#66d9ef">nil</span>
 	}
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;metrics system params not found&#34;</span>)
 }
 </code></pre></td></tr></table>
 </div>
-</div><p>See an <a href="https://play.golang.org/p/paDWRN_K5LZ">example</a> in the Go Playground.
-<strong>Tread light, in any case!</strong> Don&rsquo;t add a context just for passing configuration that can be passed directly.
-Only use context for this if you want to pass the configuration transparently through a layer.
+</div><p>See another <a href="https://play.golang.org/p/paDWRN_K5LZ">example</a> in the Go Playground.
+<strong>Tread light, in any case!</strong> Don&rsquo;t use a context for passing configuration that can be passed directly.
+Only use context for this if you <strong>need</strong> to pass something simple transparently through a layer.
 <strong>Think about a better solution before doing this!</strong></p>
 <h2 id="imports-and-build-size">Imports and build size</h2>
 <p>Transforming human-readable source code to a set of instructions for machines involves a brutal amount of work. Now, there are many strategies to deal with this.
@@ -552,6 +558,32 @@ Alternatively, there could be different ways to define blocking and non-blocking
                         data-text="My Go mistakes" data-url="https://henvic.dev/posts/my-go-mistakes/" data-via="henriquev"
                         data-hashtags="go,golang,programming,mistakes"  data-show-count="false">Tweet</a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <aside class="read-also">
+                <h3>Read also</h3>
+                <ul>
+                        
+                        <li>
+                                <a href="/posts/env/">Environment variables, config, secrets, and globals</a>
+                                <time datetime="2006-01-02">Saturday 16, January 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a>
+                                <time datetime="2006-01-02">Wednesday 16, September 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/e-commerce/">I&#39;m starting an opensource e-commerce project.</a>
+                                <time datetime="2006-01-02">Wednesday 17, June 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/cs-security/">Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely.</a>
+                                <time datetime="2006-01-02">Wednesday 22, April 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a>
+                                <time datetime="2006-01-02">Monday 20, April 2020</time>
+                        </li>
+                </ul>
+        </aside>
 </article>
 
             </div>
