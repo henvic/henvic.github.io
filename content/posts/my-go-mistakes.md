@@ -172,13 +172,13 @@ type paramsContextKey struct{}
 
 // Context returns a copy of the parent context with the given params.
 func (p *Params) Context(ctx context.Context) context.Context {
-	return context.WithValue(ctx, paramsContextKey{}, c)
+	return context.WithValue(ctx, paramsContextKey{}, p)
 }
 
 // FromContext gets params from context.
 func FromContext(ctx context.Context) (*Params, error) {
-	if params, ok := ctx.Value(paramsContextKey{}).(*Params); ok {
-		return params, nil
+	if p, ok := ctx.Value(paramsContextKey{}).(*Params); ok {
+		return p, nil
 	}
 	return nil, errors.New("metrics system params not found")
 }
