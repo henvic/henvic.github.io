@@ -151,40 +151,42 @@ You want your code to look clean, but then configuration might get in the way. O
 Sure! – If you don't mind introducing race conditions or making parallel testing impossible.
 Things can get ugly fast, and the cost of refactoring only increases.
 Be careful because if you leave making things right for later, later might never come!
+You usually can pass your configuration explicitly when initializing objects, for example.
 
-Almost always, you want to pass around your configuration explicitly. For example, when initializing objects.
-
-**What if you need to pass your configuration between layers that don't need to know about it?** It might be the case to use a [context](https://golang.org/pkg/context/).
+**What if you need to pass params between layers that don't need to know about it?** It might be the case to use a [context](https://golang.org/pkg/context/).
 
 ```go
-// Config of your application.
-type Config struct {
+// Params for the metrics system.
+type Params struct {
 	// Hostname of your service.
 	Hostname string
+
+	// Verbose flag.
+	Verbose bool
 	// ...
 }
 
-// cfgContextKey is the key for the configuration context.
+// paramsContextKey is the key for the params context.
 // Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
-type cfgContextKey struct{}
+type paramsContextKey struct{}
 
-// Context returns a copy of the parent context with the given configuration.
-func (c *Config) Context(ctx context.Context, cfg *Config) context.Context {
-	return context.WithValue(ctx, cfgContextKey{}, cfg)
+// Context returns a copy of the parent context with the given params.
+func (p *Params) Context(ctx context.Context) context.Context {
+	return context.WithValue(ctx, paramsContextKey{}, c)
 }
 
-// FromContext gets configuration from context.
-func FromContext(ctx context.Context) *Config {
-	if cfg, ok := ctx.Value(cfgContextKey{}).(*Config); ok {
-		return cfg
+// FromContext gets params from context.
+func FromContext(ctx context.Context) (*Params, error) {
+	if params, ok := ctx.Value(paramsContextKey{}).(*Params); ok {
+		return params, nil
 	}
-	return nil
+	return nil, errors.New("metrics system params not found")
 }
 ```
 
-See an [example](https://play.golang.org/p/paDWRN_K5LZ) in the Go Playground.
-**Tread light, in any case!** Don't add a context just for passing configuration that can be passed directly.
-Only use context for this if you want to pass the configuration transparently through a layer.
+See another [example](https://play.golang.org/p/paDWRN_K5LZ) in the Go Playground.
+**Tread light, in any case!** Don't use a context for passing configuration that can be passed directly.
+Only use context for this if you **need** to pass something simple transparently through a layer.
 **Think about a better solution before doing this!**
 
 ## Imports and build size
