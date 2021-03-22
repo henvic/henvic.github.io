@@ -59,6 +59,8 @@ amzn_assoc_asins = "0134190440,1617291781,1617297003,B001QI4UJW";
 </script>
 <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 
+{{< tweet 1252360422683897856 >}}
+
 ## A stable platform
 
 Go 1 has a compatibility promise at the source level with the aim of building a stable platform for the growth of program and projects made with the language:
