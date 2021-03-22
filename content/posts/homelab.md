@@ -18,6 +18,21 @@ In this blog post, I'm going to talk a little about my experience running multip
 
 * Stage and development machine for Go projects
 
+{{< table_of_contents >}}
+
+<script type="text/javascript">
+amzn_assoc_tracking_id = "henvic-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "B00JFFIHEC";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+
 ## Hardware
 
 I thought I'd get a full-size ATX tower case with plenty of space for expansion and components, but I was always open to any [form factor](https://en.wikipedia.org/wiki/Computer_form_factor). When browsing [r/homelab](https://www.reddit.com/r/homelab/) and asking for opinions from people elsewhere, I noticed Intel's [Next Unit of Computing](https://en.wikipedia.org/wiki/Next_Unit_of_Computing) (also known as Intel NUC) line of [barebone computers](https://en.wikipedia.org/wiki/Barebone_computer) stood out as a popular choice, and I decided to give it a chance.
