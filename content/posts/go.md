@@ -4,7 +4,7 @@ type: post
 description: "Go is one of the most prominent general-purpose programming languages nowadays. Google, Apple, Microsoft, Amazon, and Adobe, to name a few, have been using the language extensively. It’s the language of choice behind multiple cloud computing projects such as Kubernetes, and it’s steadily expanding towards numerous areas of software development. In this article, you'll find resources to learn about Go and its ecosystem."
 date: "2021-03-22"
 image: "/img/posts/go/go-logo-blue.png"
-hashtags: "go,golang,programming,learning,reference"
+hashtags: "golang"
 ---
 Go is one of the most prominent general-purpose programming languages nowadays.
 Google, Apple, Microsoft, Amazon, and Adobe, [to name a few](https://github.com/golang/go/wiki/GoUsers), have been using the language extensively.
@@ -619,6 +619,8 @@ func Quadratic(a, b, c float64) (x1, x2, Δ float64) {
 ```
 
 Thanks! If you liked what I wrote, maybe you want to check out my other posts, such as my experience creating a [homelab](/posts/homelab/) to play with different operating systems or learn about [my Go mistakes](/posts/my-go-mistakes/).
+
+{{< tweet 1373980655906852867 >}}
 
 <div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
 
