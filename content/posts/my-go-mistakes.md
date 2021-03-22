@@ -220,6 +220,8 @@ Also, be aware that if the output's order is important, you might want to sync w
 
 > Tip: Go has a fantastic data race detector. You can build your test or application with it by passing the `-race` flag to your `go test` or `go build` commands, respectively.
 
+Using the data race detector might even save lives: [The Therac-25 Incident](https://thedailywtf.com/articles/the-therac-25-incident) ([paper](http://sunnyday.mit.edu/papers/therac.pdf)).
+
 ### Sockets and WebSocket
 Something fun I solved was when implementing a “SSH over WebSocket” feature.
 We used the socket.io protocol on our backend systems already. For the sake of simplicity, we wanted to use that for this protocol.
