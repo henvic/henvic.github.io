@@ -1,0 +1,201 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+\input{glyphtounicode}
+
+\usepackage[default]{sourcesanspro}
+\usepackage[T1]{fontenc}
+
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\centering
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+
+
+\begin{center}
+    {\LARGE \scshape Henrique Vicente de Oliveira Pinto} \\ \vspace{2pt}
+    \begin{multicols}{2}
+    \begin{flushleft}
+    \href{https://henvic.dev/}{https://henvic.dev}\\
+    \href{https://linkedin.com/in/henvic}{https://linkedin.com/in/henvic}\\
+    \end{flushleft}
+    
+    \begin{flushright}
+    \href{mailto:henriquevicente@gmail.com}{henriquevicente@gmail.com}\\
+    \href{tel:+31-6-29-11-54-82}{+31-6-29-11-54-82}
+    \end{flushright}
+    \end{multicols}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\vspace{-2pt}
+\section{Education}
+  \resumeSubHeadingListStart
+      \resumeSubheading
+      {Universidade Federal de Pernambuco}{October 2013 -- December 2017}
+      {Bachelor of Science in Computer Science}{Recife, Brazil}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+  
+    \resumeSubheading
+      {Senior Software Engineer}{February 2021 -- Present}
+      {HATCH, PVH Corp.}{Amsterdam, Netherlands}
+
+    \resumeSubheading
+      {Senior Software Engineer}{June 2019 -- January 2021}
+      {HousingAnywhere}{Rotterdam, Netherlands}
+      \resumeItemListStart
+        \resumeItem{Worked on the Platform team on internal and public-facing APIs, services, and integration with affiliate partners.}
+        \resumeItem{Worked on the Payments team on the backend of the payments and payouts infrastructure.}
+        \resumeItem{Experience with Go, Google Cloud Platform, Kubernetes, and microservices.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+      {Senior Software Engineer}{January 2018 -- May 2019}
+      {Liferay Cloud}{Remote}
+    \resumeSubheading
+      {Software Engineer}{March 2014 -- December 2017}
+      {Liferay, Inc.}{Recife, Brazil \& Remote}
+      \resumeItemListStart
+        \resumeItem{Designed, implemented, and maintained projects such as the CLI tool of WeDeploy and Liferay Cloud DXP.}
+        \resumeItem{Experience developing projects with Go and JavaScript (frontend and backend).}
+        \resumeItem{Reverse engineered the socket.io protocol to create a remote access protocol emulating SSH.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+      {Co-Founder, Software Engineer}{c. 2013 -- 2015}
+      {Vehikel}{}
+      \resumeItemListStart
+        \resumeItem{Created this online marketplace for vehicles, inspired by Craigslist and eBay using PHP, ElasticSearch, MySQL, etc.}
+        \resumeItem{Implemented a real-time search engine with faceted filters, and pages with maps, edit-in-place, and photo carousel.}
+        \resumeItem{Implemented a web crawler for extracting data from industry sources on the web using CasperJS and PhantomJS.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+      {Software Engineer}{October 2012 -- July 2013}
+      {MGR Tecnologia – Cahier corporate social network}{Recife, Brazil}
+      \resumeItemListStart
+        \resumeItem{Introduced static analysis tools to improve code quality for the PHP backend.}
+        \resumeItem{Fixed slow pages loading time by profiling bottlenecks, and refactoring PHP code and MySQL/PostgreSQL queries.}
+        \resumeItem{Lead the implementation of a chat system with Node.js.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+      {Software Engineer}{March 2011 -- December 2011}
+      {Ogilvy \& Mather}{Recife, Brazil}
+      \resumeItemListStart
+        \resumeItem{Contract work for several Fortune 500 clients projects using a PHP and MySQL stack.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+      {Founder, Software Engineer}{c. 2009 -- 2011}
+      {Plifk}{}
+      \resumeItemListStart
+        \resumeItem{File-sharing web service. UX with a progressive enhancement mindset. API with OAuth support.}
+        \resumeItem{Experience with cloud computing (AWS), Linux, PHP, JavaScript, Memcached, and MySQL.}
+    \resumeItemListEnd
+    
+    
+  \resumeSubHeadingListEnd
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills, Language Skills, and Interests}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+    \textbf{Operating Systems}{: Linux, macOS, VMware ESXi (beginner).} \\
+     \textbf{Programming Languages}{: Go (proficient), JavaScript, PHP, Unix scripting, Java, TCL.} \\
+     \textbf{Software development}{:  Cloud computing, Security, Linux, macOS, CLI tools, developer tooling, Kubernetes, CI, SQL.} \\
+     \textbf{Languages}{: Portuguese (native), English (fluent), Dutch (beginner).} \\
+     \textbf{Interests}{: Open-source software, Photography, Nature, Travel, Drones, Industrial design, Homelab, Airplanes.}
+    }}
+ \end{itemize}
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications \& Awards}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Dell EMC Academic Associate}{: \href{https://www.certmetrics.com/DellEmc/public/verification.aspx?code=Z043ZNDTJMB11QS1}{Cloud Infrastructure and Services. Certificate issued on June 12, 2017}} \\
+     \textbf{Zend Certified Engineer}{: \href{https://www.zend-zce.com/en/yellow-pages/ZEND013948}{PHP 5. Certificate issued on May 13, 2010}} \\
+     \textbf{New York Film Academy}{: 4-week filmmaking workshop during January, 2009} \\
+     \textbf{Brazilian Physics Olympiad}{: \href{https://sec.sbfisica.org.br/olimpiadas/obf2004/resultadofinal_2serie.htm}{Honors, 2004}}
+     }}
+ \end{itemize}
+
+\end{document}
