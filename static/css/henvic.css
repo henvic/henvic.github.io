@@ -17,6 +17,13 @@ a:focus {
 
 h1, h2, h3, h4, h5, h6, dl, dt {
     font-family: 'Comfortaa', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+dl, dt {
     font-weight: 300;
 }
 
