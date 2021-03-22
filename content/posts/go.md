@@ -3,7 +3,7 @@ title: "The ecosystem of the Go programming language"
 type: post
 description: "Go is one of the most prominent general-purpose programming languages nowadays. Google, Apple, Microsoft, Amazon, and Adobe, to name a few, have been using the language extensively. It’s the language of choice behind multiple cloud computing projects such as Kubernetes, and it’s steadily expanding towards numerous areas of software development. In this article, you'll find resources to learn about Go and its ecosystem."
 date: "2021-03-22"
-image: "/img/posts/go/go-logo-blue.svg"
+image: "/img/posts/go/go-logo-blue.png"
 hashtags: "go,golang,programming,learning,reference"
 ---
 Go is one of the most prominent general-purpose programming languages nowadays.
