@@ -4,7 +4,7 @@ kind: list
 ---
 
 {{< table_of_contents >}}
-## Books
+## Books & Literature
 
 ### Technology
 * [Inviting Disaster: Lessons from the edge of technology - James R. Chiles](https://www.amazon.com/Inviting-Disaster-Lessons-From-Technology/dp/0066620821)
@@ -22,6 +22,7 @@ kind: list
 * [The Tuttle Twins (books for educating children with a foundation of liberty)](https://tuttletwins.com/)
 * [Econlib - The Library of Economics and Liberty](https://www.econlib.org)
 * [Against Intellectual Property - Stephen Kinsella](https://mises.org/library/against-intellectual-property-0)
+* [Do Business WITHOUT Intellectual Property - Stephen Kinsella](http://www.stephankinsella.com/wp-content/uploads/publications/kinsella-do-business-without-ip-2014.pdf)
 * [Tom Woods](https://tomwoods.com)
 * [Foundation for Economic Education](https://fee.org)
 * [The Online Library of Liberty](https://oll.libertyfund.org)
@@ -47,6 +48,7 @@ kind: list
 * [Fossil / Rebase Considered Harmful](https://www.fossil-scm.org/home/doc/trunk/www/rebaseharm.md)
 * [The Unix Heritage Wiki](https://wiki.tuhs.org/doku.php)
 * [Modular conversion, encoding and encryption online — Cryptii](https://cryptii.com) (Enigma machine, Base64, HMAC, and so on)
+* [Your GitHub story in 3D](https://skyline.github.com/) ([view my own](https://skyline.github.com/henvic/2020))
 
 <hr />
 
