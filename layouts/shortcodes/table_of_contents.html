@@ -1,7 +1,14 @@
 {{ if gt (len .Page.TableOfContents) 0 }}
 <aside class="toc">
     <dl>
-        <dt>Table of Contents</dt>
-        <dd>{{ .Page.TableOfContents }}</dd>
+        <dt>
+            Table of Contents <label for="toc-toggle" class="toc-toggle-label">
+                show/hide
+            </label>
+        </dt>
+        <dd>
+            <input id="toc-toggle" type="checkbox" class="toc-toggle" />
+            {{ .Page.TableOfContents }}
+        </dd>
 </aside>
 {{ end }}

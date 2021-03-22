@@ -248,6 +248,7 @@ pre, samp, code, kbd {
     border: none !important;
 }
 
+/* Table of contents */
 .toc {
     background: #f9f9f9;
     display: table;
@@ -259,4 +260,24 @@ pre, samp, code, kbd {
 
 .toc li, .toc a {
     color: #333;
+}
+
+.toc-toggle-label {
+    cursor: pointer;
+    color: #068;
+    display: inline;
+}
+
+.toc-toggle {
+    display: none;
+}
+
+.toc-toggle:not(checked)~nav {
+    display: none;
+}
+.toc-toggle:checked~nav {
+    display: inherit;
+}
+.toc-toggle-label .toc-toggle-label-hide {
+    display: none;
 }
