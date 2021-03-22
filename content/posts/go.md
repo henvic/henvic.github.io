@@ -151,6 +151,8 @@ amzn_assoc_linkid = "020cf6e02222213b0e94a5466dc12cf6";
 * [Practical Go](https://dave.cheney.net/practical-go) and [High Performance Go](https://dave.cheney.net/high-performance-go-workshop/gophercon-2019.html) by [Dave Cheney](https://dave.cheney.net/)
 * [Writing Accessible Go 2018 GopherCon talk](https://www.youtube.com/watch?v=cVaDY0ChvOQ) ([slides](https://www.juliaferraioli.com/presos/writing-accessible-go/)) by [Julia Ferraioli](https://www.juliaferraioli.com/)
 * [Rust vs. Go: Why They’re Better Together](https://thenewstack.io/rust-vs-go-why-theyre-better-together/)
+* [GopherCon 2018: Bryan C. Mills - Rethinking Classical Concurrency Patterns](https://www.youtube.com/watch?v=5zXAHh5tJqQ) ([slides](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view) and [transcript](https://about.sourcegraph.com/go/gophercon-2018-rethinking-classical-concurrency-patterns/))
+* [TutorialEdge Go Development](https://tutorialedge.net/golang/) and [course](https://tutorialedge.net/course/golang/)
 
 ### Training and workshops
 * Many conferences, such as [GopherCon](https://gophercon.com/) offers hands-on workshops before or after the main event.
@@ -179,6 +181,9 @@ Kudos to initiatives such as [GoBridge](https://gobridge.org), making it possibl
 
 
 Look up Awesome Go's [conferences](https://github.com/avelino/awesome-go#conferences) and [meetups](https://github.com/avelino/awesome-go#conferences) list or the Gophers Slack to see if a local meetup group exists close to your location.
+
+### News
+* [Golang Weekly](https://golangweekly.com/), a weekly newsletter about the Go programming language.
 
 ### Podcasts
 * [Go Time](https://changelog.com/gotime), a weekly podcast with diverse discussions from around the Go community
@@ -573,6 +578,15 @@ I decided to create my own, so I used a minimal one as the base in the very begi
 [Caddy](https://github.com/caddyserver/caddy) is an extensible HTTP server platform written in Go.
 
 I've been using it fot local software development instead of [nginx](https://www.nginx.com/) to serve static files and to expose multiple HTTP services on the same address using a reverse proxy.
+
+### gophernotes
+[gophernotes](https://github.com/gopherdata/gophernotes) is a Go kernel for [Jupyter](https://jupyter.org/) notebooks and [nteract](https://nteract.io/).
+
+> The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.
+
+### xbar
+[xbar](https://xbarapp.com/) is a macOS program written in Go that lets you put the output of any script/program in your macOS menu bar.
+It's like [iStat Menus](https://bjango.com/mac/istatmenus/), but for your menus! It’s an open-source project written primarily in Go by [Mat Ryer](https://twitter.com/matryer)!
 
 ## Reporting bugs and proposing feature requests
 * The project uses publicly accessible [GitHub issues](https://github.com/golang/go/issues) to track and discuss those.
