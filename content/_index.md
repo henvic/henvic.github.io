@@ -6,6 +6,7 @@ title: "Home"
     <div class="cell large-4">
       <h4>Highlighted posts</h4>
       <ul>
+        <li><a href="/posts/go">The ecosystem of the Go programming language</a></li>
         <li><a href="/posts/my-go-mistakes/">My Go mistakes</a></li>
         <li><a href="/posts/env/">Environment variables, config, secrets, and globals</a></li>
         <li><a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a></li>
