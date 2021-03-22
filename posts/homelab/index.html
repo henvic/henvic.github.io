@@ -270,6 +270,86 @@
 <p>Stage and development machine for Go projects</p>
 </li>
 </ul>
+
+<aside class="toc">
+    <dl>
+        <dt>
+            Table of Contents <label for="toc-toggle" class="toc-toggle-label">
+                show/hide
+            </label>
+        </dt>
+        <dd>
+            <input id="toc-toggle" type="checkbox" class="toc-toggle" />
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hardware">Hardware</a>
+      <ul>
+        <li><a href="#if-you-want-to-buy-the-same-thing">If you want to buy the same thing</a></li>
+      </ul>
+    </li>
+    <li><a href="#hypervisor-and-operating-systems">Hypervisor and operating systems</a></li>
+    <li><a href="#web-client">Web client</a>
+      <ul>
+        <li><a href="#using-https-certificates">Using HTTPS certificates</a></li>
+      </ul>
+    </li>
+    <li><a href="#back-to-intel-nuc-10">Back to Intel NUC 10</a>
+      <ul>
+        <li><a href="#virtual-switch">Virtual switch</a></li>
+        <li><a href="#more-ethernet-issues">More Ethernet issues</a></li>
+      </ul>
+    </li>
+    <li><a href="#running-virtual-machines">Running virtual machines</a></li>
+    <li><a href="#operating-systems">Operating systems</a>
+      <ul>
+        <li><a href="#freebsd">FreeBSD</a></li>
+        <li><a href="#freenas">FreeNAS</a></li>
+        <li><a href="#clear-linux-os">Clear Linux OS</a></li>
+        <li><a href="#openindiana">OpenIndiana</a></li>
+        <li><a href="#haiku">Haiku</a></li>
+        <li><a href="#templeos">TempleOS</a></li>
+        <li><a href="#cpu-memory-and-storage-for-each-virtual-machine">CPU, memory, and storage for each virtual machine</a></li>
+        <li><a href="#fuchsia">Fuchsia</a></li>
+        <li><a href="#virtual-machines-and-emulators">Virtual machines and emulators</a></li>
+      </ul>
+    </li>
+    <li><a href="#accessing-from-the-outside-world">Accessing from the outside world</a></li>
+    <li><a href="#virtual-private-network-vpn">Virtual Private Network (VPN)</a>
+      <ul>
+        <li><a href="#openvpn">OpenVPN</a></li>
+      </ul>
+    </li>
+    <li><a href="#protecting-your-system">Protecting your system</a></li>
+    <li><a href="#ideas">Ideas</a>
+      <ul>
+        <li><a href="#importing-data-from-the-cloud">Importing data from the cloud</a></li>
+        <li><a href="#continuous-integration">Continuous Integration</a></li>
+        <li><a href="#backup--restore-plan">Backup &amp; restore plan</a></li>
+        <li><a href="#processing-photos-and-videos">Processing photos and videos</a></li>
+        <li><a href="#tor">ToR</a></li>
+        <li><a href="#eternalterminal">EternalTerminal</a></li>
+      </ul>
+    </li>
+    <li><a href="#reviews-from-others">Reviews from others</a></li>
+    <li><a href="#thanks">Thanks</a></li>
+  </ul>
+</nav>
+        </dd>
+</aside>
+
+
+<script type="text/javascript">
+amzn_assoc_tracking_id = "henvic-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "B00JFFIHEC";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 <h2 id="hardware">Hardware</h2>
 <p>I thought I&rsquo;d get a full-size ATX tower case with plenty of space for expansion and components, but I was always open to any <a href="https://en.wikipedia.org/wiki/Computer_form_factor">form factor</a>. When browsing <a href="https://www.reddit.com/r/homelab/">r/homelab</a> and asking for opinions from people elsewhere, I noticed Intel&rsquo;s <a href="https://en.wikipedia.org/wiki/Next_Unit_of_Computing">Next Unit of Computing</a> (also known as Intel NUC) line of <a href="https://en.wikipedia.org/wiki/Barebone_computer">barebone computers</a> stood out as a popular choice, and I decided to give it a chance.</p>
 <p><a href="/img/posts/homelab/intel-nuc-10.jpg"><img src="/img/posts/homelab/intel-nuc-10_small.jpg" alt="Intel NUC Performance Kit photo"></a></p>
@@ -582,6 +662,10 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
                 <ul>
                         
                         <li>
+                                <a href="/posts/go/">The ecosystem of the Go programming language</a>
+                                <time datetime="2006-01-02">Monday 22, March 2021</time>
+                        </li>
+                        <li>
                                 <a href="/posts/my-go-mistakes/">My Go mistakes</a>
                                 <time datetime="2006-01-02">Thursday 18, February 2021</time>
                         </li>
@@ -608,6 +692,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
             </div>
         </div>
     </div>
+
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -618,7 +703,6 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-
 
 <script src="/js/vendor/modernizr-custom-svg.js"></script>
 <script src="/js/vendor/what-input.js"></script>

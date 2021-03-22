@@ -6,7 +6,17 @@
     <description>Recent content in Blog posts on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The ecosystem of the Go programming language</title>
+      <link>https://henvic.dev/posts/go/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/go/</guid>
+      <description>Go is one of the most prominent general-purpose programming languages nowadays. Google, Apple, Microsoft, Amazon, and Adobe, to name a few, have been using the language extensively. It&amp;rsquo;s the language of choice behind multiple cloud computing projects such as Kubernetes, and it&amp;rsquo;s steadily expanding towards numerous areas of software development. In this article, you&amp;rsquo;ll find resources to learn about Go and its ecosystem.
+If you want to see how people are using Go, check out the Go Developer Survey 2020 Results.</description>
+    </item>
+    
     <item>
       <title>My Go mistakes</title>
       <link>https://henvic.dev/posts/my-go-mistakes/</link>
@@ -14,8 +24,7 @@
       
       <guid>https://henvic.dev/posts/my-go-mistakes/</guid>
       <description>In this post, I share mistakes I&amp;rsquo;ve made writing Go code for six years since the beginning of my journey with the language.
-  Table of Contents  init() functions Constants Nil pointer dereference Comments and documentation Creating too many packages Exporting names  Internal packages   Globals and configuration Imports and build size Concurrency and streams  Sockets and WebSocket      
-init() functions In Go, you can define the special function init multiple times on a single package or file.</description>
+   Table of Contents show/hide     init() functions Constants Nil pointer dereference Comments and documentation Creating too many packages Exporting names  Internal packages   Globals and configuration Imports and build size Concurrency and streams  Sockets and WebSocket</description>
     </item>
     
     <item>
@@ -70,7 +79,7 @@ Here&amp;rsquo;s I discuss what everyone should be doing about distributing soft
   FreeBSD playground
   Managing backup
   Stage and development machine for Go projects
-  Hardware I thought I&amp;rsquo;d get a full-size ATX tower case with plenty of space for expansion and components, but I was always open to any form factor.</description>
+    Table of Contents show/hide     Hardware  If you want to buy the same thing   Hypervisor and operating systems Web client  Using HTTPS certificates   Back to Intel NUC 10  Virtual switch More Ethernet issues   Running virtual machines Operating systems  FreeBSD FreeNAS Clear Linux OS OpenIndiana Haiku TempleOS CPU, memory, and storage for each virtual machine Fuchsia Virtual machines and emulators   Accessing from the outside world Virtual Private Network (VPN)  OpenVPN   Protecting your system Ideas  Importing data from the cloud Continuous Integration Backup &amp;amp; restore plan Processing photos and videos ToR EternalTerminal   Reviews from others Thanks     amzn_assoc_tracking_id = &#34;</description>
     </item>
     
   </channel>

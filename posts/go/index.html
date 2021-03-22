@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The ecosystem of the Go programming language | Henrique Vicente</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto+Mono|Comfortaa:300" rel="stylesheet">
+    <link rel="stylesheet" href="/css/foundation-icons.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/webicons/webicons.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/henvic.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta property="og:title" content="The ecosystem of the Go programming language | Henrique Vicente">
+    <meta name="twitter:title" content="The ecosystem of the Go programming language | Henrique Vicente" />
+    <meta property="og:url" content="https://henvic.dev/posts/go/">
+    
+    <meta name="description" content="Go is one of the most prominent general-purpose programming languages nowadays. Google, Apple, Microsoft, Amazon, and Adobe, to name a few, have been using the language extensively. It’s the language of choice behind multiple cloud computing projects such as Kubernetes, and it’s steadily expanding towards numerous areas of software development. In this article, you&#39;ll find resources to learn about Go and its ecosystem.">
+    <meta property="og:description" content="Go is one of the most prominent general-purpose programming languages nowadays. Google, Apple, Microsoft, Amazon, and Adobe, to name a few, have been using the language extensively. It’s the language of choice behind multiple cloud computing projects such as Kubernetes, and it’s steadily expanding towards numerous areas of software development. In this article, you&#39;ll find resources to learn about Go and its ecosystem.">
+    <meta name="twitter:description" content="Go is one of the most prominent general-purpose programming languages nowadays. Google, Apple, Microsoft, Amazon, and Adobe, to name a few, have been using the language extensively. It’s the language of choice behind multiple cloud computing projects such as Kubernetes, and it’s steadily expanding towards numerous areas of software development. In this article, you&#39;ll find resources to learn about Go and its ecosystem." />
+    
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2021-03-22">
+    
+    <meta property="twitter:url" content="https://henvic.dev/posts/go/">
+    
+    <meta name="og:image" content="https://henvic.dev/img/posts/go/go-logo-blue.svg" />
+    <meta name="twitter:image" content="https://henvic.dev/img/posts/go/go-logo-blue.svg" />
+    
+</head><body><div class="grid-y medium-grid-frame">
+        <nav class="title-bar show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title invisible">Menu</div>
+</nav>
+<nav class="top-bar" id="responsive-menu">
+    <div class="top-bar-right no-js">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
+            data-dropdown-menu data-smooth-scroll>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/" >
+                        Home
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/about/" >
+                        About me
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/posts/" >
+                        Blog posts
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/talks/" >
+                        Talks
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class="show-for-small-only ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                </li>
+            
+            
+                <li class="hide-for-small-only is-dropdown-submenu-parent ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                <ul class="vertical menu nested submenu">
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#httpretty" title="httpretty">
+                            httpretty
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#wedeploy" title="WeDeploy CLI Tool">
+                            WeDeploy CLI Tool
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#vehikel" title="Vehikel">
+                            Vehikel
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#tic-tac-toe" title="Tic-tac-toe">
+                            Tic-tac-toe
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#accidents" title="accidents">
+                            accidents
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#topostit" title="to-post.it">
+                            to-post.it
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#trazqueeupago" title="trazqueeupago.com">
+                            trazqueeupago.com
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#cahier" title="Cahier">
+                            Cahier
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#plifk" title="Plifk">
+                            Plifk
+                        </a>
+                    </li>
+                    
+                </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/opensource/" >
+                        Open Source
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/favorites/" >
+                        Favorites
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
+        </ul>
+    </div>
+</nav>
+
+        <div class="cell medium-auto medium-cell-block-container">
+            <div class="grid-x grid-padding-x">
+                <div class="nav cell large-3 medium-4 large-cell-block-y medium-cell-block-y"><div itemscope itemtype="http://schema.org/Person">
+    <div class="nav-card grid-x">
+        <div class="cell small-2 medium-12 nav-card-photo-cell">
+            <a href="/" itemprop="photo" class="nav-card-photo">
+                <img src="/img/me_at_gullfoss_cropped.jpg" alt="me at Gullfoss" width="549" height="549" />
+            </a>
+        </div>
+        <div class="cell card-section small-10 medium-12 medium-text-center">
+            <h4 itemprop="name">Henrique Vicente</h4>
+            <p>
+                <span itemprop="title">Software Engineer</span>
+            </p>
+        </div>
+    </div>
+    <ul class="nav-about-me no-bullet">
+        <li>
+            <p>I'm a Software Engineer from Brazil. I live in the Netherlands, and I work for the fashion industry at <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
+                working on a Digital Showroom for wholesale fashion brands (such as Tommy Hilfiger and Calvin Klein).<br /><br />
+                I mostly use the amazing Go programming language. I enjoy photography, drones, and traveling.</p>
+        </li>
+        <li>
+            <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
+                    class="space"></span>DFBD<span class="space"></span>257C<span class="space"></span>1575</a>
+        </li>
+    </ul>
+    <div class="menu-social">
+        <a class="webicon github" href="https://github.com/henvic">
+            GitHub
+        </a>
+        <a class="webicon twitter" href="https://twitter.com/henriquev">
+            Twitter
+        </a>
+        <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
+            Linkedin
+        </a>
+        <a class="webicon instagram" href="https://www.instagram.com/henvic/">
+            Instagram
+        </a>
+        <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
+            Flickr
+        </a>
+        <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
+            henriquevicente@gmail.com
+        </a>
+    </div>
+</div>
+</div>
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
+        <h1>The ecosystem of the Go programming language</h1>
+        
+        
+        <p class="post-date">Posted in <time class="stat" datetime="2021-03-22 00:00:00 &#43;0000 UTC"></time>Monday, 22 March 2021</time>.</p>
+        
+        <p>Go is one of the most prominent general-purpose programming languages nowadays.
+Google, Apple, Microsoft, Amazon, and Adobe, <a href="https://github.com/golang/go/wiki/GoUsers">to name a few</a>, have been using the language extensively.
+It&rsquo;s the language of choice behind multiple cloud computing projects such as <a href="https://kubernetes.io/">Kubernetes</a>, and it&rsquo;s steadily expanding towards numerous areas of software development.
+In this article, you&rsquo;ll find resources to learn about Go and its ecosystem.</p>
+<p>If you want to see how people are using Go, check out the <a href="https://blog.golang.org/survey2020-results">Go Developer Survey 2020 Results</a>.</p>
+<p><a href="https://golang.org/"><img src="/img/posts/go/go-logo-blue.svg" width="200" alt="Gopher"></a></p>
+
+<aside class="toc">
+    <dl>
+        <dt>
+            Table of Contents <label for="toc-toggle" class="toc-toggle-label">
+                show/hide
+            </label>
+        </dt>
+        <dd>
+            <input id="toc-toggle" type="checkbox" class="toc-toggle" />
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hello-world-in-go">Hello World in Go</a></li>
+    <li><a href="#a-stable-platform">A stable platform</a></li>
+    <li><a href="#a-simple-language">A simple language</a></li>
+    <li><a href="#learning">Learning</a>
+      <ul>
+        <li><a href="#quick-start-guides">Quick start guides</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#articles-tutorials-talks-opinions-etc">Articles, tutorials, talks, opinions, etc.</a></li>
+        <li><a href="#training-and-workshops">Training and workshops</a></li>
+      </ul>
+    </li>
+    <li><a href="#community">Community</a>
+      <ul>
+        <li><a href="#conferences--meetups">Conferences &amp; Meetups</a></li>
+        <li><a href="#podcasts">Podcasts</a></li>
+        <li><a href="#youtube-and-twitch-channels">YouTube and Twitch channels</a></li>
+      </ul>
+    </li>
+    <li><a href="#text-editors-and-ides">Text editors and IDEs</a>
+      <ul>
+        <li><a href="#visual-studio-code">Visual Studio Code</a></li>
+        <li><a href="#acme">Acme</a></li>
+        <li><a href="#vim">Vim</a></li>
+        <li><a href="#goland">GoLand</a></li>
+      </ul>
+    </li>
+    <li><a href="#coding-style-and-code-quality">Coding style and code quality</a>
+      <ul>
+        <li><a href="#testing">Testing</a></li>
+        <li><a href="#static-analysis-tools">Static analysis tools</a></li>
+      </ul>
+    </li>
+    <li><a href="#standard-library">Standard library</a>
+      <ul>
+        <li><a href="#x-packages">x packages</a></li>
+      </ul>
+    </li>
+    <li><a href="#third-party-packages">Third-party packages</a>
+      <ul>
+        <li><a href="#cobra">cobra</a></li>
+        <li><a href="#pgx-postgresql-driver">pgx (PostgreSQL driver)</a></li>
+        <li><a href="#grpc-go">gRPC-Go</a></li>
+        <li><a href="#paseto-alternative-to-jwt">paseto (alternative to JWT)</a></li>
+        <li><a href="#goexpect">goexpect</a></li>
+        <li><a href="#subcommands">subcommands</a></li>
+        <li><a href="#httpretty">httpretty</a></li>
+        <li><a href="#sql-databases">SQL Databases</a></li>
+      </ul>
+    </li>
+    <li><a href="#hardware-integration">Hardware integration</a></li>
+    <li><a href="#go-modules-and-vendoring">Go modules and vendoring</a>
+      <ul>
+        <li><a href="#auditing">Auditing</a></li>
+        <li><a href="#vendoring">Vendoring</a></li>
+        <li><a href="#go-modules-proxy">Go modules proxy</a></li>
+      </ul>
+    </li>
+    <li><a href="#tools-for-software-development">Tools for software development</a>
+      <ul>
+        <li><a href="#godoc">godoc</a></li>
+        <li><a href="#swag">swag</a></li>
+        <li><a href="#goda">Goda</a></li>
+        <li><a href="#depaware">depaware</a></li>
+        <li><a href="#gops">gops</a></li>
+        <li><a href="#goversion">goversion</a></li>
+        <li><a href="#sqlc">sqlc</a></li>
+        <li><a href="#hey">hey</a></li>
+        <li><a href="#vegeta">vegeta</a></li>
+        <li><a href="#go-guru">Go Guru</a></li>
+        <li><a href="#pythia">Pythia</a></li>
+        <li><a href="#wails">Wails</a></li>
+      </ul>
+    </li>
+    <li><a href="#productivity-tools">Productivity tools</a>
+      <ul>
+        <li><a href="#present">present</a></li>
+        <li><a href="#hugo">Hugo</a></li>
+        <li><a href="#caddy">Caddy</a></li>
+      </ul>
+    </li>
+    <li><a href="#reporting-bugs-and-proposing-feature-requests">Reporting bugs and proposing feature requests</a></li>
+    <li><a href="#code-review-process">Code review process</a>
+      <ul>
+        <li><a href="#contributing-back">Contributing back</a></li>
+      </ul>
+    </li>
+    <li><a href="#gopher">Gopher</a></li>
+    <li><a href="#plannbsp9-influence">Plan 9 influence</a></li>
+  </ul>
+</nav>
+        </dd>
+</aside>
+
+
+<table>
+<thead>
+<tr>
+<th>Fact sheet</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paradigm</td>
+<td>Multi-paradigm: mostly imperative, and concurrent.</td>
+</tr>
+<tr>
+<td>Designed by</td>
+<td><a href="https://en.wikipedia.org/wiki/Robert_Griesemer">Robert Griesemer</a>, <a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike</a>, and <a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>. <a href="https://swtch.com/~rsc/">Russ Cox</a> and <a href="https://airs.com/ian/">Ian Lance Taylor</a> quickly joined them.</td>
+</tr>
+<tr>
+<td>Sponsored by</td>
+<td><a href="https://www.google.com/">Google</a></td>
+</tr>
+<tr>
+<td>Dates</td>
+<td>Design began in late 2007; Publicly Announced <a href="https://opensource.googleblog.com/2009/11/hey-ho-lets-go.html">November 10, 2009</a> by the Go Team.</td>
+</tr>
+<tr>
+<td>Influenced by</td>
+<td>C, Pascal, Modula-2, Oberon-2, CSP, Occam, Newsqueak, Limbo, Alef, BCPL, Smalltalk, APL, etc.</td>
+</tr>
+<tr>
+<td>Typing</td>
+<td>Inferred, static, strong, structural.</td>
+</tr>
+<tr>
+<td>Known for being</td>
+<td>Modern, readable, concise, garbage-collected, fast to compile, statically linked.</td>
+</tr>
+<tr>
+<td>Site</td>
+<td><a href="https://golang.org/">golang.org</a></td>
+</tr>
+<tr>
+<td>Release cycle</td>
+<td><a href="https://github.com/golang/go/wiki/Go-Release-Cycle">Major release every 6 months</a></td>
+</tr>
+<tr>
+<td>Essentials</td>
+<td><a href="https://golang.org/doc/effective_go">Effective Go</a>, <a href="https://github.com/golang/go/wiki/CodeReviewComments">Code Review Comments</a>, <a href="https://golang.org/ref/spec">Specification</a>, and <a href="https://golang.org/doc/faq">FAQ</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="hello-world-in-go">Hello World in Go</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello, playground&#34;</span>)
+}
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://play.golang.org/">Run this code in The Go Playground</a></p>
+<script type="text/javascript">
+amzn_assoc_placement = "adunit0";
+amzn_assoc_tracking_id = "henvic-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_linkid = "dc91c08424afa81183b8cf582406ddac";
+amzn_assoc_search_bar = "true";
+amzn_assoc_title = "Go";
+amzn_assoc_asins = "0134190440,1617291781,1617297003,B001QI4UJW";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<h2 id="a-stable-platform">A stable platform</h2>
+<p>Go 1 has a compatibility promise at the source level with the aim of building a stable platform for the growth of program and projects made with the language:</p>
+<blockquote>
+<p>It is intended that programs written to the Go 1 specification will continue to compile and run correctly, unchanged, over the lifetime of that specification. At some indefinite point, a Go 2 specification may arise, but until that time, Go programs that work today should continue to work even as future &ldquo;point&rdquo; releases of Go 1 arise (Go 1.1, Go 1.2, etc.).</p>
+<p><a href="https://golang.org/doc/go1compat">Go 1 and the Future of Go Programs</a></p>
+</blockquote>
+<p>The <em>go1compat</em> promise by the Go Team is worth highlighting in a world where most languages swiftly roll major versions with breaking changes and ever-changing APIs almost yearly. I highly suggest you read their compatibility document to understand the expectations you can have and how they might apply to topics such as bugs, spec errors, security issues, the use of unkeyed struct literals, and the <a href="https://pkg.go.dev/unsafe">unsafe</a> package.</p>
+<h2 id="a-simple-language">A simple language</h2>
+<p>Consulting the <a href="https://golang.org/ref/spec">spec</a>, you can find out that Go has only 25 <a href="https://en.wikipedia.org/wiki/Reserved_word">reserved keywords</a>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-text" data-lang="text">break        default      func         interface    select
+case         defer        go           map          struct
+chan         else         goto         package      switch
+const        fallthrough  if           range        type
+continue     for          import       return       var
+</code></pre></td></tr></table>
+</div>
+</div><p>You&rsquo;ll also discover it is a concise language with regular syntax. In fact, one with the goals the Go team had when designing it was <a href="https://talks.golang.org/2012/splash.article">to increase the productivity of software engineering at scale</a> at Google.</p>
+<table>
+<thead>
+<tr>
+<th>Influence</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Statement and expression syntax</td>
+<td>C</td>
+</tr>
+<tr>
+<td>Declaration syntax</td>
+<td>Pascal</td>
+</tr>
+<tr>
+<td>Packages</td>
+<td>Modula-2, Oberon-2</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>CSP, Occam, Newsqueak, Limbo, Alef</td>
+</tr>
+<tr>
+<td>The semicolon rule</td>
+<td>BCPL</td>
+</tr>
+<tr>
+<td>Methods</td>
+<td>Smalltalk</td>
+</tr>
+<tr>
+<td>&lt;-, :=</td>
+<td>Newsqueak</td>
+</tr>
+<tr>
+<td>iota</td>
+<td>APL</td>
+</tr>
+<tr>
+<td>Lessons good and bad</td>
+<td>C++, C#, Java, JavaScript, LISP, Python, Scala, etc.</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://talks.golang.org/2014/hellogophers.slide">Hello, Gophers!</a></p>
+<h2 id="learning">Learning</h2>
+<p><a href="https://golang.org/doc/effective_go">Effective Go</a>, <a href="https://github.com/golang/go/wiki/CodeReviewComments">Code Review Comments</a>, and <a href="https://golang.org/ref/spec">Specification</a> are must-read documents if you want to be serious about Go.
+I always recommend anyone using the language to follow the recommendations of <strong>Effective Go</strong> and <strong>Code Review Comments</strong> for the sake of consistency – even when not 100% sold to them.</p>
+<p>In the end of 2019, the Go Team launched <a href="https://go.dev/">go.dev</a> website, a <em>hub for Go users providing centralized and curated resources from across the Go ecosystem</em>. Go to <a href="https://learn.go.dev/">learn.go.dev</a> to see a list of <strong>Learning Resources</strong> with a range of tactics and focus subjects.</p>
+<p>I started learning Go six years ago and mainly used the <strong>official documentation</strong>, <strong>A Tour of Go</strong>, and <strong>Go by Example</strong> to learn the language.
+No matter if you&rsquo;re an experienced developer or a newcomer to programming, Go is a fun language to learn, and the community is friendly and respectful.</p>
+<h3 id="quick-start-guides">Quick start guides</h3>
+<ul>
+<li><a href="https://quii.gitbook.io/learn-go-with-tests/">Learn Go with Tests</a></li>
+<li><a href="https://tour.golang.org/">A Tour of Go</a></li>
+<li><a href="https://gobyexample.com/">Go by Example</a></li>
+</ul>
+<h3 id="books">Books</h3>
+<p><a href="https://amzn.to/2ONS33T">The Go Programming Language</a> (<a href="https://www.gopl.io/">website</a>) is a lengthy book written by <a href="https://alandonovan.net/">Alan A. A. Donovan</a> and <a href="https://www.cs.princeton.edu/~bwk/">Brian W. Kernighan</a> (also co-author of <a href="https://amzn.to/3qFOpX6">The C Programming Language</a> with <a href="https://www.bell-labs.com/usr/dmr/www/">Dennis Ritchie</a> and <a href="https://amzn.to/3rJTGyk">The Unix Programming Environment</a> with <a href="http://www.herpolhode.com/rob/">Rob Pike</a>).</p>
+<script type="text/javascript">
+amzn_assoc_tracking_id = "henvic-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "0134190440";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "9da8cfa3d8c20690df5251108220866d";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<p>For a concise and comprehensive guide, try <a href="https://www.manning.com/books/go-in-action">Go in Action</a> (<a href="https://livebook.manning.com/book/go-in-action/">online version</a> and <a href="https://amzn.to/2OfIbjR">on Amazon</a>) by <a href="https://twitter.com/goinggodotnet">Bill Kennedy</a> and <a href="https://www.brian.dev/">Brian Ketelsen</a> (known for co-organizing GopherCon).</p>
+<script type="text/javascript">
+amzn_assoc_tracking_id = "henvic-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "1617291781";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "020cf6e02222213b0e94a5466dc12cf6";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<h3 id="articles-tutorials-talks-opinions-etc">Articles, tutorials, talks, opinions, etc.</h3>
+<ul>
+<li><a href="https://github.com/golang/go/wiki/">Go wiki</a></li>
+<li><a href="https://talks.golang.org/">Go talks</a></li>
+<li><a href="https://golang.org/ref/mem">The Go Memory Model</a></li>
+<li><a href="https://golang.org/doc/articles/race_detector">Data Race Detector</a></li>
+<li><a href="https://research.swtch.com/">research!rsc</a> by Russ Cox</li>
+<li><a href="https://peter.bourgon.org/articles/">Articles</a> and <a href="https://peter.bourgon.org/talks/">talks</a> by <a href="https://peter.bourgon.org/">Peter Bourgon</a></li>
+<li><a href="https://dave.cheney.net/practical-go">Practical Go</a> and <a href="https://dave.cheney.net/high-performance-go-workshop/gophercon-2019.html">High Performance Go</a> by <a href="https://dave.cheney.net/">Dave Cheney</a></li>
+<li><a href="https://www.youtube.com/watch?v=cVaDY0ChvOQ">Writing Accessible Go 2018 GopherCon talk</a> (<a href="https://www.juliaferraioli.com/presos/writing-accessible-go/">slides</a>) by <a href="https://www.juliaferraioli.com/">Julia Ferraioli</a></li>
+<li><a href="https://thenewstack.io/rust-vs-go-why-theyre-better-together/">Rust vs. Go: Why They’re Better Together</a></li>
+</ul>
+<h3 id="training-and-workshops">Training and workshops</h3>
+<ul>
+<li>Many conferences, such as <a href="https://gophercon.com/">GopherCon</a> offers hands-on workshops before or after the main event.</li>
+<li><a href="https://www.ardanlabs.com/ultimate-go/">Ultimate Go</a> is a workshop by <a href="https://twitter.com/goinggodotnet">Bill Kennedy</a>&rsquo;s <a href="https://www.ardanlabs.com/">Ardan Labs</a> consulting company and praised by many!</li>
+</ul>
+<h2 id="community">Community</h2>
+<p>Popular communications channels about the language include:</p>
+<ul>
+<li><a href="https://forum.golangbridge.org/">Go Forum</a></li>
+<li><a href="https://invite.slack.golangbridge.org/">Gophers Slack</a></li>
+<li><a href="https://groups.google.com/g/golang-nuts">golang-nuts general discussion list</a></li>
+<li><a href="https://twitter.com/hashtag/golang">#golang</a> hashtag @ Twitter</li>
+<li><a href="https://reddit.com/r/golang">Reddit&rsquo;s Go community</a></li>
+<li><a href="https://freenode.logbot.info/go-nuts/">#go-nuts</a> IRC channel @ <a href="https://freenode.net/">freenode</a> (you&rsquo;ll need an IRC client or webchat like <a href="https://www.irccloud.com/">IRCCloud</a>)</li>
+</ul>
+<h3 id="conferences--meetups">Conferences &amp; Meetups</h3>
+<p>There are many Go meetups and conferences nowadays. Here are some of the most popular conferences. <em>Due to the current epidemic, many were moved online for the time being or have announced they&rsquo;ll follow a dual online/presential approach.</em></p>
+<ul>
+<li><a href="https://gophercon.com">GopherCon</a> (<a href="https://www.youtube.com/channel/UCx9QVEApa5BKLw9r8cnOFEA">videos</a>)</li>
+<li><a href="https://gophercon.eu/">GopherCon EU</a> (<a href="https://www.youtube.com/c/GopherConEurope">videos</a>)</li>
+<li><a href="https://www.gophercon.co.uk/">GopherCon UK</a> (<a href="https://www.youtube.com/channel/UC9ZNrGdT2aAdrNbX78lbNlQ">videos</a>)</li>
+<li><a href="https://gopherconbr.org/">GopherCon Brasil</a> (<a href="https://www.youtube.com/channel/UCGFVA_XvkUoMWpKVH0IrjUA/">videos</a>)</li>
+<li><a href="https://www.dotgo.eu/">dotGo</a> (<a href="https://www.youtube.com/user/dotconferences">videos</a>)</li>
+</ul>
+<p>Kudos to initiatives such as <a href="https://gobridge.org">GoBridge</a>, making it possible for many underrepresented developers to attend the conferences – as the cost of tickets and travel can get as much as a few thousand dollars!</p>
+<p>Look up Awesome Go&rsquo;s <a href="https://github.com/avelino/awesome-go#conferences">conferences</a> and <a href="https://github.com/avelino/awesome-go#conferences">meetups</a> list or the Gophers Slack to see if a local meetup group exists close to your location.</p>
+<h3 id="podcasts">Podcasts</h3>
+<ul>
+<li><a href="https://changelog.com/gotime">Go Time</a>, a weekly podcast with diverse discussions from around the Go community</li>
+<li><a href="https://oxide.computer/podcast/">On The Metal</a></li>
+</ul>
+<h3 id="youtube-and-twitch-channels">YouTube and Twitch channels</h3>
+<p>Besides the <a href="#conferences--meetups">aforementioned</a> conference channels, plenty of Gophers have Go channels.</p>
+<ul>
+<li><a href="https://www.youtube.com/channel/UC_BzFbxG2za3bp5NRRRXJSw">justforfunc: Programming in Go</a> by <a href="https://www.campoy.cat/">Francesc Campoy</a></li>
+<li><a href="https://twitch.tv/filosottile">Filippo Valsorda&rsquo;s Twitch</a></li>
+<li><a href="https://www.youtube.com/channel/UCCgGRKeRM1b0LTDqqb4NqjA">Ardan Labs channel</a></li>
+<li><a href="https://www.twitch.tv/lapipatv">Rob Evans a.k.a. @deadprogram Twitch</a></li>
+</ul>
+<h2 id="text-editors-and-ides">Text editors and IDEs</h2>
+<p>Thanks to the <a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol</a>, a protocol originally designed for Microsoft Visual Studio Code, which allows programming language support to be implemented and distributed independently of any given editor or IDE, Go&rsquo;s support on development environments is widespread.</p>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
+<p><a href="https://code.visualstudio.com/">Visual Studio Code</a> is an open-source source code editor by Microsoft with a minimal GUI that doesn&rsquo;t get in your own.
+I use it daily to work with Go code, and in my opinion, it&rsquo;s the best option for most people.
+The first time you open a Go file with it, it should recognize the file and suggest you install the official <a href="https://marketplace.visualstudio.com/items?itemName=golang.go">Go extension</a>.
+<a href="https://code.visualstudio.com/docs/languages/go">Read more about Go in Visual Studio Code</a> to learn about shortcuts, <a href="https://github.com/golang/vscode-go/blob/master/docs/debugging.md">debug Go code</a> with <a href="https://code.visualstudio.com/docs/languages/go">Delve</a>, and more.</p>
+<p><a href="https://raw.githubusercontent.com/golang/vscode-go/"><img src="/img/posts/go/toggletestfile.gif" width="700" alt="Go extension"></a></p>
+<h3 id="acme">Acme</h3>
+<p><a href="http://acme.cat-v.org/">Acme</a> is a text editor and graphical shell created by <a href="http://www.herpolhode.com/rob/">Rob Pike</a> for the Plan 9 operating system (more on that below). Famously used by C&rsquo;s designer <a href="https://www.bell-labs.com/usr/dmr/www/">Dennis Ritchie</a>, it&rsquo;s Vim&rsquo;s antithesis: it heavily relies on <a href="https://en.wikipedia.org/wiki/Mouse_chording">mouse chording</a>.</p>
+<div class="grid-x">
+        <div class="medium-6 small-12">
+                
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/dP1xVpMPn8M" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+        </div>
+</div>
+<p><a href="https://www.youtube.com/watch?v=dP1xVpMPn8M">A Tour of the Acme Editor – Russ Cox</a> (<a href="https://research.swtch.com/acme">details</a>)</p>
+<h3 id="vim">Vim</h3>
+<p><a href="https://www.vim.org/">Vim</a> is a <a href="https://en.wikipedia.org/wiki/Text-based_user_interface">text-based user interface</a> editor.
+It requires time and effort to learn and memorize its many commands.
+I use it primarily for punctual changes on configuration files, and when accessing remote machines.</p>
+<p>For using it with Go, you&rsquo;ll want to install the <a href="https://github.com/fatih/vim-go">vim-go</a> plugin by <a href="https://github.com/fatih">Fatih Arslan</a>.</p>
+<p><a href="https://github.com/fatih/vim-go"><img src="/img/posts/go/vim-go.png" width="320" alt="vim-go plugin"></a></p>
+<h3 id="goland">GoLand</h3>
+<p><a href="https://www.jetbrains.com/go/">GoLand</a> is an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development Environment</a> (IDE) by JetBrains (the authors of IntelliJ).
+It&rsquo;s a full-featured IDE, and the obvious choice if you must do some heavy refactoring.
+I use it occasionally – whenever I find myself doing a repetitive refactoring task.</p>
+<p><a href="https://www.jetbrains.com/go/"><img src="/img/posts/go/GoLand_6_Extensibility.png" width="700" alt="GoLand"></a></p>
+<h2 id="coding-style-and-code-quality">Coding style and code quality</h2>
+<p>Go has a very consistent style. Thanks to its simplicity, it is fairly easy to write tools to do static analysis of Go code, especially since the <a href="https://pkg.go.dev/golang.org/x/tools/go/analysis">x/tools/go/analysis</a> package appeared.</p>
+<p>I recommend taking a light approach to enforcing code style.
+Thanks to <code>go fmt</code>, the fight between <a href="https://www.youtube.com/watch?v=SsoOG6ZeyUI">Tabs versus Spaces</a> is over.
+You don&rsquo;t have an option, and have to use TABs.
+And this is a good thing, even if you prefer spaces: you make a small concession of style for the great benefit of consistency.
+You&rsquo;ll also notice most Go static analyzers also don&rsquo;t let users configure their preferences, and in my opinion this is a good thing.
+It&rsquo;s hard to make everyone happy, so why not try to achieve a consistent style instead?
+For me this is an easy trade-off.</p>
+<div class="grid-x">
+        <div class="medium-6 small-12">
+                
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/SsoOG6ZeyUI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+        </div>
+</div>
+&nbsp;
+<h3 id="testing">Testing</h3>
+<p>Go <a href="https://pkg.go.dev/testing">testing library</a> is pretty straight-forward.
+Go has two types of tests: <code>*testing.T</code> (regular tests) and <code>*testing.B</code> (benchmark tests).</p>
+<p>For people used to other programming languages, the lack of assertion functions might seem a bit odd at first. Still, it&rsquo;s pretty good as it makes it crystal clear what you&rsquo;re testing, and your testing code looks more like production code.</p>
+<ul>
+<li>Heavy assertion libraries slows down testing due to increased build time.</li>
+<li>BDD testing libraries make it especially hard to debug code using common tooling.</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAbs</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+	<span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Abs</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
+		<span style="color:#75715e">// You almost always want to use t.Error* functions instead of t.Fatal*.
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Abs(-1) = %d; want 1&#34;</span>, <span style="color:#a6e22e">got</span>)
+	}
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>To run the tests, I use an alias I called <code>gotest</code>:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go test -race -coverprofile<span style="color:#f92672">=</span>coverage.out <span style="color:#f92672">&amp;&amp;</span> go tool cover -html coverage.out -o coverage.html
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>-race</code> flag enables the <a href="https://golang.org/doc/articles/race_detector">Data Race Detector</a></li>
+<li><code>-coverprofile</code> flag enables code coverage for my code</li>
+</ul>
+<p>Most of the time, I&rsquo;ve been running this all from within Visual Studio Code, in any case.
+The <code>-run</code> flag enables you to run functions matching a specific regex – really useful when you need to run a specific test or group of related tests.
+Use <code>go test helpflag</code> to learn more about the available flags.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go test -run<span style="color:#f92672">=</span>TestValidUser
+</code></pre></td></tr></table>
+</div>
+</div><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Visual Studio Code shortcuts I use with Go:<br>F13 Show Editor Context Menu<br>F16 Test Function At Cursor<br>F17 Debug Test At Cursor<br>F18 Generate Unit Tests for Function<br>F19 Toggle Test Coverage<br><br>I wanted bright Magic KB shortcut key caps.<a href="https://t.co/TnGNoWcmWt">https://t.co/TnGNoWcmWt</a><a href="https://t.co/KjQ0ApbEdT">https://t.co/KjQ0ApbEdT</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1370366670787780614?ref_src=twsrc%5Etfw">March 12, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h4 id="httptest">httptest</h4>
+<p>The <a href="https://pkg.go.dev/net/http">http</a> package is one of the best packages in Go.
+You don&rsquo;t need a web framework to write web services effectively.
+To write integration tests for your endpoints, the <a href="https://pkg.go.dev/net/http/httptest">http/httptests</a> package might be useful.</p>
+<h4 id="fuzzy-testing">Fuzzy testing</h4>
+<p><a href="https://en.wikipedia.org/wiki/Fuzzing">Fuzz testing</a> is a technique that involves providing invalid, unexpected, or random data as inputs to a computer program.
+There is a <a href="https://github.com/golang/go/issues/44551">proposal</a> to add fuzz test support to the standard library.
+Meanwhile, you can use <a href="https://github.com/google/gofuzz">gofuzz</a> and <a href="https://github.com/dvyukov/go-fuzz">go-fuzz</a>.</p>
+<h3 id="static-analysis-tools">Static analysis tools</h3>
+<p>Before pushing changes upstream, I like to run a script that executes some programs to check code quality.
+I also find it very productive to have a <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> system such as <a href="https://github.com/features/actions">GitHub Actions</a> set up to run most of them once code is submitted upstream.</p>
+<h4 id="go-vet">go vet</h4>
+<blockquote>
+<p>Vet examines Go source code and reports suspicious constructs, such as Printf calls whose arguments do not align with the format string. Vet uses heuristics that do not guarantee all reports are genuine problems, but it can find errors not caught by the compilers.</p>
+<p>Source: <a href="https://golang.org/cmd/vet/">documentation</a></p>
+</blockquote>
+<p>The <code>go vet</code> is part of the Go toolchain, and have a list of analyzers you can see with <code>go tool vet help</code>.
+By default, all analyzers are run.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ <span style="color:#75715e"># ./... to walk the working directory recursively</span>
+$ go vet ./...
+</code></pre></td></tr></table>
+</div>
+</div><p>As with typical Unix-like commands, no output or exit error = 0 means you&rsquo;re good.</p>
+<h4 id="staticcheck">Staticcheck</h4>
+<p><a href="https://staticcheck.io/">Staticcheck</a> is a state of the art linter for Go by <a href="https://dominik.honnef.co/">Dominik Honnef</a>.
+You don&rsquo;t really need any other linter besides <code>go vet</code> and <code>staticcheck</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ staticcheck ./...
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="github-security-code-scanning">GitHub Security code scanning</h4>
+<p>Suppose you’re using GitHub to host an open source project&rsquo;s repository or willing to pay extra for their Enterprise plan. In that case, <a href="https://github.com/features/security">GitHub Security</a> has you covered with its <a href="https://securitylab.github.com/tools/codeql">CodeQL</a> security scanner.
+<a href="https://rules.sonarsource.com/go/RSPEC-138">Sonar</a> is another option.</p>
+<h4 id="gosec">gosec</h4>
+<p><a href="https://github.com/securego/gosec">gosec</a> is a security checker for Go.
+It scans your code and pinpoints unsafe security usage.
+By default, I find it quite noisy as it reports unhandled errors ignoring what I see as many false-positive cases, so I exclude this specific rule when I decide to use this tool on one of my projects.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ <span style="color:#75715e"># Ignoring gosec unhandled errors warning due to many false-positives.</span>
+$ gosec -quiet -exclude G104 ./...
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="unparam">unparam</h4>
+<p><a href="https://github.com/mvdan/unparam">unparam</a> helps you find unused function parameters and results in your code. <strong>I must warn that I use this tool manually</strong>, not in a script or CI system, as I find it distracting there, especially at the beginning of a project.</p>
+<h4 id="mispell">mispell</h4>
+<p><a href="https://github.com/client9/misspell">mispell</a> is a great tool for checking common English mistakes on your source code.
+I also often use <a href="https://www.grammarly.com/">Grammarly</a> to review my writing on documentation.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ misspell cmd/**/*.<span style="color:#f92672">{</span>go,sh<span style="color:#f92672">}</span> internal/**/*.<span style="color:#f92672">{</span>go<span style="color:#f92672">}</span> README.md
+</code></pre></td></tr></table>
+</div>
+</div><p>I also use other static analyzer tools from time-to-time, manually, and that I&rsquo;d advise against adding to a Continuous Integration pipeline.</p>
+<h4 id="gocyclo">gocyclo</h4>
+<p><a href="https://github.com/fzipp/gocyclo">gocyclo</a> calculates <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">cyclomatic complexity</a> of functions in your Go source code.</p>
+<p>I&rsquo;ve used this in the past to find complicated code and to decide where to start refactoring code. I also prefer to use this manually, but I see some value in adding it as a step of a CI pipeline – as long as you err by being generous and configure the tool to scream only in case of undeniable high values.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ gocyclo -over <span style="color:#ae81ff">15</span> -ignore <span style="color:#e6db74">&#34;generated.go|pb.go|_test|vendor/&#34;</span> .
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="standard-library">Standard library</h2>
+<p>Go&rsquo;s standard library is outstanding both in terms of covering a wide range of needs and in terms of quality.
+You&rsquo;ll find that with Go, you can rely on the standard library for many things where you&rsquo;d typically require adding external dependencies to your project.</p>
+<p>I always suggest to people starting with Go to take some time to read both the <a href="https://pkg.go.dev/net/http">docs</a>, and the source code for <a href="https://github.com/golang/go/tree/master/src/net/http">net/http</a>, as it is the best example of a well-organized and successful package I can think of.</p>
+<h3 id="x-packages">x packages</h3>
+<p>Packages inside the /x/ have looser compatibility requirements than the rest of the standard library.
+A package that shows to be helpful throughout the ecosystem might be promoted from /x/ to the status of a regular package of the standard library, like <a href="https://pkg.go.dev/context">context</a>.</p>
+<blockquote>
+<p>Code in sub-repositories of the main go tree, such as <a href="https://pkg.go.dev/golang.org/x/net">golang.org/x/net</a>, may be developed under looser compatibility requirements. However, the sub-repositories will be tagged as appropriate to identify versions that are compatible with the Go 1 point releases.</p>
+<p><a href="https://golang.org/doc/go1compat">Go 1 and the Future of Go Programs: Sub-repositories</a>:</p>
+</blockquote>
+<h2 id="third-party-packages">Third-party packages</h2>
+<p>You can go really far with the standard library, and it&rsquo;s not uncommon to write production-quality programs relying solely on it.
+Before you jump and start importing a plethora of external packages on your code, do yourself a favor and remember the <a href="https://go-proverbs.github.io/">Go proverb</a>:</p>
+<blockquote>
+<p><a href="https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=568s">A little copying is better than a little dependency.</a></p>
+</blockquote>
+<p>It&rsquo;s important to be aware of the cost of importing dependencies to avoid pitfalls like the <a href="https://www.theregister.com/2016/03/23/npm_left_pad_chaos/">leftpad fiasco</a>, security vulnerabilities, quality problems, or <a href="http://sunnyday.mit.edu/papers/therac.pdf">worse</a>.</p>
+<blockquote>
+<p>I’ve also noticed that in Go I need fewer dependencies, and my dependencies themselves have fewer dependencies. Go doesn’t have a culture of exporting as-much-logic-as-possible to external dependencies. Code duplication is more acceptable in the Go community than elsewhere. This can be frustrating. Sometimes, you just want a good library that performs some type of sanitation or parsing. Many times, you’ll need to write that functionality yourself, or copy/paste it from a StackOverflow answer. Generally I think this is a positive. Fewer dependencies means fewer things that break while you let a project sit idle for a couple months.</p>
+<p><a href="https://benjamincongdon.me/blog/2019/11/11/The-Value-in-Gos-Simplicity/">The Value in Go&rsquo;s Simplicity</a></p>
+</blockquote>
+<p>You can search for Go packages in <a href="https://pkg.go.dev/">pkg.go.dev</a>, and discover commonly used ones in the  <a href="https://go.dev/">go.dev</a> pages.
+If you want an extensive and comprehensive list of Go packages with a short one-line description, <a href="https://awesome-go.com/">Awesome Go</a> is what you want!</p>
+<blockquote>
+<p>Did you know Go programs can only build so fast because it doesn&rsquo;t allow circular imports?
+This way, the linker can be simpler, and we mitigate one of the common problems of <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a>.</p>
+</blockquote>
+<h3 id="cobra">cobra</h3>
+<p><a href="https://cobra.dev/">cobra</a> is a framework for Modern CLI Apps by <a href="https://spf13.com/">Steve Francia</a>.</p>
+<h3 id="pgx-postgresql-driver">pgx (PostgreSQL driver)</h3>
+<p><a href="https://github.com/jackc/pgx">pgx</a> is the best PostgreSQL driver and toolkit for Go. While normally you want to use database/sql interfaces for connecting to a database, you probably want to use pgx without it due to a number of advantages thanks to PostgreSQL&rsquo;s binary protocol.</p>
+<h3 id="grpc-go">gRPC-Go</h3>
+<p><a href="https://github.com/grpc/grpc-go">gRPC-Go</a> is the Go implementation of the <em>high performance, open source universal RPC framework</em> <a href="https://grpc.io/">gRPC</a>, which has a strict specification compared to the more popular HTTP APIs with JSON.</p>
+<h3 id="paseto-alternative-to-jwt">paseto (alternative to JWT)</h3>
+<p><a href="https://github.com/o1egl/paseto">paseto</a> is a Platform-Agnostic Security Tokens implementation of <a href="https://paseto.io/">PASETO</a> tokens. This standard is <em>everything you love about JOSE (JWT, JWE, JWS) without any of the <a href="https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standard-that-everyone-should-avoid">many design deficits that plague the JOSE standards</a></em>.</p>
+<h3 id="goexpect">goexpect</h3>
+<p><a href="https://github.com/google/goexpect">goexpect</a> is an implementation of <a href="https://core.tcl-lang.org/expect/">Expect</a> in Go (I created <a href="https://github.com/henvic/pseudoterm">pseudoterm</a>, something quite similar).</p>
+<h3 id="subcommands">subcommands</h3>
+<p><a href="https://github.com/google/subcommands">subcommands</a> is a Go package that implements a simple way for a single command to have many subcommands.
+I created <a href="https://github.com/henvic/clino">clino</a> about a year ago, unaware of this.</p>
+<h3 id="httpretty">httpretty</h3>
+<p><a href="https://github.com/henvic/httpretty">httpretty</a> is a package I created to help me debug HTTP requests on CLI applications.</p>
+<div class="asciicast-carrier">
+    <script id="asciicast-297429" src="https://asciinema.org/a/297429.js" data-autoplay="true" data-loop="true"
+        async></script>
+</div>
+<h3 id="sql-databases">SQL Databases</h3>
+<ul>
+<li>Writing SQL yourself is always the best option to write sane and fast queries. Use <a href="https://sqlc.dev/">sqlc</a> if you want to reduce the amount of code you need to write yourself, instead of <a href="https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/">using an ORM and making your application slower and your program more error-prone and harder to debug</a>.</li>
+</ul>
+<h2 id="hardware-integration">Hardware integration</h2>
+<p><a href="https://hybridgroup.com/">The Hybrid Group</a> has some quite exciting projects.
+If you&rsquo;re interested in interfacing with hardware, running Go in embedded computers, or computer vision, you want to check what they&rsquo;re up to!</p>
+<p><a href="https://gobot.io/"><img src="/img/posts/go/gobot-logo-small.png" width="160" alt="Gobot"></a>
+<a href="https://gocv.io/"><img src="/img/posts/go/gocvlogo.jpg" width="160" alt="GoCV"></a>
+<a href="https://tinygo.org/"><img src="/img/posts/go/tinygo-logo-small.png" width="160" alt="TinyGo"></a></p>
+<div class="grid-x">
+        <div class="medium-6 small-12">
+                
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/EiB9ZVrvrz0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+        </div>
+</div>
+<p><a href="https://www.youtube.com/watch?v=EiB9ZVrvrz0">Small is Going Big: Go on Microcontrollers</a> by <a href="https://twitter.com/deadprogram">Ron Evans</a> at GopherCon 2019.</p>
+<ul>
+<li><a href="https://gobot.io/">Gobot</a> is a framework for robotics, physical computing, and the Internet of Things (IoT) with support for dozens of different hardware/software platforms.</li>
+<li><a href="https://gocv.io/">GoCV</a> is a package for computer vision using <a href="https://opencv.org/opencv-4-0/">OpenCV 4</a> and beyond.</li>
+<li><a href="https://tinygo.org/">TinyGo</a> is a Go compiler for small places. Microcontrollers, WebAssembly, and command-line tools. Based on <a href="https://llvm.org/">LLVM</a>.</li>
+</ul>
+<h2 id="go-modules-and-vendoring">Go modules and vendoring</h2>
+<blockquote>
+<p>A module is a collection of packages that are released, versioned, and distributed together. Modules may be downloaded directly from version control repositories or from module proxy servers.</p>
+<p><a href="https://golang.org/ref/mod">Go Modules Reference</a></p>
+</blockquote>
+<p>Go modules appeared in 2019 after the language and its ecosystem were mature and the community already experimented with a diverse number of approaches to solve the problem of <a href="https://golang.org/doc/modules/managing-dependencies">managing dependencies</a>.</p>
+<p><strong>See also:</strong></p>
+<ul>
+<li><a href="https://golang.org/doc/modules/managing-dependencies">Managing dependencies</a></li>
+<li><a href="https://golang.org/ref/mod">Go Modules Reference</a></li>
+<li><a href="https://golang.org/doc/modules/gomod-ref">go.mod file reference</a></li>
+<li><a href="https://blog.golang.org/using-go-modules">Using Go Modules</a></li>
+</ul>
+<h3 id="auditing">Auditing</h3>
+<p>Once you&rsquo;ve go mod set up, you might want to audit your dependencies. There are two ways:</p>
+<ul>
+<li>You could set up your own Go modules proxy and whitelist what dependencies to allow.</li>
+<li>You can vendor your dependencies.</li>
+</ul>
+<p>I don&rsquo;t have any suggestions regarding auditing with a go proxy, but I audit dependencies when vendoring (or vendorizing) code I control – more on that in a minute!
+Auditing is an important step to verify the quality of your dependencies and to check if no malicious code was injected somewhere.</p>
+<blockquote>
+<p>Keeping the number of dependencies low also means you&rsquo;ve less to audit!</p>
+</blockquote>
+<h3 id="vendoring">Vendoring</h3>
+<p>Vendoring (or vendorizing) is copying dependencies to your own project, versioning them along with your codebase.
+Not everyone is comfortable with the idea of copying external code to their projects, but I consider this the safest approach to guarantee long-term access to your dependencies.
+You avoid the risk of losing access to your dependencies for a variety of reasons, including the evil <abbr title="Digital Millenium Copyright Act">DMCA</abbr> takedown notices.</p>
+<ul>
+<li>Go dependencies are mostly small textual .go files, so they don&rsquo;t take up much space.</li>
+<li>It mitigates the risk of losing access to the exact version of the dependency you use in case a dependency is taken down.</li>
+<li>Faster binary search for bad commits when using <code>git bisect</code> to debug code.</li>
+</ul>
+<h3 id="go-modules-proxy">Go modules proxy</h3>
+<p>Alternatively, suppose you want control over what dependencies your team uses. In that case, you might consider setting up your own <a href="https://proxy.golang.org/">Go proxy</a>.
+This might work well for enterprises with a strict requirement for tight control.
+Maybe solutions like <a href="https://jfrog.com/integration/go-registry/">JFrog Artifactory</a> might help.</p>
+<h2 id="tools-for-software-development">Tools for software development</h2>
+<h3 id="godoc">godoc</h3>
+<p><a href="https://pkg.go.dev/golang.org/x/tools/cmd/godoc">godoc</a> is a program that extracts and generates documentation for Go programs.
+You can use it to browse the documentation for your code and the standard library off-line easily, using a web browser.</p>
+<p>It is also what originally powered godoc.org, before it was sunset by <a href="https://pkg.go.dev">pkg.go.dev</a>, which is powered by the more complex <a href="https://github.com/golang/pkgsite">pkgsite</a>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go install golang.org/x/tools/cmd/godoc@latest
+$ godoc
+$ open http://localhost:6060
+</code></pre></td></tr></table>
+</div>
+</div><p>Use <code>godoc</code> flags <code>-play</code> to enable playground and <code>-index</code> to enable the search index.</p>
+<ul>
+<li><a href="https://golang.org/lib/godoc/analysis/help.html">Static analysis features of godoc</a></li>
+</ul>
+<h3 id="swag">swag</h3>
+<p><a href="https://github.com/swaggo/swag">swag</a> is a tool to automatically generate RESTful API documentation with Swagger 2.0 (it still doesn&rsquo;t support the newest <a href="https://swagger.io/specification/">OpenAPI Specification</a>, though).</p>
+<h3 id="goda">Goda</h3>
+<p><a href="https://github.com/loov/goda">Goda</a> is a Go dependency analysis toolkit. It contains tools to figure out what your program is using. For example, you can print out dependency trees or draw a dependency graph, and see the impact of cutting a package from your program.</p>
+<h3 id="depaware">depaware</h3>
+<p><a href="https://github.com/tailscale/depaware">depaware</a> is a Go dependencies analysis tool by <a href="https://tailscale.com/">Tailscale</a>.</p>
+<h3 id="gops">gops</h3>
+<p><a href="https://github.com/google/gops">gops</a> is a Google tool to list and diagnose Go processes currently running on your system.</p>
+<h3 id="goversion">goversion</h3>
+<p><a href="https://rsc.io/goversion">goversion</a> scans a directory tree and, for every executable it finds, prints the Go version used to build that executable.
+It also has a flag to show module info.</p>
+<h3 id="sqlc">sqlc</h3>
+<p><a href="https://sqlc.dev/">sqlc</a> generates fully-type safe idiomatic Go code for use with database/sql from SQL.
+Take a look at their <a href="https://play.sqlc.dev/">Playground</a> to see some examples.</p>
+<h3 id="hey">hey</h3>
+<p><a href="https://github.com/rakyll/hey">hey</a> is a tiny program by <a href="https://rakyll.org/">Jaana Dogan (@rakyll)</a> that sends some load to a web application (similar to Apache&rsquo;s <a href="https://en.wikipedia.org/wiki/ApacheBench">ab</a>).</p>
+<h3 id="vegeta">vegeta</h3>
+<p><a href="https://github.com/tsenart/vegeta">vegeta</a> is another HTTP load testing tool.</p>
+<h3 id="go-guru">Go Guru</h3>
+<p><a href="https://pkg.go.dev/github.com/golang/tools/cmd/guru">guru</a> is a tool for answering questions such as the ones below about your source code. Read the <a href="http://golang.org/s/using-guru">documentation</a> for more information.</p>
+<blockquote>
+<ul>
+<li>Where is this identifier declared?</li>
+<li>Where are all the references to this declaration?</li>
+<li>What are the fields and methods of this this expression?</li>
+<li>What is the API of this package?</li>
+<li>Which concrete types implement this interface?</li>
+<li>What are the possible callees of this dynamic call?</li>
+<li>What are the possible callers of this function?</li>
+<li>Where might a value sent on this channel be received?</li>
+</ul>
+</blockquote>
+<h3 id="pythia">Pythia</h3>
+<p><a href="https://github.com/fzipp/pythia">Pythia</a> is a browser-based user interface for <a href="#go-guru">guru</a>.</p>
+<p><a href="https://github.com/fzipp/pythia"><img src="/img/posts/go/pythia_screenshot.png" width="800" alt="Pythia screenshot"></a></p>
+<h3 id="wails">Wails</h3>
+<p><a href="https://wails.app/">Wails</a> is a framework for building applications using Go and Web Technologies.
+I haven&rsquo;t had the opportunity to try it out yet, but I&rsquo;m excited about the possibilities!</p>
+<h2 id="productivity-tools">Productivity tools</h2>
+<h3 id="present">present</h3>
+<p><a href="https://pkg.go.dev/golang.org/x/tools/present">present</a> is a tool that you can use to create articles or slides.
+It&rsquo;s useful for writing simple and direct presentations when you don&rsquo;t care about setting a specific visual style, as it uses a simple black &amp; white theme that you cannot configure.</p>
+<ul>
+<li><a href="https://github.com/golang/talks">Go talks</a> created with present</li>
+<li><a href="https://medium.com/@drashti.ved_84172/level-up-your-go-presentations-b4d06fc495e5">Tutorial</a></li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go install golang.org/x/tools/cmd/present@latest
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="hugo">Hugo</h3>
+<p><a href="https://gohugo.io/">Hugo</a> is the world&rsquo;s fastest framework for building websites. <a href="https://bep.is/">Bjørn Erik Pedersen</a> and <a href="https://spf13.com/">Steve Francia</a>, and it&rsquo;s able to compile whole websites in a fraction of a second!
+It&rsquo;s a natural choice if you want to write your own website or the documentation for a project – using Go templates!</p>
+<p><a href="https://github.com/henvic/henvic.github.io">I&rsquo;ve been using it</a> for almost two years for generating this website.
+You can create your own theme or use one of the many available online.
+I decided to create my own, so I used a minimal one as the base in the very beginning to understand how Hugo works.</p>
+<p><a href="https://gohugo.io/"><img src="/img/posts/go/hugo-logo-wide.svg" width="400" alt="Hugo"></a></p>
+<p><a href="https://amzn.to/3c3je3W">Hugo in Action</a> is an upcoming book about Hugo (Summer 2021). You can learn more about it on the <a href="https://www.manning.com/books/hugo-in-action">publisher&rsquo;s page</a>.</p>
+<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
+<h3 id="caddy">Caddy</h3>
+<p><a href="https://github.com/caddyserver/caddy">Caddy</a> is an extensible HTTP server platform written in Go.</p>
+<p>I&rsquo;ve been using it fot local software development instead of <a href="https://www.nginx.com/">nginx</a> to serve static files and to expose multiple HTTP services on the same address using a reverse proxy.</p>
+<h2 id="reporting-bugs-and-proposing-feature-requests">Reporting bugs and proposing feature requests</h2>
+<ul>
+<li>The project uses publicly accessible <a href="https://github.com/golang/go/issues">GitHub issues</a> to track and discuss those.</li>
+<li>Before you submit a proposal, search to see if what you&rsquo;ve in mind was already discussed in the past. Use your findings wisely.</li>
+<li>If you want to report a security bug, please follow the <a href="https://golang.org/security">Go Security Policy</a>.</li>
+</ul>
+<h2 id="code-review-process">Code review process</h2>
+<ul>
+<li>See <a href="https://go-review.googlesource.com/">go-review</a>. The Go project and several other Google products like Chromium (see <a href="https://chromium-review.googlesource.com/">chromium-review</a>) use the <a href="https://www.gerritcodereview.com/">Gerrit Code Review</a> to manage collaboration: it&rsquo;s like GitHub&rsquo;s Pull-Request, but on steroids!</li>
+</ul>
+<h3 id="contributing-back">Contributing back</h3>
+<ul>
+<li>You probably want to start by drafting a proposal.</li>
+<li>You should read the <a href="https://golang.org/doc/contribute">Contribution Guide</a>.</li>
+<li>Sign and submit a simple and straight-forward Contributor License Agreement (CLA).</li>
+<li>Please make sure you check at least a few proposals and reasons why they were either approved or rejected before submitting your own proposal.</li>
+<li>In my blog post <a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a>, I share a bit of my experience adding a feature to the signal package.</li>
+</ul>
+<h2 id="gopher">Gopher</h2>
+<p><a href="https://blog.golang.org/gopher"><img src="/img/posts/go/gopher.jpg" width="600" alt="The Go gopher"></a></p>
+<p>The gopher is an iconic mascot of the language. It was created by <a href="https://www.instagram.com/reneefrench/">Renée French</a>, who also created the cute Glenda, the Plan 9 Bunny.
+You can create your own Gopher at <a href="https://gopherize.me/">Gopherize.me</a>. But what does Plan 9 has to do with Go? Well, a lot!</p>
+<h2 id="plannbsp9-influence">Plan 9 influence</h2>
+<p><a href="https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs">Plan 9</a> is a distributed operating system created at Bell Labs by members of the same group that originally developed Unix and the C programming language.
+Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob Pike</a>, Ken Thompson, and Russ Cox – an avid contributor to the <a href="https://9fans.github.io/plan9port/">Plan 9 from User Space</a> fork – and they brought many ideas and concepts of the operating system to Go.</p>
+<p><a href="https://9p.io/plan9/glenda.html"><img src="/img/posts/go/plan9bunnysmblack.jpg" width="190" alt="Glenda, the Plan 9 Bunny"></a></p>
+<p>Plan 9 is an interesting topic on its own, but my experience with it is fairly limited. Besides the aforementioned <a href="#acme">Acme</a>, two interesting things about Plan 9:</p>
+<ul>
+<li>Files are key objects in Plan 9 with their <a href="https://en.wikipedia.org/wiki/9P_(protocol)">9P</a> protocol (even more than in UNIX), and even a mouse is a file.</li>
+<li><a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>, a variable-width character encoding that is de facto the core of <a href="https://home.unicode.org/">Unicode</a>, was also created by Ken Thompson and Rob Pike, and the original implementation was for Plan 9. Not surprisingly, Go has great UTF-8 support!</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Quadratic takes a general quadratic equation of the form
+</span><span style="color:#75715e">// ax² + bx + c = 0.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Quadratic</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">float64</span>) (<span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#66d9ef">float64</span>) {
+	<span style="color:#a6e22e">Δ</span> = <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#a6e22e">b</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">-</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">c</span>)
+	<span style="color:#a6e22e">x1</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
+	<span style="color:#a6e22e">x2</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#75715e">// Just don&#39;t go this wild!!!
+</span><span style="color:#75715e"></span>}
+</code></pre></td></tr></table>
+</div>
+</div><p>Thanks! If you liked what I wrote, maybe you want to check out my other posts, such as my experience creating a <a href="/posts/homelab/">homelab</a> to play with different operating systems or learn about <a href="/posts/my-go-mistakes/">my Go mistakes</a>.</p>
+<div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
+<p>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</p>
+
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="The ecosystem of the Go programming language" data-url="https://henvic.dev/posts/go/" data-via="henriquev"
+                        data-hashtags="go,golang,programming,learning,reference"  data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <aside class="read-also">
+                <h3>Read also</h3>
+                <ul>
+                        
+                        <li>
+                                <a href="/posts/my-go-mistakes/">My Go mistakes</a>
+                                <time datetime="2006-01-02">Thursday 18, February 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/env/">Environment variables, config, secrets, and globals</a>
+                                <time datetime="2006-01-02">Saturday 16, January 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a>
+                                <time datetime="2006-01-02">Wednesday 16, September 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/e-commerce/">I&#39;m starting an opensource e-commerce project.</a>
+                                <time datetime="2006-01-02">Wednesday 17, June 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/cs-security/">Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely.</a>
+                                <time datetime="2006-01-02">Wednesday 22, April 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a>
+                                <time datetime="2006-01-02">Monday 20, April 2020</time>
+                        </li>
+                </ul>
+        </aside>
+</article>
+
+            </div>
+        </div>
+    </div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-43519325-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script src="/js/vendor/modernizr-custom-svg.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/foundation.min.js"></script>
+<script>
+        $(document).ready(function () {
+                $(document).foundation();
+        });
+</script>
+</body>
+</html>
