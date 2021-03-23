@@ -297,7 +297,7 @@ $ go test -run=TestValidUser
 #### httptest
 The [http](https://pkg.go.dev/net/http) package is one of the best packages in Go.
 You don't need a web framework to write web services effectively.
-To write integration tests for your endpoints, the [http/httptests](https://pkg.go.dev/net/http/httptest) package might be useful.
+To write integration tests for your endpoints, the [http/httptest](https://pkg.go.dev/net/http/httptest) package might be useful.
 
 #### Fuzzy testing
 [Fuzz testing](https://en.wikipedia.org/wiki/Fuzzing) is a technique that involves providing invalid, unexpected, or random data as inputs to a computer program.
@@ -578,7 +578,7 @@ $ go install golang.org/x/tools/cmd/present@latest
 ```
 
 ### Hugo
-[Hugo](https://gohugo.io/) is the world's fastest framework for building websites. [Bjørn Erik Pedersen](https://bep.is/) and [Steve Francia](https://spf13.com/), and it's able to compile whole websites in a fraction of a second!
+[Hugo](https://gohugo.io/) is the world's fastest framework for building websites by [Bjørn Erik Pedersen](https://bep.is/) and [Steve Francia](https://spf13.com/), and it's able to compile whole websites in a fraction of a second!
 It's a natural choice if you want to write your own website or the documentation for a project – using Go templates!
 
 [I've been using it](https://github.com/henvic/henvic.github.io) for almost two years for generating this website.
@@ -594,7 +594,7 @@ I decided to create my own, so I used a minimal one as the base in the very begi
 ### Caddy
 [Caddy](https://github.com/caddyserver/caddy) is an extensible HTTP server platform written in Go.
 
-I've been using it fot local software development instead of [nginx](https://www.nginx.com/) to serve static files and to expose multiple HTTP services on the same address using a reverse proxy.
+I've been using it for local software development instead of [nginx](https://www.nginx.com/) to serve static files and to expose multiple HTTP services on the same address using a reverse proxy.
 
 ### gophernotes
 [gophernotes](https://github.com/gopherdata/gophernotes) is a Go kernel for [Jupyter](https://jupyter.org/) notebooks and [nteract](https://nteract.io/).
