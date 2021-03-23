@@ -155,6 +155,7 @@ amzn_assoc_linkid = "020cf6e02222213b0e94a5466dc12cf6";
 * [Rust vs. Go: Why They’re Better Together](https://thenewstack.io/rust-vs-go-why-theyre-better-together/)
 * [GopherCon 2018: Bryan C. Mills - Rethinking Classical Concurrency Patterns](https://www.youtube.com/watch?v=5zXAHh5tJqQ) ([slides](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view) and [transcript](https://about.sourcegraph.com/go/gophercon-2018-rethinking-classical-concurrency-patterns/))
 * [TutorialEdge Go Development](https://tutorialedge.net/golang/) and [course](https://tutorialedge.net/course/golang/)
+* [Darker Corners of Go](https://rytisbiel.com/2021/03/06/darker-corners-of-go/) by [Rytis Biel](https://rytisbiel.com/)
 
 ### Training and workshops
 * Many conferences, such as [GopherCon](https://gophercon.com/) offers hands-on workshops before or after the main event.
@@ -409,6 +410,20 @@ If you want an extensive and comprehensive list of Go packages with a short one-
 
 ### paseto (alternative to JWT)
 [paseto](https://github.com/o1egl/paseto) is a Platform-Agnostic Security Tokens implementation of [PASETO](https://paseto.io/) tokens. This standard is <em>everything you love about JOSE (JWT, JWE, JWS) without any of the [many design deficits that plague the JOSE standards](https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standard-that-everyone-should-avoid)</em>.
+
+### GoReleaser
+[GoReleaser](https://goreleaser.com/) is a powerful packaging tool. With GoReleaser, you can:
+
+* Cross-compile your Go project
+* Release to GitHub, GitLab, and Gitea
+* Create Docker images and manifests
+* Create Linux packages and Homebrew taps
+* ... and much more!
+
+### equinox.io
+[equinox.io](https://equinox.io/) is a tool and service that you can use to package and distribute your Go programs ([library](https://github.com/equinox-io/equinox)). It has a slightly more limited packaging scope than GoReleaser, but provides some killer features such as different distribution channels (i.e., you can create channels stable, unstable, etc.) and code signing.
+
+To learn more about distributing Go binaries for multiple platforms safely, read my post [Counter-Strike code leaked: should you worry?](https://henvic.dev/posts/cs-security/)
 
 ### goexpect
 [goexpect](https://github.com/google/goexpect) is an implementation of [Expect](https://core.tcl-lang.org/expect/) in Go (I created [pseudoterm](https://github.com/henvic/pseudoterm), something quite similar).
