@@ -314,6 +314,8 @@ In this article, you&rsquo;ll find resources to learn about Go and its ecosystem
         <li><a href="#pgx-postgresql-driver">pgx (PostgreSQL driver)</a></li>
         <li><a href="#grpc-go">gRPC-Go</a></li>
         <li><a href="#paseto-alternative-to-jwt">paseto (alternative to JWT)</a></li>
+        <li><a href="#goreleaser">GoReleaser</a></li>
+        <li><a href="#equinoxio">equinox.io</a></li>
         <li><a href="#goexpect">goexpect</a></li>
         <li><a href="#subcommands">subcommands</a></li>
         <li><a href="#httpretty">httpretty</a></li>
@@ -587,6 +589,7 @@ amzn_assoc_linkid = "020cf6e02222213b0e94a5466dc12cf6";
 <li><a href="https://thenewstack.io/rust-vs-go-why-theyre-better-together/">Rust vs. Go: Why They’re Better Together</a></li>
 <li><a href="https://www.youtube.com/watch?v=5zXAHh5tJqQ">GopherCon 2018: Bryan C. Mills - Rethinking Classical Concurrency Patterns</a> (<a href="https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view">slides</a> and <a href="https://about.sourcegraph.com/go/gophercon-2018-rethinking-classical-concurrency-patterns/">transcript</a>)</li>
 <li><a href="https://tutorialedge.net/golang/">TutorialEdge Go Development</a> and <a href="https://tutorialedge.net/course/golang/">course</a></li>
+<li><a href="https://rytisbiel.com/2021/03/06/darker-corners-of-go/">Darker Corners of Go</a> by <a href="https://rytisbiel.com/">Rytis Biel</a></li>
 </ul>
 <h3 id="training-and-workshops">Training and workshops</h3>
 <ul>
@@ -854,6 +857,18 @@ This way, the linker can be simpler, and we mitigate one of the common problems 
 <p><a href="https://github.com/grpc/grpc-go">gRPC-Go</a> is the Go implementation of the <em>high performance, open source universal RPC framework</em> <a href="https://grpc.io/">gRPC</a>, which has a strict specification compared to the more popular HTTP APIs with JSON.</p>
 <h3 id="paseto-alternative-to-jwt">paseto (alternative to JWT)</h3>
 <p><a href="https://github.com/o1egl/paseto">paseto</a> is a Platform-Agnostic Security Tokens implementation of <a href="https://paseto.io/">PASETO</a> tokens. This standard is <em>everything you love about JOSE (JWT, JWE, JWS) without any of the <a href="https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standard-that-everyone-should-avoid">many design deficits that plague the JOSE standards</a></em>.</p>
+<h3 id="goreleaser">GoReleaser</h3>
+<p><a href="https://goreleaser.com/">GoReleaser</a> is a powerful packaging tool. With GoReleaser, you can:</p>
+<ul>
+<li>Cross-compile your Go project</li>
+<li>Release to GitHub, GitLab, and Gitea</li>
+<li>Create Docker images and manifests</li>
+<li>Create Linux packages and Homebrew taps</li>
+<li>&hellip; and much more!</li>
+</ul>
+<h3 id="equinoxio">equinox.io</h3>
+<p><a href="https://equinox.io/">equinox.io</a> is a tool and service that you can use to package and distribute your Go programs (<a href="https://github.com/equinox-io/equinox">library</a>). It has a slightly more limited packaging scope than GoReleaser, but provides some killer features such as different distribution channels (i.e., you can create channels stable, unstable, etc.) and code signing.</p>
+<p>To learn more about distributing Go binaries for multiple platforms safely, read my post <a href="https://henvic.dev/posts/cs-security/">Counter-Strike code leaked: should you worry?</a></p>
 <h3 id="goexpect">goexpect</h3>
 <p><a href="https://github.com/google/goexpect">goexpect</a> is an implementation of <a href="https://core.tcl-lang.org/expect/">Expect</a> in Go (I created <a href="https://github.com/henvic/pseudoterm">pseudoterm</a>, something quite similar).</p>
 <h3 id="subcommands">subcommands</h3>
