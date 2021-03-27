@@ -1,5 +1,5 @@
 ---
-title: "Home"
+# No title field because the first page should have just my name as the website's title.
 ---
 <div class="grid-container full">
   <div class="grid-x grid-margin-x">
