@@ -49,6 +49,7 @@ kind: list
 * [The Unix Heritage Wiki](https://wiki.tuhs.org/doku.php)
 * [Modular conversion, encoding and encryption online — Cryptii](https://cryptii.com) (Enigma machine, Base64, HMAC, and so on)
 * [Your GitHub story in 3D](https://skyline.github.com/) ([view my own](https://skyline.github.com/henvic/2020))
+* [sitecheker.pro: Website SSO Checker & Audit Tool](https://sitechecker.pro/app/main/project/1876363/audit/summary)
 
 <hr />
 
@@ -118,6 +119,7 @@ kind: list
 * [Awesome Go Interview Questions and Answers](https://goquiz.github.io/)
 * [The System Design Primer](https://github.com/donnemartin/system-design-primer)
 * [awesome-scalability](https://github.com/binhnguyennus/awesome-scalability)
+* [Free AIS Ship Tracking of Marine Traffic - VesselFinder](https://www.vesselfinder.com/)
 
 <hr />
 
