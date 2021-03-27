@@ -427,7 +427,7 @@ $ esxcli software vib install -d /ESXi670-NE1000–32543355-offline_bundle-15486
 </code></pre></td></tr></table>
 </div>
 </div><p>You can run esxcli with the <strong>&ndash;dry-run</strong> flag to see what changes it&rsquo;ll make on your system. Be aware that the drivers versioning is a little confusing.</p>
-<p><a href="/imsr/posts/homelab/thunderbolt-nic.jpg"><img src="/img/posts/homelab/thunderbolt-nic_small.jpg" alt="Perhaps this one would work out of the box? Unfortunately, I lost mine."></a></p>
+<p><a href="/img/posts/homelab/thunderbolt-nic.jpg"><img src="/img/posts/homelab/thunderbolt-nic_small.jpg" alt="Perhaps this one would work out of the box? Unfortunately, I lost mine."></a></p>
 <p><em>Perhaps this one would work out of the box? Unfortunately, I lost mine.</em></p>
 <p>While I was at it, I bought an Ethernet dongle. It didn&rsquo;t work out of the box either, and I had to install the NIC Fling.</p>
 <p>To manage the network with it, you need some initialization scripts changes. See <a href="https://flings.vmware.com/usb-network-native-driver-for-esxi">USB Network Native Driver for ESXi</a> for details.</p>
@@ -510,7 +510,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 </li>
 </ul>
 <p><a href="/img/posts/homelab/storage.png"><img src="/img/posts/homelab/storage_small.png" alt="Storage transfer rate"></a></p>
-<p><a href="(/img/posts/homelab/network.png)"><img src="/img/posts/homelab/network_small.png" alt="iStat Menus showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world."></a></p>
+<p><a href="/img/posts/homelab/network.png"><img src="/img/posts/homelab/network_small.png" alt="iStat Menus showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world."></a></p>
 <p><em><a href="https://bjango.com/mac/istatmenus/">iStat Menus</a> showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world.</em></p>
 <p><strong>Day-to-day:</strong> I&rsquo;m going to use SMB since APFS was deprecated (I only discovered this by chance).</p>
 <p>FreeNAS also comes with a few useful services that you can enable and use, like <a href="https://min.io">MinIO</a> — a cloud storage server that is API compatible with <a href="https://aws.amazon.com/s3/">Amazon S3</a>.</p>
