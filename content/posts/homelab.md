@@ -133,7 +133,7 @@ $ esxcli software vib install -d /ESXi670-NE1000–32543355-offline_bundle-15486
 
 You can run esxcli with the **--dry-run** flag to see what changes it'll make on your system. Be aware that the drivers versioning is a little confusing.
 
-[![Perhaps this one would work out of the box? Unfortunately, I lost mine.](/img/posts/homelab/thunderbolt-nic_small.jpg)](/imsr/posts/homelab/thunderbolt-nic.jpg)
+[![Perhaps this one would work out of the box? Unfortunately, I lost mine.](/img/posts/homelab/thunderbolt-nic_small.jpg)](/img/posts/homelab/thunderbolt-nic.jpg)
 
 *Perhaps this one would work out of the box? Unfortunately, I lost mine.*
 
@@ -242,7 +242,7 @@ List the SSH ciphers available on your system by running ssh `-Q` cipher. For th
 
 [![Storage transfer rate](/img/posts/homelab/storage_small.png)](/img/posts/homelab/storage.png)
 
-[![[iStat Menus](https://bjango.com/mac/istatmenus/) showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world.](/img/posts/homelab/network_small.png)]((/img/posts/homelab/network.png))
+[![[iStat Menus](https://bjango.com/mac/istatmenus/) showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world.](/img/posts/homelab/network_small.png)](/img/posts/homelab/network.png)
 
 *[iStat Menus](https://bjango.com/mac/istatmenus/) showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world.*
 
