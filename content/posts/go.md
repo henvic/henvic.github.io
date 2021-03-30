@@ -116,6 +116,7 @@ No matter if you're an experienced developer or a newcomer to programming, Go is
 * [The Go Programming Language](https://amzn.to/2ONS33T) ([website](https://www.gopl.io/)) was written by [Alan A. A. Donovan](https://alandonovan.net/) and [Brian W. Kernighan](https://www.cs.princeton.edu/~bwk/) (co-author of [The C Programming Language](https://amzn.to/3qFOpX6) with [Dennis Ritchie](https://www.bell-labs.com/usr/dmr/www/) and [The Unix Programming Environment](https://amzn.to/3rJTGyk) with [Rob Pike](http://www.herpolhode.com/rob/))
 * For a concise and comprehensive guide, try [Go in Action](https://www.manning.com/books/go-in-action) ([online version](https://livebook.manning.com/book/go-in-action/) and [on Amazon](https://amzn.to/2OfIbjR)) by [Bill Kennedy](https://twitter.com/goinggodotnet) and [Brian Ketelsen](https://www.brian.dev/) (known for co-organizing GopherCon)
 * [Learning Go: An Idiomatic Approach to Real-World Go Programming](https://amzn.to/2QmB89s) by [Jon Bodner](https://twitter.com/jonbodner) ([published by O'Reilly](https://www.oreilly.com/library/view/learning-go/9781492077206/))
+* [Practical Go Lessons](https://www.practical-go-lessons.com/) by [Maximilien Andile](https://twitter.com/maximilienald)
 
 <script type="text/javascript">
 amzn_assoc_tracking_id = "henvic-20";
@@ -564,6 +565,9 @@ Take a look at their [Playground](https://play.sqlc.dev/) to see some examples.
 ### Wails
 [Wails](https://wails.app/) is a framework for building applications using Go and Web Technologies.
 I haven't had the opportunity to try it out yet, but I'm excited about the possibilities!
+
+### mkcert
+[mkcert](https://github.com/FiloSottile/mkcert) is a simple tool for making locally-trusted development certificates.
 
 ## Productivity tools
 ### present
