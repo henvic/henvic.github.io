@@ -433,6 +433,9 @@ To learn more about distributing Go binaries for multiple platforms safely, read
 [subcommands](https://github.com/google/subcommands) is a Go package that implements a simple way for a single command to have many subcommands.
 I created [clino](https://github.com/henvic/clino) about a year ago, unaware of this.
 
+### avo
+[avo](https://github.com/mmcloughlin/avo) makes high-performance Go assembly easier to write, review and maintain.
+
 ### httpretty
 [httpretty](https://github.com/henvic/httpretty) is a package I created to help me debug HTTP requests on CLI applications.
 
