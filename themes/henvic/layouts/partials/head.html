@@ -31,4 +31,8 @@
     <meta property="og:image" content="https://henvic.dev/img/me.jpg">
     <meta property="twitter:image" content="https://henvic.dev/img/me.jpg">
     {{ end }}
+    <!-- Don't add Google Ads when running Hugo with live-reload (as this is what I use for development mode) -->
+    {{- if not .Site.IsServer -}}
+    <script data-ad-client="ca-pub-3943822340584499" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {{- end -}}
 </head>
