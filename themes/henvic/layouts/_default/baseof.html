@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {{- partial "head.html" . -}}
-<body>
+<body{{ if .Params.Dark }} class="dark"{{ end }}>
     {{- partial "header.html" . -}}
     <div class="grid-y medium-grid-frame">
         {{ partial "menu.html" . }}
