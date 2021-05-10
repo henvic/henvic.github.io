@@ -1,7 +1,7 @@
 ---
-title: "Cryptocurrency Tulipmania: Bitcoin is a hustle"
+title: "Cryptocurrency Tulipmania: Bitcoin is a shitcoin"
 type: post
-description: "The cryptocurrency market is hot. For years, Bitcoin has been going up and up. People worldwide buy and HODL betting on The Rise and Rise of Bitcoin. Yet, here I come and tell you that it's foolish. Learn why Bitcoin is a shitcoin."
+description: "The cryptocurrency market is hot. For years, Bitcoin has been going up and up. People worldwide buy and HODL betting on The Rise and Rise of Bitcoin. Yet, here I come and tell you that it's foolish. Learn why."
 date: "2021-05-10"
 image: "/img/posts/bitcoin/bitcoin.png"
 hashtags: "bitcoin"
