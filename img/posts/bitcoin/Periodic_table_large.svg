@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg font-family="DejaVu Sans,sans-serif" viewBox="0 0 28852 17033" width="288.52mm" height="170.33mm" xmlns="http://www.w3.org/2000/svg">
+ <metadata>
+  <rdf:RDF xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Periodic Table of the Elements</dc:title>
+    <dc:language>en</dc:language>
+    <dc:description>Periodic table of elements, using english wikipedia classifications.</dc:description>
+    <dc:date>15 December 2009, updated 2016, 2018</dc:date>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>2012rc (Robert Campion)</dc:title>
+     </cc:Agent>
+    </dc:creator>
+    <dc:rights>
+     <cc:Agent>
+      <dc:title/>
+     </cc:Agent>
+    </dc:rights>
+    <dc:source>https://commons.wikimedia.org/wiki/File:Periodic_table_large.svg</dc:source>
+    <cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
+   </cc:Work>
+   <cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
+    <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+    <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
+   </cc:License>
+  </rdf:RDF>
+ </metadata>
+ <path d="m1234.6 13433h181.65v-754.45h-181.65z" fill="#9cf" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="16.5"/>
+ <path d="m2245 9982h1486v1486h-1486z" fill="#ffdead" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m759 9982h1486v1486h-1486z" fill="#f66" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m2245 8496h1486v1486h-1486z" fill="#ffdead" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m759 8496h1486v1486h-1486z" fill="#f66" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m3731 7009h1486v1486h-1486z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m2245 7009h1486v1486h-1486z" fill="#ffdead" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m759 7009h1486v1486h-1486z" fill="#f66" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m3731 5523h1486v1486h-1486z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m2245 5523h1486v1486h-1486z" fill="#ffdead" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m759 5523h1486v1486h-1486z" fill="#f66" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m2245 4037h1486v1486h-1486z" fill="#ffdead" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m759 4037h1486v1486h-1486z" fill="#f66" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m2245 2551h1486v1486h-1486z" fill="#ffdead" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m759 2551h1486v1486h-1486z" fill="#f66" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m759 1064h1486v1486h-1486z" fill="#f0ff8f" fill-opacity=".94" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m3731 8496h1486v1486h-1486z" fill="#ffbfff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m3731 9982h1486v1486h-1486z" fill="#f9c" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m24056 12211h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#ffbfff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m24056 13697h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#f9c" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m25542 12211h1486v1486h-1486z" fill="#ffbfff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m25542 13698h1486v1486h-1486z" fill="#f9c" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m759 16214h372v372h-372z" fill="#f66" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m2992 16214h372v372h-372z" fill="#ffdead" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m18110 16214h372v372h-372z" fill="#ccc" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m9170 16215h372v372h-372z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m6220 16215h372v372h-372z" fill="#ffbfff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m6220 16651h372v372h-372z" fill="#f9c" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m13611 16215h372v372h-372z" fill="#ececec" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m27013 16215h372v372h-372z" fill="#c0ffff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m24044 16215h372v372h-372z" fill="#f0ff8f" fill-opacity=".94" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m21157 16214h372v372h-372z" fill="#cc9" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m7286 4592.1c-66.6 38.5-152 15.6-190.34-51-38.5-66.6-15.6-152 51.001-190.34 66.6-38.5 152-15.6 189.91 51.194 38 66.1 14.9 152-51.001 190.34z" fill="#ff0" fill-rule="evenodd" stroke="#ff0" stroke-linecap="square" stroke-width="20"/>
+ <path d="m7286.2 4592.1c-43.1 24.9-96.2 24.9-139.34 0l69.381-121.1z" fill-rule="evenodd" stroke="#ff0" stroke-linecap="square" stroke-width="20"/>
+ <path d="m7286.2 4350.1c43.1 24.8 69.4 71 69.359 120.67l-139.56.46z" fill-rule="evenodd" stroke="#ff0" stroke-linecap="square" stroke-width="20"/>
+ <path d="m7077 4471.2c0-49.8 26.6-95.8 69.669-120.67l70.186 120.64z" fill-rule="evenodd" stroke="#ff0" stroke-linecap="square" stroke-width="20"/>
+ <path d="m7241 4511.6c-22.2 12.8-50.6 5.21-63.448-17-12.8-22.2-5.21-50.6 17.003-63.446 22.2-12.8 50.6-5.22 62.753 16.514 13.2 21.5 4.95 50.6-17 63.446z" fill-rule="evenodd" stroke="#ff0" stroke-linecap="square" stroke-width="20"/>
+ <path d="m10061 1331h2973v2973h-2973z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m10155 1702.2h-557.35m557.35 464.5h-557.35m557.35 836h-557.35m557.35 650.3h-557.35m557.35 371.6h-557.35m3901.4-464.6h-557.35m557.35-1764.8h-557.35m557.35 371.5h-1486.3" fill="none" stroke="#000" stroke-linecap="square" stroke-width="20"/>
+ <path d="m863.03 13433v-1300.5h185.78v185.78h185.78v1114.7h-371.57" fill="#f99" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="16.5"/>
+ <path d="m1590.1 13433h1857.8v-743.13h-1857.8z" fill="#9cf" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="16.5"/>
+ <path d="m3448 13433h1114.7v-1114.7h-1114.7z" fill="#fdff8c" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="16.5"/>
+ <path d="m4563 12318v-185.78h-185.78v185.78z" fill="#f99" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="16.5"/>
+ <path d="m4175.8 13599v371.57h-2601v-371.57z" fill="#9bff99" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="16.5"/>
+ <path d="m27028 4008h1486v1486h-1486z" fill="#c0ffff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m19597 2522h1486v1486h-1486z" fill="#cc9" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m27028 1036h1486v1486h-1486z" fill="#c0ffff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m25542 9954h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#e8e8e8" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m18110 9954h1486v1486h-1486z" fill="#ccc" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m16624 9954h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#e8e8e8" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m12165 9954h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m27028 8467h1486v1486h-1486z" fill="#c0ffff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m25542 8467h1486v1486h-1486z" fill="#cc9" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m24055 8467h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486z" fill="#ccc" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m16624 8467h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m27028 6981h1486v1486h-1486z" fill="#c0ffff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m25542 6981h1486v1486h-1486z" fill="#f0ff8f" fill-opacity=".94" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m24055 6981h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#cc9" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m21083 6981h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486z" fill="#ccc" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m16624 6981h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m27028 5495h1486v1486h-1486z" fill="#c0ffff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m25542 5495h1486v1486h-1486zm-1487 0h1486v1486h-1486z" fill="#f0ff8f" fill-opacity=".94" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m22569 5495h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#cc9" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m19597 5495h1486v1486h-1486zm-1487 0h1486v1486h-1486z" fill="#ccc" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m16624 5495h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1487 0h1486v1486h-1486z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m27028 9954h1486v1486h-1486z" fill="#e8e8e8" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m6220 5495h1486v1486h-1486z" fill="#ffc0c0" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m25542 4008h1486v1486h-1486z" fill="#ff9" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m24055 4008h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#f0ff8f" fill-opacity=".94" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m21083 4008h1486v1486h-1486z" fill="#cc9" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m19597 4008h1486v1486h-1486z" fill="#ccc" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m27028 2522h1486v1486h-1486z" fill="#c0ffff" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m25542 2522h1486v1486h-1486zm-1487 0h1486v1486h-1486zm-1486 0h1486v1486h-1486zm-1486 0h1486v1486h-1486z" fill="#f0ff8f" fill-opacity=".94" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-miterlimit="2" stroke-width="20"/>
+ <path d="m1234.6 13433h181.65v-754.45h-181.65z" fill="#9cf" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="16.5"/>
+ <text x="851" y="2086" font-size="590" stroke-width="17">H</text>
+ <text x="851" y="2271" font-size="200" stroke-width="17">Hydrogen</text>
+ <text x="851" y="2458" font-size="132" stroke-width="17">1s¹</text>
+ <text x="851" y="1343" font-size="200" stroke-width="17">1.008</text>
+ <text x="1966" y="1436" font-size="330" stroke-width="17">1</text>
+ <text x="2191" y="1621" font-size="100" stroke-width="17" text-anchor="end"><tspan x="2191" y="1621">+1</tspan><tspan x="2191" y="1746">−1</tspan></text>
+ <text x="1687" y="1528" font-size="132" stroke-width="17">2.20</text>
+ <text x="851" y="1528" font-size="132" stroke-width="17">1312.0</text>
+ <text x="851" y="3573" font-size="590" stroke-width="17">Li</text>
+ <text x="851" y="3758" font-size="200" stroke-width="17">Lithium</text>
+ <text x="851" y="3944" font-size="132" stroke-width="17">1s² 2s¹</text>
+ <text x="851" y="2830" font-size="200" stroke-width="17">6.94</text>
+ <text x="1966" y="2922" font-size="330" stroke-width="17">3</text>
+ <text x="2191" y="3107" font-size="100" stroke-width="17" text-anchor="end"><tspan x="2191" y="3107">+1</tspan><tspan x="2191" y="3233">−1</tspan></text>
+ <text x="1595" y="3015" font-size="132" stroke-width="17">0.98</text>
+ <text x="851" y="3015" font-size="132" stroke-width="17">520.2</text>
+ <text x="2338" y="3573" font-size="590" stroke-width="17">Be</text>
+ <text x="2338" y="3758" font-size="200" stroke-width="17">Beryllium</text>
+ <text x="2338" y="3944" font-size="132" stroke-width="17">1s² 2s²</text>
+ <text x="2338" y="2830" font-size="200" stroke-width="17">9.0122</text>
+ <text x="3452" y="2922" font-size="330" stroke-width="17">4</text>
+ <text x="3677" y="3107" font-size="100" stroke-width="17" text-anchor="end"><tspan x="3677" y="3107">+2</tspan></text>
+ <text x="3081" y="3015" font-size="132" stroke-width="17">1.57</text>
+ <text x="2338" y="3015" font-size="132" stroke-width="17">899.5</text>
+ <text x="851" y="5059" font-size="590" stroke-width="17">Na</text>
+ <text x="851" y="5244" font-size="200" stroke-width="17">Sodium</text>
+ <text x="851" y="5431" font-size="132" stroke-width="17"><tspan x="851" y="5431">[Ne] 3s¹</tspan></text>
+ <text x="851" y="4316" font-size="200" stroke-width="17">22.990</text>
+ <text x="1781" y="4408" font-size="330" stroke-width="17">11</text>
+ <text x="1502" y="4501" font-size="132" stroke-width="17">0.93</text>
+ <text x="851" y="4501" font-size="132" stroke-width="17">495.8</text>
+ <text x="2338" y="5059" font-size="590" stroke-width="17">Mg</text>
+ <text x="2338" y="5244" fill="none" font-size="200" stroke="#ffdead" stroke-linecap="square" stroke-width="20">Magnesium</text>
+ <g stroke-width="17">
+  <text x="2338" y="5244" font-size="200">Magnesium</text>
+  <text x="2338" y="5431" font-size="132"><tspan x="2338" y="5431">[Ne] 3s²</tspan></text>
+  <text x="2338" y="4316" font-size="200">24.305</text>
+  <text x="3267" y="4408" font-size="330">12</text>
+  <text x="3677" y="4593" font-size="100" text-anchor="end"><tspan x="3677" y="4593">+2</tspan><tspan x="3677" y="4694">+1</tspan></text>
+  <text x="2988" y="4501" font-size="132">1.31</text>
+  <text x="2338" y="4501" font-size="132">737.7</text>
+  <text x="851" y="6545" font-size="590">K</text>
+  <text x="851" y="6730" font-size="200">Potassium</text>
+  <text x="851" y="6917" font-size="132"><tspan x="851" y="6917">[Ar] 4s¹</tspan></text>
+  <text x="851" y="5802" font-size="200">39.098</text>
+  <text x="1781" y="5895" font-size="330">19</text>
+  <text x="2191" y="6080" font-size="100" text-anchor="end"><tspan x="2191" y="6080">+1</tspan></text>
+  <text x="1502" y="5987" font-size="132">0.82</text>
+  <text x="851" y="5987" font-size="132">418.8</text>
+  <text x="2338" y="6545" font-size="590">Ca</text>
+  <text x="2338" y="6730" font-size="200">Calcium</text>
+  <text x="2338" y="6917" font-size="132"><tspan x="2338" y="6917">[Ar] 4s²</tspan></text>
+  <text x="2338" y="5802" font-size="200">40.078</text>
+  <text x="3267" y="5895" font-size="330">20</text>
+  <text x="3677" y="6080" font-size="100" text-anchor="end"><tspan x="3677" y="6080">+2</tspan></text>
+  <text x="2896" y="5987" font-size="132">1.00</text>
+  <text x="2338" y="5987" font-size="132">589.8</text>
+  <text x="851" y="8032" font-size="590">Rb</text>
+  <text x="851" y="8217" font-size="200">Rubidium</text>
+  <text x="851" y="8403" font-size="132"><tspan x="851" y="8403">[Kr] 5s¹</tspan></text>
+  <text x="851" y="7288" font-size="200">85.468</text>
+  <text x="1781" y="7381" font-size="330">37</text>
+  <text x="2191" y="7566" font-size="100" text-anchor="end"><tspan x="2191" y="7566">+1</tspan></text>
+  <text x="1410" y="7473" font-size="132">0.82</text>
+  <text x="851" y="7473" font-size="132">403.0</text>
+  <text x="2338" y="8032" font-size="590">Sr</text>
+  <text x="2338" y="8217" font-size="200">Strontium</text>
+  <text x="2338" y="8403" font-size="132"><tspan x="2338" y="8403">[Kr] 5s²</tspan></text>
+  <text x="2338" y="7288" font-size="200">87.62</text>
+  <text x="3267" y="7381" font-size="330">38</text>
+  <text x="3677" y="7566" font-size="100" text-anchor="end"><tspan x="3677" y="7566">+2</tspan></text>
+  <text x="2896" y="7473" font-size="132">0.95</text>
+  <text x="2338" y="7473" font-size="132">549.5</text>
+  <text x="851" y="9518" font-size="590">Cs</text>
+  <text x="851" y="9703" font-size="200">Cæsium</text>
+  <text x="851" y="9889" font-size="132"><tspan x="851" y="9889">[Xe] 6s¹</tspan></text>
+  <text x="851" y="8775" font-size="200">132.91</text>
+  <text x="1781" y="8867" font-size="330">55</text>
+  <text x="2191" y="9052" font-size="100" text-anchor="end"><tspan x="2191" y="9052">+1</tspan></text>
+  <text x="1410" y="8960" font-size="132">0.79</text>
+  <text x="851" y="8960" font-size="132">375.7</text>
+  <text x="2338" y="9518" font-size="590">Ba</text>
+  <text x="2338" y="9703" font-size="200">Barium</text>
+  <text x="2338" y="9889" font-size="132"><tspan x="2338" y="9889">[Xe] 6s²</tspan></text>
+  <text x="2338" y="8775" font-size="200">137.33</text>
+  <text x="3267" y="8867" font-size="330">56</text>
+  <text x="3677" y="9052" font-size="100" text-anchor="end"><tspan x="3677" y="9052">+2</tspan></text>
+  <text x="2896" y="8960" font-size="132">0.89</text>
+  <text x="2338" y="8960" font-size="132">502.9</text>
+  <text x="851" y="11004" font-size="590">Fr</text>
+  <text x="851" y="11189" font-size="200">Francium</text>
+  <text x="851" y="11376" font-size="132"><tspan x="851" y="11376">[Rn] 7s¹</tspan></text>
+  <text x="851" y="10261" font-size="200">(223)</text>
+  <text x="1781" y="10353" font-size="330">87</text>
+  <text x="2191" y="10538" font-size="100" text-anchor="end"><tspan x="2191" y="10538">+1</tspan></text>
+  <text x="1410" y="10446" font-size="132">0.70</text>
+  <text x="851" y="10446" font-size="132">380.0</text>
+  <text x="2338" y="11004" font-size="590">Ra</text>
+  <text x="2338" y="11189" font-size="200">Radium</text>
+  <text x="2338" y="11376" font-size="132"><tspan x="2338" y="11376">[Rn] 7s²</tspan></text>
+  <text x="2338" y="10261" font-size="200">(226)</text>
+  <text x="3267" y="10353" font-size="330">88</text>
+  <text x="3677" y="10538" font-size="100" text-anchor="end"><tspan x="3677" y="10538">+2</tspan></text>
+  <text x="2896" y="10446" font-size="132">0.90</text>
+  <text x="2338" y="10446" font-size="132">509.3</text>
+  <text x="3824" y="6545" font-size="590">Sc</text>
+  <text x="3824" y="6730" font-size="200">Scandium</text>
+  <text x="3824" y="6917" font-size="132"><tspan x="3824" y="6917">[Ar] 3d¹ 4s²</tspan></text>
+  <text x="3824" y="5802" font-size="200">44.956</text>
+  <text x="4754" y="5895" font-size="330">21</text>
+  <text x="5163" y="6080" font-size="100" text-anchor="end"><tspan x="5163" y="6080">+3</tspan> <tspan x="5163" y="6180">+2</tspan><tspan x="5163" y="6279">+1</tspan></text>
+  <text x="4382" y="5987" font-size="132">1.36</text>
+  <text x="3824" y="5987" font-size="132">633.1</text>
+  <text x="3824" y="8032" font-size="590">Y</text>
+  <text x="3824" y="8217" font-size="200">Yttrium</text>
+  <text x="3824" y="8403" font-size="132"><tspan x="3824" y="8403">[Kr] 4d¹ 5s²</tspan></text>
+  <text x="3824" y="7288" font-size="200">88.906</text>
+  <text x="4754" y="7381" font-size="330">39</text>
+  <text x="5163" y="7566" font-size="100" text-anchor="end"><tspan x="5163" y="7566">+3</tspan> <tspan x="5163" y="7667">+2</tspan><tspan x="5163" y="7766">+1</tspan></text>
+  <text x="4382" y="7473" font-size="132">1.22</text>
+  <text x="3824" y="7473" font-size="132">600.0</text>
+  <text x="3824" y="9518" font-size="590">La</text>
+  <text x="3824" y="9703" font-size="200">Lanthanum</text>
+  <text x="3824" y="9890" font-size="132"><tspan x="3824" y="9890">[Xe] 5d¹ 6s²</tspan></text>
+  <text x="3824" y="8775" font-size="200">138.91</text>
+  <text x="4754" y="8868" font-size="330">57</text>
+  <text x="5163" y="9053" font-size="100" text-anchor="end"><tspan x="5163" y="9053">+3</tspan><tspan x="5163" y="9153">+2</tspan></text>
+  <text x="4382" y="8960" font-size="132">1.10</text>
+  <text x="3824" y="8960" font-size="132">538.1</text>
+  <text x="3824" y="11004" font-size="590">Ac</text>
+  <text x="3824" y="11189" font-size="200">Actinium</text>
+  <text x="3824" y="11376" font-size="132"><tspan x="3824" y="11376">[Rn] 6d¹ 7s²</tspan></text>
+  <text x="3824" y="10261" font-size="200">(227)</text>
+  <text x="4754" y="10354" font-size="330">89</text>
+  <text x="5163" y="10539" font-size="100" text-anchor="end"><tspan x="5163" y="10539">+3</tspan></text>
+  <text x="4382" y="10446" font-size="132">1.10</text>
+  <text x="3824" y="10446" font-size="132">499.0</text>
+  <text x="20683" y="711" font-size="936" letter-spacing="-53.5" text-anchor="end">Periodic Table of the Elements</text>
+  <text x="2191" y="4593" font-size="100" text-anchor="end"><tspan x="2191" y="4593">+1</tspan><tspan x="2191" y="4719">−1</tspan></text>
+  <text x="6313" y="13233" font-size="590">Ce</text>
+  <text x="6313" y="13418" font-size="200">Cerium</text>
+  <text x="6313" y="13605" font-size="132"><tspan x="6313" y="13605">[Xe] 4f¹ 5d¹ 6s²</tspan></text>
+  <text x="6313" y="12490" font-size="200">140.12</text>
+  <text x="7243" y="12583" font-size="330">58</text>
+  <text x="7652" y="12768" font-size="100" text-anchor="end"><tspan x="7652" y="12768">+4</tspan> <tspan x="7652" y="12867">+3</tspan><tspan x="7652" y="12967">+2</tspan></text>
+  <text x="6871" y="12675" font-size="132">1.12</text>
+  <text x="6313" y="12675" font-size="132">534.4</text>
+  <text x="6313" y="14719" font-size="590">Th</text>
+  <text x="6313" y="14904" font-size="200">Thorium</text>
+  <text x="6313" y="15091" font-size="132"><tspan x="6313" y="15091">[Rn] 6d² 7s²</tspan></text>
+  <text x="6313" y="13976" font-size="200">232.04</text>
+  <text x="7243" y="14069" font-size="330">90</text>
+  <text x="7652" y="14254" font-size="100" text-anchor="end"><tspan x="7652" y="14254">+4</tspan> <tspan x="7652" y="14355">+3</tspan><tspan x="7652" y="14454">+2</tspan></text>
+  <text x="6871" y="14161" font-size="132">1.30</text>
+  <text x="6313" y="14161" font-size="132">587.0</text>
+  <text x="7799" y="13233" font-size="590">Pr</text>
+  <text x="7799" y="13605" font-size="132"><tspan x="7799" y="13605">[Xe] 4f³ 6s²</tspan></text>
+  <text x="7799" y="12490" font-size="200">140.91</text>
+  <text x="8729" y="12583" font-size="330">59</text>
+  <text x="9139" y="12768" font-size="100" text-anchor="end"><tspan x="9139" y="12768">+4</tspan> <tspan x="9139" y="12867">+3</tspan><tspan x="9139" y="12966">+2</tspan></text>
+  <text x="8357" y="12675" font-size="132">1.13</text>
+  <text x="7799" y="12675" font-size="132">527.0</text>
+  <text x="9286" y="13233" font-size="590">Nd</text>
+  <text x="9286" y="13418" font-size="200">Neodymium</text>
+  <text x="9286" y="13605" font-size="132"><tspan x="9286" y="13605">[Xe] 4f⁴ 6s²</tspan></text>
+  <text x="9286" y="12490" font-size="200">144.24</text>
+  <text x="10215" y="12583" font-size="330">60</text>
+  <text x="10625" y="12768" font-size="100" text-anchor="end"><tspan x="10625" y="12768">+3</tspan><tspan x="10625" y="12868">+2</tspan></text>
+  <text x="9844" y="12675" font-size="132">1.14</text>
+  <text x="9286" y="12675" font-size="132">533.1</text>
+  <text x="7799" y="14719" font-size="590">Pa</text>
+  <text x="7799" y="14904" font-size="200">Protactinium</text>
+  <text x="7799" y="15091" font-size="132"><tspan x="7799" y="15091">[Rn] 5f² 6d¹ 7s²</tspan></text>
+  <text x="7799" y="13976" font-size="200">231.04</text>
+  <text x="8729" y="14069" font-size="330">91</text>
+  <text x="9139" y="14254" font-size="100" text-anchor="end"><tspan x="9139" y="14254">+5</tspan> <tspan x="9139" y="14355">+4</tspan><tspan x="9139" y="14454">+3</tspan></text>
+  <text x="8357" y="14161" font-size="132">1.50</text>
+  <text x="7799" y="14161" font-size="132">568.0</text>
+  <text x="9286" y="14719" font-size="590">U</text>
+  <text x="9286" y="14904" font-size="200">Uranium</text>
+  <text x="9286" y="15091" font-size="132"><tspan x="9286" y="15091">[Rn] 5f³ 6d¹ 7s²</tspan></text>
+  <text x="9286" y="13976" font-size="200">238.03</text>
+  <text x="10215" y="14069" font-size="330">92</text>
+  <text x="10625" y="14254" font-size="100" text-anchor="end"><tspan x="10625" y="14254">+6</tspan> <tspan x="10625" y="14355">+5</tspan> <tspan x="10625" y="14454">+4</tspan><tspan x="10625" y="14553">+3</tspan></text>
+  <text x="9844" y="14161" font-size="132">1.38</text>
+  <text x="9286" y="14161" font-size="132">597.6</text>
+  <text x="10772" y="13233" font-size="590">Pm</text>
+  <text x="10772" y="13418" font-size="200">Promethium</text>
+  <text x="10772" y="13605" font-size="132"><tspan x="10772" y="13605">[Xe] 4f<tspan baseline-shift="super">5</tspan> 6s²</tspan></text>
+  <text x="10772" y="12490" font-size="200">(145)</text>
+  <text x="11702" y="12583" font-size="330">61</text>
+  <text x="12111" y="12768" font-size="100" text-anchor="end"><tspan x="12111" y="12768">+3</tspan></text>
+  <text x="10772" y="12675" font-size="132">540.0</text>
+  <text x="12258" y="13233" font-size="590">Sm</text>
+  <text x="12258" y="13418" font-size="200">Samarium</text>
+  <text x="12258" y="13605" font-size="132"><tspan x="12258" y="13605">[Xe] 4f⁶ 6s²</tspan></text>
+  <text x="12258" y="12490" font-size="200">150.36</text>
+  <text x="13188" y="12583" font-size="330">62</text>
+  <text x="12816" y="12675" font-size="132">1.17</text>
+  <text x="12258" y="12675" font-size="132">544.5</text>
+  <text x="10772" y="14719" font-size="590">Np</text>
+ </g>
+ <text x="10772" y="14904" fill="none" font-size="200" stroke="#f9c" stroke-linecap="square" stroke-width="20">Neptunium</text>
+ <text x="10772" y="14904" font-size="200" stroke-width="17">Neptunium</text>
+ <text x="10772" y="15091" font-size="132" stroke-width="17"><tspan x="10772" y="15091">[Rn] 5f⁴ 6d¹ 7s²</tspan></text>
+ <text x="10772" y="13976" font-size="200" stroke-width="17">(237)</text>
+ <text x="11702" y="14069" font-size="330" stroke-width="17">93</text>
+ <text x="12111" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="12111" y="14254">+7</tspan> <tspan x="12111" y="14353">+6</tspan> <tspan x="12111" y="14452">+5</tspan> <tspan x="12111" y="14551">+4</tspan><tspan x="12111" y="14650">+3</tspan></text>
+ <text x="11330" y="14161" font-size="132" stroke-width="17">1.36</text>
+ <text x="10772" y="14161" font-size="132" stroke-width="17">604.5</text>
+ <text x="12258" y="14719" font-size="590" stroke-width="17">Pu</text>
+ <text x="12258" y="14904" font-size="200" stroke-width="17">Plutonium</text>
+ <text x="12258" y="15091" font-size="132" stroke-width="17"><tspan x="12258" y="15091">[Rn] 5f⁶ 7s²</tspan></text>
+ <text x="12258" y="13976" font-size="200" stroke-width="17">(244)</text>
+ <text x="13188" y="14069" font-size="330" stroke-width="17">94</text>
+ <text x="13597" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="13597" y="14254">+7</tspan> <tspan x="13597" y="14353">+6</tspan> <tspan x="13597" y="14452">+5</tspan> <tspan x="13597" y="14551">+4</tspan><tspan x="13597" y="14650">+3</tspan></text>
+ <text x="12816" y="14161" font-size="132" stroke-width="17">1.28</text>
+ <text x="12258" y="14161" font-size="132" stroke-width="17">584.7</text>
+ <text x="13744" y="13233" font-size="590" stroke-width="17">Eu</text>
+ <text x="13744" y="13418" font-size="200" stroke-width="17">Europium</text>
+ <text x="13744" y="13605" font-size="132" stroke-width="17"><tspan x="13744" y="13605">[Xe] 4f⁷ 6s²</tspan></text>
+ <text x="13744" y="12490" font-size="200" stroke-width="17">151.96</text>
+ <text x="14674" y="12583" font-size="330" stroke-width="17">63</text>
+ <text x="15084" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="15084" y="12768">+3</tspan><tspan x="15084" y="12867">+2</tspan></text>
+ <text x="13744" y="12675" font-size="132" stroke-width="17">547.1</text>
+ <text x="15231" y="13233" font-size="590" stroke-width="17">Gd</text>
+ <text x="15231" y="13418" font-size="200" stroke-width="17">Gadolinium</text>
+ <text x="15231" y="13605" font-size="132" stroke-width="17"><tspan x="15231" y="13605">[Xe] 4f⁷ 5d¹ 6s²</tspan></text>
+ <text x="15231" y="12490" font-size="200" stroke-width="17">157.25</text>
+ <text x="16160" y="12583" font-size="330" stroke-width="17">64</text>
+ <text x="16570" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="16570" y="12768">+3</tspan> <tspan x="16570" y="12868">+2</tspan><tspan x="16570" y="12967">+1</tspan></text>
+ <text x="15789" y="12675" font-size="132" stroke-width="17">1.20</text>
+ <text x="15231" y="12675" font-size="132" stroke-width="17">593.4</text>
+ <text x="13744" y="14719" font-size="590" stroke-width="17">Am</text>
+ <text x="13744" y="14904" font-size="200" stroke-width="17">Americium</text>
+ <text x="13744" y="15091" font-size="132" stroke-width="17"><tspan x="13744" y="15091">[Rn] 5f⁷ 7s²</tspan></text>
+ <text x="13744" y="13976" font-size="200" stroke-width="17">(243)</text>
+ <text x="14674" y="14069" font-size="330" stroke-width="17">95</text>
+ <text x="15084" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="15084" y="14254">+6</tspan> <tspan x="15084" y="14353">+5</tspan> <tspan x="15084" y="14452">+4</tspan> <tspan x="15084" y="14551">+3</tspan><tspan x="15084" y="14650">+2</tspan></text>
+ <text x="14303" y="14161" font-size="132" stroke-width="17">1.30</text>
+ <text x="13744" y="14161" font-size="132" stroke-width="17">578.0</text>
+ <text x="15231" y="14719" font-size="590" stroke-width="17">Cm</text>
+ <text x="15231" y="14904" font-size="200" stroke-width="17">Curium</text>
+ <text x="15231" y="15091" font-size="132" stroke-width="17"><tspan x="15231" y="15091">[Rn] 5f⁷ 6d¹ 7s²</tspan></text>
+ <text x="15231" y="13976" font-size="200" stroke-width="17">(247)</text>
+ <text x="16160" y="14069" font-size="330" stroke-width="17">96</text>
+ <text x="16570" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="16570" y="14254">+4</tspan><tspan x="16570" y="14353">+3</tspan></text>
+ <text x="15789" y="14161" font-size="132" stroke-width="17">1.30</text>
+ <text x="15231" y="14161" font-size="132" stroke-width="17">581.0</text>
+ <text x="16717" y="13233" font-size="590" stroke-width="17">Tb</text>
+ <text x="16717" y="13418" font-size="200" stroke-width="17">Terbium</text>
+ <text x="16717" y="13605" font-size="132" stroke-width="17"><tspan x="16717" y="13605">[Xe] 4f⁹ 6s²</tspan></text>
+ <text x="16717" y="12490" font-size="200" stroke-width="17">158.93</text>
+ <text x="17647" y="12583" font-size="330" stroke-width="17">65</text>
+ <text x="18056" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="18056" y="12768">+4</tspan> <tspan x="18056" y="12867">+3</tspan><tspan x="18056" y="12966">+1</tspan></text>
+ <text x="16717" y="12675" font-size="132" stroke-width="17">565.8</text>
+ <text x="18203" y="13233" font-size="590" stroke-width="17">Dy</text>
+ <text x="18203" y="13418" fill="none" font-size="200" stroke="#ffbfff" stroke-linecap="square" stroke-width="20">Dysprosium</text>
+ <text x="18203" y="13418" font-size="200" stroke-width="17">Dysprosium</text>
+ <text x="18203" y="13605" font-size="132" stroke-width="17"><tspan x="18203" y="13605">[Xe] 4f¹ 6s²</tspan></text>
+ <text x="18203" y="12490" font-size="200" stroke-width="17">162.50</text>
+ <text x="19133" y="12583" font-size="330" stroke-width="17">66</text>
+ <text x="18761" y="12675" font-size="132" stroke-width="17">1.22</text>
+ <text x="18203" y="12675" font-size="132" stroke-width="17">573.0</text>
+ <text x="16717" y="14719" font-size="590" stroke-width="17">Bk</text>
+ <text x="16717" y="14904" font-size="200" stroke-width="17">Berkelium</text>
+ <text x="16717" y="15091" font-size="132" stroke-width="17"><tspan x="16717" y="15091">[Rn] 5f⁹ 7s²</tspan></text>
+ <text x="16717" y="13976" font-size="200" stroke-width="17">(247)</text>
+ <text x="17647" y="14069" font-size="330" stroke-width="17">97</text>
+ <text x="18056" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="18056" y="14254">+4</tspan><tspan x="18056" y="14353">+3</tspan></text>
+ <text x="17275" y="14161" font-size="132" stroke-width="17">1.30</text>
+ <text x="16717" y="14161" font-size="132" stroke-width="17">601.0</text>
+ <text x="18203" y="14719" font-size="590" stroke-width="17">Cf</text>
+ <text x="18203" y="14904" font-size="200" stroke-width="17">Californium</text>
+ <text x="18203" y="15091" font-size="132" stroke-width="17"><tspan x="18203" y="15091">[Rn] 5f¹ 7s²</tspan></text>
+ <text x="18203" y="13976" font-size="200" stroke-width="17">(251)</text>
+ <text x="19133" y="14069" font-size="330" stroke-width="17">98</text>
+ <text x="18761" y="14161" font-size="132" stroke-width="17">1.30</text>
+ <text x="18203" y="14161" font-size="132" stroke-width="17">608.0</text>
+ <text x="19689" y="13233" font-size="590" stroke-width="17">Ho</text>
+ <text x="19689" y="13418" font-size="200" stroke-width="17">Holmium</text>
+ <text x="19689" y="13605" font-size="132" stroke-width="17"><tspan x="19689" y="13605">[Xe] 4f¹¹ 6s²</tspan></text>
+ <text x="19689" y="12490" font-size="200" stroke-width="17">164.93</text>
+ <text x="20619" y="12583" font-size="330" stroke-width="17">67</text>
+ <text x="21029" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="21029" y="12768">+3</tspan></text>
+ <text x="20248" y="12675" font-size="132" stroke-width="17">1.23</text>
+ <text x="19689" y="12675" font-size="132" stroke-width="17">581.0</text>
+ <text x="21176" y="13233" font-size="590" stroke-width="17">Er</text>
+ <text x="21176" y="13418" font-size="200" stroke-width="17">Erbium</text>
+ <text x="21176" y="13605" font-size="132" stroke-width="17"><tspan x="21176" y="13605">[Xe] 4f¹² 6s²</tspan></text>
+ <text x="21176" y="12490" font-size="200" stroke-width="17">167.25</text>
+ <text x="22105" y="12583" font-size="330" stroke-width="17">68</text>
+ <text x="22515" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="22515" y="12768">+3</tspan></text>
+ <text x="21734" y="12675" font-size="132" stroke-width="17">1.24</text>
+ <text x="21176" y="12675" font-size="132" stroke-width="17">589.3</text>
+ <text x="19689" y="14719" font-size="590" stroke-width="17">Es</text>
+ <text x="19689" y="14904" font-size="200" stroke-width="17">Einsteinium</text>
+ <text x="19689" y="15091" font-size="132" stroke-width="17"><tspan x="19689" y="15091">[Rn] 5f¹¹ 6s²</tspan></text>
+ <text x="19689" y="13976" font-size="200" stroke-width="17">(252)</text>
+ <text x="20619" y="14069" font-size="330" stroke-width="17">99</text>
+ <text x="20248" y="14161" font-size="132" stroke-width="17">1.30</text>
+ <text x="19689" y="14161" font-size="132" stroke-width="17">619.0</text>
+ <text x="21176" y="14719" font-size="590" stroke-width="17">Fm</text>
+ <text x="21176" y="14904" font-size="200" stroke-width="17">Fermium</text>
+ <text x="21176" y="15091" font-size="132" stroke-width="17"><tspan x="21176" y="15091">[Rn] 5f¹² 7s²</tspan></text>
+ <text x="21176" y="13976" font-size="200" stroke-width="17">(257)</text>
+ <text x="21919" y="14069" font-size="330" stroke-width="17">100</text>
+ <text x="21640" y="14161" font-size="132" stroke-width="17">1.30</text>
+ <text x="21176" y="14161" font-size="132" stroke-width="17">627.0</text>
+ <text x="22662" y="13233" font-size="590" stroke-width="17">Tm</text>
+ <text x="22662" y="13418" font-size="200" stroke-width="17">Thulium</text>
+ <text x="22662" y="13605" font-size="132" stroke-width="17"><tspan x="22662" y="13605">[Xe] 4f¹³ 6s²</tspan></text>
+ <text x="22662" y="12490" font-size="200" stroke-width="17">168.93</text>
+ <text x="23592" y="12583" font-size="330" stroke-width="17">69</text>
+ <text x="23220" y="12675" font-size="132" stroke-width="17">1.25</text>
+ <text x="22662" y="12675" font-size="132" stroke-width="17">596.7</text>
+ <text x="24148" y="13233" font-size="590" stroke-width="17">Yb</text>
+ <text x="24148" y="13418" font-size="200" stroke-width="17">Ytterbium</text>
+ <text x="24148" y="13605" font-size="132" stroke-width="17"><tspan x="24148" y="13605">[Xe] 4f¹⁴ 6s²</tspan></text>
+ <text x="24148" y="12490" font-size="200" stroke-width="17">173.05</text>
+ <text x="25078" y="12583" font-size="330" stroke-width="17">70</text>
+ <text x="24148" y="12675" font-size="132" stroke-width="17">603.4</text>
+ <text x="22662" y="14719" font-size="590" stroke-width="17">Md</text>
+ <text x="22662" y="14904" font-size="200" stroke-width="17">Mendelevium</text>
+ <text x="22662" y="15091" font-size="132" stroke-width="17"><tspan x="22662" y="15091">[Rn] 5f¹³ 7s²</tspan></text>
+ <text x="22662" y="13976" font-size="200" stroke-width="17">(258)</text>
+ <text x="23405" y="14069" font-size="330" stroke-width="17">101</text>
+ <text x="23126" y="14161" font-size="132" stroke-width="17">1.30</text>
+ <text x="22662" y="14161" font-size="132" stroke-width="17">635.0</text>
+ <text x="24148" y="14719" font-size="590" stroke-width="17">No</text>
+ <text x="24148" y="14904" font-size="200" stroke-width="17">Nobelium</text>
+ <text x="24148" y="15091" font-size="132" stroke-width="17"><tspan x="24148" y="15091">[Rn] 5f¹⁴ 7s²</tspan></text>
+ <text x="24148" y="13976" font-size="200" stroke-width="17">(259)</text>
+ <text x="24891" y="14069" font-size="330" stroke-width="17">102</text>
+ <text x="24612" y="14161" font-size="132" stroke-width="17">1.30</text>
+ <text x="24148" y="14161" font-size="132" stroke-width="17">642.0</text>
+ <text x="25634" y="13234" font-size="590" stroke-width="17">Lu</text>
+ <text x="25634" y="13418" font-size="200" stroke-width="17">Lutetium</text>
+ <text x="25634" y="13605" font-size="132" stroke-width="17"><tspan x="25634" y="13605">[Xe] 4f¹⁴ 5d¹ 6s²</tspan></text>
+ <text x="25634" y="12490" font-size="200" stroke-width="17">174.97</text>
+ <text x="26564" y="12583" font-size="330" stroke-width="17">71</text>
+ <text x="26974" y="12769" font-size="100" stroke-width="17" text-anchor="end"><tspan x="26974" y="12769">+3</tspan></text>
+ <text x="26193" y="12675" font-size="132" stroke-width="17">1.27</text>
+ <text x="25634" y="12675" font-size="132" stroke-width="17">523.5</text>
+ <text x="25634" y="14720" font-size="590" stroke-width="17">Lr</text>
+ <text x="25634" y="14905" font-size="200" stroke-width="17">Lawrencium</text>
+ <text x="25634" y="15091" font-size="132" stroke-width="17"><tspan x="25634" y="15091">[Rn] 5f¹⁴ 7s² 7p¹</tspan></text>
+ <text x="25634" y="13977" font-size="200" stroke-width="17">(262)</text>
+ <text x="26378" y="14069" font-size="330" stroke-width="17">103</text>
+ <text x="26974" y="14256" font-size="100" stroke-width="17" text-anchor="end"><tspan x="26974" y="14256">+3</tspan></text>
+ <text x="25634" y="14162" font-size="132" stroke-width="17">470.0</text>
+ <text x="7799" y="13418" font-size="200" stroke-width="17">Praseodymium</text>
+ <text x="13597" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="13597" y="12768">+3</tspan><tspan x="13597" y="12868">+2</tspan></text>
+ <text x="19542" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="19542" y="12768">+3</tspan><tspan x="19542" y="12868">+2</tspan></text>
+ <text x="19542" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="19542" y="14254">+4</tspan> <tspan x="19542" y="14353">+3</tspan><tspan x="19542" y="14452">+1</tspan></text>
+ <text x="21029" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="21029" y="14254">+3</tspan><tspan x="21029" y="14355">+2</tspan></text>
+ <text x="22515" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="22515" y="14254">+3</tspan><tspan x="22515" y="14355">+2</tspan></text>
+ <text x="24001" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="24001" y="14254">+3</tspan><tspan x="24001" y="14355">+2</tspan></text>
+ <text x="25488" y="14254" font-size="100" stroke-width="17" text-anchor="end"><tspan x="25488" y="14254">+3</tspan><tspan x="25488" y="14355">+2</tspan></text>
+ <text x="24001" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="24001" y="12768">+3</tspan><tspan x="24001" y="12868">+2</tspan></text>
+ <text x="25488" y="12768" font-size="100" stroke-width="17" text-anchor="end"><tspan x="25488" y="12768">+3</tspan><tspan x="25488" y="12868">+2</tspan></text>
+ <text x="1223" y="16493" font-size="231" stroke-width="17">alkali metals</text>
+ <text x="3456" y="16493" font-size="231" stroke-width="17">alkaline earth metals</text>
+ <text x="18574" y="16493" font-size="231" stroke-width="17">post-transition metals</text>
+ <text x="9634" y="16492" font-size="231" stroke-width="17">transition metals</text>
+ <text x="6684" y="16494" font-size="231" stroke-width="17">lanthanides</text>
+ <text x="6684" y="16930" font-size="231" stroke-width="17">actinides</text>
+ <text x="14075" y="16494" font-size="231" stroke-width="17">unknown properties</text>
+ <text x="27477" y="16492" font-size="231" stroke-width="17">noble gases</text>
+ <text x="24508" y="16494" font-size="231" stroke-width="17">reactive nonmetals</text>
+ <text x="21621" y="16493" font-size="231" stroke-width="17">metalloids</text>
+ <text x="7487" y="4443" font-size="165" stroke-width="17">radioactive elements have<tspan x="7487" y="4690">masses in parenthesis</tspan></text>
+ <text x="10248" y="3374" font-size="1189" stroke-width="17">Fe</text>
+ <text x="10248" y="3746" font-size="396" stroke-width="17">Iron</text>
+ <text x="10248" y="4117" font-size="264" stroke-width="17"><tspan x="10248" y="4117">[Ar] 3d⁶ 4s²</tspan></text>
+ <text x="10248" y="1888" font-size="396" stroke-width="17">55.845</text>
+ <text x="12106" y="2075" font-size="661" stroke-width="17">26</text>
+ <text transform="matrix(100 0 0 100 33861 8644)" x="-209.82" y="-62" font-size="2" stroke-width=".17" text-anchor="end"><tspan x="-209.82" y="-62">+6</tspan><tspan x="-209.82" y="-60.01">+5</tspan><tspan x="-209.82" y="-58.03">+4</tspan><tspan x="-209.82" y="-56.05">+3</tspan><tspan x="-209.82" y="-54.07">+2</tspan><tspan x="-209.82" y="-52.09">+1</tspan><tspan x="-209.82" y="-50.11">−1</tspan><tspan x="-209.82" y="-48.12">−2</tspan></text>
+ <text x="11363" y="2259" font-size="264" stroke-width="17">1.83</text>
+ <text x="10248" y="2259" font-size="264" stroke-width="17">762.5</text>
+ <text x="13592" y="1888" font-size="231" stroke-width="17">atomic number</text>
+ <text x="9480" y="2259" font-size="215" stroke-width="17" text-anchor="end">1st ionization energy</text>
+ <text x="13592" y="2259" font-size="231" stroke-width="17">electronegativity</text>
+ <text x="13592" y="3653" font-size="231" stroke-width="17">oxidation states</text>
+ <text x="9483" y="1795" font-size="215" stroke-width="17" text-anchor="end">standard atomic weight</text>
+ <text x="9493" y="3095" font-size="215" stroke-width="17" text-anchor="end">chemical symbol</text>
+ <text x="9485" y="3746" font-size="215" stroke-width="17" text-anchor="end">name</text>
+ <text x="9493" y="4084" font-size="215" stroke-width="17" text-anchor="end">electron configuration</text>
+ <text x="13592" y="3838" font-size="173" stroke-width="17">most common are bold</text>
+ <text x="9493" y="2477" font-size="165" stroke-width="17" text-anchor="end">in kJ/mol</text>
+ <text x="9473" y="1980" font-size="165" stroke-width="17" text-anchor="end">or most stable mass number</text>
+ <text x="4382" y="5431" font-size="297" stroke-width="17">3</text>
+ <text x="2896" y="2458" font-size="297" stroke-width="17">2</text>
+ <text x="1410" y="972" font-size="297" stroke-width="17">1</text>
+ <text transform="scale(1.0836 .92286)" x="957.03" y="675.02" font-size="247.01" stroke-width="20">Group</text>
+ <text x="-24" y="1416" font-size="247" stroke-width="17">Period</text>
+ <text x="480" y="1900" font-size="297" stroke-width="17">1</text>
+ <text x="480" y="3386" font-size="297" stroke-width="17">2</text>
+ <text x="480" y="4872" font-size="297" stroke-width="17">3</text>
+ <text x="480" y="6359" font-size="297" stroke-width="17">4</text>
+ <text x="480" y="7845" font-size="297" stroke-width="17">5</text>
+ <text x="480" y="9331" font-size="297" stroke-width="17">6</text>
+ <text x="480" y="10818" font-size="297" stroke-width="17">7</text>
+ <text x="918" y="13351" font-size="353" stroke-width="17">s</text>
+ <text x="1648" y="13342" font-size="353" stroke-width="17">d</text>
+ <text x="3490" y="13358" font-size="353" stroke-width="17">p</text>
+ <text x="1626" y="13913" font-size="353" stroke-width="17">f</text>
+ <text x="1216" y="12225" font-size="182" stroke-width="17">Electron configuration blocks</text>
+ <text x="667" y="14394" font-size="297" stroke-width="17">Notes</text>
+ <text transform="scale(.99166 1.0084)" x="672.99" y="14579.85" font-size="165" letter-spacing="-2.3" stroke-width="17">• 1 kJ/mol ≈ 96.485 eV <tspan x="672.99" y="14785.85">• all elements are implied to have an oxidation</tspan> <tspan x="672.99" y="14992.85">state of zero.</tspan></text>
+ <text x="25590" y="4989" font-size="590" stroke-width="17">Cl</text>
+ <text x="6313" y="6517" font-size="590" stroke-width="17">Ti</text>
+ <text x="6313" y="6702" font-size="200" stroke-width="17">Titanium</text>
+ <text x="6313" y="6888" font-size="132" stroke-width="17"><tspan x="6313" y="6888">[Ar] 3d² 4s²</tspan></text>
+ <text x="6313" y="5774" font-size="200" stroke-width="17">47.867</text>
+ <text x="7242" y="5866" font-size="330" stroke-width="17">22</text>
+ <text x="7652" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="7652" y="6051">+4</tspan> <tspan x="7652" y="6152">+3</tspan> <tspan x="7652" y="6251">+2</tspan> <tspan x="7652" y="6350">+1</tspan><tspan x="7652" y="6449">−1</tspan></text>
+ <text x="6871" y="5959" font-size="132" stroke-width="17">1.54</text>
+ <text x="6313" y="5959" font-size="132" stroke-width="17">658.8</text>
+ <text x="7799" y="6517" font-size="590" stroke-width="17">V</text>
+ <text x="7799" y="6702" font-size="200" stroke-width="17">Vanadium</text>
+ <text x="7799" y="6888" font-size="132" stroke-width="17"><tspan x="7799" y="6888">[Ar] 3d³ 4s²</tspan></text>
+ <text x="7799" y="5774" font-size="200" stroke-width="17">50.942</text>
+ <text x="8729" y="5866" font-size="330" stroke-width="17">23</text>
+ <text x="9138" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="9138" y="6051">+5</tspan> <tspan x="9138" y="6152">+4</tspan> <tspan x="9138" y="6251">+3</tspan> <tspan x="9138" y="6350">+2</tspan> <tspan x="9138" y="6449">+1</tspan><tspan x="9138" y="6548">−1</tspan></text>
+ <text x="8357" y="5959" font-size="132" stroke-width="17">1.63</text>
+ <text x="7799" y="5959" font-size="132" stroke-width="17">650.9</text>
+ <text x="6313" y="8003" font-size="590" stroke-width="17">Zr</text>
+ <text x="6313" y="8188" font-size="200" stroke-width="17">Zirconium</text>
+ <text x="6313" y="8375" font-size="132" stroke-width="17"><tspan x="6313" y="8375">[Kr] 4d² 5s²</tspan></text>
+ <text x="6313" y="7260" font-size="200" stroke-width="17">91.224</text>
+ <text x="7242" y="7353" font-size="330" stroke-width="17">40</text>
+ <text x="7652" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="7652" y="7537">+4</tspan> <tspan x="7652" y="7638">+3</tspan> <tspan x="7652" y="7737">+2</tspan><tspan x="7652" y="7836">+1</tspan></text>
+ <text x="6871" y="7445" font-size="132" stroke-width="17">1.33</text>
+ <text x="6313" y="7445" font-size="132" stroke-width="17">640.1</text>
+ <text x="7799" y="8003" font-size="590" stroke-width="17">Nb</text>
+ <text x="7799" y="8188" font-size="200" stroke-width="17">Niobium</text>
+ <text x="7799" y="8375" font-size="132" stroke-width="17"><tspan x="7799" y="8375">[Kr] 4d⁴ 5s¹</tspan></text>
+ <text x="7799" y="7260" font-size="200" stroke-width="17">92.906</text>
+ <text x="8729" y="7353" font-size="330" stroke-width="17">41</text>
+ <text x="9138" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="9138" y="7537">+5</tspan> <tspan x="9138" y="7638">+4</tspan> <tspan x="9138" y="7737">+3</tspan> <tspan x="9138" y="7836">+2</tspan><tspan x="9138" y="7935">−1</tspan></text>
+ <text x="8357" y="7445" font-size="132" stroke-width="17">1.60</text>
+ <text x="7799" y="7445" font-size="132" stroke-width="17">652.1</text>
+ <text x="6313" y="9490" font-size="590" stroke-width="17">Hf</text>
+ <text x="6313" y="9674" font-size="200" stroke-width="17">Hafnium</text>
+ <text x="6313" y="9861" font-size="132" stroke-width="17"><tspan x="6313" y="9861">[Xe] 4f¹ 5d² 6s²</tspan></text>
+ <text x="6313" y="8746" font-size="200" stroke-width="17">178.49</text>
+ <text x="7242" y="8839" font-size="330" stroke-width="17">72</text>
+ <text x="7652" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="7652" y="9024">+4</tspan> <tspan x="7652" y="9125">+3</tspan><tspan x="7652" y="9224">+2</tspan></text>
+ <text x="6871" y="8931" font-size="132" stroke-width="17">1.30</text>
+ <text x="6313" y="8931" font-size="132" stroke-width="17">658.5</text>
+ <text x="7799" y="9490" font-size="590" stroke-width="17">Ta</text>
+ <text x="7799" y="9674" font-size="200" stroke-width="17">Tantalum</text>
+ <text x="7799" y="9861" font-size="132" stroke-width="17"><tspan x="7799" y="9861">[Xe] 4f¹⁴ 5d³ 6s²</tspan></text>
+ <text x="7799" y="8746" font-size="200" stroke-width="17">180.95</text>
+ <text x="8729" y="8839" font-size="330" stroke-width="17">73</text>
+ <text x="9138" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="9138" y="9024">+5</tspan> <tspan x="9138" y="9125">+4</tspan> <tspan x="9138" y="9224">+3</tspan> <tspan x="9138" y="9323">+2</tspan><tspan x="9138" y="9422">−1</tspan></text>
+ <text x="8357" y="8931" font-size="132" stroke-width="17">1.50</text>
+ <text x="7799" y="8931" font-size="132" stroke-width="17">761.0</text>
+ <text x="6313" y="10976" font-size="590" stroke-width="17">Rf</text>
+ <text x="6313" y="11161" font-size="200" stroke-width="17">Rutherfordium</text>
+ <text x="6313" y="11347" font-size="132" stroke-width="17"><tspan x="6313" y="11347">[Rn] 5f¹⁴ 6d² 7s²</tspan></text>
+ <text x="6313" y="10233" font-size="200" stroke-width="17">(261)</text>
+ <text x="7056" y="10325" font-size="330" stroke-width="17">104</text>
+ <text x="7652" y="10510" font-size="100" stroke-width="17" text-anchor="end"><tspan x="7652" y="10510">+4</tspan></text>
+ <text x="6313" y="10418" font-size="132" stroke-width="17">580.0</text>
+ <text x="7799" y="10976" font-size="590" stroke-width="17">Db</text>
+ <text x="7799" y="11161" font-size="200" stroke-width="17">Dubnium</text>
+ <text x="7799" y="10233" font-size="200" stroke-width="17">(262)</text>
+ <text x="8542" y="10325" font-size="330" stroke-width="17">105</text>
+ <text x="9138" y="10510" font-size="100" stroke-width="17" text-anchor="end"><tspan x="9138" y="10510">+5</tspan></text>
+ <text x="9285" y="6517" font-size="590" stroke-width="17">Cr</text>
+ <text x="9285" y="6702" font-size="200" stroke-width="17">Chromium</text>
+ <text x="9285" y="6888" font-size="132" stroke-width="17"><tspan x="9285" y="6888">[Ar] 3d<tspan baseline-shift="super">5</tspan> 4s¹</tspan></text>
+ <text x="9285" y="5774" font-size="200" stroke-width="17">51.996</text>
+ <text x="10215" y="5866" font-size="330" stroke-width="17">24</text>
+ <text x="10624" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="10624" y="6051">+6</tspan> <tspan x="10624" y="6152">+5</tspan> <tspan x="10624" y="6251">+4</tspan> <tspan x="10624" y="6348">+3</tspan> <tspan x="10624" y="6449">+2</tspan> <tspan x="10624" y="6548">+1</tspan><tspan x="10624" y="6647">−1</tspan> <tspan x="10624" y="6747">−2</tspan></text>
+ <text x="9843" y="5959" font-size="132" stroke-width="17">1.66</text>
+ <text x="9285" y="5959" font-size="132" stroke-width="17">652.9</text>
+ <text x="10771" y="6517" font-size="590" stroke-width="17">Mn</text>
+ <text x="10771" y="6702" font-size="200" stroke-width="17">Manganese</text>
+ <text x="10771" y="6888" font-size="132" stroke-width="17"><tspan x="10771" y="6888">[Ar] 3d<tspan baseline-shift="super">5</tspan> 4s²</tspan></text>
+ <text x="10771" y="5774" font-size="200" stroke-width="17">54.938</text>
+ <text x="11701" y="5866" font-size="330" stroke-width="17">25</text>
+ <text x="12111" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="12111" y="6051">+7</tspan> <tspan x="12111" y="6152">+6</tspan> <tspan x="12111" y="6251">+5</tspan> <tspan x="12111" y="6348">+4</tspan> <tspan x="12111" y="6449">+3</tspan> <tspan x="12111" y="6547">+2</tspan> <tspan x="12111" y="6647">+1</tspan><tspan x="12111" y="6747">…</tspan> <tspan x="12111" y="6846">−3</tspan></text>
+ <text x="11330" y="5959" font-size="132" stroke-width="17">1.55</text>
+ <text x="10771" y="5959" font-size="132" stroke-width="17">717.3</text>
+ <text x="9285" y="8003" font-size="590" stroke-width="17">Mo</text>
+ <text x="9285" y="8188" font-size="200" stroke-width="17">Molybdenum</text>
+ <text x="9285" y="8375" font-size="132" stroke-width="17"><tspan x="9285" y="8375">[Kr] 4d<tspan baseline-shift="super">5</tspan> 5s¹</tspan></text>
+ <text x="9285" y="7260" font-size="200" stroke-width="17">95.95</text>
+ <text x="10215" y="7353" font-size="330" stroke-width="17">42</text>
+ <text x="10624" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="10624" y="7537">+6</tspan> <tspan x="10624" y="7638">+5</tspan> <tspan x="10624" y="7736">+4</tspan> <tspan x="10624" y="7836">+3</tspan> <tspan x="10624" y="7935">+2</tspan> <tspan x="10624" y="8035">+1</tspan><tspan x="10624" y="8134">−1</tspan> <tspan x="10624" y="8233">−2</tspan></text>
+ <text x="9843" y="7445" font-size="132" stroke-width="17">2.16</text>
+ <text x="9285" y="7445" font-size="132" stroke-width="17">684.3</text>
+ <text x="10771" y="8003" font-size="590" stroke-width="17">Tc</text>
+ <text x="10771" y="8188" font-size="200" stroke-width="17">Technetium</text>
+ <text x="10771" y="8375" font-size="132" stroke-width="17"><tspan x="10771" y="8375">[Kr] 4d<tspan baseline-shift="super">5</tspan> 5s²</tspan></text>
+ <text x="10771" y="7260" font-size="200" stroke-width="17">(98)</text>
+ <text x="11701" y="7353" font-size="330" stroke-width="17">43</text>
+ <text x="12111" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="12111" y="7537">+7</tspan> <tspan x="12111" y="7638">+6</tspan> <tspan x="12111" y="7737">+5</tspan> <tspan x="12111" y="7835">+4</tspan> <tspan x="12111" y="7935">+3</tspan> <tspan x="12111" y="8035">+2</tspan> <tspan x="12111" y="8134">+1</tspan><tspan x="12111" y="8233">−1</tspan> <tspan x="12111" y="8332">−3</tspan></text>
+ <text x="11330" y="7445" font-size="132" stroke-width="17">1.90</text>
+ <text x="10771" y="7445" font-size="132" stroke-width="17">702.0</text>
+ <text x="9285" y="9490" font-size="590" stroke-width="17">W</text>
+ <text x="9285" y="9674" font-size="200" stroke-width="17">Tungsten</text>
+ <text x="9285" y="9861" font-size="132" stroke-width="17"><tspan x="9285" y="9861">[Xe] 4f¹⁴ 5d⁴ 6s²</tspan></text>
+ <text x="9285" y="8746" font-size="200" stroke-width="17">183.84</text>
+ <text x="10215" y="8839" font-size="330" stroke-width="17">74</text>
+ <text x="10624" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="10624" y="9024">+6</tspan> <tspan x="10624" y="9125">+5</tspan> <tspan x="10624" y="9222">+4</tspan> <tspan x="10624" y="9323">+3</tspan> <tspan x="10624" y="9422">+2</tspan> <tspan x="10624" y="9521">+1</tspan><tspan x="10624" y="9620">−1</tspan> <tspan x="10624" y="9719">−2</tspan></text>
+ <text x="9843" y="8931" font-size="132" stroke-width="17">2.36</text>
+ <text x="9285" y="8931" font-size="132" stroke-width="17">770.0</text>
+ <text x="10771" y="9490" font-size="590" stroke-width="17">Re</text>
+ <text x="10771" y="9674" font-size="200" stroke-width="17">Rhenium</text>
+ <text x="10771" y="9861" font-size="132" stroke-width="17"><tspan x="10771" y="9861">[Xe] 4f¹⁴ 5d<tspan baseline-shift="super">5</tspan> 6s²</tspan></text>
+ <text x="10771" y="8746" font-size="200" stroke-width="17">186.21</text>
+ <text x="11701" y="8839" font-size="330" stroke-width="17">75</text>
+ <text x="12111" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="12111" y="9024">+7</tspan> <tspan x="12111" y="9123">+6</tspan> <tspan x="12111" y="9222">+5</tspan> <tspan x="12111" y="9321">+4</tspan> <tspan x="12111" y="9420">+3</tspan> <tspan x="12111" y="9519">+2</tspan> <tspan x="12111" y="9618">+1</tspan><tspan x="12111" y="9717">−1</tspan> <tspan x="12111" y="9817">−3</tspan></text>
+ <text x="11330" y="8931" font-size="132" stroke-width="17">1.90</text>
+ <text x="10771" y="8931" font-size="132" stroke-width="17">760.0</text>
+ <text x="9285" y="10976" font-size="590" stroke-width="17">Sg</text>
+ <text x="9285" y="11161" fill="none" font-size="200" stroke="#ffc0c0" stroke-linecap="square" stroke-width="20">Seaborgium</text>
+ <text x="9285" y="11161" font-size="200" stroke-width="17">Seaborgium</text>
+ <text x="9285" y="10233" font-size="200" stroke-width="17">(266)</text>
+ <text x="10028" y="10325" font-size="330" stroke-width="17">106</text>
+ <text x="10624" y="10510" font-size="100" stroke-width="17" text-anchor="end"><tspan x="10624" y="10510">+6</tspan></text>
+ <text x="10771" y="10976" font-size="590" stroke-width="17">Bh</text>
+ <text x="10771" y="11161" font-size="200" stroke-width="17">Bohrium</text>
+ <text x="10771" y="10233" font-size="200" stroke-width="17">(264)</text>
+ <text x="11515" y="10325" font-size="330" stroke-width="17">107</text>
+ <text x="12111" y="10510" font-size="100" stroke-width="17" text-anchor="end"><tspan x="12111" y="10510">+7</tspan></text>
+ <text x="12258" y="6517" font-size="590" stroke-width="17">Fe</text>
+ <text x="12258" y="6702" font-size="200" stroke-width="17">Iron</text>
+ <text x="12258" y="6888" font-size="132" stroke-width="17"><tspan x="12258" y="6888">[Ar] 3d⁶ 4s²</tspan></text>
+ <text x="12258" y="5774" font-size="200" stroke-width="17">55.845</text>
+ <text x="13187" y="5866" font-size="330" stroke-width="17">26</text>
+ <text x="13597" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="13597" y="6051">+6</tspan> <tspan x="13597" y="6150">+5</tspan> <tspan x="13597" y="6249">+4</tspan> <tspan x="13597" y="6348">+3</tspan> <tspan x="13597" y="6448">+2</tspan> <tspan x="13597" y="6547">+1</tspan><tspan x="13597" y="6646">−1</tspan> <tspan x="13597" y="6745">−2</tspan></text>
+ <text x="12816" y="5959" font-size="132" stroke-width="17">1.83</text>
+ <text x="12258" y="5959" font-size="132" stroke-width="17">762.5</text>
+ <text x="13744" y="6517" font-size="590" stroke-width="17">Co</text>
+ <text x="13744" y="6702" font-size="200" stroke-width="17">Cobalt</text>
+ <text x="13744" y="6888" font-size="132" stroke-width="17"><tspan x="13744" y="6888">[Ar] 3d⁷ 4s²</tspan></text>
+ <text x="13744" y="5774" font-size="200" stroke-width="17">58.933</text>
+ <text x="14674" y="5866" font-size="330" stroke-width="17">27</text>
+ <text x="15083" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="15083" y="6051">+5</tspan> <tspan x="15083" y="6150">+4</tspan> <tspan x="15083" y="6249">+3</tspan> <tspan x="15083" y="6348">+2</tspan> <tspan x="15083" y="6448">+1</tspan><tspan x="15083" y="6547">−1</tspan> <tspan x="15083" y="6646">−2</tspan></text>
+ <text x="14302" y="5959" font-size="132" stroke-width="17">1.91</text>
+ <text x="13744" y="5959" font-size="132" stroke-width="17">760.4</text>
+ <text x="12258" y="8003" font-size="590" stroke-width="17">Ru</text>
+ <text x="12258" y="8188" font-size="200" stroke-width="17">Ruthenium</text>
+ <text x="12258" y="8375" font-size="132" stroke-width="17"><tspan x="12258" y="8375">[Kr] 4d⁷ 5s¹</tspan></text>
+ <text x="12258" y="7260" font-size="200" stroke-width="17">101.07</text>
+ <text x="13187" y="7353" font-size="330" stroke-width="17">44</text>
+ <text x="13597" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="13597" y="7537">+8</tspan> <tspan x="13597" y="7637">+7</tspan> <tspan x="13597" y="7736">+6</tspan> <tspan x="13597" y="7835">+5</tspan> <tspan x="13597" y="7934">+4</tspan> <tspan x="13597" y="8033">+3</tspan> <tspan x="13597" y="8132">+2</tspan> <tspan x="13597" y="8231">+1</tspan><tspan x="13597" y="8330">−2</tspan></text>
+ <text x="12816" y="7445" font-size="132" stroke-width="17">2.20</text>
+ <text x="12258" y="7445" font-size="132" stroke-width="17">710.2</text>
+ <text x="13744" y="8003" font-size="590" stroke-width="17">Rh</text>
+ <text x="13744" y="8188" font-size="200" stroke-width="17">Rhodium</text>
+ <text x="13744" y="8375" font-size="132" stroke-width="17"><tspan x="13744" y="8375">[Kr] 4d⁸ 5s¹</tspan></text>
+ <text x="13744" y="7260" font-size="200" stroke-width="17">102.91</text>
+ <text x="14674" y="7353" font-size="330" stroke-width="17">45</text>
+ <text x="15083" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="15083" y="7537">+6</tspan> <tspan x="15083" y="7637">+5</tspan> <tspan x="15083" y="7736">+4</tspan> <tspan x="15083" y="7835">+3</tspan> <tspan x="15083" y="7934">+2</tspan> <tspan x="15083" y="8033">+1</tspan><tspan x="15083" y="8132">−1</tspan></text>
+ <text x="14302" y="7445" font-size="132" stroke-width="17">2.28</text>
+ <text x="13744" y="7445" font-size="132" stroke-width="17">719.7</text>
+ <text x="12258" y="9490" font-size="590" stroke-width="17">Os</text>
+ <text x="12258" y="9674" font-size="200" stroke-width="17">Osmium</text>
+ <text x="12258" y="9861" font-size="132" stroke-width="17"><tspan x="12258" y="9861">[Xe] 4f¹⁴ 5d⁶ 6s²</tspan></text>
+ <text x="12258" y="8746" font-size="200" stroke-width="17">190.23</text>
+ <text x="13187" y="8839" font-size="330" stroke-width="17">76</text>
+ <text x="13597" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="13597" y="9024">+8</tspan> <tspan x="13597" y="9123">+7</tspan> <tspan x="13597" y="9222">+6</tspan> <tspan x="13597" y="9321">+5</tspan> <tspan x="13597" y="9420">+4</tspan> <tspan x="13597" y="9519">+3</tspan> <tspan x="13597" y="9618">+2</tspan> <tspan x="13597" y="9717">+1</tspan><tspan x="13597" y="9817">−2</tspan></text>
+ <text x="12816" y="8931" font-size="132" stroke-width="17">2.20</text>
+ <text x="12258" y="8931" font-size="132" stroke-width="17">840.0</text>
+ <text x="13744" y="9490" font-size="590" stroke-width="17">Ir</text>
+ <text x="13744" y="9674" font-size="200" stroke-width="17">Iridium</text>
+ <text x="13744" y="9861" font-size="132" stroke-width="17"><tspan x="13744" y="9861">[Xe] 4f¹⁴ 5d⁷ 6s²</tspan></text>
+ <text x="13744" y="8746" font-size="200" stroke-width="17">192.22</text>
+ <text x="14674" y="8839" font-size="330" stroke-width="17">77</text>
+ <text x="15083" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="15083" y="9024">+6</tspan> <tspan x="15083" y="9123">+5</tspan> <tspan x="15083" y="9222">+4</tspan> <tspan x="15083" y="9321">+3</tspan> <tspan x="15083" y="9420">+2</tspan> <tspan x="15083" y="9519">+1</tspan><tspan x="15083" y="9618">−1</tspan> <tspan x="15083" y="9717">−3</tspan></text>
+ <text x="14302" y="8931" font-size="132" stroke-width="17">2.20</text>
+ <text x="13744" y="8931" font-size="132" stroke-width="17">880.0</text>
+ <text x="12258" y="10976" font-size="590" stroke-width="17">Hs</text>
+ <text x="12258" y="11161" font-size="200" stroke-width="17">Hassium</text>
+ <text x="12258" y="10233" font-size="200" stroke-width="17">(277)</text>
+ <text x="13001" y="10325" font-size="330" stroke-width="17">108</text>
+ <text x="13597" y="10510" font-size="100" stroke-width="17" text-anchor="end"><tspan x="13597" y="10510">+8</tspan></text>
+ <text x="13744" y="10976" font-size="590" stroke-width="17">Mt</text>
+ <text x="13744" y="11161" font-size="200" stroke-width="17">Meitnerium</text>
+ <text x="13744" y="10233" font-size="200" stroke-width="17">(268)</text>
+ <text x="14487" y="10325" font-size="330" stroke-width="17">109</text>
+ <text x="15230" y="6517" font-size="590" stroke-width="17">Ni</text>
+ <text x="15230" y="6702" font-size="200" stroke-width="17">Nickel</text>
+ <text x="15230" y="6888" font-size="132" stroke-width="17"><tspan x="15230" y="6888">[Ar] 3d⁸ 4s²</tspan></text>
+ <text x="15230" y="5774" font-size="200" stroke-width="17">58.693</text>
+ <text x="16160" y="5866" font-size="330" stroke-width="17">28</text>
+ <text x="16570" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="16570" y="6051">+4</tspan> <tspan x="16570" y="6150">+3</tspan> <tspan x="16570" y="6249">+2</tspan> <tspan x="16570" y="6348">+1</tspan><tspan x="16570" y="6448">−1</tspan></text>
+ <text x="15788" y="5959" font-size="132" stroke-width="17">1.88</text>
+ <text x="15230" y="5959" font-size="132" stroke-width="17">737.1</text>
+ <text x="16717" y="6517" font-size="590" stroke-width="17">Cu</text>
+ <text x="16717" y="6702" font-size="200" stroke-width="17">Copper</text>
+ <text x="16717" y="6888" font-size="132" stroke-width="17"><tspan x="16717" y="6888">[Ar] 3d¹ 4s¹</tspan></text>
+ <text x="16717" y="5774" font-size="200" stroke-width="17">63.546</text>
+ <text x="17646" y="5866" font-size="330" stroke-width="17">29</text>
+ <text x="18056" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="18056" y="6051">+4</tspan> <tspan x="18056" y="6150">+3</tspan> <tspan x="18056" y="6249">+2</tspan><tspan x="18056" y="6348">+1</tspan></text>
+ <text x="17275" y="5959" font-size="132" stroke-width="17">1.90</text>
+ <text x="16717" y="5959" font-size="132" stroke-width="17">745.5</text>
+ <text x="15230" y="8003" font-size="590" stroke-width="17">Pd</text>
+ <text x="15230" y="8188" font-size="200" stroke-width="17">Palladium</text>
+ <text x="15230" y="8375" font-size="132" stroke-width="17"><tspan x="15230" y="8375">[Kr] 4d¹</tspan></text>
+ <text x="15230" y="7260" font-size="200" stroke-width="17">106.42</text>
+ <text x="16160" y="7353" font-size="330" stroke-width="17">46</text>
+ <text x="16570" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="16570" y="7537">+4</tspan><tspan x="16570" y="7637">+2</tspan></text>
+ <text x="15788" y="7445" font-size="132" stroke-width="17">2.20</text>
+ <text x="15230" y="7445" font-size="132" stroke-width="17">804.4</text>
+ <text x="16717" y="8003" font-size="590" stroke-width="17">Ag</text>
+ <text x="16717" y="8188" fill="none" font-size="200" stroke="#ffc0c0" stroke-linecap="square" stroke-width="20">Silver</text>
+ <text x="16717" y="8188" font-size="200" stroke-width="17">Silver</text>
+ <text x="16717" y="8375" font-size="132" stroke-width="17"><tspan x="16717" y="8375">[Kr] 4d¹ 5s¹</tspan></text>
+ <text x="16717" y="7260" font-size="200" stroke-width="17">107.87</text>
+ <text x="17646" y="7353" font-size="330" stroke-width="17">47</text>
+ <text x="18056" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="18056" y="7537">+3</tspan> <tspan x="18056" y="7637">+2</tspan><tspan x="18056" y="7736">+1</tspan></text>
+ <text x="17275" y="7445" font-size="132" stroke-width="17">1.93</text>
+ <text x="16717" y="7445" font-size="132" stroke-width="17">731.0</text>
+ <text x="15230" y="9490" font-size="590" stroke-width="17">Pt</text>
+ <text x="15230" y="9674" font-size="200" stroke-width="17">Platinum</text>
+ <text x="15230" y="9861" font-size="132" stroke-width="17"><tspan x="15230" y="9861">[Xe] 4f¹⁴ 5d⁹ 6s¹</tspan></text>
+ <text x="15230" y="8746" font-size="200" stroke-width="17">195.08</text>
+ <text x="16160" y="8839" font-size="330" stroke-width="17">78</text>
+ <text x="16570" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="16570" y="9024">+6</tspan> <tspan x="16570" y="9123">+5</tspan> <tspan x="16570" y="9222">+4</tspan><tspan x="16570" y="9321">+2</tspan></text>
+ <text x="15788" y="8931" font-size="132" stroke-width="17">2.28</text>
+ <text x="15230" y="8931" font-size="132" stroke-width="17">870.0</text>
+ <text x="16717" y="9490" font-size="590" stroke-width="17">Au</text>
+ <text x="16717" y="9674" font-size="200" stroke-width="17">Gold</text>
+ <text x="16717" y="9861" font-size="132" stroke-width="17"><tspan x="16717" y="9861">[Xe] 4f¹⁴ 5d¹ 6s¹</tspan></text>
+ <text x="16717" y="8746" font-size="200" stroke-width="17">196.97</text>
+ <text x="17646" y="8839" font-size="330" stroke-width="17">79</text>
+ <text x="18056" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="18056" y="9024">+5</tspan> <tspan x="18056" y="9123">+3</tspan> <tspan x="18056" y="9222">+2</tspan> <tspan x="18056" y="9321">+1</tspan><tspan x="18056" y="9420">−1</tspan></text>
+ <text x="17275" y="8931" font-size="132" stroke-width="17">2.54</text>
+ <text x="16717" y="8931" font-size="132" stroke-width="17">890.1</text>
+ <text x="15230" y="10976" font-size="590" stroke-width="17">Ds</text>
+ <text x="15230" y="11161" font-size="200" stroke-width="17">Darmstadium</text>
+ <text x="15230" y="10233" font-size="200" stroke-width="17">(271)</text>
+ <text x="15973" y="10325" font-size="330" stroke-width="17">110</text>
+ <text x="16717" y="10976" font-size="590" stroke-width="17">Rg</text>
+ <text x="16717" y="11161" fill="none" font-size="200" stroke="#ececec" stroke-linecap="square" stroke-width="20">Roentgenium</text>
+ <text x="16717" y="11161" font-size="200" stroke-width="17">Roentgenium</text>
+ <text x="16717" y="10233" font-size="200" stroke-width="17">(272)</text>
+ <text x="17460" y="10325" font-size="330" stroke-width="17">111</text>
+ <text x="18203" y="6517" font-size="590" stroke-width="17">Zn</text>
+ <text x="18203" y="6702" font-size="200" stroke-width="17">Zinc</text>
+ <text x="18203" y="6888" font-size="132" stroke-width="17"><tspan x="18203" y="6888">[Ar] 3d¹ 4s²</tspan></text>
+ <text x="18203" y="5774" font-size="200" stroke-width="17">65.38</text>
+ <text x="19133" y="5866" font-size="330" stroke-width="17">30</text>
+ <text x="19542" y="6053" font-size="100" stroke-width="17" text-anchor="end"><tspan x="19542" y="6053">+2</tspan></text>
+ <text x="18761" y="5959" font-size="132" stroke-width="17">1.65</text>
+ <text x="18203" y="5959" font-size="132" stroke-width="17">906.4</text>
+ <text x="19689" y="6517" font-size="590" stroke-width="17">Ga</text>
+ <text x="19689" y="6702" font-size="200" stroke-width="17">Gallium</text>
+ <text x="19689" y="6888" font-size="132" stroke-width="17"><tspan x="19689" y="6888">[Ar] 3d¹ 4s² 4p¹</tspan></text>
+ <text x="19689" y="5774" font-size="200" stroke-width="17">69.723</text>
+ <text x="20619" y="5866" font-size="330" stroke-width="17">31</text>
+ <text x="21028" y="6053" font-size="100" stroke-width="17" text-anchor="end"><tspan x="21028" y="6053">+3</tspan> <tspan x="21028" y="6152">+2</tspan><tspan x="21028" y="6251">+1</tspan></text>
+ <text x="20247" y="5959" font-size="132" stroke-width="17">1.81</text>
+ <text x="19689" y="5959" font-size="132" stroke-width="17">578.8</text>
+ <text x="18203" y="8003" font-size="590" stroke-width="17">Cd</text>
+ <text x="18203" y="8188" font-size="200" stroke-width="17">Cadmium</text>
+ <text x="18203" y="8375" font-size="132" stroke-width="17"><tspan x="18203" y="8375">[Kr] 4d¹ 5s²</tspan></text>
+ <text x="18203" y="7260" font-size="200" stroke-width="17">112.41</text>
+ <text x="19133" y="7353" font-size="330" stroke-width="17">48</text>
+ <text x="19542" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="19542" y="7537">+2</tspan></text>
+ <text x="18761" y="7445" font-size="132" stroke-width="17">1.69</text>
+ <text x="18203" y="7445" font-size="132" stroke-width="17">867.8</text>
+ <text x="19689" y="8003" font-size="590" stroke-width="17">In</text>
+ <text x="19689" y="8188" font-size="200" stroke-width="17">Indium</text>
+ <text x="19689" y="8375" font-size="132" stroke-width="17"><tspan x="19689" y="8375">[Kr] 4d¹ 5s² 5p¹</tspan></text>
+ <text x="19689" y="7260" font-size="200" stroke-width="17">114.82</text>
+ <text x="20619" y="7353" font-size="330" stroke-width="17">49</text>
+ <text x="21028" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="21028" y="7537">+3</tspan> <tspan x="21028" y="7638">+2</tspan><tspan x="21028" y="7737">+1</tspan></text>
+ <text x="20247" y="7445" font-size="132" stroke-width="17">1.78</text>
+ <text x="19689" y="7445" font-size="132" stroke-width="17">558.3</text>
+ <text x="18203" y="9490" font-size="590" stroke-width="17">Hg</text>
+ <text x="18203" y="9674" fill="none" font-size="200" stroke="#ffc0c0" stroke-linecap="square" stroke-width="20">Mercury</text>
+ <text x="18203" y="9674" font-size="200" stroke-width="17">Mercury</text>
+ <text x="18203" y="9861" font-size="132" stroke-width="17"><tspan x="18203" y="9861">[Xe] 4f¹⁴ 5d¹ 6s²</tspan></text>
+ <text x="18203" y="8746" font-size="200" stroke-width="17">200.59</text>
+ <text x="19133" y="8839" font-size="330" stroke-width="17">80</text>
+ <text x="19542" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="19542" y="9024">+4</tspan> <tspan x="19542" y="9123">+2</tspan><tspan x="19542" y="9222">+1</tspan></text>
+ <text x="18761" y="8931" font-size="132" stroke-width="17">2.00</text>
+ <text x="18203" y="8931" font-size="132" stroke-width="17">1007.1</text>
+ <text x="19689" y="9490" font-size="590" stroke-width="17">Tl</text>
+ <text x="19689" y="9674" font-size="200" stroke-width="17">Thallium</text>
+ <text x="19689" y="9861" font-size="132" stroke-width="17"><tspan x="19689" y="9861">[Xe] 4f¹⁴ 5d¹ 6s² 6p¹</tspan></text>
+ <text x="19689" y="8746" font-size="200" stroke-width="17">204.38</text>
+ <text x="20619" y="8839" font-size="330" stroke-width="17">81</text>
+ <text x="21028" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="21028" y="9024">+3</tspan><tspan x="21028" y="9123">+1</tspan></text>
+ <text x="20247" y="8931" font-size="132" stroke-width="17">1.62</text>
+ <text x="19689" y="8931" font-size="132" stroke-width="17">589.4</text>
+ <text x="18203" y="10976" font-size="590" stroke-width="17">Cn</text>
+ <text x="18203" y="11161" font-size="200" stroke-width="17">Copernicium</text>
+ <text x="18203" y="10233" font-size="200" stroke-width="17">(285)</text>
+ <text x="18946" y="10325" font-size="330" stroke-width="17">112</text>
+ <text x="19689" y="10976" font-size="590" stroke-width="17">Nh</text>
+ <text x="19689" y="11161" font-size="200" stroke-width="17">Nihonium</text>
+ <text x="19689" y="10233" font-size="200" stroke-width="17">(284)</text>
+ <text x="20432" y="10325" font-size="330" stroke-width="17">113</text>
+ <text x="21175" y="6517" font-size="590" stroke-width="17">Ge</text>
+ <text x="21175" y="6702" font-size="200" stroke-width="17">Germanium</text>
+ <text x="21175" y="6888" font-size="132" stroke-width="17"><tspan x="21175" y="6888">[Ar] 3d¹ 4s² 4p²</tspan></text>
+ <text x="21175" y="5774" font-size="200" stroke-width="17">72.630</text>
+ <text x="22105" y="5866" font-size="330" stroke-width="17">32</text>
+ <text x="22515" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="22515" y="6051">+4</tspan> <tspan x="22515" y="6152">+3</tspan> <tspan x="22515" y="6249">+2</tspan> <tspan x="22515" y="6350">+1</tspan><tspan x="22515" y="6448">−4</tspan></text>
+ <text x="21734" y="5959" font-size="132" stroke-width="17">2.01</text>
+ <text x="21175" y="5959" font-size="132" stroke-width="17">762.0</text>
+ <text x="22662" y="6517" font-size="590" stroke-width="17">As</text>
+ <text x="22662" y="6702" font-size="200" stroke-width="17">Arsenic</text>
+ <text x="22662" y="6888" font-size="132" stroke-width="17"><tspan x="22662" y="6888">[Ar] 3d¹ 4s² 4p³</tspan></text>
+ <text x="22662" y="5774" font-size="200" stroke-width="17">74.922</text>
+ <text x="23591" y="5866" font-size="330" stroke-width="17">33</text>
+ <text x="24001" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="24001" y="6051">+5</tspan> <tspan x="24001" y="6150">+3</tspan> <tspan x="24001" y="6251">+2</tspan><tspan x="24001" y="6348">−3</tspan></text>
+ <text x="23220" y="5959" font-size="132" stroke-width="17">2.18</text>
+ <text x="22662" y="5959" font-size="132" stroke-width="17">947.0</text>
+ <text x="21175" y="8003" font-size="590" stroke-width="17">Sn</text>
+ <text x="21175" y="8188" font-size="200" stroke-width="17">Tin</text>
+ <text x="21175" y="8375" font-size="132" stroke-width="17"><tspan x="21175" y="8375">[Kr] 4d¹ 5s² 5p²</tspan></text>
+ <text x="21175" y="7260" font-size="200" stroke-width="17">118.71</text>
+ <text x="22105" y="7353" font-size="330" stroke-width="17">50</text>
+ <text x="22515" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="22515" y="7537">+4</tspan> <tspan x="22515" y="7637">+2</tspan><tspan x="22515" y="7736">−4</tspan></text>
+ <text x="21734" y="7445" font-size="132" stroke-width="17">1.96</text>
+ <text x="21175" y="7445" font-size="132" stroke-width="17">708.6</text>
+ <text x="22662" y="8003" font-size="590" stroke-width="17">Sb</text>
+ <text x="22662" y="8188" font-size="200" stroke-width="17">Antimony</text>
+ <text x="22662" y="8375" font-size="132" stroke-width="17"><tspan x="22662" y="8375">[Kr] 4d¹ 5s² 5p³</tspan></text>
+ <text x="22662" y="7260" font-size="200" stroke-width="17">121.76</text>
+ <text x="23591" y="7353" font-size="330" stroke-width="17">51</text>
+ <text x="24001" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="24001" y="7537">+5</tspan> <tspan x="24001" y="7637">+3</tspan><tspan x="24001" y="7736">−3</tspan></text>
+ <text x="23220" y="7445" font-size="132" stroke-width="17">2.05</text>
+ <text x="22662" y="7445" font-size="132" stroke-width="17">834.0</text>
+ <text x="21175" y="9490" font-size="590" stroke-width="17">Pb</text>
+ <text x="21175" y="9674" font-size="200" stroke-width="17">Lead</text>
+ <text x="21175" y="9861" font-size="132" stroke-width="17"><tspan x="21175" y="9861">[Xe] 4f¹⁴ 5d¹ 6s² 6p²</tspan></text>
+ <text x="21175" y="8746" font-size="200" stroke-width="17">207.2</text>
+ <text x="22105" y="8839" font-size="330" stroke-width="17">82</text>
+ <text x="22515" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="22515" y="9024">+4</tspan> <tspan x="22515" y="9123">+2</tspan><tspan x="22515" y="9224">−4</tspan></text>
+ <text x="21734" y="8931" font-size="132" stroke-width="17">2.33</text>
+ <text x="21175" y="8931" font-size="132" stroke-width="17">715.6</text>
+ <text x="22662" y="9490" font-size="590" stroke-width="17">Bi</text>
+ <text x="22662" y="9674" font-size="200" stroke-width="17">Bismuth</text>
+ <text x="22662" y="9861" font-size="132" stroke-width="17"><tspan x="22662" y="9861">[Xe] 4f¹⁴ 5d¹ 6s² 6p³</tspan></text>
+ <text x="22662" y="8746" font-size="200" stroke-width="17">208.98</text>
+ <text x="23591" y="8839" font-size="330" stroke-width="17">83</text>
+ <text x="24001" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="24001" y="9024">+5</tspan> <tspan x="24001" y="9123">+3</tspan><tspan x="24001" y="9222">−3</tspan></text>
+ <text x="23220" y="8931" font-size="132" stroke-width="17">2.02</text>
+ <text x="22662" y="8931" font-size="132" stroke-width="17">703.0</text>
+ <text x="21175" y="10976" font-size="590" stroke-width="17">Fl</text>
+ <text x="21175" y="11161" fill="none" font-size="200" stroke="#c8c8c8" stroke-linecap="square" stroke-width="20">Flerovium</text>
+ <text x="21175" y="11161" font-size="200" stroke-width="17">Flerovium</text>
+ <text x="21175" y="10233" font-size="200" stroke-width="17">(289)</text>
+ <text x="21918" y="10325" font-size="330" stroke-width="17">114</text>
+ <text x="22662" y="10976" font-size="590" stroke-width="17">Mc</text>
+ <text x="22662" y="11161" font-size="200" stroke-width="17">Moscovium</text>
+ <text x="22662" y="10233" font-size="200" stroke-width="17">(288)</text>
+ <text x="23405" y="10325" font-size="330" stroke-width="17">115</text>
+ <text x="24148" y="6517" font-size="590" stroke-width="17">Se</text>
+ <text x="24148" y="6702" font-size="200" stroke-width="17">Selenium</text>
+ <text x="24148" y="6888" font-size="132" stroke-width="17"><tspan x="24148" y="6888">[Ar] 3d¹ 4s² 4p⁴</tspan></text>
+ <text x="24148" y="5774" font-size="200" stroke-width="17">78.971</text>
+ <text x="25078" y="5866" font-size="330" stroke-width="17">34</text>
+ <text x="25487" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="25487" y="6051">+6</tspan> <tspan x="25487" y="6150">+4</tspan> <tspan x="25487" y="6249">+2</tspan><tspan x="25487" y="6348">−2</tspan></text>
+ <text x="24706" y="5959" font-size="132" stroke-width="17">2.55</text>
+ <text x="24148" y="5959" font-size="132" stroke-width="17">941.0</text>
+ <text x="25634" y="6517" font-size="590" stroke-width="17">Br</text>
+ <text x="25634" y="6702" font-size="200" stroke-width="17">Bromine</text>
+ <text x="25634" y="6888" font-size="132" stroke-width="17"><tspan x="25634" y="6888">[Ar] 3d¹ 4s² 4p<tspan baseline-shift="super">5</tspan></tspan></text>
+ <text x="25634" y="5774" font-size="200" stroke-width="17">79.904</text>
+ <text x="26564" y="5866" font-size="330" stroke-width="17">35</text>
+ <text x="26973" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="26973" y="6051">+7</tspan> <tspan x="26973" y="6150">+5</tspan> <tspan x="26973" y="6251">+4</tspan> <tspan x="26973" y="6348">+3</tspan> <tspan x="26973" y="6448">+1</tspan><tspan x="26973" y="6547">−1</tspan></text>
+ <text x="26192" y="5959" font-size="132" stroke-width="17">2.96</text>
+ <text x="25634" y="5959" font-size="132" stroke-width="17">1139.9</text>
+ <text x="24148" y="8003" font-size="590" stroke-width="17">Te</text>
+ <text x="24148" y="8188" font-size="200" stroke-width="17">Tellurium</text>
+ <text x="24148" y="8375" font-size="132" stroke-width="17"><tspan x="24148" y="8375">[Kr] 4d¹ 5s² 5p⁴</tspan></text>
+ <text x="24148" y="7260" font-size="200" stroke-width="17">127.60</text>
+ <text x="25078" y="7353" font-size="330" stroke-width="17">52</text>
+ <text x="25487" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="25487" y="7537">+6</tspan> <tspan x="25487" y="7638">+5</tspan> <tspan x="25487" y="7736">+4</tspan> <tspan x="25487" y="7835">+2</tspan><tspan x="25487" y="7934">−2</tspan></text>
+ <text x="24706" y="7445" font-size="132" stroke-width="17">2.10</text>
+ <text x="24148" y="7445" font-size="132" stroke-width="17">869.3</text>
+ <text x="25634" y="8003" font-size="590" stroke-width="17">I</text>
+ <text x="25634" y="8188" font-size="200" stroke-width="17">Iodine</text>
+ <text x="25634" y="8375" font-size="132" stroke-width="17"><tspan x="25634" y="8375">[Kr] 4d¹ 5s² 5p<tspan baseline-shift="super">5</tspan></tspan></text>
+ <text x="25634" y="7260" font-size="200" stroke-width="17">126.90</text>
+ <text x="26564" y="7353" font-size="330" stroke-width="17">53</text>
+ <text x="26973" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="26973" y="7537">+7</tspan> <tspan x="26973" y="7637">+5</tspan> <tspan x="26973" y="7736">+3</tspan> <tspan x="26973" y="7835">+1</tspan><tspan x="26973" y="7934">−1</tspan></text>
+ <text x="26192" y="7445" font-size="132" stroke-width="17">2.66</text>
+ <text x="25634" y="7445" font-size="132" stroke-width="17">1008.4</text>
+ <text x="24148" y="9490" font-size="590" stroke-width="17">Po</text>
+ <text x="24148" y="9674" font-size="200" stroke-width="17">Polonium</text>
+ <text x="24148" y="9861" font-size="132" stroke-width="17"><tspan x="24148" y="9861">[Xe] 4f¹⁴ 5d¹ 6s² 6p⁴</tspan></text>
+ <text x="24148" y="8746" font-size="200" stroke-width="17">(210)</text>
+ <text x="25078" y="8839" font-size="330" stroke-width="17">84</text>
+ <text x="25487" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="25487" y="9024">+6</tspan> <tspan x="25487" y="9123">+4</tspan> <tspan x="25487" y="9222">+2</tspan><tspan x="25487" y="9321">−2</tspan></text>
+ <text x="24706" y="8931" font-size="132" stroke-width="17">2.00</text>
+ <text x="24148" y="8931" font-size="132" stroke-width="17">812.1</text>
+ <text x="25634" y="9490" font-size="590" stroke-width="17">At</text>
+ <text x="25634" y="9674" font-size="200" stroke-width="17">Astatine</text>
+ <text x="25634" y="9861" font-size="132" stroke-width="17"><tspan x="25634" y="9861">[Xe] 4f¹⁴ 5d¹ 6s² 6p<tspan baseline-shift="super">5</tspan></tspan></text>
+ <text x="25634" y="8746" font-size="200" stroke-width="17">(210)</text>
+ <text x="26564" y="8839" font-size="330" stroke-width="17">85</text>
+ <text x="26973" y="9024" font-size="100" stroke-width="17" text-anchor="end"><tspan x="26973" y="9024">+1</tspan><tspan x="26973" y="9125">−1</tspan></text>
+ <text x="26192" y="8931" font-size="132" stroke-width="17">2.20</text>
+ <text x="25634" y="8931" font-size="132" stroke-width="17">890.0</text>
+ <text x="24148" y="10976" font-size="590" stroke-width="17">Lv</text>
+ <text x="24148" y="11161" font-size="200" stroke-width="17">Livermorium</text>
+ <text x="24148" y="10233" font-size="200" stroke-width="17">(292)</text>
+ <text x="24891" y="10325" font-size="330" stroke-width="17">116</text>
+ <text x="25634" y="10976" font-size="590" stroke-width="17">Ts</text>
+ <text x="25634" y="11161" font-size="200" stroke-width="17">Tennessine</text>
+ <text x="26377" y="10325" font-size="330" stroke-width="17">117</text>
+ <text x="27120" y="6517" font-size="590" stroke-width="17">Kr</text>
+ <text x="27120" y="6702" font-size="200" stroke-width="17">Krypton</text>
+ <text x="27120" y="6888" font-size="132" stroke-width="17"><tspan x="27120" y="6888">[Ar] 3d¹ 4s² 4p⁶</tspan></text>
+ <text x="27120" y="5774" font-size="200" stroke-width="17">83.798</text>
+ <text x="28050" y="5866" font-size="330" stroke-width="17">36</text>
+ <text x="27679" y="5959" font-size="132" stroke-width="17">3.00</text>
+ <text x="27120" y="5959" font-size="132" stroke-width="17">1350.8</text>
+ <text x="27120" y="8003" font-size="590" stroke-width="17">Xe</text>
+ <text x="27120" y="8188" font-size="200" stroke-width="17">Xenon</text>
+ <text x="27120" y="8375" font-size="132" stroke-width="17"><tspan x="27120" y="8375">[Kr] 4d¹ 5s² 5p⁶</tspan></text>
+ <text x="27120" y="7260" font-size="200" stroke-width="17">131.29</text>
+ <text x="28050" y="7353" font-size="330" stroke-width="17">54</text>
+ <text x="27679" y="7445" font-size="132" stroke-width="17">2.60</text>
+ <text x="27120" y="9490" font-size="590" stroke-width="17">Rn</text>
+ <text x="27120" y="9674" font-size="200" stroke-width="17">Radon</text>
+ <text x="27120" y="9861" font-size="132" stroke-width="17"><tspan x="27120" y="9861">[Xe] 4f¹⁴ 5d¹ 6s² 6p⁶</tspan></text>
+ <text x="27120" y="8746" font-size="200" stroke-width="17">(220)</text>
+ <text x="28050" y="8839" font-size="330" stroke-width="17">86</text>
+ <text x="27120" y="8931" font-size="132" stroke-width="17">1037.0</text>
+ <text x="27120" y="10976" font-size="590" stroke-width="17">Og</text>
+ <text x="27120" y="11161" font-size="200" stroke="#ececec" stroke-width="21">Oganesson</text>
+ <text x="27120" y="11161" font-size="200" stroke-width="17">Oganesson</text>
+ <text x="27120" y="10233" font-size="200" stroke-width="17">(294)</text>
+ <text x="27864" y="10325" font-size="330" stroke-width="17">118</text>
+ <text x="19689" y="3544" font-size="590" stroke-width="17">B</text>
+ <text x="19689" y="3729" font-size="200" stroke-width="17">Boron</text>
+ <text x="19689" y="3916" font-size="132" stroke-width="17">1s² 2s² 2p¹</text>
+ <text x="19689" y="2801" font-size="200" stroke-width="17">10.81</text>
+ <text x="20804" y="2894" font-size="330" stroke-width="17">5</text>
+ <text x="21028" y="3080" font-size="100" stroke-width="17" text-anchor="end"><tspan x="21028" y="3080">+3</tspan> <tspan x="21028" y="3179">+2</tspan><tspan x="21028" y="3278">+1</tspan></text>
+ <text x="20432" y="2986" font-size="132" stroke-width="17">2.04</text>
+ <text x="19689" y="2986" font-size="132" stroke-width="17">800.6</text>
+ <text x="19689" y="5031" font-size="590" stroke-width="17">Al</text>
+ <text x="19689" y="5216" font-size="200" stroke-width="17">Aluminium</text>
+ <text x="19689" y="5402" font-size="132" stroke-width="17"><tspan x="19689" y="5402">[Ne] 3s² 3p¹</tspan></text>
+ <text x="19689" y="4287" font-size="200" stroke-width="17">26.982</text>
+ <text x="20619" y="4380" font-size="330" stroke-width="17">13</text>
+ <text x="21028" y="4565" font-size="100" stroke-width="17" text-anchor="end"><tspan x="21028" y="4565">+3</tspan><tspan x="21028" y="4666">+1</tspan></text>
+ <text x="20340" y="4473" font-size="132" stroke-width="17">1.61</text>
+ <text x="19689" y="4473" font-size="132" stroke-width="17">577.5</text>
+ <text x="21175" y="3544" font-size="590" stroke-width="17">C</text>
+ <text x="21175" y="3729" font-size="200" stroke-width="17">Carbon</text>
+ <text x="21175" y="3916" font-size="132" stroke-width="17">1s² 2s² 2p²</text>
+ <text x="21175" y="2801" font-size="200" stroke-width="17">12.011</text>
+ <text x="22290" y="2894" font-size="330" stroke-width="17">6</text>
+ <text x="22515" y="3079" font-size="100" stroke-width="17" text-anchor="end"><tspan x="22515" y="3079">+4</tspan> <tspan x="22515" y="3179">+3</tspan> <tspan x="22515" y="3278">+2</tspan> <tspan x="22515" y="3378">+1</tspan><tspan x="22515" y="3477">−1</tspan> <tspan x="22515" y="3576">−2</tspan> <tspan x="22515" y="3675">−3</tspan> <tspan x="22515" y="3772">−4</tspan></text>
+ <text x="21918" y="2986" font-size="132" stroke-width="17">2.55</text>
+ <text x="21175" y="2986" font-size="132" stroke-width="17">1086.5</text>
+ <text x="22662" y="3544" font-size="590" stroke-width="17">N</text>
+ <text x="22662" y="3729" font-size="200" stroke-width="17">Nitrogen</text>
+ <text x="22662" y="3916" font-size="132" stroke-width="17">1s² 2s² 2p³</text>
+ <text x="22662" y="2801" font-size="200" stroke-width="17">14.007</text>
+ <text x="23776" y="2894" font-size="330" stroke-width="17">7</text>
+ <text x="24001" y="3079" font-size="100" stroke-width="17" text-anchor="end"><tspan x="24001" y="3079">+5</tspan> <tspan x="24001" y="3179">+4</tspan> <tspan x="24001" y="3278">+3</tspan> <tspan x="24001" y="3378">+2</tspan> <tspan x="24001" y="3477">+1</tspan><tspan x="24001" y="3576">−1</tspan> <tspan x="24001" y="3675">−2</tspan> <tspan x="24001" y="3772">−3</tspan></text>
+ <text x="23405" y="2986" font-size="132" stroke-width="17">3.04</text>
+ <text x="22662" y="2986" font-size="132" stroke-width="17">1402.3</text>
+ <text x="21175" y="5031" font-size="590" stroke-width="17">Si</text>
+ <text x="21175" y="5216" font-size="200" stroke-width="17">Silicon</text>
+ <text x="21175" y="5402" font-size="132" stroke-width="17"><tspan x="21175" y="5402">[Ne] 3s² 3p²</tspan></text>
+ <text x="21175" y="4287" font-size="200" stroke-width="17">28.085</text>
+ <text x="22105" y="4380" font-size="330" stroke-width="17">14</text>
+ <text x="22515" y="4565" font-size="100" stroke-width="17" text-anchor="end"><tspan x="22515" y="4565">+4</tspan> <tspan x="22515" y="4666">+3</tspan> <tspan x="22515" y="4765">+2</tspan> <tspan x="22515" y="4864">+1</tspan><tspan x="22515" y="4963">−1</tspan> <tspan x="22515" y="5062">−2</tspan> <tspan x="22515" y="5161">−3</tspan> <tspan x="22515" y="5259">−4</tspan></text>
+ <text x="21826" y="4473" font-size="132" stroke-width="17">1.90</text>
+ <text x="21175" y="4473" font-size="132" stroke-width="17">786.5</text>
+ <text x="22662" y="5031" font-size="590" stroke-width="17">P</text>
+ <text x="22662" y="5216" font-size="200" stroke-width="17">Phosphorus</text>
+ <text x="22662" y="5402" font-size="132" stroke-width="17"><tspan x="22662" y="5402">[Ne] 3s² 3p³</tspan></text>
+ <text x="22662" y="4287" font-size="200" stroke-width="17">30.974</text>
+ <text x="23591" y="4380" font-size="330" stroke-width="17">15</text>
+ <text x="24001" y="4565" font-size="100" stroke-width="17" text-anchor="end"><tspan x="24001" y="4565">+5</tspan> <tspan x="24001" y="4666">+4</tspan> <tspan x="24001" y="4763">+3</tspan> <tspan x="24001" y="4864">+2</tspan> <tspan x="24001" y="4963">+1</tspan><tspan x="24001" y="5062">−1</tspan> <tspan x="24001" y="5161">−2</tspan> <tspan x="24001" y="5259">−3</tspan></text>
+ <text x="23312" y="4473" fill="#f0ff8f" fill-opacity=".94" font-size="132" stroke-width="17">2.19</text>
+ <text x="22662" y="4473" font-size="132" stroke-width="17">1011.8</text>
+ <text x="24148" y="3544" font-size="590" stroke-width="17">O</text>
+ <text x="24148" y="3729" font-size="200" stroke-width="17">Oxygen</text>
+ <text x="24148" y="3916" font-size="132" stroke-width="17">1s² 2s² 2p⁴</text>
+ <text x="24148" y="2801" font-size="200" stroke-width="17">15.999</text>
+ <text x="25263" y="2894" font-size="330" stroke-width="17">8</text>
+ <text x="25487" y="3079" font-size="100" stroke-width="17" text-anchor="end"><tspan x="25487" y="3079">+2</tspan> <tspan x="25487" y="3178">+1</tspan><tspan x="25487" y="3277">−1</tspan> <tspan x="25487" y="3376">−2</tspan></text>
+ <text x="24891" y="2986" font-size="132" stroke-width="17">3.44</text>
+ <text x="24148" y="2986" font-size="132" stroke-width="17">1313.9</text>
+ <text x="25634" y="3544" font-size="590" stroke-width="17">F</text>
+ <text x="25634" y="3729" font-size="200" stroke-width="17">Fluorine</text>
+ <text x="25634" y="3916" font-size="132" stroke-width="17"><tspan x="25634" y="3916">1s² 2s² 2p<tspan baseline-shift="super">5</tspan></tspan></text>
+ <text x="25634" y="2801" font-size="200" stroke-width="17">18.998</text>
+ <text x="26749" y="2894" font-size="330" stroke-width="17">9</text>
+ <text x="26973" y="3079" font-size="100" stroke-width="17" text-anchor="end"><tspan x="26973" y="3079">−1</tspan></text>
+ <text x="26377" y="2986" font-size="132" stroke-width="17">3.98</text>
+ <text x="25634" y="2986" font-size="132" stroke-width="17">1681.0</text>
+ <text x="24148" y="5031" font-size="590" stroke-width="17">S</text>
+ <text x="24148" y="5216" font-size="200" stroke-width="17">Sulfur</text>
+ <text x="24148" y="5402" font-size="132" stroke-width="17"><tspan x="24148" y="5402">[Ne] 3s² 3p⁴</tspan></text>
+ <text x="24148" y="4287" font-size="200" stroke-width="17">32.06</text>
+ <text x="25078" y="4380" font-size="330" stroke-width="17">16</text>
+ <text x="25487" y="4565" font-size="100" stroke-width="17" text-anchor="end"><tspan x="25487" y="4565">+6</tspan> <tspan x="25487" y="4666">+5</tspan> <tspan x="25487" y="4763">+4</tspan> <tspan x="25487" y="4864">+3</tspan> <tspan x="25487" y="4961">+2</tspan> <tspan x="25487" y="5062">+1</tspan><tspan x="25487" y="5161">−1</tspan> <tspan x="25487" y="5259">−2</tspan></text>
+ <text x="24799" y="4473" font-size="132" stroke-width="17">2.58</text>
+ <text x="24148" y="4473" font-size="132" stroke-width="17">999.6</text>
+ <text x="25634" y="5216" font-size="200" stroke-width="17">Chlorine</text>
+ <text x="25634" y="5402" font-size="132" stroke-width="17"><tspan x="25634" y="5402">[Ne] 3s² 3p<tspan baseline-shift="super">5</tspan></tspan></text>
+ <text x="25634" y="4287" font-size="200" stroke-width="17">35.45</text>
+ <text x="26564" y="4380" font-size="330" stroke-width="17">17</text>
+ <text x="26973" y="4565" font-size="100" stroke-width="17" text-anchor="end"><tspan x="26973" y="4565">+7</tspan> <tspan x="26973" y="4666">+6</tspan> <tspan x="26973" y="4763">+5</tspan> <tspan x="26973" y="4864">+4</tspan> <tspan x="26973" y="4961">+3</tspan> <tspan x="26973" y="5062">+2</tspan> <tspan x="26973" y="5159">+1</tspan><tspan x="26973" y="5259">−1</tspan></text>
+ <text x="26285" y="4473" font-size="132" stroke-width="17">3.16</text>
+ <text x="25634" y="4473" font-size="132" stroke-width="17">1251.2</text>
+ <text x="27120" y="3544" font-size="590" stroke-width="17">Ne</text>
+ <text x="27120" y="3729" font-size="200" stroke-width="17">Neon</text>
+ <text x="27120" y="3916" font-size="132" stroke-width="17">1s² 2s² 2p⁶</text>
+ <text x="27120" y="2801" font-size="200" stroke-width="17">20.180</text>
+ <text x="28050" y="2894" font-size="330" stroke-width="17">10</text>
+ <text x="27120" y="2986" font-size="132" stroke-width="17">2080.7</text>
+ <text x="27120" y="5031" font-size="590" stroke-width="17">Ar</text>
+ <text x="27120" y="5216" font-size="200" stroke-width="17">Argon</text>
+ <text x="27120" y="5402" font-size="132" stroke-width="17"><tspan x="27120" y="5402">[Ne] 3s² 3p⁶</tspan></text>
+ <text x="27120" y="4287" font-size="200" stroke-width="17">39.948</text>
+ <text x="28050" y="4380" font-size="330" stroke-width="17">18</text>
+ <text x="27120" y="4473" font-size="132" stroke-width="17">1520.6</text>
+ <text x="27120" y="2058" font-size="590" stroke-width="17">He</text>
+ <text x="27120" y="2243" font-size="200" stroke-width="17">Helium</text>
+ <text x="27120" y="2430" font-size="132" stroke-width="17">1s²</text>
+ <text x="27120" y="1315" font-size="200" stroke-width="17">4.0026</text>
+ <text x="28235" y="1407" font-size="330" stroke-width="17">2</text>
+ <text x="27120" y="1500" font-size="132" stroke-width="17">2372.3</text>
+ <text x="27120" y="7445" font-size="132" stroke-width="17">1170.4</text>
+ <text x="28460" y="7537" font-size="100" stroke-width="17" text-anchor="end"><tspan x="28460" y="7537">+8</tspan> <tspan x="28460" y="7637">+6</tspan> <tspan x="28460" y="7736">+4</tspan><tspan x="28460" y="7835">+2</tspan></text>
+ <text x="28448" y="6051" font-size="100" stroke-width="17" text-anchor="end"><tspan x="28448" y="6051">+2</tspan></text>
+ <text x="9843" y="5402" font-size="297" stroke-width="17">6</text>
+ <text x="2730" y="15369" font-size="100" stroke-width="17" text-anchor="end">by Robert Campion / updated 2016, 2018</text>
+ <text x="8357" y="5402" font-size="297" stroke-width="17">5</text>
+ <text x="6871" y="5402" font-size="297" stroke-width="17">4</text>
+ <text x="11330" y="5402" font-size="297" stroke-width="17">7</text>
+ <text x="12816" y="5402" font-size="297" stroke-width="17">8</text>
+ <text x="14302" y="5402" font-size="297" stroke-width="17">9</text>
+ <text x="15694" y="5402" font-size="297" stroke-width="17">10</text>
+ <text x="17181" y="5402" font-size="297" stroke-width="17">11</text>
+ <text x="18667" y="5402" font-size="297" stroke-width="17">12</text>
+ <text x="20153" y="2430" font-size="297" stroke-width="17">13</text>
+ <text x="21639" y="2430" font-size="297" stroke-width="17">14</text>
+ <text x="23126" y="2430" font-size="297" stroke-width="17">15</text>
+ <text x="24612" y="2430" font-size="297" stroke-width="17">16</text>
+ <text x="26098" y="2430" font-size="297" stroke-width="17">17</text>
+ <text x="27584" y="943" font-size="297" stroke-width="17">18</text>
+ <text x="25634" y="10233" font-size="200" stroke-width="17">(294)</text>
+ <text x="5525" y="9672" font-size="802" stroke-width="20"><tspan x="5525" y="9672">*</tspan></text>
+ <text x="5519" y="10973" font-size="802" stroke-width="20"><tspan x="5519" y="10973">*</tspan></text>
+ <text x="5519" y="11373" font-size="802" stroke-width="20"><tspan x="5519" y="11373">*</tspan></text>
+ <text x="5526" y="13441" font-size="802" stroke-width="20"><tspan x="5526" y="13441">*</tspan></text>
+ <text x="5520" y="14742" font-size="802" stroke-width="20"><tspan x="5520" y="14742">*</tspan></text>
+ <text x="5520" y="15142" font-size="802" stroke-width="20"><tspan x="5520" y="15142">*</tspan></text>
+ <text x="1453" y="13362" font-size="190" stroke-width="5"><tspan x="1453" y="13362">*</tspan></text>
+ <text x="1454" y="13882" font-size="190" stroke-width="5"><tspan x="1454" y="13882">*</tspan></text>
+</svg>
