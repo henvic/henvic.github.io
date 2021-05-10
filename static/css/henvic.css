@@ -28,7 +28,7 @@ a:focus {
     outline-width: thin;
 }
 
-h1, h2, h3, h4, h5, h6, dl, dt {
+h1, h2, h3, h4, h5, h6, dl, dt, .post-list-item-read-time {
     font-family: 'Fira Code', sans-serif;
 }
 
@@ -351,4 +351,10 @@ pre, samp, code, kbd, .fingerprint {
 
 tbody tr:nth-child(even) {
     background-color: #333333;
+}
+
+.post-list-item-read-time {
+    font-size: .75rem;
+    margin-top: -.5rem;
+    font-weight: bold;
 }

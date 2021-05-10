@@ -6,12 +6,18 @@
     <ul>
         {{ range .Paginator.Pages }}
         <li>
-            <a href="{{ .RelPermalink }}">{{ .Title | default "untitled" }}</a>
+            <h4><a href="{{ .RelPermalink }}">{{ .Title | default "untitled" }}</a></h4>
+            <div class="post-list-item-read-time">{{ .Page.ReadingTime }} minutes to read</div>
+            <p>
+                {{ .Page.Description }}
+                <br />
+                <img src="{{ .Params.image}}" width="100" />
+            </p>
             <time datetime="2006-01-02">{{ .Date.Format "Monday 2, January 2006" }}</time>
         </li>
-        {{ end }}
-        {{ .Content }}
+    {{ end }}
     </ul>
+    {{ .Content }}
     {{- template "_internal/pagination.html" . -}}
 </article>
 {{ end }}
