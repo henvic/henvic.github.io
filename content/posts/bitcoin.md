@@ -13,7 +13,7 @@ dark: true
   <div class="cell medium-8 large-8">
 	<blockquote>
 		<p>Have fun staying poor!</p>
-		<cite>Typical Bitcoin maximalist catchphrase</cite>
+		<cite>Typical Bitcoin maximalist catchphrase (they also call other cryptocurrencies shitcoins while unaware Bitcoin is the worst shitcoin)</cite>
 	</blockquote>
 	<p>The cryptocurrency market is hot.
 	For years, Bitcoin has been going up and up. People worldwide buy and <a href="https://knowyourmeme.com/memes/hodl">HODL</a> betting on <a href="https://amzn.to/3wLSJs3">The Rise and Rise of Bitcoin</a>.
@@ -140,9 +140,9 @@ Given that the price of Bitcoin is constructed upon a mindset that it is worth j
 > [Peter Schiff](https://www.schiffradio.com/), famous for <a href="https://www.youtube.com/watch?v=sgRGBNekFIw" title="Peter Schiff was Right (2006-2007 Edition)">his predictions</a> about the United States housing bubble, has been exposing the truth about Bitcoin for 12 years.
 
 ## Economic bubbles
-An economic bubble is caused by asset prices being artificially high due to a speculative price surge or misunderstanding of the asset’s real value in the market.
+An economic bubble is caused by asset prices being artificially high due to a speculative price surge or misunderstanding of the asset's real value in the market.
 Enough time passing, these artificial prices will eventually be deemed out of context with reality, and a crash or bubble burst is inevitable. Whenever such a bubble happens, asset holders will take the toll.
-That is — unless they’re powerful enough to use politics to make others pay their losses.
+That is — unless they're powerful enough to use politics to make others pay their losses.
 
 **In a few years, the average Joe will pay the price when the states bail out hedge funds doing cryptocurrency malinvestments today.**
 
@@ -199,7 +199,7 @@ Metals, even more so scarce ones, such as silver and gold, quickly emerge in you
 		<p><a href="/img/posts/bitcoin/barter.gif"><img src="/img/posts/bitcoin/barter.gif" alt="Barter"></a>
 		<a href="https://fee.org/resources/if-goods-dont-cross-borders/">
 		<br />
-		<small>When goods don’t cross borders, soldiers will.</small></a></p>
+		<small>When goods don't cross borders, soldiers will.</small></a></p>
 	</div>
 </div>
 
@@ -416,7 +416,7 @@ You can often pay for access to a mining rig or buy your own to heat up your hom
 Requiring specialized hardware for hashing these [coins or tokens](https://www.bitdegree.org/crypto/tutorials/token-vs-coin) is not advantageous for anyone but the rigs' owners.
 
 If Bitcoin mining on stock computers is virtually impossible now, even for computers with powerful GPUs, the same is not the case for other cryptocurrencies.
-Other cryptocurrencies, such as Monero, are mined efficiently using your computer’s CPU or GPU.
+Other cryptocurrencies, such as Monero, are mined efficiently using your computer's CPU or GPU.
 In fact, there is a shortage of GPU shortage caused by cryptocurrency miners.
 Nvidia, one of the leading high-end GPU makers, even recently announced they would produce [mining-limited GPUs](https://www.forbes.com/sites/antonyleather/2021/04/29/nvidia-to-release-new-mining-limited-rtx-3000-gpus-as-ethereum-hits-all-time-high-bad-news-for-miners/) to help gamers – who are having a hard time as GPUs are sold out instantaneously everywhere!
 
@@ -466,7 +466,7 @@ Diem is Facebook's cryptocurrency and was introduced and formerly known by the n
 It's a stablecoin composed of a [reserve basket](https://www.diem.com/en-us/economics-and-the-reserve/) of multiple legal tender shitcoins like the United States Dollar (USD), Euro (EUR), and Pound Sterling (GPD).
 It's akin to the International Monetary Fund's [Special drawing rights](https://en.wikipedia.org/wiki/Special_drawing_rights) (XDR) [units of account](https://en.wikipedia.org/wiki/Unit_of_account).
 
-> The SDR is an international reserve asset, created by the IMF in 1969 to supplement its member countries’ official reserves. So far SDR 204.2 billion (equivalent to about US$293 billion) have been allocated to members, including SDR 182.6 billion allocated in 2009 in the wake of the global financial crisis. The value of the SDR is based on a basket of five currencies—the U.S. dollar, the euro, the Chinese renminbi, the Japanese yen, and the British pound sterling.
+> The SDR is an international reserve asset, created by the IMF in 1969 to supplement its member countries' official reserves. So far SDR 204.2 billion (equivalent to about US$293 billion) have been allocated to members, including SDR 182.6 billion allocated in 2009 in the wake of the global financial crisis. The value of the SDR is based on a basket of five currencies—the U.S. dollar, the euro, the Chinese renminbi, the Japanese yen, and the British pound sterling.
 > 
 > [International Monetary Fund about SDR](https://www.imf.org/en/About/Factsheets/Sheets/2016/08/01/14/51/Special-Drawing-Right-SDR)
 
@@ -554,8 +554,8 @@ In short, if you use a third-party wallet to hold your Bitcoins, it'll cost you 
 The average computer user doesn't back up their data, much less safely and reliably.
 It's pretty rare to find someone who does backup their computer and validates if their backup can be fully recoverable — no wonder a [man wants to dig a landfill to recover his lost wallet with 7500 Bitcoins](https://www.cnbc.com/2021/01/15/uk-man-makes-last-ditch-effort-to-recover-lost-bitcoin-hard-drive.html).
 
-Sophisticated attack vectors, social engineering, and the advent of ransomware also complicate backup strategy.
-You’ve to handle off-site copies, rotations, encryption, verification (restore), syncing, and worry about physical security, natural disasters, and fire.
+Sophisticated attack vectors, social engineering, and the advent of [ransomware](https://en.wikipedia.org/wiki/Ransomware) also complicate backup strategy.
+You've to handle off-site copies, rotations, encryption, verification (restore), syncing, and worry about physical security, natural disasters, and fire.
 To do all this on your own is hard. There isn't a straightforward solution out there for end-users.
 
 ### $250 Millions gone overnight
@@ -566,6 +566,24 @@ Quadriga's case is no exception.
 Throughout the cryptocurrency market, you'll see similar stories.
 For example, in Japan, Tokyo's [Mt. Gox](https://en.wikipedia.org/wiki/Mt._Gox) applied for bankruptcy in 2014 after having 850,000 Bitcoins stolen.
 In 2019, it was time for Binance to have 7,000 Bitcoins stolen through social engineering.
+
+## What is cryptocurrency really good for
+Indeed, blackmailers and ransomware makers might extort people easier with cryptocurrency – just like stalkers can stalk people easier thanks to the Internet!
+Before you think nothing good can come out of the idea of cryptocurrency though, let me show you a good solid example of Bitcoin helping people evade illegitimate state intervention.
+
+> Even though Bitcoin transactions are public and traceable, it's still possible to use <del>money laundering</del> mixing services ([cryptocurrency tumbler](https://en.wikipedia.org/wiki/Cryptocurrency_tumbler)) to make transactions less identifiable.
+
+[Silk Road](https://en.wikipedia.org/wiki/Silk_Road_(marketplace)) was an online marketplace accessible as a hidden [Tor](https://www.torproject.org/) service.
+It was created by [Ross Ulbricht](https://en.wikipedia.org/wiki/Ross_Ulbricht) and was best known as a platform for selling illegal drugs.
+[Silk Road Reduced Violence in the Drug Trade](https://www.wired.com/2014/06/silk-road-study/). It made the streets safer by providing a safer alternative to get access to drugs in a virtual environment free of violence until its creator was unjustly ambushed and sent to jail.
+For more information, you might be interested in reading the following studies:
+
+*  [Not an 'Ebay for Drugs': The Cryptomarket 'Silk Road' as a Paradigm Shifting Criminal Innovation](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2436643) (Judith Aldrige, University of Manchester; David Décary-Hétu, University of Lausanne).
+* [Traveling the Silk Road: A measurement analysis of a large anonymous online marketplace](https://www.andrew.cmu.edu/user/nicolasc/publications/TR-CMU-CyLab-12-018.pdf) (Nicolas Christin, Carnegie Mellon University)
+
+_Please, be smart and don't use drugs!_
+
+<a href="https://freeross.org/"><img src="/img/posts/bitcoin/Join_FreeRoss_Movement_meme_2021.png" alt="This is Ross' 8th year in prison. He deserves a 2nd chance. Join the movement. 2 life + 40 years without parole for all non-violent charges. No prior record. Sign at FreeRoss.org/petition"></a>
 
 ## Closing remarks
 People furiously defend Bitcoin's dominance for a variety of reasons:
@@ -596,9 +614,18 @@ Bitcoin is just the [Nigerian Prince](https://en.wikipedia.org/wiki/Advance-fee_
 Everyone cherishes it, but it's just a useless natural resources hog.
 Once enough resources are depleted, people will wake up to reality, and, hopefully, we're going to see solutions emerging that will take over the place of popular shitcoins like the United States Dollar (USD), Euro (EUR), and Pound Sterling (GPD).
 
-Still not convinced? Okay. Be smarter. Become a Nigerian Prince yourself!
-Create your own shitcoin! Why use someone else's blockchain when you can become the Prince of your castle?
-All you need to succeed is a successful marketing strategy.
+<div class="grid-x">
+        <div class="medium-6 small-12">
+                {{< youtube d5EipPVafsA >}}
+        </div>
+</div>
+
+Still not convinced? Okay. Be smarter than the average cryptocurrency fanboy. Become a Nigerian Prince yourself!
+Create your own shitcoin! Why use someone else's blockchain when you might become the Prince of your castle?
+All you need to succeed is to be good at marketing to convince people to give you money for no good reason, your highness!
+Bitcoin maximalists try to ridicularize other cryptocurrency adopters by saying only Bitcoin is the real deal. Don't believe them.
+They're just defending their own vested interests.
+And before anyone asks: yes, Bitcoin is inferior to Dogecoin in all senses.
 
 **If you haven't invested in Bitcoin yet, congratulations!**
 **Don't let the fear of missing out win you over!**
@@ -611,6 +638,15 @@ If you are invested, I hope you disinvest before it's too late!
 		<p><small>While I say this, <a href="https://www.forbes.com/sites/billybambrough/2021/03/17/millions-tempted-by-stimulus-check-bitcoin-bet/">a lot of people</a> will get COVID-19 stimulus <a href="https://www.youtube.com/watch?v=gYTjiIm4h_Q">money</a> to buy Bitcoin.</small></p>
         </div>
 </div>
+
+Oh, before I go... Friday's The Economist cover?
+[Govcoins: The digital currencies that will transform finance](https://www.economist.com/weeklyedition/2021-05-08).
+Yeah, they are talking about state-issued shitcoins that...
+> "would be guaranteed by the full faith of the state".
+
+¯\\\_(ツ)\_/¯
+
+<a href="https://www.amazon.com/The-Economist-US-Edition/dp/B0027VSU9S?dchild=1&keywords=the+economist&qid=1620607728&sr=8-2&linkCode=li3&tag=henvic-20&linkId=98e5a06adc9eee7947ecce81a19ac53b&language=en_US&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0027VSU9S&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=henvic-20&language=en_US" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=henvic-20&language=en_US&l=li3&o=1&a=B0027VSU9S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
 I hope you enjoyed my article.
 If you hated it, thanks for reaching here anyways!
