@@ -335,7 +335,7 @@ pre, samp, code, kbd, .fingerprint {
     display: none;
 }
 
-.highlight tbody {
+.dark .highlight tbody {
     border-color: #444;
 }
 
@@ -344,12 +344,12 @@ pre, samp, code, kbd, .fingerprint {
     color: #ededed;
 }
 
-.dark tbody, tfoot, thead {
+.dark tbody, .dark tfoot, .dark thead {
     border: 1px solid #111111;
     background-color: #2e2e2e;
 }
 
-tbody tr:nth-child(even) {
+.dark tbody tr:nth-child(even) {
     background-color: #333333;
 }
 
