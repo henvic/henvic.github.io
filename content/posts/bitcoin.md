@@ -1,6 +1,7 @@
 ---
 title: "Cryptocurrency Tulipmania: Bitcoin is a shitcoin"
 type: post
+translationKey: "bitcoin"
 description: "The cryptocurrency market is hot. For years, Bitcoin has been going up and up. People worldwide buy and HODL betting on The Rise and Rise of Bitcoin. Yet, here I come and tell you that it's foolish. Learn why."
 date: "2021-05-10"
 image: "/img/posts/bitcoin/bitcoin.png"
@@ -144,14 +145,15 @@ An economic bubble is caused by asset prices being artificially high due to a sp
 Enough time passing, these artificial prices will eventually be deemed out of context with reality, and a crash or bubble burst is inevitable. Whenever such a bubble happens, asset holders will take the toll.
 That is — unless they're powerful enough to use politics to make others pay their losses.
 
-**In a few years, the average Joe will pay the price when the states bail out hedge funds doing cryptocurrency malinvestments today.**
+**In a few years, the average Joe will pay the price when the states bail out pension and hedge funds funds doing cryptocurrency malinvestments today.**
 
 ### Famous economic bubbles include
 
 * [Tulipmania](https://en.wikipedia.org/wiki/Tulip_mania), which crashed in February 1637, is recognized as the first [economic bubble](https://en.wikipedia.org/wiki/Economic_bubble) in history. It was a period during the [Dutch Golden Age](https://en.wikipedia.org/wiki/Dutch_Golden_Age) during which contract prices for bulbs of the recently introduced and fashionable tulip reached extraordinarily high levels. At its peak, single tulip bulbs would sell for ten times the annual income of a skilled artisan.
+* [Wall Street Crash of 1929](https://en.wikipedia.org/wiki/Wall_Street_Crash_of_1929)
 * [Dotcom bubble](https://en.wikipedia.org/wiki/Dot-com_bubble) leading to 2002's NASDAQ crash. Even companies that never materialized any profit or revenue would [IPO](https://en.wikipedia.org/wiki/Initial_public_offering) in the stock market.
 * [United States real estate bubble](https://en.wikipedia.org/wiki/Real_estate_bubble) (and elsewhere) fueled by mortgage loans subsidized by fiat money.
-* [Unicorn bubble](https://en.wikipedia.org/wiki/Unicorn_bubble) of startups never turning a profit and wasting a lot of seed investment money unwisely without regards to viability or even building a genuine product, to the dismay of Venture Capitalists.
+* [Unicorn bubble](https://en.wikipedia.org/wiki/Unicorn_bubble) of startups never turning a profit and wasting a lot of seed investment money unwisely without regard to viability or even building a genuine product, to the dismay of Venture Capitalists.
 
 With a stated market cap reaching trillions of US Dollars, the [cryptocurrency bubble](https://en.wikipedia.org/wiki/Cryptocurrency_bubble) is about to burst. In the same way, many enriched quickly overnight selling Bitcoins for a lot of money, a lot more will lose their fortunes overnight. If the more traditional sectors of the economy continue embracing Bitcoin as it has been, don't be surprised when private pension schemes get involved and jeopardize their stakeholders' funds. If this happens, expect bailouts that will damage the whole economy and — at most – a few funds administrators might go behind bars for a couple of years.
 
@@ -166,7 +168,7 @@ Eventually, you and your neighbors discover <a href="https://en.wikipedia.org/wi
 </blockquote>
 
 Now, perishables rot, and thanks to economies of scale, you soon enrich and need to buy machinery and household utensils.
-Besides, that day when you wanted to eat lentils, you had to go through the trouble of exchanging potatoes for beans, then beans for rice, then rice for lentils.
+Besides, suppose that day you wanted to eat lentils. You'd have to go through the trouble of exchanging potatoes for beans, then beans for rice, then rice for lentils (forget the fact that these grains come from all over the world for an instant).
 How can you simplify this exchange process and take it to the next logical step?
 
 Sure, you can organize a street market where everyone will bring their produce and exchange it with one another!
@@ -174,7 +176,7 @@ However, many losses still occur as you would pass around commodities and perish
 
 Umm... Unless there is a common asset everyone is willing to take as a <a href="https://en.wikipedia.org/wiki/Medium_of_exchange">medium of exchange</a>!
 
-Metals, even more so scarce ones, such as silver and gold, quickly emerge in your community as an answer to this demand.
+Metals, even more so scarce ones, such as silver and gold, emerge in your community as an answer to this demand.
 
 <div class="grid-x grid-margin-x">
 	<div class="cell medium-12 large-8">
@@ -287,7 +289,7 @@ So much for scarcity, right? :)
 
 In the end, we have a caste system composed of early miners and people who joined the Bitcoin cult at different times.
 The laggards pay for everyone else's party with hopes that in the future, it'll be them profiting from this arrangement.
-It's a [Ponzi scheme](https://en.wikipedia.org/wiki/Ponzi_scheme) where a [minority](https://bitinfocharts.com/top-100-richest-bitcoin-addresses.html) of [whales and big fish](https://www.investopedia.com/terms/b/bitcoin-whale.asp) form a caste that sustains an illusion.
+It's a [Ponzi scheme](https://en.wikipedia.org/wiki/Ponzi_scheme) where a [minority](https://bitinfocharts.com/top-100-richest-bitcoin-addresses.html) of [whales and big fish](https://www.investopedia.com/terms/b/bitcoin-whale.asp) form a caste that sustains an illusion just like multilevel marketing scams.
 
 ### Bitcoin distribution
 <div class="grid-x grid-margin-x">
@@ -369,6 +371,7 @@ I wonder how bad it will look for companies taking bets on the cryptocurrency ma
 I've also heard about how technology is evolving and will be able to fabricate gold soon.
 It's always good to remember what a [chemical element](https://en.wikipedia.org/wiki/Chemical_element) is and that [nuclear transmutation](https://en.wikipedia.org/wiki/Nuclear_transmutation) (fusion or fission) is still hard. The [synthesis of precious metals](https://en.wikipedia.org/wiki/Synthesis_of_precious_metals) still has a long way to go.
 A much better criticism of gold is to argue that its use in finances and jewelry artificially inflates its worthiness.
+Don't trust Bitcoin [alchemists](https://en.wikipedia.org/wiki/Alchemy). They're at least 200 years of scientific knowledge behind.
 
 By the way, if that is the case, what should we say about something as useless as Bitcoin?
 
@@ -397,6 +400,7 @@ In theory, you could even back a currency by shares of a company or maple syrup.
 ## Bitcoin mining
 Due to the aforementioned poor performance of Bitcoin's SHA-256 algorithm, [Application-specific integrated circuit](https://en.wikipedia.org/wiki/Application-specific_integrated_circuit) (ASIC) mining rigs are built specifically for mining it and other [Proof-of-work](https://en.wikipedia.org/wiki/Proof_of_work) cryptocurrencies.
 Imagine this is a highly efficient computer in calculating Bitcoin hashes but highly inefficient for any practical workload.
+The three Rs rule? Reduce, Reuse, and Recycle? The best thing to do with a mining rig once it's just out of the production line is to dismantle it to pieces.
 <p>
 	<img src="/img/posts/bitcoin/bitcoin-miner.png" alt="Antminer" width="400" />
 	<br />
@@ -409,7 +413,7 @@ In short, to "create" (or mine) a Bitcoin, you run a [Proof-of-work](https://en.
 This is a slow and costly process by design, with its difficulty adjusted every 2016 blocks according to the network's recent performance (about every 14 days).
 This process is also critical for validating the transactions in the network.
 
-> The Proof-of-work algorithm used by Bitcoin is called [Hashcash](https://en.wikipedia.org/wiki/Hashcash), and was originally created to reduce email spam and denial-of-service attacks.
+> The Proof-of-work algorithm used by Bitcoin is called [Hashcash](https://en.wikipedia.org/wiki/Hashcash), and was originally created to reduce email spam and denial-of-service attacks (ironically not anymore used by email services because it was costly for legit use cases).
 > Unfortunately, now it is also used to waste energy in exchange of nothing useful for anyone.
 
 You can often pay for access to a mining rig or buy your own to heat up your home, [literally](https://heatminer.io/).
@@ -433,7 +437,7 @@ The technology behind it is exciting and has valid real-world applications.
 You can basically think about it as a form to notarize data and prove that something existed at a given point in time in a reliable and trustworthy way.
 
 Bitcoin's [consensus mechanism](https://en.wikipedia.org/wiki/Consensus_(computer_science)) for its [distributed ledger](https://en.wikipedia.org/wiki/Distributed_ledger) is built on this idea.
-You should know that the high energy consumption of Bitcoin is an intrinsic characteristic of its proof-of-work strategy and not of blockchains per se.
+You should know that the high energy consumption of Bitcoin is an intrinsic characteristic of its marxist proof-of-work strategy (the computer version of his stupid [labor theory of value](https://en.wikipedia.org/wiki/Labor_theory_of_value)) and not of blockchains per se.
 It'd be possible for Bitcoin to use an algorithm that is efficient on regular personal computers.
 Satoshi Nakamoto just used one that wasn't on his cryptocurrency prototype.
 
@@ -457,7 +461,7 @@ Such a system could theoretically explore storing data for someone else in a pro
 Except what happens is pure speculation.
 This idea only moves wasting resources from the processing units to the storage devices and will likely cause a [price surge for storage devices](https://www.marketwatch.com/story/a-new-cryptocurrency-called-chia-could-push-up-hard-drive-prices-for-everyone-11620323724) in the upcoming months.
 
-### Stablecoins
+## Stablecoins
 A [stablecoin](https://en.wikipedia.org/wiki/Stablecoin) can be backed by assets such as commodities or pegged to other currencies (crypto or not).
 For example, the USD Coin (USDC) is backed by the United States Dollar ([a shitcoin since the 70s too](https://wtfhappenedin1971.com/)).
 Fun fact: Tether falsely claimed to be backed by USD, and then they lawyered up claiming it was not exactly that when its stability was [questioned](https://ag.ny.gov/press-release/2021/attorney-general-james-ends-virtual-currency-trading-platform-bitfinexs-illegal)!
@@ -593,7 +597,9 @@ People furiously defend Bitcoin's dominance for a variety of reasons:
 * Others want to have a global currency that facilitates trade.
 * Many were just early adopters and understandably want it to succeed!
 
-What most people seem to be missed is that this is a ticking bomb.
+<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Tesla &amp; Bitcoin <a href="https://t.co/YSswJmVZhP">pic.twitter.com/YSswJmVZhP</a></p>&mdash; Elon Musk (@elonmusk) <a href="https://twitter.com/elonmusk/status/1392602041025843203?ref_src=twsrc%5Etfw">May 12, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+What they miss is that this is a ticking bomb.
 It doesn't matter if household names are buying it.
 It doesn't matter if the Chinese government is mining it.
 What really matters is people's perception of value, and Bitcoin is based on silly and weak assumptions easy to destroy.
@@ -608,7 +614,7 @@ At some point, the market will wake up to reality and understand there is a huge
 The Keynesian party of state-issued inflationary currency might be over within the following decades.
 **If I had to make a bet, I'd say stock from publically traded companies might be the base asset for the upcoming currencies.**
 
-> Another currency could be based on human work. For example, people might emit coins in exchange for a promise to work for a given number of hours. As silly and even borderline M\*rx\*$t (ew!) as it might sound, it's still infinitely better than wasting energy with anything proof-of-work! In case of fraud, you still end up with a currency with the same value as Bitcoin: none.
+> Another currency could be based on human work. For example, people might emit coins in exchange for a promise to work for a given number of hours. As silly as it might sound, it's still infinitely better than wasting energy with anything proof-of-work! In case of fraud, you still end up with a currency with the same value as Bitcoin: none.
 
 Bitcoin is just the [Nigerian Prince](https://en.wikipedia.org/wiki/Advance-fee_scam) of the XXI century.
 Everyone cherishes it, but it's just a useless natural resources hog.
