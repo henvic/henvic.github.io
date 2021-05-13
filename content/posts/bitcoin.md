@@ -9,6 +9,7 @@ hashtags: "bitcoin"
 polemic: true
 dark: true
 ---
+<p><a href="/posts/bitcoin-pt" lang="pt-BR" class="button secondary">Português 🇧🇷</a></p>
 <div id="amzn-assoc-ad-85697961-f8e0-4ef6-ba7d-417e502a427f"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=85697961-f8e0-4ef6-ba7d-417e502a427f"></script>
 <div class="grid-x grid-margin-x">
   <div class="cell medium-8 large-8">
