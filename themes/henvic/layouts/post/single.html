@@ -18,7 +18,7 @@
                 {{- $pages := .Site.Pages -}}
                 <!-- BUG(henvic): This doesn't guarantee 10 entries because it limits before the filter. -->
                 <!-- See https://gohugo.io/functions/where/ to fix it later. -->
-                {{- $pages = $pages | first 10 -}}
+                {{- $pages = $pages | first 15 -}}
                 {{- $original := .Page -}}
                 <ul>
                         {{ range $pages }}
