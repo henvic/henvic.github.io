@@ -670,7 +670,7 @@ Eles querem que você acredita que shitcoins estatais vão dar garantias...
 
 <a href="https://www.amazon.com/The-Economist-US-Edition/dp/B0027VSU9S?dchild=1&keywords=the+economist&qid=1620607728&sr=8-2&linkCode=li3&tag=henvic-20&linkId=98e5a06adc9eee7947ecce81a19ac53b&language=en_US&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0027VSU9S&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=henvic-20&language=en_US" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=henvic-20&language=en_US&l=li3&o=1&a=B0027VSU9S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
-{{< tweet 1391718603515482113 >}}
+{{< tweet 1392870229722767360 >}}
 
 Eu espero que você tenha gostado do meu artigo.
 Se você odiou, obrigado por ter chegado aqui de qualquer maneira!
