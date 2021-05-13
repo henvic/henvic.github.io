@@ -1,5 +1,5 @@
 ---
-title: "Mania das tulipas: Bitcoin é uma péssima idéia"
+title: "Crise das tulipas: Bitcoin é uma péssima idéia"
 type: post
 translationKey: "bitcoin"
 languageCode: "pt-br"
