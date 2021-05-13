@@ -1,5 +1,6 @@
 {{ define "main" }}
-<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
+{{/*  TODO: See how use Hugo's translation and {{ .IsTranslated }}  */}}
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main"{{ if .Params.languageCode }} lang="{{ .Params.languageCode }}"{{ end }}>
         <h1 class="post-title">{{ .Title }}</h1>
         
         {{ if .Date }}
