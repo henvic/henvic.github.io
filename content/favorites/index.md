@@ -83,7 +83,7 @@ kind: list
 * [RegExr: Learn, Build, & Test RegEx](http://www.regexr.com/)
 * [Go Playground](https://play.golang.org/)
 * [Chrome Developer Tools](https://developer.chrome.com/devtools/index)
-* [irc.freenode.net](https://freenode.net/)
+* [Libera Chat](https://libera.chat/) (IRC network that is the continuation of freenode)
 * [SSL Server Test - Qualys SSL Labs](https://www.ssllabs.com/ssltest/)
 * [crt.sh | Certificate Search](https://crt.sh)
 * [Unicode - Compart](https://www.compart.com/en/unicode/)

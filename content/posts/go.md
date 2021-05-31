@@ -170,7 +170,7 @@ Popular communications channels about the language include:
 * [golang-nuts general discussion list](https://groups.google.com/g/golang-nuts)
 * [#golang](https://twitter.com/hashtag/golang) hashtag @ Twitter
 * [Reddit's Go community](https://reddit.com/r/golang)
-* [#go-nuts](https://freenode.logbot.info/go-nuts/) IRC channel @ [freenode](https://freenode.net/) (you'll need an IRC client or webchat like [IRCCloud](https://www.irccloud.com/))
+* [#go-nuts](https://freenode.logbot.info/go-nuts/) IRC channel @ [Libera Chat](https://libera.chat/)) (you'll need an IRC client or webchat like [IRCCloud](https://www.irccloud.com/))
 
 ### Conferences & Meetups
 There are many Go meetups and conferences nowadays. Here are some of the most popular conferences. *Due to the current epidemic, many were moved online for the time being or have announced they'll follow a dual online/presential approach.*
