@@ -86,6 +86,13 @@ func NewID() string {
 This solution uses the human-readable [base58 encoding scheme](https://tools.ietf.org/id/draft-msporny-base58-01.html).
 I cheated a little by using only the least significant bits to create the ID instead of trying to squeeze performance as this is good enough.
 
+There are other possibilities. Base58 is just one option. You might have different needs, for example:
+
+* Using only lowercase to avoid ambiguity
+* Limiting the number of chars combinations to avoid words (naughty words) coming out as identifiers
+
+You just need to do some basic math to make sure you've something solid for your use case.
+
 Thank you for reading this article.
 
 {{< tweet 1399330361126031363 >}}
