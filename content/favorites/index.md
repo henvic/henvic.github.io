@@ -105,6 +105,7 @@ kind: list
 
 ## Miscellaneous
 * [Uncrate](https://uncrate.com/)
+* [Nautilus | Science Connected](https://nautil.us/)
 * [Mises Institute](https://mises.org/)
 * [Reason.com – Free Minds and Free Markets](https://reason.com/)
 * [PorcFest](http://porcfest.com/) (want to go)
