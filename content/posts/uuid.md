@@ -88,6 +88,8 @@ I cheated a little by using only the least significant bits to create the ID ins
 
 Thank you for reading this article.
 
+{{< tweet 1399330361126031363 >}}
+
 <script type="text/javascript">
 amzn_assoc_tracking_id = "henvic-20";
 amzn_assoc_ad_mode = "manual";
