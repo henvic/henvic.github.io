@@ -350,6 +350,12 @@ Read <a href="https://en.wikipedia.org/wiki/Binary_number#Conversion_to_and_from
 </div><p><a href="https://play.golang.org/p/T3wvtUNSJcy" lang="en-US" class="button secondary">Play with this code</a></p>
 <p>This solution uses the human-readable <a href="https://tools.ietf.org/id/draft-msporny-base58-01.html">base58 encoding scheme</a>.
 I cheated a little by using only the least significant bits to create the ID instead of trying to squeeze performance as this is good enough.</p>
+<p>There are other possibilities. Base58 is just one option. You might have different needs, for example:</p>
+<ul>
+<li>Using only lowercase to avoid ambiguity</li>
+<li>Limiting the number of chars combinations to avoid words (naughty words) coming out as identifiers</li>
+</ul>
+<p>You just need to do some basic math to make sure you&rsquo;ve something solid for your use case.</p>
 <p>Thank you for reading this article.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">You don&#39;t need UUID <a href="https://t.co/pXgAQiy62t">https://t.co/pXgAQiy62t</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1399330361126031363?ref_src=twsrc%5Etfw">May 31, 2021</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
