@@ -6,7 +6,18 @@
     <description>Recent content on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You don&#39;t need UUID</title>
+      <link>https://henvic.dev/posts/uuid/</link>
+      <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/uuid/</guid>
+      <description>UUID, short for Universally Unique Identifier (spec), is a 128-bit identifier format widespread on computer systems. The following is an example, using its prevalent representation: a73ba12d-1d8b-2516-3aee-4b15e563a835. I&amp;rsquo;ve experienced first-hand how using UUID hurts the usability of computer systems, and I want you to understand why you certainly don&amp;rsquo;t need it.
+Take Amazon. Which do you think is a link to one of their products?
+ amzn.to/3c6n63N amzn.to/a73ba12d-1d8b-2516-3aee-4b15e563a835  A simple ID like 3c6n63N is more than enough to represent any product while keeping it readable and making communication easier.</description>
+    </item>
+    
     <item>
       <title>Crise das tulipas: Bitcoin é uma péssima idéia</title>
       <link>https://henvic.dev/posts/bitcoin-pt/</link>
@@ -124,12 +135,12 @@ Here&amp;rsquo;s I discuss what everyone should be doing about distributing soft
     </item>
     
     <item>
-      <title>Opensource</title>
+      <title>Open source</title>
       <link>https://henvic.dev/opensource/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.dev/opensource/</guid>
-      <description>I have created and contributed to many opensource projects. Here is a selected few.
+      <description>I have created and contributed to many open source projects. Here is a selected few.
 On my portfolio and GitHub profile, you can find more opensource projects.
 I created   clino is Go package for creating CLI (command-line interface) tools with multiple commands. Wednesday, 25 March 2020   httpretty is Go package for printing your HTTP requests on the terminal. Sunday, 2 February 2020   kubeapply is kubeapply is a microservice for running kubectl apply through a web API.</description>
     </item>

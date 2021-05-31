@@ -2,7 +2,7 @@
 <html lang="en"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>I&#39;m starting an opensource e-commerce project. | Henrique Vicente</title>
+    <title>You don&#39;t need UUID | Henrique Vicente</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway|Fira+Code|Comfortaa:300" rel="stylesheet">
     <link rel="stylesheet" href="/css/foundation-icons.css">
     <link rel="stylesheet" href="/css/foundation.min.css">
@@ -10,22 +10,22 @@
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/henvic.css">
     <link rel="shortcut icon" href="/favicon.ico">
-    <meta property="og:title" content="I&#39;m starting an opensource e-commerce project. | Henrique Vicente">
-    <meta name="twitter:title" content="I&#39;m starting an opensource e-commerce project. | Henrique Vicente" />
-    <meta property="og:url" content="https://henvic.dev/posts/e-commerce/">
+    <meta property="og:title" content="You don&#39;t need UUID | Henrique Vicente">
+    <meta name="twitter:title" content="You don&#39;t need UUID | Henrique Vicente" />
+    <meta property="og:url" content="https://henvic.dev/posts/uuid/">
     
-    <meta name="description" content="I&#39;m starting an opensource e-commerce project.">
-    <meta property="og:description" content="I&#39;m starting an opensource e-commerce project.">
-    <meta name="twitter:description" content="I&#39;m starting an opensource e-commerce project." />
+    <meta name="description" content="I&#39;ve experienced first-hand how using UUID hurts the usability of computer systems, and I want you to understand why you certainly don&#39;t need it.">
+    <meta property="og:description" content="I&#39;ve experienced first-hand how using UUID hurts the usability of computer systems, and I want you to understand why you certainly don&#39;t need it.">
+    <meta name="twitter:description" content="I&#39;ve experienced first-hand how using UUID hurts the usability of computer systems, and I want you to understand why you certainly don&#39;t need it." />
     
     
     <meta property="og:type" content="article">
-    <meta property="article:published_time" content="2020-06-17">
+    <meta property="article:published_time" content="2021-05-30">
     
-    <meta property="twitter:url" content="https://henvic.dev/posts/e-commerce/">
+    <meta property="twitter:url" content="https://henvic.dev/posts/uuid/">
     
-    <meta name="og:image" content="https://henvic.dev/img/posts/e-commerce/market-product-page.png" />
-    <meta name="twitter:image" content="https://henvic.dev/img/posts/e-commerce/market-product-page.png" />
+    <meta name="og:image" content="https://henvic.dev/img/posts/uuid/matrix.png" />
+    <meta name="twitter:image" content="https://henvic.dev/img/posts/uuid/matrix.png" />
     
     <script data-ad-client="ca-pub-3943822340584499" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head>
 <body><div class="grid-y medium-grid-frame">
@@ -252,107 +252,127 @@
 </div>
 
 <article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
-        <h1 class="post-title">I&#39;m starting an opensource e-commerce project.</h1>
+        <h1 class="post-title">You don&#39;t need UUID</h1>
         
         
-        <p class="post-date">Posted in <time class="stat" datetime="2020-06-17 00:00:00 &#43;0000 UTC"></time>Wednesday, 17 June 2020</time>.</p>
+        <p class="post-date">Posted in <time class="stat" datetime="2021-05-30 00:00:00 &#43;0000 UTC"></time>Sunday, 30 May 2021</time>.</p>
         
-        <ol>
-<li>Most e-commerce platforms operate in a way that makes stores relying on them hostage due to <a href="https://en.wikipedia.org/wiki/Vendor_lock-in">vendor lock-in</a> models.</li>
-<li>E-commerce is something that can get complex fast. Search engine optimization (SEO), inventory management, order status, and user experience are essential and can get hard quickly. Especially when in light of the danger of trying to make everything customizable.</li>
-<li>Substantial transaction fees drive away businesses operating on tight profit margins.</li>
-</ol>
-<p><a href="https://github.com/henvic/market">market</a> is an opensource e-commerce software dedicated to the public domain to help small and medium businesses to establish their online presence with a high-quality website without gotchas.</p>
-<p><a href="/img/posts/e-commerce/market-product-page.png"><img src="/img/posts/e-commerce/market-product-page_small.png" alt="market product page" width="600"></a></p>
-<h2 id="architecture">Architecture</h2>
-<p>market has a core application (read: monolith) that handles all requests to its API and regular web pages - both served by separate hosts.
-Requests received via <code>www.</code> are handled by the web pages HTTP handlers. The API HTTP endpoints handle requests received via <code>api.</code></p>
-<p><a href="https://golang.org/">Go</a> has been my language of choice for years, and it is perfect for this kind of project thanks to its simplicity and straight-forward &lsquo;no magic&rsquo; approach to software engineering.</p>
-<p>For the frontend of the application, I am going to rely on <a href="https://reactjs.org/">React</a> and, to be on the safe side of types, I am going to be using <a href="https://www.typescriptlang.org/">TypeScript</a>. Having had a long pause from frontend development, I still don&rsquo;t know how well these two play together, but I am not worried too much.</p>
-<table class="stack">
-        <caption>External services</caption>
-        <tr>
-                <td>PostgreSQL</td>
-                <td>Relational database to store everything safely.</td>
-        </tr>
-        <tr>
-                <td>ElasticSearch</td>
-                <td>Search engine for the search, autocompletion, and category browsing.</td>
-        </tr>
-        <tr>
-                <td>imaginary (or thumbor)</td>
-                <td>Photo thumbnail service for resizing images for distribution.</td>
-        </tr>
-        <tr>
-                <td>MinIO / AWS S3 API</td>
-                <td>Object storage service compatible with Amazon S3 API.</td>
-        </tr>
-</table>
-<h3 id="databases">Databases</h3>
-<p><a href="https://www.postgresql.org/">PostgreSQL</a> is a trustworthy ACID-compliant relational database, probably the best choice for this kind of project.
-My knowledge regarding databases is limited, but I know this is the right choice. I recommend you read <a href="https://medium.com/@rakyll/things-i-wished-more-developers-knew-about-databases-2d0178464f78">Things I Wished More Developers Knew About Databases</a> by <a href="https://twitter.com/rakyll">Jaana Dogan</a> if you are interested in databases.</p>
-<p>Keeping track of changes is valuable for an online store. However, unfortunately, PostgreSQL, as most relational databases, does not provide versioning natively. We can use a table for storing logs of changes. I could probably look into using something like a <a href="https://en.wikipedia.org/wiki/Merkle_tree">Merkle tree</a> and something more complex to store a register, but it would be hard and have its problems (example: should purging unwanted data be possible?), so this seems like a good enough trade-off.</p>
-<h3 id="search">Search</h3>
-<p>ElasticSearch has excellent search features such as faceted filters, and I am going to take advantage of it. The inventory should be synced from PostgreSQL to ElasticSearch somehow. I am not sure yet what would be the best approach for this today. Perhaps using a PostgreSQL extension to automate this is the best option.</p>
-<p>About seven years ago, I was working on a marketplace for used vehicles and achieved eventual consistency with a best-effort synchronization strategy:</p>
+        <p><a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUID</a>, short for Universally Unique Identifier (<a href="https://www.rfc-editor.org/info/rfc4122">spec</a>), is a 128-bit identifier format widespread on computer systems.
+The following is an example, using its prevalent representation: <samp>a73ba12d-1d8b-2516-3aee-4b15e563a835</samp>.
+I&rsquo;ve experienced first-hand how using UUID hurts the usability of computer systems, and I want you to understand why you certainly don&rsquo;t need it.</p>
+<p>Take Amazon. Which do you think is a link to one of their products?</p>
 <ul>
-<li>On updates, a message would be sent to a background worker to reindex the altered document.</li>
-<li>An additional crontab would run regularly to fix any consistency issues.</li>
+<li><a href="https://amzn.to/3c6n63N">amzn.to/3c6n63N</a></li>
+<li>amzn.to/a73ba12d-1d8b-2516-3aee-4b15e563a835</li>
 </ul>
+<p>A simple ID like <samp>3c6n63N</samp> is more than enough to represent any product while keeping it readable and making communication easier.
+A UUID alternative like <samp>a73ba12d-1d8b-2516-3aee-4b15e563a835</samp> is just wasteful from an user&rsquo;s perspective.</p>
+<p>In a specific case, I’ve witnessed entities that were supposed to be exposed to end-users using user-friendly ids while UUIDs were in use internally.
+For this to work, either a one-to-one mapping or a separate list of unique ids for your entities are necessary.</p>
+<blockquote>
+<p>You might as well end up with a combination of the worst of both worlds: UUID + sequentially generated (auto increment) numeric identifiers.</p>
+</blockquote>
+<p>I’ve seen all sorts of combinations of this on many systems: some entities using only friendly ids, some using only sequential ids, and most using both.</p>
+<p>For example, an entity that is used only internally might be using a UUID.
+Then a demand to expose it externally appears, and developers add a new friendly ID so that users won&rsquo;t deal with ridiculously long links.</p>
+<ul>
+<li>When using UUID, it&rsquo;s hard to use, track, and compare data manually.</li>
+<li>When using sequential ids, you might be leaking sensitive business metrics to the competition or hit scalability and syncing limits.</li>
+<li>When using both at the same time, your internal users might have a hard time mapping ids to UUIDs and vice-versa.</li>
+</ul>
+<p>So, with all this said, I think I&rsquo;ve made a case for trying to just stick to more accessible ids everywhere!
+Next, watch this video, and let&rsquo;s see a practical alternative.</p>
 <div class="grid-x">
         <div class="medium-6 small-12">
                 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/dML0FQIUcTY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+  <iframe src="https://www.youtube.com/embed/gocwRvLhDf8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
+                <p><small>
+                <a href="https://www.youtube.com/watch?v=gocwRvLhDf8">Will YouTube Ever Run Out Of Video IDs?</a> by <a href="https://www.tomscott.com/">Tom Scott</a>
+                </small></p>
         </div>
 </div>
-<h3 id="photo-thumbnail-service">Photo thumbnail service</h3>
-<p>I had a great experience with <a href="https://github.com/thumbor/thumbor">thumbor</a> in the past, and I believe it&rsquo;s the most battle-tested thumbnail service out there.</p>
-<p>I&rsquo;m giving <a href="https://github.com/h2non/imaginary">imaginary</a> a try for this, though, because it is a Go project, and I&rsquo;d love to see how well it does.</p>
-<p><em>The first program I wrote with Go was a photo thumbnail service, too: <a href="https://github.com/henvic/picel">picel</a>.</em></p>
-<p>Images files are stored in the storage service and served through the photo thumbnail service where resizing and optimization should happen. Caching might happen either at this layer or in the load-balancer layer (more likely).</p>
-<h3 id="compatibility-guarantee">Compatibility guarantee</h3>
-<p>Releases will follow <a href="https://semver.org/">Semantic versioning</a>. I intend new versions to be backward compatible unless there exists an excellent reason why not to.
-Hopefully, version 1 is going to have a long run. A critical aspect of this is dealing with data structures wisely.</p>
-<p>This guarantee assumes no modifications were made to the software, in any case. While this software is intended to be easy to read, and easy to contribute to, it is not intended to be fully customized, but used as-is. Some general guidelines about customization should be written about this later on. Contributions respecting this goal are always welcome.</p>
-<h2 id="usage">Usage</h2>
-<p>Ideally, a grocery store or car shop could:</p>
-<ol>
-<li>Buy a domain;</li>
-<li>Create an account on a cloud computing platform;</li>
-<li>Point his DNS to the Software-as-a-Service provider;</li>
-<li>Deploy a free market appliance and have a store up and running in minutes with HTTPS and everything else out-of-the-box;</li>
-<li>Import inventory data using a computer or smartphone;</li>
-<li>Configure payment options (payment gateway, gift cards, shop credit, etc.);</li>
-<li>Start selling online;</li>
-</ol>
-<p>Moreover, if they are small enough, they can get away doing it almost for free. I admit this is a long shot, but it can happen. Cloud providers such as Google Cloud, AWS, and Azure already provide some products that make this easier to achieve, such as <a href="https://cloud.google.com/functions/">Cloud Functions</a>.</p>
-<p>Due to latency concerns, though, one day, they might decide to use a lightweight <a href="/posts/homelab">Intel NUC server</a> to run everything on-premises. For example, if they are opening up shop in a rocket flying to Mars. Thanks to the &lsquo;no strings attached&rsquo; concept of the public domain, they can do it without having to ask.</p>
-<h2 id="a-few-more-points">A few more points</h2>
-<ul>
-<li>Seach Engine Optimization using techniques such as structured data to drive high conversion rates.</li>
-<li>Freedom of payment gateway: it should be easy to integrate with the likes of PayPal, Square, Stripe, and so on. Or even no gateway.</li>
-<li>Bye-bye vendor lock-in: if the solution is not for you, just take over.</li>
-<li>Rely on Go simplicity to make it simple to write high-quality e-commerce software.</li>
-<li>Follow the Go proverbs.</li>
-<li>Safety first: third-party code and dependencies audited before usage.</li>
-<li>Single sign-on is very interesting. So it is a traditional login. So is Multi-Factor Authentication (MFA). It is okay not to have everything from day one.</li>
-</ul>
+<h2 id="collisions-and-uniqueness">Collisions and uniqueness</h2>
+<p>The UUID textual representation is 36 characters long, being four hyphen separators and 32 hexadecimal digits.
+There are four versions.
+Version 1 and 2 were date-time and MAC address-based.
+Version 3 and 5 are namespace name-based.
+Version 4 is completely randomly generated (hence, it has more entropy) and is what most web systems seem to use.</p>
+<p>It has 16^32 = 2^128 bits that guarantee uniqueness and has an insignificant risk of collision.</p>
+<blockquote>
+<p>Hexadecimal is commonly used in computing as a compact representation for the binary numeral system.
+In hexadecimal, 10 is 0xA, 11 is 0xB, 12 is 0xC, 13 is 0xD, 14 is 0xE, 15 is 0xF, 16 is 0x10, and so on.
+Read <a href="https://en.wikipedia.org/wiki/Binary_number#Conversion_to_and_from_other_numeral_systems">Binary number: conversion to and from other numeral systems</a> if you want to learn or review how it works.</p>
+</blockquote>
+<h2 id="practical-solutions">Practical solutions</h2>
+<p>As Tom Scott shows in his video, 11 base58-encoded characters are enough for YouTube to serve content even when considering that private videos should be undiscoverable.</p>
+<p>Let&rsquo;s see what a simple and elegant solution for generating that in Go might be:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// NewID generates a random base-58 ID.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewID</span>() <span style="color:#66d9ef">string</span> {
+	<span style="color:#66d9ef">const</span> (
+		<span style="color:#a6e22e">alphabet</span> = <span style="color:#e6db74">&#34;123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz&#34;</span> <span style="color:#75715e">// base58
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">size</span>     = <span style="color:#ae81ff">11</span>
+	)
+
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">id</span> = make([]<span style="color:#66d9ef">byte</span>, <span style="color:#a6e22e">size</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">id</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">id</span> {
+		<span style="color:#a6e22e">id</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">alphabet</span>[int(<span style="color:#a6e22e">p</span>)<span style="color:#f92672">%</span>len(<span style="color:#a6e22e">alphabet</span>)] <span style="color:#75715e">// discard everything but the least significant bits
+</span><span style="color:#75715e"></span>	}
+	<span style="color:#66d9ef">return</span> string(<span style="color:#a6e22e">id</span>)
+}
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://play.golang.org/p/T3wvtUNSJcy" lang="en-US" class="button secondary">Play with this code</a></p>
+<p>This solution uses the human-readable <a href="https://tools.ietf.org/id/draft-msporny-base58-01.html">base58 encoding scheme</a>.
+I cheated a little by using only the least significant bits to create the ID instead of trying to squeeze performance as this is good enough.</p>
+<p>Thank you for reading this article.</p>
+<script type="text/javascript">
+amzn_assoc_tracking_id = "henvic-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "0984782850";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "65cdf509fe5c5bb4f9b616660057129c";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<p>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</p>
 
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
-                        data-text="I&#39;m starting an opensource e-commerce project." data-url="https://henvic.dev/posts/e-commerce/" data-via="henriquev"
-                        data-hashtags="e-commerce,opensource,public domain,project"  data-show-count="false">Tweet</a>
+                        data-text="You don&#39;t need UUID" data-url="https://henvic.dev/posts/uuid/" data-via="henriquev"
+                        data-hashtags="programming"  data-show-count="false">Tweet</a>
                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <aside class="read-also">
                 <h3>Read also</h3>
                 <ul>
                         
-                        <li>
-                                <a href="/posts/uuid/">You don&#39;t need UUID</a>
-                                <time datetime="2006-01-02">Sunday 30, May 2021</time>
-                        </li>
                         <li>
                                 <a href="/posts/bitcoin-pt/">Crise das tulipas: Bitcoin é uma péssima idéia</a>
                                 <time datetime="2006-01-02">Thursday 13, May 2021</time>
@@ -376,6 +396,10 @@ Hopefully, version 1 is going to have a long run. A critical aspect of this is d
                         <li>
                                 <a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a>
                                 <time datetime="2006-01-02">Wednesday 16, September 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/e-commerce/">I&#39;m starting an opensource e-commerce project.</a>
+                                <time datetime="2006-01-02">Wednesday 17, June 2020</time>
                         </li>
                         <li>
                                 <a href="/posts/cs-security/">Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely.</a>

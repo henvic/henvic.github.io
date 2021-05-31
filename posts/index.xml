@@ -6,7 +6,18 @@
     <description>Recent content in Blog posts on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You don&#39;t need UUID</title>
+      <link>https://henvic.dev/posts/uuid/</link>
+      <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/uuid/</guid>
+      <description>UUID, short for Universally Unique Identifier (spec), is a 128-bit identifier format widespread on computer systems. The following is an example, using its prevalent representation: a73ba12d-1d8b-2516-3aee-4b15e563a835. I&amp;rsquo;ve experienced first-hand how using UUID hurts the usability of computer systems, and I want you to understand why you certainly don&amp;rsquo;t need it.
+Take Amazon. Which do you think is a link to one of their products?
+ amzn.to/3c6n63N amzn.to/a73ba12d-1d8b-2516-3aee-4b15e563a835  A simple ID like 3c6n63N is more than enough to represent any product while keeping it readable and making communication easier.</description>
+    </item>
+    
     <item>
       <title>Crise das tulipas: Bitcoin é uma péssima idéia</title>
       <link>https://henvic.dev/posts/bitcoin-pt/</link>
