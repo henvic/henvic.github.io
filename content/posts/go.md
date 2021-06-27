@@ -444,6 +444,15 @@ I created [clino](https://github.com/henvic/clino) about a year ago, unaware of 
         async></script>
 </div>
 
+### Lip Gloss
+[lipgloss](https://github.com/charmbracelet/lipgloss) is [Charm](https://charm.sh/)'s package for writing Text-based user interfaces (TUIs) (just like [ncurses](https://invisible-island.net/ncurses/), but better).
+
+### Bubble Tea
+[Bubble Tea](https://github.com/charmbracelet/bubbletea) is a framework to build terminal apps.
+
+### Bubbles
+[Bubbles](https://github.com/charmbracelet/bubbles) is a package containing TUI components for Bubble Tea.
+
 ### SQL Databases
 * Writing SQL yourself is always the best option to write sane and fast queries. Use [sqlc](https://sqlc.dev/) if you want to reduce the amount of code you need to write yourself, instead of [using an ORM and making your application slower and your program more error-prone and harder to debug](https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/).
 
