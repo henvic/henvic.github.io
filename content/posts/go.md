@@ -671,4 +671,4 @@ Thanks! If you liked what I wrote, maybe you want to check out my other posts, s
 
 <div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
 
-If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).
+<small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>

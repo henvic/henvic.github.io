@@ -443,6 +443,6 @@ I hope you enjoyed this blog post. If you have any tips for me, interesting stuf
 
 <div id="amzn-assoc-ad-d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></script>
 
-If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).
+<small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
 
 {{< tweet 1252360422683897856 >}}

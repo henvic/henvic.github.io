@@ -676,4 +676,4 @@ Eu espero que você tenha gostado do meu artigo.
 Se você odiou, obrigado por ter chegado aqui de qualquer maneira!
 Eu queria falar mais sobre coisas interessantes, como [smart contracts](https://en.wikipedia.org/wiki/Smart_contract) (e como seus conceitos foram usados e abusados) e vá um pouco mais fundo explicando o que é um blockchain, mas este artigo já é muito longo!
 
-If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).
+<small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
