@@ -12,7 +12,7 @@
         <li><a href="/posts/my-go-mistakes/">My Go mistakes</a></li>
         <li><a href="/posts/env/">Environment variables, config, secrets, and globals</a></li>
         <li><a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a></li>
-        <li><a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor post</a></li>
+        <li><a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a></li>
       </ul>
       <h4>Projects</h4>
       <ul>
