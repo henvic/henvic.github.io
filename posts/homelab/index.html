@@ -54,17 +54,6 @@
             
             
                 <li class=" ">
-                    <a href="/about/" >
-                        About me
-                    </a>
-                </li>
-            
-            
-            
-            
-            
-            
-                <li class=" ">
                     <a href="/posts/" >
                         Blog posts
                     </a>
@@ -191,6 +180,17 @@
             
             
             
+                <li class=" ">
+                    <a href="/about/" >
+                        About me
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
             
             
             <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
@@ -217,7 +217,7 @@
     <ul class="nav-about-me no-bullet">
         
         <li>
-            <p>I'm a Software Engineer from Brazil. I live in the Netherlands, and I work for the fashion industry at <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
+            <p>I'm a Software Engineer from Brazil. I live in The&nbsp;Hague,&nbsp;Netherlands, and I work for <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
                 working on a Digital Showroom for wholesale fashion brands (such as <a href="https://www.tommy.com/">Tommy Hilfiger</a> and <a href="https://www.calvinklein.com/">Calvin Klein</a>).<br /><br />
                 I mostly use the amazing Go programming language. I enjoy photography, drones, and traveling.</p>
         </li>
@@ -394,7 +394,7 @@ amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
 <p><a href="/img/posts/homelab/ssh.png"><img src="/img/posts/homelab/ssh_small.png" alt="Shell access is seldom required, and using it to manage your system is frowned upon. You want to keep SSH disabled."></a></p>
 <p><em>Shell access is seldom required, and using it to manage your system is frowned upon. You want to keep SSH disabled.</em></p>
 <h2 id="web-client">Web client</h2>
-<p><a href="/img/posts/homelab/esxi.png"><img src="/img/posts/homelab/esxi_small.png" alt="VMware ESXi 7 web client showing a virtual machine console running Plan 9 from Bell Labs"></a></p>
+<p>[<img src="/img/posts/homelab/esxi_small.png" alt="VMware ESXi 7 web client showing a virtual machine console running Plan 9 from Bell Labs">](/img/posts/homelab/esxi.png)</p>
 <p><em>VMware ESXi 7 web client showing a virtual machine console running <a href="https://plan9.io/plan9/">Plan 9</a> from Bell Labs</em></p>
 <p>You should download the hypervisor and run on your server on a dedicated storage unit that can be something as simple as a USB pen-drive. You cannot install it on a device along with any other operating system. It&rsquo;s going to partition the disk destructively. The installation process is pretty-straightforward if everything works fine.</p>
 <h3 id="using-https-certificates">Using HTTPS certificates</h3>
@@ -421,12 +421,12 @@ amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
 <p>Thanks to William Lam and Andrew Roderos for the articles and help figuring out what was going on.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ esxcli network firewall ruleset set -e true -r httpClient
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ esxcli network firewall ruleset set -e true -r httpClient
 $ wget https://download3.vmware.com/software/vmw-tools/ESXi670-NE1000-32543355-offline_bundle-15486963.zip
 $ esxcli software vib install -d /ESXi670-NE1000–32543355-offline_bundle-15486963.zip
 </code></pre></td></tr></table>
@@ -442,13 +442,13 @@ $ esxcli software vib install -d /ESXi670-NE1000–32543355-offline_bundle-15486
 <p>An exciting surprise is that by using two NICs, I&rsquo;ve now, out of the box, fail-over. You can check your virtual switch settings for more options and play with active/standby possibilities.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>root@homelab:~<span style="color:#f92672">]</span> esxcfg-nics --list
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>root@homelab:~<span style="color:#f92672">]</span> esxcfg-nics --list
 Name    PCI             Driver  Link    Speed       Duplex MAC Address       MTU    Description
 vmnic0  0000:00:1f.6    ne1000  Up      1000Mbps    Full   1c:69:7a:61:30:c0 <span style="color:#ae81ff">1500</span>   Intel Corporation Ethernet Connection <span style="color:#f92672">(</span>10<span style="color:#f92672">)</span> 1219-V
 vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <span style="color:#ae81ff">1500</span>   ASIX Elec. Corp. AX88179
@@ -515,7 +515,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 </li>
 </ul>
 <p><a href="/img/posts/homelab/storage.png"><img src="/img/posts/homelab/storage_small.png" alt="Storage transfer rate"></a></p>
-<p><a href="/img/posts/homelab/network.png"><img src="/img/posts/homelab/network_small.png" alt="iStat Menus showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world."></a></p>
+<p>[<img src="/img/posts/homelab/network_small.png" alt="iStat Menus showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world.">](/img/posts/homelab/network.png)</p>
 <p><em><a href="https://bjango.com/mac/istatmenus/">iStat Menus</a> showing how my transfer rate is ten times or so slower than it theoretically should be in an ideal world.</em></p>
 <p><strong>Day-to-day:</strong> I&rsquo;m going to use SMB since APFS was deprecated (I only discovered this by chance).</p>
 <p>FreeNAS also comes with a few useful services that you can enable and use, like <a href="https://min.io">MinIO</a> — a cloud storage server that is API compatible with <a href="https://aws.amazon.com/s3/">Amazon S3</a>.</p>
@@ -545,7 +545,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <h3 id="clear-linux-os">Clear Linux OS</h3>
 <p>Clear Linux is one of the best Linux distributions out there. It is created and maintained by Intel and has excellent hardware compatibility, <a href="https://arstechnica.com/gadgets/2020/02/linux-distro-review-intels-own-clear-linux-os/">and it&rsquo;s the best in the benchmarks</a>. It might as well be one of the best Linux distribution I have ever used in regards to attention to detail.</p>
 <p>It is well-documented and follows a functional style for software installation, too, with the concept of bundles — making your life supposedly easier.</p>
-<p><a href="/img/posts/homelab/linux.png"><img src="/img/posts/homelab/linux_small.png" alt="Clear Linux is a Linux distribution created by Intel."></a></p>
+<p>[<img src="/img/posts/homelab/linux_small.png" alt="Clear Linux is a Linux distribution created by Intel.">](/img/posts/homelab/linux.png)</p>
 <p><em><a href="https://clearlinux.org">Clear Linux</a> is a Linux distribution created by Intel.</em></p>
 <p>I&rsquo;ll be using it to run a Kubernetes cluster and get rid of Docker on my main MacBook Pro. <a href="https://github.com/docker/for-mac/issues/371">Adieu, Docker.qcow2</a>! 🐄</p>
 <p>Installing <a href="https://docs.01.org/clearlinux/latest/tutorials/docker.html">Docker</a> and <a href="https://docs.01.org/clearlinux/latest/tutorials/kubernetes.html">Kubernetes</a>:</p>
@@ -572,7 +572,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <p><strong>Warning:</strong> Risk of epileptic seizures! Run this video or the operating system at your own risk!</p>
 <h3 id="cpu-memory-and-storage-for-each-virtual-machine">CPU, memory, and storage for each virtual machine</h3>
 <p>I&rsquo;m still playing with fine tunning it, but for my use case, there is not much secret. I don&rsquo;t have a reason to have all virtual machines up at once.</p>
-<p><a href="/img/posts/homelab/cpu-usage.png"><img src="/img/posts/homelab/cpu-usage_small.png" alt="CPU usage: it shows 12 CPUs instead of 6 because of hyper-threading."></a></p>
+<p>[<img src="/img/posts/homelab/cpu-usage_small.png" alt="CPU usage: it shows 12 CPUs instead of 6 because of hyper-threading.">](/img/posts/homelab/cpu-usage.png)</p>
 <p><em>CPU usage: it shows 12 CPUs instead of 6 because of <a href="https://en.wikipedia.org/wiki/Hyper-threading">hyper-threading</a>.</em></p>
 <h3 id="fuchsia">Fuchsia</h3>
 <p>I tried to run Fuchsia on ESXi, but the system never booted. It <a href="https://fuchsia.dev/fuchsia-src/development/hardware/intel_nuc">seems to work fine</a> with the older Intel NUC 6 and 7, though, so I suppose it is doable with a little more effort. I had more luck just running it with <a href="https://www.qemu.org">qemu</a> instead.</p>
@@ -631,7 +631,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <p><a href="https://www.torproject.org">ToR</a> is a fundamental piece of the Internet ecosystem. It allows people to browse the Internet with privacy — essential to liberty and a way to avoid persecution from the state (especially important in conflict zones).</p>
 <p>You can help the ToR project by running a <a href="https://trac.torproject.org/projects/tor/wiki/TorRelayGuide">Tor relay</a> to relay traffic inside the network, or you can even set up an exit node so people can use your Internet connection as the “exit” point to the “mundane” Internet.</p>
 <p>You can also host an onion service (formerly known as “hidden service”).</p>
-<p><a href="/img/posts/homelab/tor.png"><img src="/img/posts/homelab/tor_small.png" alt="Using the Tor Browser. Facebook is one of the few major websites that has an onion service."></a></p>
+<p>[<img src="/img/posts/homelab/tor_small.png" alt="Using the Tor Browser. Facebook is one of the few major websites that has an onion service.">](/img/posts/homelab/tor.png)</p>
 <p><em>Using the <a href="https://www.torproject.org/download/">Tor Browser</a> to access Facebook, one of the few major websites that has an <a href="https://en.wikipedia.org/wiki/List_of_Tor_onion_services">onion service</a> — meaning no exit nodes as the connection is routed end-to-end through the Tor network.</em></p>
 <h3 id="eternalterminal">EternalTerminal</h3>
 <p>One problem I&rsquo;ve with SSH is that it&rsquo;s easy to close my laptop lid and to lose a connection. Usually, this is not a problem, but eventually, I happen to be doing some heavy-lifting on a server that will take a while, and I get stuck with it. You can use tmux to avoid this, but why not <a href="https://github.com/MisterTea/EternalTerminal">EternalTerminal</a>? I need to configure this in my primary virtual machines (FreeBSD and Linux).</p>
@@ -653,7 +653,7 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
 <h2 id="thanks">Thanks</h2>
 <p>I hope you enjoyed this blog post. If you have any tips for me, interesting stuff to share or just want to talk about this article, please reach out.</p>
 <div id="amzn-assoc-ad-d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></script>
-<p>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</p>
+<p><small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</small></p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I bought an Intel NUC 10th generation and installed the VMware ESXi hypervisor, FreeBSD, FreeNAS, Clear Linux, and more to serve as my homeserver, run containers, backup data, etc. :)<br><br>Sharing my experience here...<a href="https://t.co/gscoxPDuTa">https://t.co/gscoxPDuTa</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1252360422683897856?ref_src=twsrc%5Etfw">April 20, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -666,6 +666,10 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
                 <h3>Read also</h3>
                 <ul>
                         
+                        <li>
+                                <a href="/posts/postgres-14-freebsd-13/">Upgrading to PostgreSQL 14 on FreeBSD 13</a>
+                                <time datetime="2006-01-02">Thursday 11, November 2021</time>
+                        </li>
                         <li>
                                 <a href="/posts/uuid/">You don&#39;t need UUID</a>
                                 <time datetime="2006-01-02">Sunday 30, May 2021</time>

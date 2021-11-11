@@ -54,17 +54,6 @@
             
             
                 <li class=" ">
-                    <a href="/about/" >
-                        About me
-                    </a>
-                </li>
-            
-            
-            
-            
-            
-            
-                <li class=" ">
                     <a href="/posts/" >
                         Blog posts
                     </a>
@@ -191,6 +180,17 @@
             
             
             
+                <li class=" ">
+                    <a href="/about/" >
+                        About me
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
             
             
             <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
@@ -217,7 +217,7 @@
     <ul class="nav-about-me no-bullet">
         
         <li>
-            <p>I'm a Software Engineer from Brazil. I live in the Netherlands, and I work for the fashion industry at <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
+            <p>I'm a Software Engineer from Brazil. I live in The&nbsp;Hague,&nbsp;Netherlands, and I work for <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
                 working on a Digital Showroom for wholesale fashion brands (such as <a href="https://www.tommy.com/">Tommy Hilfiger</a> and <a href="https://www.calvinklein.com/">Calvin Klein</a>).<br /><br />
                 I mostly use the amazing Go programming language. I enjoy photography, drones, and traveling.</p>
         </li>
@@ -325,6 +325,9 @@ In this article, you&rsquo;ll find resources to learn about Go and its ecosystem
         <li><a href="#subcommands">subcommands</a></li>
         <li><a href="#avo">avo</a></li>
         <li><a href="#httpretty">httpretty</a></li>
+        <li><a href="#lip-gloss">Lip Gloss</a></li>
+        <li><a href="#bubble-tea">Bubble Tea</a></li>
+        <li><a href="#bubbles">Bubbles</a></li>
         <li><a href="#sql-databases">SQL Databases</a></li>
       </ul>
     </li>
@@ -429,7 +432,7 @@ In this article, you&rsquo;ll find resources to learn about Go and its ecosystem
 <h2 id="hello-world-in-go">Hello World in Go</h2>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -440,7 +443,7 @@ In this article, you&rsquo;ll find resources to learn about Go and its ecosystem
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;fmt&#34;</span>
@@ -479,14 +482,14 @@ amzn_assoc_asins = "0134190440,1617291781,1617297003,B001QI4UJW";
 <p>Consulting the <a href="https://golang.org/ref/spec">spec</a>, you can find out that Go has only 25 <a href="https://en.wikipedia.org/wiki/Reserved_word">reserved keywords</a>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-text" data-lang="text">break        default      func         interface    select
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-text" data-lang="text">break        default      func         interface    select
 case         defer        go           map          struct
 chan         else         goto         package      switch
 const        fallthrough  if           range        type
@@ -702,7 +705,7 @@ Go has two types of tests: <code>*testing.T</code> (regular tests) and <code>*te
 </ul>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -711,7 +714,7 @@ Go has two types of tests: <code>*testing.T</code> (regular tests) and <code>*te
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAbs</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAbs</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
 	<span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Abs</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
 	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
 		<span style="color:#75715e">// You almost always want to use t.Error* functions instead of t.Fatal*.
@@ -723,10 +726,10 @@ Go has two types of tests: <code>*testing.T</code> (regular tests) and <code>*te
 </div><p>To run the tests, I use an alias I called <code>gotest</code>:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go test -race -coverprofile<span style="color:#f92672">=</span>coverage.out <span style="color:#f92672">&amp;&amp;</span> go tool cover -html coverage.out -o coverage.html
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go test -race -coverprofile<span style="color:#f92672">=</span>coverage.out <span style="color:#f92672">&amp;&amp;</span> go tool cover -html coverage.out -o coverage.html
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -738,10 +741,10 @@ The <code>-run</code> flag enables you to run functions matching a specific rege
 Use <code>go test helpflag</code> to learn more about the available flags.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go test -run<span style="color:#f92672">=</span>TestValidUser
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go test -run<span style="color:#f92672">=</span>TestValidUser
 </code></pre></td></tr></table>
 </div>
 </div><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Visual Studio Code shortcuts I use with Go:<br>F13 Show Editor Context Menu<br>F16 Test Function At Cursor<br>F17 Debug Test At Cursor<br>F18 Generate Unit Tests for Function<br>F19 Toggle Test Coverage<br><br>I wanted bright Magic KB shortcut key caps.<a href="https://t.co/TnGNoWcmWt">https://t.co/TnGNoWcmWt</a><a href="https://t.co/KjQ0ApbEdT">https://t.co/KjQ0ApbEdT</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1370366670787780614?ref_src=twsrc%5Etfw">March 12, 2021</a></blockquote>
@@ -767,11 +770,11 @@ I also find it very productive to have a <a href="https://en.wikipedia.org/wiki/
 By default, all analyzers are run.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ <span style="color:#75715e"># ./... to walk the working directory recursively</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ <span style="color:#75715e"># ./... to walk the working directory recursively</span>
 $ go vet ./...
 </code></pre></td></tr></table>
 </div>
@@ -781,10 +784,10 @@ $ go vet ./...
 You don&rsquo;t really need any other linter besides <code>go vet</code> and <code>staticcheck</code>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ staticcheck ./...
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ staticcheck ./...
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="github-security-code-scanning">GitHub Security code scanning</h4>
@@ -796,11 +799,11 @@ It scans your code and pinpoints unsafe security usage.
 By default, I find it quite noisy as it reports unhandled errors ignoring what I see as many false-positive cases, so I exclude this specific rule when I decide to use this tool on one of my projects.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ <span style="color:#75715e"># Ignoring gosec unhandled errors warning due to many false-positives.</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ <span style="color:#75715e"># Ignoring gosec unhandled errors warning due to many false-positives.</span>
 $ gosec -quiet -exclude G104 ./...
 </code></pre></td></tr></table>
 </div>
@@ -811,10 +814,10 @@ $ gosec -quiet -exclude G104 ./...
 I also often use <a href="https://www.grammarly.com/">Grammarly</a> to review my writing on documentation.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ misspell cmd/**/*.<span style="color:#f92672">{</span>go,sh<span style="color:#f92672">}</span> internal/**/*.<span style="color:#f92672">{</span>go<span style="color:#f92672">}</span> README.md
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ misspell cmd/**/*.<span style="color:#f92672">{</span>go,sh<span style="color:#f92672">}</span> internal/**/*.<span style="color:#f92672">{</span>go<span style="color:#f92672">}</span> README.md
 </code></pre></td></tr></table>
 </div>
 </div><p>I also use other static analyzer tools from time-to-time, manually, and that I&rsquo;d advise against adding to a Continuous Integration pipeline.</p>
@@ -823,10 +826,10 @@ I also often use <a href="https://www.grammarly.com/">Grammarly</a> to review my
 <p>I&rsquo;ve used this in the past to find complicated code and to decide where to start refactoring code. I also prefer to use this manually, but I see some value in adding it as a step of a CI pipeline – as long as you err by being generous and configure the tool to scream only in case of undeniable high values.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ gocyclo -over <span style="color:#ae81ff">15</span> -ignore <span style="color:#e6db74">&#34;generated.go|pb.go|_test|vendor/&#34;</span> .
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ gocyclo -over <span style="color:#ae81ff">15</span> -ignore <span style="color:#e6db74">&#34;generated.go|pb.go|_test|vendor/&#34;</span> .
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="standard-library">Standard library</h2>
@@ -890,6 +893,12 @@ I created <a href="https://github.com/henvic/clino">clino</a> about a year ago, 
     <script id="asciicast-297429" src="https://asciinema.org/a/297429.js" data-autoplay="true" data-loop="true"
         async></script>
 </div>
+<h3 id="lip-gloss">Lip Gloss</h3>
+<p><a href="https://github.com/charmbracelet/lipgloss">lipgloss</a> is <a href="https://charm.sh/">Charm</a>&rsquo;s package for writing Text-based user interfaces (TUIs) (just like <a href="https://invisible-island.net/ncurses/">ncurses</a>, but better).</p>
+<h3 id="bubble-tea">Bubble Tea</h3>
+<p><a href="https://github.com/charmbracelet/bubbletea">Bubble Tea</a> is a framework to build terminal apps.</p>
+<h3 id="bubbles">Bubbles</h3>
+<p><a href="https://github.com/charmbracelet/bubbles">Bubbles</a> is a package containing TUI components for Bubble Tea.</p>
 <h3 id="sql-databases">SQL Databases</h3>
 <ul>
 <li>Writing SQL yourself is always the best option to write sane and fast queries. Use <a href="https://sqlc.dev/">sqlc</a> if you want to reduce the amount of code you need to write yourself, instead of <a href="https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/">using an ORM and making your application slower and your program more error-prone and harder to debug</a>.</li>
@@ -959,12 +968,12 @@ You can use it to browse the documentation for your code and the standard librar
 <p>It is also what originally powered godoc.org, before it was sunset by <a href="https://pkg.go.dev">pkg.go.dev</a>, which is powered by the more complex <a href="https://github.com/golang/pkgsite">pkgsite</a>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go install golang.org/x/tools/cmd/godoc@latest
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go install golang.org/x/tools/cmd/godoc@latest
 $ godoc
 $ open http://localhost:6060
 </code></pre></td></tr></table>
@@ -1023,10 +1032,10 @@ It&rsquo;s useful for writing simple and direct presentations when you don&rsquo
 </ul>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go install golang.org/x/tools/cmd/present@latest
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go install golang.org/x/tools/cmd/present@latest
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="hugo">Hugo</h3>
@@ -1082,7 +1091,7 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
 </ul>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
@@ -1092,7 +1101,7 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Quadratic takes a general quadratic equation of the form
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Quadratic takes a general quadratic equation of the form
 </span><span style="color:#75715e">// ax² + bx + c = 0.
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Quadratic</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">float64</span>) (<span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#66d9ef">float64</span>) {
 	<span style="color:#a6e22e">Δ</span> = <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#a6e22e">b</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">-</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">c</span>)
@@ -1107,7 +1116,7 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
-<p>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</p>
+<p><small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</small></p>
 
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
                         data-text="The ecosystem of the Go programming language" data-url="https://henvic.dev/posts/go/" data-via="henriquev"
@@ -1117,6 +1126,10 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
                 <h3>Read also</h3>
                 <ul>
                         
+                        <li>
+                                <a href="/posts/postgres-14-freebsd-13/">Upgrading to PostgreSQL 14 on FreeBSD 13</a>
+                                <time datetime="2006-01-02">Thursday 11, November 2021</time>
+                        </li>
                         <li>
                                 <a href="/posts/uuid/">You don&#39;t need UUID</a>
                                 <time datetime="2006-01-02">Sunday 30, May 2021</time>
