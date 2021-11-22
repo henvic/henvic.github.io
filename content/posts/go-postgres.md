@@ -123,7 +123,7 @@ For deployments, you might want to take a look at the following:
 ## PostgreSQL clients
 To connect to PostgreSQL, you can use the official terminal-based front-end [psql](https://www.postgresql.org/docs/current/app-psql.html) or something else.
 
-* [pgcli]((https://www.pgcli.com/)) is a CLI or [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) similar to psql, but has auto-completion, syntax highlighting and displays the docstring of functions as you type.
+* [pgcli](https://www.pgcli.com/) is a CLI or [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) similar to psql, but has auto-completion, syntax highlighting and displays the docstring of functions as you type.
 * [Postico](https://eggerapps.at/postico/) is a macOS GUI for PostgreSQL
 * [pgAdmin](https://www.pgadmin.org/) is a feature-rich open source web-based client for PostgreSQL
 * [Navicat for PostgreSQL](https://www.navicat.com/en/products/navicat-for-postgresql)
