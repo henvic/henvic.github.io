@@ -6,6 +6,7 @@
     <div class="cell large-4">
       <h4>Highlighted posts</h4>
       <ul>
+        <li><a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a></li>
         <li><a href="/posts/uuid">You don't need UUID</a></li>
         <li><a href="/posts/bitcoin">Cryptocurrency Tulipmania: Bitcoin is a shitcoin</a></li>
         <li><a href="/posts/go">The ecosystem of the Go programming language</a></li>
