@@ -119,6 +119,7 @@ For deployments, you might want to take a look at the following:
 * [Quickstart for Google Cloud SQL for PostgreSQL](https://cloud.google.com/sql/docs/postgres/quickstart)
 * [Amazon RDS for PostgreSQL](https://aws.amazon.com/rds/postgresql/)
 * [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/)
+* [Managed PostgreSQL from Heroku](https://www.heroku.com/postgres)
 
 ## PostgreSQL clients
 To connect to PostgreSQL, you can use the official terminal-based front-end [psql](https://www.postgresql.org/docs/current/app-psql.html) or something else.
