@@ -9,6 +9,9 @@ hashtags: "go,golang,programming,mistakes"
 In this post, I share mistakes I've made writing Go code for six years since the beginning of my journey with the language.
 
 {{< table_of_contents >}}
+
+<small>Read also: [The ecosystem of the Go programming language](/posts/go/) and [Environment variables, config, secrets, and globals](/posts/env/).</small>
+
 <a href="https://golang.org/"><img src="/img/posts/my-go-mistakes/help.png" width="114" alt="Gopher"></a>
 
 ## init() functions

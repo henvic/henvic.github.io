@@ -17,6 +17,8 @@ If you want to see how people are using Go, check out the [Go Developer Survey 2
 
 {{< table_of_contents >}}
 
+<small>Read also: [Back to basics: Writing an application using Go and PostgreSQL](/posts/go-postgres/) and [My Go mistakes](/posts/my-go-mistakes/).</small>
+
 | Fact sheet |
 | ------------- |-------------|
 | Paradigm | Multi-paradigm: mostly imperative, and concurrent. |
