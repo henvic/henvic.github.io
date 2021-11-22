@@ -761,6 +761,8 @@ jobs:
         path-to-profile: profile.cov
 ```
 
+{{< tweet henriquev 1462723601703096322 >}}
+
 I hope you enjoyed this tutorial. Now go ahead and checkout the repository [github.com/henvic/pgxtutorial](https://github.com/henvic/pgxtutorial).
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
