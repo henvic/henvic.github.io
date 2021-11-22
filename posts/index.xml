@@ -6,7 +6,16 @@
     <description>Recent content in Blog posts on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back to basics: Writing an application using Go and PostgreSQL</title>
+      <link>https://henvic.dev/posts/go-postgres/</link>
+      <pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/go-postgres/</guid>
+      <description>By reading this tutorial, you&amp;rsquo;ll learn how to use PostgreSQL with the Go programming language using the pgx driver and toolkit in a very productive manner. Furthermore, with the provided source code, you&amp;rsquo;ll be able to learn how to write efficient and sound unit and integration tests, ready to be run locally or on a Continuous Integration environment, such as GitHub Actions. Use the Table of Contents to skip to a specific part of this long post.</description>
+    </item>
+    
     <item>
       <title>Upgrading to PostgreSQL 14 on FreeBSD 13</title>
       <link>https://henvic.dev/posts/postgres-14-freebsd-13/</link>

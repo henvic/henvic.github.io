@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Back to basics: Writing an application using Go and PostgreSQL | Henrique Vicente</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Fira+Code|Comfortaa:300" rel="stylesheet">
+    <link rel="stylesheet" href="/css/foundation-icons.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/webicons/webicons.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/henvic.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta property="og:title" content="Back to basics: Writing an application using Go and PostgreSQL | Henrique Vicente">
+    <meta name="twitter:title" content="Back to basics: Writing an application using Go and PostgreSQL | Henrique Vicente" />
+    <meta property="og:url" content="https://henvic.dev/posts/go-postgres/">
+    
+    <meta name="description" content="Learn how to use PostgreSQL with the Go programming language using the pgx driver and toolkit in a very productive manner. Furthermore, with the provided source code, you&#39;ll be able to learn how to write efficient and sound unit and integration tests, ready to be run locally or on a Continuous Integration environment, such as GitHub Actions.">
+    <meta property="og:description" content="Learn how to use PostgreSQL with the Go programming language using the pgx driver and toolkit in a very productive manner. Furthermore, with the provided source code, you&#39;ll be able to learn how to write efficient and sound unit and integration tests, ready to be run locally or on a Continuous Integration environment, such as GitHub Actions.">
+    <meta name="twitter:description" content="Learn how to use PostgreSQL with the Go programming language using the pgx driver and toolkit in a very productive manner. Furthermore, with the provided source code, you&#39;ll be able to learn how to write efficient and sound unit and integration tests, ready to be run locally or on a Continuous Integration environment, such as GitHub Actions." />
+    
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2021-11-22">
+    
+    <meta property="twitter:url" content="https://henvic.dev/posts/go-postgres/">
+    
+    <meta name="og:image" content="https://henvic.dev/img/posts/go/go-logo-blue.png" />
+    <meta name="twitter:image" content="https://henvic.dev/img/posts/go/go-logo-blue.png" />
+    
+    <script data-ad-client="ca-pub-3943822340584499" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script></head>
+<body><div class="grid-y medium-grid-frame">
+        <nav class="title-bar show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title invisible">Menu</div>
+</nav>
+<nav class="top-bar" id="responsive-menu">
+    <div class="top-bar-right no-js">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
+            data-dropdown-menu data-smooth-scroll>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/" >
+                        Home
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/posts/" >
+                        Blog posts
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/talks/" >
+                        Talks
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class="show-for-small-only ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                </li>
+            
+            
+                <li class="hide-for-small-only is-dropdown-submenu-parent ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                <ul class="vertical menu nested submenu">
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#httpretty" title="httpretty">
+                            httpretty
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#wedeploy" title="WeDeploy CLI Tool">
+                            WeDeploy CLI Tool
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#vehikel" title="Vehikel">
+                            Vehikel
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#tic-tac-toe" title="Tic-tac-toe">
+                            Tic-tac-toe
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#accidents" title="accidents">
+                            accidents
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#topostit" title="to-post.it">
+                            to-post.it
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#trazqueeupago" title="trazqueeupago.com">
+                            trazqueeupago.com
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#cahier" title="Cahier">
+                            Cahier
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#plifk" title="Plifk">
+                            Plifk
+                        </a>
+                    </li>
+                    
+                </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/opensource/" >
+                        Open Source
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/favorites/" >
+                        Favorites
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/about/" >
+                        About me
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
+        </ul>
+    </div>
+</nav>
+
+        <div class="cell medium-auto medium-cell-block-container">
+            <div class="grid-x grid-padding-x">
+                <div class="nav cell large-3 medium-4 large-cell-block-y medium-cell-block-y"><div itemscope itemtype="http://schema.org/Person">
+    <div class="nav-card grid-x">
+        <div class="cell small-2 medium-12 nav-card-photo-cell">
+            <a href="/" itemprop="photo" class="nav-card-photo">
+                <img src="/img/me_at_gullfoss_cropped.jpg" alt="me at Gullfoss" width="549" height="549" />
+            </a>
+        </div>
+        <div class="cell card-section small-10 medium-12 medium-text-center">
+            <h4 itemprop="name">Henrique Vicente</h4>
+            <p>
+                <span itemprop="title">Software Engineer</span>
+            </p>
+        </div>
+    </div>
+    <ul class="nav-about-me no-bullet">
+        
+        <li>
+            <p>I'm a Software Engineer from Brazil. I live in The&nbsp;Hague,&nbsp;Netherlands, and I work for <a href="https://hatchstudio.co/" itemprop="affiliation">HATCH</a>&nbsp;(a part of <a href="https://www.pvh.com/">PVH</a>),
+                working on a Digital Showroom for wholesale fashion brands (such as <a href="https://www.tommy.com/">Tommy Hilfiger</a> and <a href="https://www.calvinklein.com/">Calvin Klein</a>).<br /><br />
+                I mostly use the amazing Go programming language. I enjoy photography, drones, and traveling.</p>
+        </li>
+        
+        <li>
+            <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
+                    class="space"></span>DFBD<span class="space"></span>257C<span class="space"></span>1575</a>
+        </li>
+    </ul>
+    <div class="menu-social">
+        <a class="webicon github" href="https://github.com/henvic">
+            GitHub
+        </a>
+        <a class="webicon twitter" href="https://twitter.com/henriquev">
+            Twitter
+        </a>
+        <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
+            Linkedin
+        </a>
+        <a class="webicon instagram" href="https://www.instagram.com/henvic/">
+            Instagram
+        </a>
+        <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
+            Flickr
+        </a>
+        <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
+            henriquevicente@gmail.com
+        </a>
+    </div>
+    
+</div>
+</div>
+
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
+        <h1 class="post-title">Back to basics: Writing an application using Go and PostgreSQL</h1>
+        
+        
+        <p class="post-date">Posted in <time class="stat" datetime="2021-11-22 00:00:00 &#43;0000 UTC"></time>Monday, 22 November 2021</time>.</p>
+        
+        <p>By reading this tutorial, you&rsquo;ll learn how to use <a href="https://www.postgresql.org/">PostgreSQL</a> with the <a href="https://www.golang.org/">Go</a> programming language using the <a href="https://github.com/jackc/pgx">pgx</a> driver and toolkit in a very productive manner.
+Furthermore, with the provided source code, you&rsquo;ll be able to learn how to write efficient and sound unit and integration tests, ready to be run locally or on a Continuous Integration environment, such as GitHub Actions.
+Use the Table of Contents to skip to a specific part of this long post.
+Don&rsquo;t forget to check out the accompanying repository <a href="https://github.com/henvic/pgxtutorial">github.com/henvic/pgxtutorial</a>.</p>
+<!-- Place this tag where you want the button to render. -->
+<p><a class="github-button" href="https://github.com/henvic/pgxtutorial" data-size="large" data-show-count="true" aria-label="Star henvic/pgxtutorial on GitHub">Star</a>
+<a class="github-button" href="https://github.com/henvic/pgxtutorial/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork henvic/pgxtutorial on GitHub">Fork</a>
+<a class="github-button" href="https://github.com/sponsors/henvic" data-size="large" aria-label="Sponsor @henvic on GitHub">Sponsor</a></p>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<p><a href="https://www.golang.org/"><img src="/img/posts/go/go-logo-blue.png" alt="Go logo"></a>
+<a href="https://www.postgresql.org/"><img src="/img/posts/go-postgres/slonik_with_black_text_and_tagline.gif" alt="PostgreSQL mascot Slonik"></a></p>
+<blockquote>
+<p>Check out the <a href="https://github.com/henvic/pgxtutorial/blob/main/internal/api/api.proto">api.proto file</a> to see the gRPC API created for this tutorial.</p>
+</blockquote>
+
+<aside class="toc">
+    <dl>
+        <dt>
+            Table of Contents <label for="toc-toggle" class="toc-toggle-label">
+                show/hide
+            </label>
+        </dt>
+        <dd>
+            <input id="toc-toggle" type="checkbox" class="toc-toggle" />
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#context">Context</a></li>
+    <li><a href="#tldr">tl;dr</a></li>
+    <li><a href="#sql-is-alive-and-well">SQL is alive and well</a></li>
+    <li><a href="#choosing-postgresql">Choosing PostgreSQL</a></li>
+    <li><a href="#running-postgresql">Running PostgreSQL</a></li>
+    <li><a href="#postgresql-clients">PostgreSQL clients</a>
+      <ul>
+        <li><a href="#environment-variables-for-configuring-postgresql">Environment variables for configuring PostgreSQL</a></li>
+      </ul>
+    </li>
+    <li><a href="#choosing-a-database-driver-for-postgresql">Choosing a database driver for PostgreSQL</a>
+      <ul>
+        <li><a href="#pgx-driver-and-toolkit">pgx driver and toolkit</a></li>
+      </ul>
+    </li>
+    <li><a href="#database-migrations-and-sql-schema">Database migrations and SQL schema</a></li>
+    <li><a href="#main-package">main package</a></li>
+    <li><a href="#logging">Logging</a>
+      <ul>
+        <li><a href="#log-level">Log level</a></li>
+        <li><a href="#about-pgxpool-and-concurrency">About pgxpool and concurrency</a></li>
+      </ul>
+    </li>
+    <li><a href="#limited-safe-interface">Limited &ldquo;safe&rdquo; interface</a></li>
+    <li><a href="#database-layer">Database layer</a></li>
+    <li><a href="#implementation">Implementation</a></li>
+    <li><a href="#packages-and-tools">Packages and tools</a></li>
+    <li><a href="#testing">Testing</a>
+      <ul>
+        <li><a href="#running-tests-without-database">Running tests without database</a></li>
+        <li><a href="#running-test-with-pgtools-and-tern">Running test with pgtools and tern</a></li>
+        <li><a href="#table-driven-tests">Table-driven tests</a></li>
+        <li><a href="#real-implementation-vs-using-test-doubles">Real implementation vs. using test doubles</a></li>
+        <li><a href="#comparing-structures">Comparing structures</a></li>
+        <li><a href="#failed-idea-replay-testing">Failed idea: replay testing</a></li>
+        <li><a href="#running-tests">Running tests</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </dd>
+</aside>
+
+
+<h2 id="context">Context</h2>
+<p>PostgreSQL, also known as Postgres, is an extendible feature-rich <a href="https://arctype.com/blog/postgres-ordbms-explainer/">Object-Relational Database Management System</a> that is almost 100% <a href="https://en.wikipedia.org/wiki/SQL_compliance">SQL standards-compliant</a> and released as open source software under a permissive license.</p>
+<p>Much of the content in this tutorial is based on experience I acquired working for <a href="https://hatchstudio.co/">HATCH Studio</a>, even though I&rsquo;m just shy of ten months there.
+My first assignments involved improving some data structures we used internally and led to a team discussion about moving from a document-based database to a more traditional relational database in the face of some challenges.
+Next, we held a brainstorming session where we assembled our backend team to analyze our situation and discuss options. I already had some limited experience using PostgreSQL with pgx for a pet project and was pleased to discover that the rest of the team also saw PostgreSQL as an excellent choice for meeting our needs: great developer experience, performance, reliability, and scalability.</p>
+<p>For our search infrastructure, we started using <a href="https://aws.amazon.com/opensearch-service/">Amazon OpenSearch Service</a>.
+We listen to PostgreSQL database changes via its <a href="https://www.postgresql.org/docs/current/protocol-logical-replication.html">Logical Streaming Replication Protocol</a> and ingest data into our <a href="https://opensearch.org/">OpenSearch</a>/<a href="https://www.elastic.co/elastic-stack/">Elasticsearch</a> search engine through a lightweight connector built in-house.</p>
+<p>It works similar to hooking <a href="https://kafka.apache.org/">Apache Kafka</a>, but is easier to use and allows us to move faster without breaking things: running integration tests on a developer machine takes only seconds: much of which is an overkill <code>time.Sleep()</code> so we never waste time with flaky tests caused by the eventual consistency characteristics of the search engine.
+This solution will not be presented now but in a future opportunity.</p>
+<h2 id="tldr">tl;dr</h2>
+<p>To play with it install <a href="https://go.dev/">Go</a> on your system.
+You&rsquo;ll need to connect to a <a href="https://www.postgresql.org/">PostgreSQL</a> database.
+You can check if a connection is working by calling <code>psql</code>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Clone my repository with any of the following commands:</span>
+$ gh repo clone henvic/pgxtutorial
+$ git clone https://github.com/henvic/pgxtutorial.git
+$ git clone git@github.com:henvic/pgxtutorial.git
+<span style="color:#75715e"># then:</span>
+$ cd pgxtutorial
+<span style="color:#75715e"># Create a database</span>
+$ psql -c <span style="color:#e6db74">&#34;CREATE DATABASE pgxtutorial;&#34;</span>
+<span style="color:#75715e"># Set the environment variable PGDATABASE</span>
+$ export PGDATABASE<span style="color:#f92672">=</span>pgxtutorial
+<span style="color:#75715e"># Run migrations</span>
+$ tern migrate -m ./migrations
+<span style="color:#75715e"># Run all tests passing INTEGRATION_TESTDB explicitly</span>
+$ INTEGRATION_TESTDB<span style="color:#f92672">=</span>true go test -v ./...
+<span style="color:#75715e"># Execute application</span>
+$ go run ./cmd/pgxtutorial
+2021/11/22 07:21:21 HTTP server listening at localhost:8080
+2021/11/22 07:21:21 gRPC server listening at 127.0.0.1:8082
+</code></pre></td></tr></table>
+</div>
+</div><p>Then, use <a href="https://github.com/ktr0731/evans">Evans</a> to explore its gRPC endpoints by running the following command:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ evans repl --host localhost --port <span style="color:#ae81ff">8082</span> -r
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-1bVgY061isn2EHtk2wYwNXJtg" src="https://asciinema.org/a/1bVgY061isn2EHtk2wYwNXJtg.js" async></script>
+<script type="text/javascript">
+amzn_assoc_tracking_id = "henvic-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "B0859PF5HB";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "14f3adb449e0071a86e28d28a1a33996";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<h2 id="sql-is-alive-and-well">SQL is alive and well</h2>
+<p>What if there is a powerful domain-specific structured query language designed to manage data out there?
+It turns out there is one created almost half a century ago, in 1974: <a href="https://en.wikipedia.org/wiki/SQL">SQL</a>, created by Donald D. Chamberlin and Raymond F. Boyce.</p>
+<p>Considering trade-offs, for a typical project, I prefer being able to define sound data structures up-front and having a low cost of maintenance over time, rather than a reduced cost of prototyping promised by &ldquo;no-SQL&rdquo; databases.</p>
+<h2 id="choosing-postgresql">Choosing PostgreSQL</h2>
+<p>Some technical benefits from using PostgreSQL include:</p>
+<ul>
+<li>You can use <a href="https://www.postgresql.org/docs/current/tutorial-inheritance.html">inheritance between tables</a>.</li>
+<li>You can use <a href="https://www.postgresql.org/docs/current/datatype-json.html">JSON types</a> when your requirements are fluid.</li>
+<li><a href="https://www.postgresql.org/docs/current/sql-createtype.html">Custom data types</a> such as enum (to enumerate or restrict values for a given column) and composite (list of attribute names and data types, essentially the same as the row type of a table).</li>
+</ul>
+<p><strong>Why not MySQL?</strong>
+MySQL is <a href="https://developer.okta.com/blog/2019/07/19/mysql-vs-postgres">merely relational</a> and plagued by Oracle&rsquo;s controversial control over it.
+In comparison, PostgreSQL is truly community-driven (see <a href="https://www.postgresql.org/developer/">The PostgreSQL Global Development Group</a>).</p>
+<p><strong>Why not SQLite?</strong>
+<a href="https://sqlite.org/">SQLite</a> is the <a href="https://sqlite.org/mostdeployed.html">most used</a> database engine in the world: from smartphones to jet engines.
+It also excels in <a href="https://www.sqlite.org/speed.html">performance</a>, and it has <a href="https://sqlite.org/testing.html">aviation-grade quality and testing</a>.
+However, it is not a client/server SQL database, and it is trying to solve <a href="https://www.sqlite.org/whentouse.html">a different problem</a>.</p>
+<h2 id="running-postgresql">Running PostgreSQL</h2>
+<p>If you haven&rsquo;t used PostgreSQL yet, you can start by <a href="https://www.postgresql.org/download/">downloading it</a> and reading its official <a href="https://www.postgresql.org/docs/current/">documentation</a> and <a href="https://wiki.postgresql.org/">wiki</a>.</p>
+<p>There are several ways to run it (including Docker).
+For your development machine, just do whatever is more convenient for you.
+For deployments, you might want to take a look at the following:</p>
+<ul>
+<li><a href="https://www.postgresql.org/docs/current/admin.html">Server Administration (PostgreSQL documentation)</a></li>
+<li><a href="https://www.enterprisedb.com/">EnterpriseDB</a></li>
+<li><a href="https://cloud.google.com/sql/docs/postgres/quickstart">Quickstart for Google Cloud SQL for PostgreSQL</a></li>
+<li><a href="https://aws.amazon.com/rds/postgresql/">Amazon RDS for PostgreSQL</a></li>
+<li><a href="https://azure.microsoft.com/en-us/services/postgresql/">Azure Database for PostgreSQL</a></li>
+</ul>
+<h2 id="postgresql-clients">PostgreSQL clients</h2>
+<p>To connect to PostgreSQL, you can use the official terminal-based front-end <a href="https://www.postgresql.org/docs/current/app-psql.html">psql</a> or something else.</p>
+<ul>
+<li><a href="(https://www.pgcli.com/)">pgcli</a> is a CLI or <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a> similar to psql, but has auto-completion, syntax highlighting and displays the docstring of functions as you type.</li>
+<li><a href="https://eggerapps.at/postico/">Postico</a> is a macOS GUI for PostgreSQL</li>
+<li><a href="https://www.pgadmin.org/">pgAdmin</a> is a feature-rich open source web-based client for PostgreSQL</li>
+<li><a href="https://www.navicat.com/en/products/navicat-for-postgresql">Navicat for PostgreSQL</a></li>
+</ul>
+<p>The following <a href="https://asciinema.org/a/429446">terminal screen recording</a> shows me using pgcli on a half-baked personal project.</p>
+<script id="asciicast-429446" src="https://asciinema.org/a/429446.js" data-autoplay="true" data-loop="true" async></script>
+<h3 id="environment-variables-for-configuring-postgresql">Environment variables for configuring PostgreSQL</h3>
+<p>The common and straightforward way to configure your PostgreSQL clients, tools, and applications is <a href="https://www.postgresql.org/docs/current/libpq-envars.html">to use environment variables</a>.
+Alternatively, you can use <a href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING">connection strings</a> on your application for most everything but a few options.</p>
+<p>Example of environment variables-based configuration accepted by most tools that use a PostgreSQL database:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">export PGHOST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;localhost&#34;</span>
+export PGPORT<span style="color:#f92672">=</span><span style="color:#ae81ff">5432</span>
+export PGUSER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span>
+export PGPASSWORD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;your-secret-password&#34;</span>
+export PGDATABASE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;test_whatever&#34;</span>
+
+<span style="color:#75715e"># Set a timeout for acquiring a connection to the database:</span>
+export PGCONNECT_TIMEOUT<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The <code>PGCONNECT_TIMEOUT</code> (or <a href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-CONNECT-TIMEOUT">connect_timeout</a> parameter) is the maximum time (in seconds) to wait for establishing a connection per host or IP address.</p>
+<p>Generally speaking, please be advised that it&rsquo;s important to set it to free resources and avoid resource starvation when things are not working correctly.
+For example, if you expect a request that requires a database connection to be fulfilled in 100ms on the worst case, but it already took, say, 3s because the application server cannot establish a connection to the database, it&rsquo;s probably already time to return an error, and let the consumer of the API decide what to do next, instead of holding the connection and taking forever to respond.</p>
+<p>If you&rsquo;ve read my article <a href="/posts/env/">Environment variables, config, secrets, and globals</a> you might be wondering why I&rsquo;m recommending environment variables here, given that I&rsquo;m not a big fan of them.
+In short, I don&rsquo;t think it&rsquo;s worth fighting it in this case, especially with the convenience of using the very same configuration on your application and tooling, meaning you don&rsquo;t need to configure your PostgreSQL connection settings in multiple places.</p>
+<h4 id="direnv">direnv</h4>
+<p>To make things more manageable, you might want to use <a href="https://direnv.net/">direnv</a> to load and unload environment variables depending on what current directory you&rsquo;re working on at the moment.
+For doing that:</p>
+<ol>
+<li><code>cd</code> into a directory where you want the context to be a specific database connection.</li>
+<li>Create a file called .envrc with your list of environment variables (and <a href="https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files">add it to your global .gitginore</a>?)</li>
+<li>Run the command <code>direnv allow</code> to load environment variables on your .envrc file.</li>
+<li>Run the command <code>direnv reload</code> to apply changes whenever you update your .envrc file.</li>
+</ol>
+<h2 id="choosing-a-database-driver-for-postgresql">Choosing a database driver for PostgreSQL</h2>
+<p>To connect to a Postgres database in Go, you&rsquo;ll need to use a third-party library as the standard library package doesn&rsquo;t provide official drivers for any databases.</p>
+<p>However, the standard library provides interfaces for building or using database drivers (this has a good set of <a href="https://golang.org/src/database/sql/doc.txt">goals</a>).</p>
+<ul>
+<li>Package <code>database/sql</code> defines a generic interface around SQL (or SQL-like) databases.</li>
+<li>Package <code>database/sql/driver</code> defines interfaces to be implemented by <strong>database drivers</strong> to be accessed via package sql, respectively.</li>
+</ul>
+<p>Now, the best <a href="https://golang.org/s/sqldrivers">SQL driver for Go</a> is <a href="https://github.com/jackc/pgx">github.com/jackc/pgx</a>.
+Another good PostgreSQL driver is <a href="https://github.com/lib/pq">github.com/lib/pq</a>, which is now effectively in maintenance mode.</p>
+<h3 id="pgx-driver-and-toolkit">pgx driver and toolkit</h3>
+<p>pgx provides two communication interfaces for connecting to a PostgreSQL database:</p>
+<ul>
+<li>pgx native interface to PostgreSQL</li>
+<li>Go&rsquo;s <code>database/sql</code> interface</li>
+</ul>
+<p>There are some advantages of using this native interface instead of <code>database/sql</code>, as you can verify in its <a href="https://github.com/jackc/pgx/blob/master/README.md">README</a>.
+The most interesting ones probably are:</p>
+<ul>
+<li>Faster binary format instead of a textual representation at the protocol level for datatypes different than <code>int64, float64, bool, []byte, string, time.Time, or nil</code>.</li>
+<li>JSON and BJSON support.</li>
+<li>Conversion of PostgreSQL arrays to Go slice mappings for integers, floats, and strings.</li>
+</ul>
+<script type="text/javascript">
+amzn_assoc_tracking_id = "henvic-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "B0184N7WWS";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "10528842874d7a1789b89f3c8652d0ea";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<h2 id="database-migrations-and-sql-schema">Database migrations and SQL schema</h2>
+<p><a href="https://github.com/jackc/tern">tern</a> is a standalone migration tool for PostgreSQL that is part of the pgx toolkit.
+You can use it to write sequential migration (even for your tests, as we&rsquo;ll see later).</p>
+<p>To start using migrations, you can do something like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ mkdir migrations
+$ cd migrations
+$ tern new &lt;name&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>Running <code>tern new product</code> will generate a file named <code>001_initial_schema.sql</code> with the following:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- Write your migrate up statements here
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">---- create above / drop below ----
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">-- Write your migrate down statements here. If this migration is irreversible
+</span><span style="color:#75715e">-- Then delete the separator line above.
+</span></code></pre></td></tr></table>
+</div>
+</div><p>You can then replace this with a simple schema like the following for your first migration:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- product table
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> product (
+	id text <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> <span style="color:#66d9ef">CHECK</span> (ID <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+	name text <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">CHECK</span> (NAME <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>),
+	description text <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+	price int <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">CHECK</span> (price <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>),
+	created_at <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">with</span> time <span style="color:#66d9ef">zone</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> now(),
+	modified_at <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">with</span> time <span style="color:#66d9ef">zone</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> <span style="color:#66d9ef">DEFAULT</span> now()
+	<span style="color:#75715e">-- If you want to use a soft delete strategy, you&#39;ll need something like:
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">-- deleted_at timestamp with time zone DEFAULT now()
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">-- or better: a product_history table to keep track of each change here.
+</span><span style="color:#75715e"></span>);
+
+<span style="color:#66d9ef">COMMENT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">COLUMN</span> product.id <span style="color:#66d9ef">IS</span> <span style="color:#e6db74">&#39;assume id is the barcode&#39;</span>;
+<span style="color:#66d9ef">COMMENT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">COLUMN</span> product.price <span style="color:#66d9ef">IS</span> <span style="color:#e6db74">&#39;price in the smaller subdivision possible (such as cents)&#39;</span>;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">INDEX</span> product_name <span style="color:#66d9ef">ON</span> product(name text_pattern_ops);
+
+<span style="color:#75715e">---- create above / drop below ----
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> product;
+</code></pre></td></tr></table>
+</div>
+</div><p>The <strong>exact</strong> line <code>---- create above / drop below ----</code> should be present to indicate what part of the SQL code should be executed on a migration up and on a migration down.</p>
+<p>The following commands might be useful:</p>
+<ul>
+<li><code>tern new</code> to create a migration file prefixed by the next available sequence number (i.e., <code>015_add_user_account_type.sql</code>)</li>
+<li><code>tern migrate</code> to apply your migrations on your database.</li>
+<li><code>tern migrate -d -1</code> to go back one migration.</li>
+<li><code>tern migrate -h</code> for help.</li>
+</ul>
+<p><a href="https://github.com/jackc/tern">tern</a> keeps track of your migration version by creating and maintaining a <code>schema_version</code> table on your database.</p>
+<blockquote>
+<p>Tip: Be extra careful doing data migrations! It can be destructive!</p>
+</blockquote>
+<script id="asciicast-Diy7Nutmq3TWCCFdNFozbY9tl" src="https://asciinema.org/a/Diy7Nutmq3TWCCFdNFozbY9tl.js" async></script>
+<h2 id="main-package">main package</h2>
+<p>Let&rsquo;s see how we can connect to PostgreSQL using pgx from a program written in <a href="https://golang.org/">Go</a>.</p>
+<p>First, to use pgx in a concurrency-safe and reliable manner, we must use a connection pool.
+We can do this by using <a href="https://pkg.go.dev/github.com/jackc/pgx/v4/pgxpool">pgx/pgxpool</a> to manage a number of low-level pgconn database driver connections in a pool.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// NewPGXPool is a PostgreSQL connection pool for pgx.
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// Usage:
+</span><span style="color:#75715e">// pgPool := database.NewPGXPool(context.Background(), &#34;&#34;, &amp;PGXStdLogger{}, pgx.LogLevelInfo)
+</span><span style="color:#75715e">// defer pgPool.Close() // Close any remaining connections before shutting down your application.
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// Instead of passing a configuration explictly with a connString,
+</span><span style="color:#75715e">// you might use PG environment variables such as the following to configure the database:
+</span><span style="color:#75715e">// PGDATABASE, PGHOST, PGPORT, PGUSER, PGPASSWORD, PGCONNECT_TIMEOUT, etc.
+</span><span style="color:#75715e">// Reference: https://www.postgresql.org/docs/current/libpq-envars.html
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">connString</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">logger</span> <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">Logger</span>, <span style="color:#a6e22e">logLevel</span> <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevel</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#a6e22e">conf</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">ParseConfig</span>(<span style="color:#a6e22e">connString</span>) <span style="color:#75715e">// Using environment variables instead of a connection string.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
+	}
+
+	<span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">ConnConfig</span>.<span style="color:#a6e22e">Logger</span> = <span style="color:#a6e22e">logger</span>
+
+	<span style="color:#75715e">// Set the log level for pgx, if set.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">logLevel</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+		<span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">ConnConfig</span>.<span style="color:#a6e22e">LogLevel</span> = <span style="color:#a6e22e">logLevel</span>
+	}
+
+	<span style="color:#75715e">// pgx, by default, does some I/O operation on initialization of a pool to check if the database is reachable.
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Comment the following line if you don&#39;t want pgx to try to connect pool once the Connect function is called,
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// If comment it, and your application seems stuck, you probably forgot to set up PGCONNECT_TIMEOUT,
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// and your code is hanging waiting for a connection to be established.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">LazyConnect</span> = <span style="color:#66d9ef">true</span>
+
+	<span style="color:#75715e">// pgxpool default max number of connections is the number of CPUs on your machine returned by runtime.NumCPU().
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// This number is very conservative, and you might be able to improve performance for highly concurrent applications
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// by increasing it.
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// conf.MaxConns = runtime.NumCPU() * 5
+</span><span style="color:#75715e"></span>
+	<span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">ConnectConfig</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">conf</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;pgx connection error: %w&#34;</span>, <span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pool</span>, <span style="color:#66d9ef">nil</span>
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>We&rsquo;re passing an empty connString to <a href="https://pkg.go.dev/github.com/jackc/pgx/v4/pgxpool#ParseConfig">pgxpool.ParseConfig</a> as we&rsquo;re using environment variables for configuration.
+The pgx package will read the environment variables directly.
+An equivalent <a href="https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING">connection string</a> would be something along the lines of:</p>
+<pre tabindex="0"><code>host=localhost port=5432 dbname=mydb connect_timeout=5
+</code></pre><h2 id="logging">Logging</h2>
+<p>In the preceding example, I passed a <a href="https://pkg.go.dev/github.com/jackc/pgx#Logger">pgx.Logger</a> as the second parameter to the newPostgres function.
+The pgx driver supports a few loggers <a href="https://github.com/jackc/pgx/tree/master/log">out of the box</a>.</p>
+<p>If you use <a href="https://sirupsen.com/">@sirupsen</a>&rsquo;s <a href="https://github.com/sirupsen/logrus">logrus</a> or Uber&rsquo;s <a href="https://github.com/uber-go/zap">zap</a>:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// For github.com/jackc/pgx/v4/log/zapadapter:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">zapadapter</span>.<span style="color:#a6e22e">NewLogger</span>(<span style="color:#a6e22e">logger</span>), <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
+<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Close</span>()
+
+<span style="color:#75715e">// For github.com/jackc/pgx/v4/log/logrusadapter:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">logrusadapter</span>.<span style="color:#a6e22e">NewLogger</span>(<span style="color:#a6e22e">logger</span>), <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
+<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Close</span>()
+</code></pre></td></tr></table>
+</div>
+</div><p>If you use a logger that isn&rsquo;t supported out of the box, you must implement the <a href="https://pkg.go.dev/github.com/jackc/pgx#Logger">pgx.Logger interface</a>.</p>
+<p>For example, for the sake of keeping this exercise simple, I&rsquo;m going to create a log for Go package &ldquo;log&rdquo;.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// PGXStdLogger prints pgx logs to the standard logger.
+</span><span style="color:#75715e">// os.Stderr by default.
+</span><span style="color:#75715e">//
+</span><span style="color:#75715e">// This satisfies the following pgx.Logger interface:
+</span><span style="color:#75715e">// type Logger interface {
+</span><span style="color:#75715e">// 	// Log a message at the given level with data key/value pairs. data may be nil.
+</span><span style="color:#75715e">// 	Log(level pgx.LogLevel, msg string, data map[string]interface{})
+</span><span style="color:#75715e">// }
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PGXStdLogger</span> <span style="color:#66d9ef">struct</span> {}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">l</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">PGXStdLogger</span>) <span style="color:#a6e22e">Log</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">level</span> <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevel</span>, <span style="color:#a6e22e">msg</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">data</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) {
+	<span style="color:#a6e22e">args</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">interface</span>{}, <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">data</span>)<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e">// making space for arguments + level + msg
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">args</span> = append(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">level</span>, <span style="color:#a6e22e">msg</span>)
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">data</span> {
+		<span style="color:#a6e22e">args</span> = append(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s=%v&#34;</span>, <span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span>))
+	}
+	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">args</span><span style="color:#f92672">...</span>)
+}
+
+<span style="color:#75715e">// For this logger:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">PGXStdLogger</span>{}, <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
+<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Close</span>()
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="log-level">Log level</h3>
+<p>The following <a href="https://pkg.go.dev/github.com/jackc/pgx#LogLevel">pgx log levels</a> are supported: <code>trace, debug, info, warn, error, and none</code>.</p>
+<p>For development, the default <code>info</code> level provides a significant level of introspection into what is going on, but its verbosity is overwhelming for a deployment, and you certainly want to tune it down to <code>pgx.LogLevelWarn</code> on your production deployment.</p>
+<h3 id="about-pgxpool-and-concurrency">About pgxpool and concurrency</h3>
+<p>In Go, you&rsquo;ve to manage concurrent access to resources yourself when you create goroutines.</p>
+<p><a href="https://pkg.go.dev/github.com/jackc/pgx/v4/pgxpool">pgxpool</a> manages a pool of connections to your Postgres database, which you can safely use concurrently from multiple Goroutines, without having to worry about the thread-safety aspects with regards to individual database connections.
+<em>pgxpool</em> works by managing a dynamic number of individual TCP connections to the database and controlling access, ensuring each goroutine acquiring the database connection accesses them safely (without data races).</p>
+<blockquote>
+<p>Remember that each request handled by net/http is handled by its own goroutine.</p>
+</blockquote>
+<p>By reusing open connections, you also avoid the expensive round-trip costs of establishing a new TCP connection and (perhaps) performing a TLS handshake for each connection to the database.
+<em>pgxpool&rsquo;s</em> default max number of connections is the number of CPUs on your machine.
+This setting is very conservative, and you might be able to gain performance for highly concurrent applications by increasing <a href="https://pkg.go.dev/github.com/jackc/pgx/v4/pgxpool#Config">*pgxpool.Config.MaxConns</a>.</p>
+<p>Running benchmark tests or stress tests might help you find the sweet spot for your application.
+That said, avoid the urge to do premature optimization: the default setting is perfect for most applications and use cases.</p>
+<h2 id="limited-safe-interface">Limited &ldquo;safe&rdquo; interface</h2>
+<p>I&rsquo;ve found it mildly reassuring to create a limited <a href="https://github.com/henvic/pgxtutorial/blob/4bffea842db23624e2c1faca52d4cdde95a2b440/internal/database/interface.go">Postgres interface</a> with only a subset of whitelisted methods safe to be used on the business logic of my application instead of passing <code>pgxpool.Pool</code> everywhere.
+By doing so, we reduce the risk of introducing a low-level pgx API method call (such as to <code>pool.Close()</code>) without some explicit effort.</p>
+<ul>
+<li>This might live in an <a href="https://golang.org/doc/go1.4#internalpackages">internal package</a>, and you can probably use it most everywhere.</li>
+<li><code>LISTEN / NOTIFY</code> doesn&rsquo;t work with it (see <a href="https://github.com/jackc/pgx/tree/master/examples/chat">chat example</a>).</li>
+</ul>
+<p>If you decide to use this interface, you can bypass it (helpful when debugging or testing) with the following code:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Assuming db is your postgres.PGXInterface
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span>); <span style="color:#a6e22e">ok</span> {
+	<span style="color:#75715e">// Variable pool is a *pgxpool.Pool
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// So you can do whatever you need to do bypassing the interface now.
+</span><span style="color:#75715e"></span>	
+	<span style="color:#75715e">// Print stats from the connection pool.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Stat</span>())
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="database-layer">Database layer</h2>
+<p>Now, you might want to create an interface responsible for bridging the communication of your business logic with the database.
+People call it multiple names (<abbr title="Data access object">DAO</abbr>, <abbr title="Data access layer">DAL</abbr>, repository, database, data source, etc.), and those who love to recite design patterns as poetry might say they&rsquo;re all different stuff.
+I don&rsquo;t care about the naming or exact definition of such patterns.
+For me, the end goal is to create a sane layer for the separation of concerns of your application and database.
+In Go, the idiomatic thing to do is to <a href="https://golang.org/doc/effective_go#interfaces_and_types">define interfaces where they&rsquo;re used</a>, so let&rsquo;s start by that.</p>
+<blockquote>
+<p>Now is an excellent time to remind you that creating thousands of packages is awful! Keep things simple.</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// DB layer.
+</span><span style="color:#75715e">//go:generate mockgen --build_flags=--mod=mod -package inventory -destination mock_db_test.go . DB
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DB</span> <span style="color:#66d9ef">interface</span> {
+	<span style="color:#75715e">// CreateProduct creates a new product.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">CreateProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateProductParams</span>) <span style="color:#66d9ef">error</span>
+
+	<span style="color:#75715e">// UpdateProduct updates an existing product.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">UpdateProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateProductParams</span>) <span style="color:#66d9ef">error</span>
+
+	<span style="color:#75715e">// GetProduct returns a product.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>, <span style="color:#66d9ef">error</span>)
+
+	<span style="color:#75715e">// SearchProducts returns a list of products.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">SearchProducts</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">SearchProductsParams</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">SearchProductsResponse</span>, <span style="color:#66d9ef">error</span>)
+
+	<span style="color:#75715e">// DeleteProduct deletes a product.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">DeleteProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
+
+	<span style="color:#75715e">// CreateProductReview for a given product.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">CreateProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateProductReviewDBParams</span>) <span style="color:#66d9ef">error</span>
+
+	<span style="color:#75715e">// UpdateProductReview for a given product.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">UpdateProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateProductReviewParams</span>) <span style="color:#66d9ef">error</span>
+
+	<span style="color:#75715e">// GetProductReview gets a specific review.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">ProductReview</span>, <span style="color:#66d9ef">error</span>)
+
+	<span style="color:#75715e">// GetProductReviews gets reviews for a given product or from a given user.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProductReviews</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">ProductReviewsParams</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">ProductReviewsResponse</span>, <span style="color:#66d9ef">error</span>)
+
+	<span style="color:#75715e">// DeleteProductReview deletes a review.
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">DeleteProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>See the finalized implementation here: <a href="https://github.com/henvic/pgxtutorial/blob/4bffea842db23624e2c1faca52d4cdde95a2b440/internal/postgres/postgres.go">internal/postgres/postgres.go</a>.</p>
+<p>While you can just call the database directly from your business logic, having this in a separate layer:</p>
+<ul>
+<li>Is going to be easier to maintain.</li>
+<li>Simplifies testing, whether you&rsquo;re going to be using mocks or a real implementation.</li>
+</ul>
+<p>The preceding <a href="https://blog.golang.org/generate">go:generate</a> comment uses mockgen to generate mocks for you can use to test code importing this interface.</p>
+<p>For now, let&rsquo;s create a package named <code>postgres</code> containing an implementation of this interface.</p>
+<ul>
+<li>Alternatively, a postgres.go file on your business logic package is good enough for a small application.</li>
+<li>Having a strict separation in terms of interfaces and data structures has some value here.</li>
+<li>However, breaking down your application into too many packages might hurt readability.</li>
+</ul>
+<p>Anyhow, be advised that <a href="https://en.wikipedia.org/wiki/Data_access_object#Disadvantages">there are disadvantages</a> to doing this separation too:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Leaky_abstraction">Leaky abstractions</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Abstraction_inversion">Abstraction inversion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Duplicate_code">Code duplication</a></li>
+</ul>
+<p>One way to reduce the burden of leaky abstractions is to ensure our <abbr title="Data Access Object">DAO</abbr> imports our business logic types, and not the other way around* – keeping the footprint of where our postgres package is imported to a minimum: hopefully, only the main package.
+<em>One good thing is that Go doesn&rsquo;t allow import cycles.</em></p>
+<p>Two leaky abstractions to watch out for are:</p>
+<ol>
+<li>pgx returns the <code>pgx.ErrNoRows</code> error when rows are expected but none are returned.
+I&rsquo;ve found it practical to consume this error on the database layer and return a <code>nil</code> reference pointer (or empty slice) to represent this situation.
+Alternatively, you can replace the error with one defined on your service layer.</li>
+<li>Reading <a href="https://pkg.go.dev/github.com/jackc/pgx#Rows">Rows</a> one-by-one calling <code>rows.Next()</code> is a memory-efficient way to do things if you&rsquo;re doing an operation that&rsquo;ll require you to read a large number of rows. You&rsquo;ve two options here: accept the leaky abstraction and deal directly with <code>pgx</code> from your service layer or do &ldquo;<em>the right thing</em>&rdquo;, and have abstraction inversion and code duplication to solve this in a more limited manner.
+Either way, you&rsquo;ll have to remember to <code>defer rows.Close()</code> to free resources.</li>
+</ol>
+<h2 id="implementation">Implementation</h2>
+<p>I typically start by satisfying the interface I want to imeplement by just creating a DB struct with the methods I defined in the interface.
+Next, I call panic from them.
+This way I can start the implementation already starting fast integration tests right away.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// DB handles database communication with PostgreSQL.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DB</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Postgres</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span> <span style="color:#75715e">// Alternatively, a postgres.PGXInterface.
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#75715e">// CreateReview for a given product.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">CreateReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewParams</span>) <span style="color:#66d9ef">error</span> {
+	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
+}
+
+<span style="color:#75715e">// UpdateReview for a given product.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">UpdateReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateReviewParams</span>) <span style="color:#66d9ef">error</span> {
+	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
+}
+
+<span style="color:#75715e">// GetReview gets a specific review.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">GetReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Review</span>, <span style="color:#66d9ef">error</span>) {
+	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
+}
+
+<span style="color:#75715e">// GetReviews gets reviews for a given product or from a given user.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">GetReviews</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">GetReviewsParams</span>) ([]<span style="color:#f92672">*</span><span style="color:#a6e22e">Review</span>, <span style="color:#66d9ef">error</span>) {
+	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
+}
+
+<span style="color:#75715e">// DeleteReview from the database.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">DeleteReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span> {
+	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
+}
+
+<span style="color:#75715e">// CreateReviewFeedback with a score for a review.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">CreateReviewFeedback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewFeedbackParams</span>) <span style="color:#66d9ef">error</span> {
+	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
+}
+
+<span style="color:#75715e">// DeleteReviewFeedback removes a review feedback.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">DeleteReviewFeedback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewFeedbackParams</span>) <span style="color:#66d9ef">error</span> {
+	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
+}
+</code></pre></td></tr></table>
+</div>
+</div><div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
+<h2 id="packages-and-tools">Packages and tools</h2>
+<ul>
+<li><a href="https://github.com/jackc/pgx">pgx</a> is the SQL driver.</li>
+<li><a href="https://github.com/jackc/tern">tern</a> is a migration tool that is part of the pgx toolkit.</li>
+<li><a href="https://github.com/georgysavva/scany">scany</a> is a package for scanning from a database into Go structs and more.</li>
+<li><a href="https://github.com/hatch-studio/pgtools">pgtools</a> is a library containing code for testing infrastructure and more.</li>
+<li><a href="https://github.com/google/go-cmp">go-cmp</a> is a package for comparing Go values in tests.</li>
+<li><a href="https://github.com/golang/mock">GoMock</a> is a mocking framework for the Go programming language.</li>
+</ul>
+<p>I&rsquo;ve had a bad experience with ORM in the recent past, and I generally recommend against introducing this sort of abstraction to code.
+I prefer much more something much closer to using pgx with scany and <code>pgtools.Wildcard()</code> than to a full-featured ORM.
+I don’t have a strong opinion regarding query builders, but I see them more as a liability on the supply chain.</p>
+<p>Inspiration-wise, the pkg.go.dev website is powered by <a href="https://github.com/golang/pkgsite">pkgsite</a>, which uses PostgreSQL as a database.
+Nowadays, I regularly check out their repository to learn more and see what they use.</p>
+<h2 id="testing">Testing</h2>
+<p>Opt-in for tests that require a database connection by means of:</p>
+<ul>
+<li>test flags (<code>-integration</code>, which works on local directory mode, and not with list mode)</li>
+<li>test build flags (<code>-tags=integration</code>)</li>
+<li>environment variables</li>
+</ul>
+<p>At work, we decided to use test build flags. Example: <code>go test -tags=integration.</code>
+I prefer environment variables instead, as I&rsquo;m not too fond of the hassle introduced by build tags on tooling, such as text editor or <a href="https://pkg.go.dev/golang.org/x/tools/gopls">gopls</a>, which might stop processing them <a href="https://github.com/golang/go/issues/29202">as intended</a>.</p>
+<h3 id="running-tests-without-database">Running tests without database</h3>
+<p>You want your tests to pass even when running without a database for the sake of keeping your developer experience smooth.
+For example, in the pgxtutorial repository, I resorted to skipping all tests of an entire package at once for some packages if the <code>INTEGRATION_TESTDB</code> environment variable is not set.
+<a href="https://github.com/henvic/pgxtutorial/blob/4bffea842db23624e2c1faca52d4cdde95a2b440/internal/inventory/inventory_test.go#L20-L26">I did this</a> thinking about maintainability: it was way easier and safer than to keep tests that didn’t rely on a database passing.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestMain</span>(<span style="color:#a6e22e">m</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">M</span>) {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;INTEGRATION_TESTDB&#34;</span>) <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;true&#34;</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Skipping tests that require database connection&#34;</span>)
+		<span style="color:#66d9ef">return</span>
+	}
+	<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Exit</span>(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">Run</span>())
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>When this general approach is not welcome, we can skip an individual test directly:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Getenv</span>(<span style="color:#e6db74">&#34;INTEGRATION_TESTDB&#34;</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;true&#34;</span> {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Skip</span>(<span style="color:#e6db74">&#34;skipping test that require database connection&#34;</span>)
+}
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="running-test-with-pgtools-and-tern">Running test with pgtools and tern</h3>
+<p>The following code shows how we can use pgtools/sqltest to run integration tests against a real database:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">force</span> = <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#e6db74">&#34;force&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;Force cleaning the database before starting&#34;</span>)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestCreateProduct</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Parallel</span>()
+	<span style="color:#a6e22e">migration</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sqltest</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">sqltest</span>.<span style="color:#a6e22e">Options</span>{
+		<span style="color:#a6e22e">Force</span>: <span style="color:#f92672">*</span><span style="color:#a6e22e">force</span>,
+		<span style="color:#a6e22e">Path</span>:  <span style="color:#e6db74">&#34;../../migrations&#34;</span>,
+	})
+	<span style="color:#a6e22e">pool</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">migration</span>.<span style="color:#a6e22e">Setup</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#e6db74">&#34;&#34;</span>)
+
+	<span style="color:#a6e22e">db</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">DB</span>{
+		<span style="color:#a6e22e">Postgres</span>: <span style="color:#a6e22e">pool</span>,
+	}
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+</code></pre></td></tr></table>
+</div>
+</div><p>Check the pgtools/sqltest documentation to learn about all existing options.
+By default, a database is temporarily created for the test function that called <code>migration.Setup()</code>.
+Using pgtools/sqltest, you can feel safe knowing that the created database is prefixed with &ldquo;test&rdquo; to ensure it doesn&rsquo;t clash with existing databases.
+If you&rsquo;re running tests on multiple packages, set a unique value for the <code>TemporaryDatabasePrefix</code> field.</p>
+<h3 id="table-driven-tests">Table-driven tests</h3>
+<p>I often use table-driven tests when writing integration tests, and I usually find it easier to call migration.Setup() in the parent test and pass it ahead.
+However, you must be aware that this might introduce a problem of reliability: a test that depended on another might fail when running isolated with <code>go test -run=Foo/bar</code>.
+Finding the right balance is essential here, as we want to identify problematic behaviors that might not be perceived if we were to have fully isolated tests.</p>
+<h3 id="real-implementation-vs-using-test-doubles">Real implementation vs. using test doubles</h3>
+<p>Taking a look at the <code>internal/inventory/inventory</code> package tests you&rsquo;ll notice it mostly uses a real implementation for its tests.
+It contains only a thin layer of test doubles using <a href="https://github.com/golang/mock">GoMock</a> to verify if parameters are being passed correctly or to simulate database errors.</p>
+<p>We generated the mock in the repository by calling the following command:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ mockgen --build_flags<span style="color:#f92672">=</span>--mod<span style="color:#f92672">=</span>mod -package inventory -destination mock_db_test.go . DB
+</code></pre></td></tr></table>
+</div>
+</div><p>You can add the following directive on your code to do the same when running <code>go generate</code>:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">//go:generate mockgen --build_flags=--mod=mod -package inventory -destination mock_db_test.go . DB
+</span></code></pre></td></tr></table>
+</div>
+</div><p>The code for your test cases relying on a mock is a little bit awkward to get used to but are powerful and easy to use once you understand how they work. Example:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#a6e22e">ctrl</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gomock</span>.<span style="color:#a6e22e">NewController</span>(<span style="color:#a6e22e">t</span>)
+<span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">inventory</span>.<span style="color:#a6e22e">NewMockDB</span>(<span style="color:#a6e22e">ctrl</span>)
+<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">EXPECT</span>().<span style="color:#a6e22e">CreateProduct</span>(<span style="color:#a6e22e">gomock</span>.<span style="color:#a6e22e">Not</span>(<span style="color:#a6e22e">gomock</span>.<span style="color:#a6e22e">Nil</span>()),
+	<span style="color:#a6e22e">inventory</span>.<span style="color:#a6e22e">CreateProductParams</span>{
+		<span style="color:#a6e22e">ID</span>:          <span style="color:#e6db74">&#34;simple&#34;</span>,
+		<span style="color:#a6e22e">Name</span>:        <span style="color:#e6db74">&#34;product name&#34;</span>,
+		<span style="color:#a6e22e">Description</span>: <span style="color:#e6db74">&#34;product description&#34;</span>,
+		<span style="color:#a6e22e">Price</span>:       <span style="color:#ae81ff">150</span>,
+	}).<span style="color:#a6e22e">Return</span>(<span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;unexpected error&#34;</span>))
+<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">m</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>For a full example, see <a href="https://github.com/henvic/pgxtutorial/blob/4bffea842db23624e2c1faca52d4cdde95a2b440/internal/inventory/inventory_test.go#L123-L147">TestServiceCreateProduct/database_error</a>.</p>
+<h3 id="comparing-structures">Comparing structures</h3>
+<p>You can use the package <a href="https://github.com/google/go-cmp">go-cmp</a> to compare different structs easily.</p>
+<p>In some circumstances (<a href="https://github.com/henvic/pgxtutorial/blob/4bffea842db23624e2c1faca52d4cdde95a2b440/internal/inventory/inventory_test.go#L425-L434">test example</a>), we&rsquo;ve set the fields CreatedAt and ModifiedAt for some values returned from the database.
+In others, we decided to ignore it.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Ignoring field generated automatically:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">IgnoreFields</span>(<span style="color:#a6e22e">inventory</span>.<span style="color:#a6e22e">ProductReview</span>{}, <span style="color:#e6db74">&#34;ID&#34;</span>)) {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;value returned by Service.GetProductReview() doesn&#39;t match: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>))
+}
+
+<span style="color:#75715e">// Several ways to check for equality treating time values as special:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">EquateApproxTime</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Minute</span>)) {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;value returned by Service.GetProduct() doesn&#39;t match: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>))
+}
+
+<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">IgnoreFields</span>(<span style="color:#a6e22e">inventory</span>.<span style="color:#a6e22e">Product</span>{}, <span style="color:#e6db74">&#34;CreatedAt&#34;</span>, <span style="color:#e6db74">&#34;ModifiedAt&#34;</span>)) {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;value returned by DB.GetProduct() doesn&#39;t match: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>))
+}
+
+<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">EquateApproxTime</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Minute</span>)) {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;value returned by Service.GetProduct() doesn&#39;t match: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>))
+}
+
+<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">EquateApproxTime</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Minute</span>)) {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;value returned by Service.SearchProducts() doesn&#39;t match: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>))
+}
+
+<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">IgnoreTypes</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>{})) {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;value returned by DB.GetProductReviews() doesn&#39;t match: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>))
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>Alternatively, you can evaluate the returned values and then copy CreatedAt and ModifiedAt before comparing structs.
+For example:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span>.<span style="color:#a6e22e">IsZero</span>() {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;Service.GetProductReview() returned CreatedAt should not be zero&#34;</span>)
+}
+<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span>.<span style="color:#a6e22e">Before</span>(<span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">ModifiedAt</span>) {
+	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;Service.GetProductReview() should return CreatedAt &lt; ModifiedAt&#34;</span>)
+}
+<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>.<span style="color:#a6e22e">CreatedAt</span> = <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span>
+<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>.<span style="color:#a6e22e">ModifiedAt</span> = <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">ModifiedAt</span>
+<span style="color:#75715e">// Now, compare structures here.
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="failed-idea-replay-testing">Failed idea: replay testing</h3>
+<p>I&rsquo;ve experimented with creating a replay testing framework <a href="https://github.com/henvic/pgmock/tree/feat/pgplayback/pgplayback">built on top of pgmock</a> to run tests without requiring a database, but the idea wasn&rsquo;t practical.
+Besides, the main reason for having it wasn&rsquo;t justifiable: the integration tests are fast.</p>
+<h3 id="running-tests">Running tests</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ INTEGRATION_TESTDB<span style="color:#f92672">=</span>true go test -v ./...
+</code></pre></td></tr></table>
+</div>
+</div><p>You can also add to your .zshrc or .envrc and run <code>go test</code> directly:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">export INTEGRATION_TESTDB<span style="color:#f92672">=</span>true
+</code></pre></td></tr></table>
+</div>
+</div><p>For running the integration tests on GitHub Actions, we need first to create a workflow such as the following:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-yml" data-lang="yml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Integration</span>
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">pull_request</span>:
+    <span style="color:#f92672">types</span>: [<span style="color:#ae81ff">opened, synchronize, reopened, ready_for_review]</span>
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>:
+      - <span style="color:#ae81ff">main</span>
+<span style="color:#f92672">permissions</span>:
+  <span style="color:#f92672">contents</span>: <span style="color:#ae81ff">read</span>
+  <span style="color:#f92672">pull-requests</span>: <span style="color:#ae81ff">read</span>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#75715e"># Reference: https://docs.github.com/en/actions/guides/creating-postgresql-service-containers</span>
+  <span style="color:#f92672">postgres-test</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">services</span>:
+      <span style="color:#f92672">postgres</span>:
+        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres</span>
+        <span style="color:#f92672">env</span>:
+          <span style="color:#f92672">POSTGRES_USER</span>: <span style="color:#ae81ff">runner</span>
+          <span style="color:#f92672">POSTGRES_PASSWORD</span>: <span style="color:#ae81ff">postgres</span>
+          <span style="color:#f92672">POSTGRES_DB</span>: <span style="color:#ae81ff">test_pgxtutorial</span>
+        <span style="color:#f92672">options</span>: &gt;-<span style="color:#e6db74">
+</span><span style="color:#e6db74">          --name postgres
+</span><span style="color:#e6db74">          --health-cmd pg_isready
+</span><span style="color:#e6db74">          --health-interval 10s
+</span><span style="color:#e6db74">          --health-timeout 5s
+</span><span style="color:#e6db74">          --health-retries 5</span>          
+        <span style="color:#f92672">ports</span>:
+          <span style="color:#75715e"># Maps tcp port 5432 on service container to the host</span>
+          - <span style="color:#ae81ff">5432</span>:<span style="color:#ae81ff">5432</span>
+    <span style="color:#f92672">env</span>:
+      <span style="color:#f92672">INTEGRATION_TESTDB</span>: <span style="color:#66d9ef">true</span>
+      <span style="color:#f92672">PGHOST</span>: <span style="color:#ae81ff">localhost</span>
+      <span style="color:#f92672">PGUSER</span>: <span style="color:#ae81ff">runner</span>
+      <span style="color:#f92672">PGPASSWORD</span>: <span style="color:#ae81ff">postgres</span>
+      <span style="color:#f92672">PGDATABASE</span>: <span style="color:#ae81ff">test_pgxtutorial</span>
+    <span style="color:#f92672">steps</span>:
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v1</span>
+    - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/setup-go@v1</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">go-version</span>: <span style="color:#e6db74">&#39;1.17.x&#39;</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run Postgres tests</span>
+      <span style="color:#f92672">run</span>: <span style="color:#ae81ff">go test -v -race -count 1 -covermode atomic -coverprofile=profile.cov ./...</span>
+    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Code coverage</span>
+      <span style="color:#f92672">if</span>: <span style="color:#ae81ff">${{ github.event_name != &#39;pull_request&#39; }}</span>
+      <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">shogo82148/actions-goveralls@v1</span>
+      <span style="color:#f92672">with</span>:
+        <span style="color:#f92672">path-to-profile</span>: <span style="color:#ae81ff">profile.cov</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>I hope you enjoyed this tutorial. Now go ahead and checkout the repository <a href="https://github.com/henvic/pgxtutorial">github.com/henvic/pgxtutorial</a>.</p>
+<p><small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</small></p>
+
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="Back to basics: Writing an application using Go and PostgreSQL" data-url="https://henvic.dev/posts/go-postgres/" data-via="henriquev"
+                        data-hashtags="golang,postgres,postgresql"  data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <aside class="read-also">
+                <h3>Read also</h3>
+                <ul>
+                        
+                        <li>
+                                <a href="/posts/postgres-14-freebsd-13/">Upgrading to PostgreSQL 14 on FreeBSD 13</a>
+                                <time datetime="2006-01-02">Thursday 11, November 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/uuid/">You don&#39;t need UUID</a>
+                                <time datetime="2006-01-02">Sunday 30, May 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/bitcoin-pt/">Crise das tulipas: Bitcoin é uma péssima idéia</a>
+                                <time datetime="2006-01-02">Thursday 13, May 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/bitcoin/">Cryptocurrency Tulipmania: Bitcoin is a shitcoin</a>
+                                <time datetime="2006-01-02">Monday 10, May 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/go/">The ecosystem of the Go programming language</a>
+                                <time datetime="2006-01-02">Monday 22, March 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/my-go-mistakes/">My Go mistakes</a>
+                                <time datetime="2006-01-02">Thursday 18, February 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/env/">Environment variables, config, secrets, and globals</a>
+                                <time datetime="2006-01-02">Saturday 16, January 2021</time>
+                        </li>
+                        <li>
+                                <a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a>
+                                <time datetime="2006-01-02">Wednesday 16, September 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/e-commerce/">I&#39;m starting an opensource e-commerce project.</a>
+                                <time datetime="2006-01-02">Wednesday 17, June 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/cs-security/">Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely.</a>
+                                <time datetime="2006-01-02">Wednesday 22, April 2020</time>
+                        </li>
+                        <li>
+                                <a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a>
+                                <time datetime="2006-01-02">Monday 20, April 2020</time>
+                        </li>
+                </ul>
+        </aside>
+</article>
+
+            </div>
+        </div>
+    </div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-43519325-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script src="/js/vendor/modernizr-custom-svg.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/foundation.min.js"></script>
+<script>
+        $(document).ready(function () {
+                $(document).foundation();
+        });
+</script>
+</body>
+</html>
