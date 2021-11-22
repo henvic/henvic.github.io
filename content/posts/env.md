@@ -17,6 +17,8 @@ While these concerns might be worth considering, relying on environment variable
 
 Whatever security model you decide to follow and whether you decide to use environment variables or otherwise, you should at least be aware of the points below.
 
+<small>Read also: [Back to basics: Writing an application using Go and PostgreSQL](/posts/go-postgres/) and [You don't need UUID](/posts/uuid/).</small>
+
 <a data-flickr-embed="true" href="https://www.flickr.com/photos/henriquev/42847303541/in/dateposted-public/" title="Sólheimasandur DC-3 Plane Wreck"><img src="https://live.staticflickr.com/1753/42847303541_73c2267ed8_c.jpg" width="800" height="449" alt="Sólheimasandur DC-3 Plane Wreck"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
 ## Don't keep secrets on your code repository
