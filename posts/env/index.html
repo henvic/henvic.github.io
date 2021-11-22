@@ -262,6 +262,7 @@
 <p>While these concerns might be worth considering, relying on environment variables doesn&rsquo;t come without risks.</p>
 <p><strong>There is no magic way to keep secrets, secret without risks.</strong></p>
 <p>Whatever security model you decide to follow and whether you decide to use environment variables or otherwise, you should at least be aware of the points below.</p>
+<p><small>Read also: <a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a> and <a href="/posts/uuid/">You don&rsquo;t need UUID</a>.</small></p>
 <p><a data-flickr-embed="true" href="https://www.flickr.com/photos/henriquev/42847303541/in/dateposted-public/" title="Sólheimasandur DC-3 Plane Wreck"><img src="https://live.staticflickr.com/1753/42847303541_73c2267ed8_c.jpg" width="800" height="449" alt="Sólheimasandur DC-3 Plane Wreck"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 <h2 id="dont-keep-secrets-on-your-code-repository">Don&rsquo;t keep secrets on your code repository</h2>
 <p>Application code should live in a repository separate from configuration data for your environments (production, staging, testing, etc.).</p>

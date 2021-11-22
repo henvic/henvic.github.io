@@ -78,7 +78,7 @@ If you want to see how people are using Go, check out the Go Developer Survey 20
       
       <guid>https://henvic.dev/posts/my-go-mistakes/</guid>
       <description>In this post, I share mistakes I&amp;rsquo;ve made writing Go code for six years since the beginning of my journey with the language.
-   Table of Contents show/hide     init() functions Constants Nil pointer dereference Comments and documentation Creating too many packages Exporting names  Internal packages   Globals and configuration Imports and build size Concurrency and streams  Sockets and WebSocket</description>
+  Table of Contents show/hide     init() functions Constants Nil pointer dereference Comments and documentation Creating too many packages Exporting names  Internal packages   Globals and configuration Imports and build size Concurrency and streams  Sockets and WebSocket       Read also: The ecosystem of the Go programming language and Environment variables, config, secrets, and globals.</description>
     </item>
     
     <item>
