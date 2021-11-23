@@ -24,7 +24,7 @@ Don't forget to check out the accompanying repository [github.com/henvic/pgxtuto
 
 {{< table_of_contents >}}
 
-<small>Read also: [The ecosystem of the Go programming language](/posts/go/).</small>
+<small>Read also: [The ecosystem of the Go programming language](/posts/go/) and [Homelab: Intel NUC with the ESXi hypervisor](/posts/homelab/).</small>
 
 ## Context
 PostgreSQL, also known as Postgres, is an extendible feature-rich [Object-Relational Database Management System](https://arctype.com/blog/postgres-ordbms-explainer/) that is almost 100% [SQL standards-compliant](https://en.wikipedia.org/wiki/SQL_compliance) and released as open source software under a permissive license.
