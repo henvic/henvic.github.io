@@ -487,7 +487,7 @@ Alternatively, you can replace the error with one defined on your service layer.
 Either way, you'll have to remember to `defer rows.Close()` to free resources.
 
 ## Implementation
-I typically start by satisfying the interface I want to imeplement by just creating a DB struct with the methods I defined in the interface.
+I typically start by satisfying the interface I want to implement by just creating a DB struct with the methods I defined in the interface.
 Next, I call panic from them.
 This way I can start the implementation already starting fast integration tests right away.
 
