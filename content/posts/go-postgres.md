@@ -486,6 +486,13 @@ Alternatively, you can replace the error with one defined on your service layer.
 2. Reading [Rows](https://pkg.go.dev/github.com/jackc/pgx#Rows) one-by-one calling `rows.Next()` is a memory-efficient way to do things if you're doing an operation that'll require you to read a large number of rows. You've two options here: accept the leaky abstraction and deal directly with `pgx` from your service layer or do "_the right thing_", and have abstraction inversion and code duplication to solve this in a more limited manner.
 Either way, you'll have to remember to `defer rows.Close()` to free resources.
 
+### Talking about Go interfaces
+**Section added thanks to a [discussion](https://news.ycombinator.com/item?id=29314941) about this blog post in HackerNews.**
+
+[Jonathan Rockway](https://jrock.us) wrote the following article criticizing my use of interfaces: [We need to have a chat about interfaces in Go](https://jrock.us/posts/go-interfaces/).
+I definitely agree with him that such mega interfaces are awful, and I will play with some of his suggestions in a week once I'm back from vacation (maybe I push code killing this deficiency).
+
+
 ## Implementation
 I typically start by satisfying the interface I want to implement by just creating a DB struct with the methods I defined in the interface.
 Next, I call panic from them.
