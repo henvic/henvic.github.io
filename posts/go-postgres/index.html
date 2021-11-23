@@ -943,7 +943,7 @@ Alternatively, you can replace the error with one defined on your service layer.
 Either way, you&rsquo;ll have to remember to <code>defer rows.Close()</code> to free resources.</li>
 </ol>
 <h2 id="implementation">Implementation</h2>
-<p>I typically start by satisfying the interface I want to imeplement by just creating a DB struct with the methods I defined in the interface.
+<p>I typically start by satisfying the interface I want to implement by just creating a DB struct with the methods I defined in the interface.
 Next, I call panic from them.
 This way I can start the implementation already starting fast integration tests right away.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
