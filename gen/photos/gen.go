@@ -44,6 +44,8 @@ func main() {
 	}
 }
 
+// loadFormat defines the output format.
+// If format value starts with @, it reads the contents of a file.
 func loadFormat() error {
 	if !strings.HasPrefix(format, "@") {
 		return nil
