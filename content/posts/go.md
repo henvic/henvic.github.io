@@ -623,6 +623,12 @@ I've been using it for local software development instead of [nginx](https://www
 [xbar](https://xbarapp.com/) is a macOS program written in Go that lets you put the output of any script/program in your macOS menu bar.
 It's like [iStat Menus](https://bjango.com/mac/istatmenus/), but for your menus! It’s an open-source project written primarily in Go by [Mat Ryer](https://twitter.com/matryer)!
 
+### ghz
+[ghz](https://ghz.sh) is a gRPC benchmarking and load testing tool.
+
+### Evans
+[Evans](https://github.com/ktr0731/evans) is gRPC client with REPL and CLI modes.
+
 ## Reporting bugs and proposing feature requests
 * The project uses publicly accessible [GitHub issues](https://github.com/golang/go/issues) to track and discuss those.
 * Before you submit a proposal, search to see if what you've in mind was already discussed in the past. Use your findings wisely.
