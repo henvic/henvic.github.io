@@ -260,85 +260,85 @@
         <p>In this blog post, I&rsquo;ll show how to update <a href="https://www.postgresql.org/about/news/postgresql-14-released-2318/">PostgreSQL 14</a> on FreeBSD 13.
 Instead of running a database on my development machine, I run it on a FreeBSD virtual machine on my Intel NUC VMware ESXi <a href="/posts/homelab">homelab</a>, and connect to it from anywhere thanks to <a href="https://tailscale.com/">Tailscale</a>.</p>
 <p>First, I started by making a backup of my data and locating where my current PostgreSQL configuration lives:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ pg_dumpall -U pgsql | gzip &gt; backup.sql.gz
-$ ls /var/db/postgres/
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pg_dumpall -U pgsql | gzip &gt; backup.sql.gz
+</span></span><span style="display:flex;"><span>$ ls /var/db/postgres/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>This is an essential step, as you’ll see because I initialized a new database from scratch and recovered my customized settings and data later.</p>
 <p><a href="https://www.freebsd.org/"><img src="/img/posts/postgres-14-freebsd-13/440px-Daemon-phk.svg.png" alt="Beastie"></a>
 <a href="https://www.postgresql.org/"><img src="/img/posts/go-postgres/slonik_with_black_text_and_tagline.gif" alt="PostgreSQL mascot Slonik"></a></p>
 <p>The next step was to <strong>update</strong> package repository catalogues and <strong>upgrade</strong> packaged software distributions:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ pkg update
-$ pkg upgrade
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pkg update
+</span></span><span style="display:flex;"><span>$ pkg upgrade
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Next, I checked if PostgreSQL packages were available:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ pkg search postgresql14
-pgtcl-postgresql14-2.1.1_2     TCL extension <span style="color:#66d9ef">for</span> accessing a PostgreSQL server <span style="color:#f92672">(</span>PGTCL-NG<span style="color:#f92672">)</span>
-postgresql14-client-14.0       PostgreSQL database <span style="color:#f92672">(</span>client<span style="color:#f92672">)</span>
-postgresql14-contrib-14.0      The contrib utilities from the PostgreSQL distribution
-postgresql14-docs-14.0         The PostgreSQL documentation set
-postgresql14-plperl-14.0       Write SQL functions <span style="color:#66d9ef">for</span> PostgreSQL using Perl5
-postgresql14-plpython-14.0     Module <span style="color:#66d9ef">for</span> using Python to write SQL functions
-postgresql14-pltcl-14.0        Module <span style="color:#66d9ef">for</span> using Tcl to write SQL functions
-postgresql14-server-14.0       PostgreSQL is the most advanced open-source database available anywhere
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pkg search postgresql14
+</span></span><span style="display:flex;"><span>pgtcl-postgresql14-2.1.1_2     TCL extension <span style="color:#66d9ef">for</span> accessing a PostgreSQL server <span style="color:#f92672">(</span>PGTCL-NG<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>postgresql14-client-14.0       PostgreSQL database <span style="color:#f92672">(</span>client<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>postgresql14-contrib-14.0      The contrib utilities from the PostgreSQL distribution
+</span></span><span style="display:flex;"><span>postgresql14-docs-14.0         The PostgreSQL documentation set
+</span></span><span style="display:flex;"><span>postgresql14-plperl-14.0       Write SQL functions <span style="color:#66d9ef">for</span> PostgreSQL using Perl5
+</span></span><span style="display:flex;"><span>postgresql14-plpython-14.0     Module <span style="color:#66d9ef">for</span> using Python to write SQL functions
+</span></span><span style="display:flex;"><span>postgresql14-pltcl-14.0        Module <span style="color:#66d9ef">for</span> using Tcl to write SQL functions
+</span></span><span style="display:flex;"><span>postgresql14-server-14.0       PostgreSQL is the most advanced open-source database available anywhere
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Great! They are! Now, let&rsquo;s find out what version PostgreSQL it&rsquo;s installed, remove it, and install the newest version:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ pkg info | grep postgresql
-postgresql12-client-12.8       PostgreSQL database <span style="color:#f92672">(</span>client<span style="color:#f92672">)</span>
-postgresql12-server-12.8       PostgreSQL is the most advanced open-source database available anywhere
-
-<span style="color:#75715e"># Shutdown the PostgreSQL database service:</span>
-$ service postgresql stop
-
-<span style="color:#75715e"># Delete the old version:</span>
-$ pkg delete postgresql12-client postgresql12-server
-
-<span style="color:#75715e"># Install version 14:</span>
-$ pkg install postgresql14-client postgresql14-server
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pkg info | grep postgresql
+</span></span><span style="display:flex;"><span>postgresql12-client-12.8       PostgreSQL database <span style="color:#f92672">(</span>client<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>postgresql12-server-12.8       PostgreSQL is the most advanced open-source database available anywhere
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Shutdown the PostgreSQL database service:</span>
+</span></span><span style="display:flex;"><span>$ service postgresql stop
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete the old version:</span>
+</span></span><span style="display:flex;"><span>$ pkg delete postgresql12-client postgresql12-server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install version 14:</span>
+</span></span><span style="display:flex;"><span>$ pkg install postgresql14-client postgresql14-server
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
 <h2 id="settings">Settings</h2>
@@ -347,211 +347,211 @@ There, you&rsquo;ll find a new <code>/var/db/postgres/data14</code> directory al
 Use the <code>diff</code> tool to compare configuration files and see what changes you need to apply to your new database.</p>
 <p>Any changes you&rsquo;ve applied with <a href="https://www.postgresql.org/docs/current/sql-altersystem.html">ALTER SYSTEM</a> will be found on the postgresql.auto.conf file.</p>
 <p>In my case, I had:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">root@bsd:/var/db/postgres/data12 <span style="color:#75715e"># cat postgresql.auto.conf</span>
-<span style="color:#75715e"># Do not edit this file manually!</span>
-<span style="color:#75715e"># It will be overwritten by the ALTER SYSTEM command.</span>
-wal_level <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;logical&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>root@bsd:/var/db/postgres/data12 <span style="color:#75715e"># cat postgresql.auto.conf</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Do not edit this file manually!</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># It will be overwritten by the ALTER SYSTEM command.</span>
+</span></span><span style="display:flex;"><span>wal_level <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;logical&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Which I decided to copy to <code>/var/db/postgres/data14/postgresql.conf</code>, along with the following changes:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Listen to external connections (and let firewall worry about blocking unwanted connections):</span>
-<span style="color:#75715e"># Use :: to allow listening for all IPv6 addresses or * for both IPv4 and IPv6.</span>
-listen_addresses <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0.0.0.0&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Listen to external connections (and let firewall worry about blocking unwanted connections):</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use :: to allow listening for all IPv6 addresses or * for both IPv4 and IPv6.</span>
+</span></span><span style="display:flex;"><span>listen_addresses <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0.0.0.0&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>To allow TLS connections I copied my server.crt and server.key files (along with a server.req file),</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">root@bsd:/var/db/postgres/data12 <span style="color:#75715e"># ls server.*</span>
-server.crt	server.key	server.req
-root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># cp ../data12/server.* .</span>
-root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># chown postgres:postgres server.crt server.key server.req</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>root@bsd:/var/db/postgres/data12 <span style="color:#75715e"># ls server.*</span>
+</span></span><span style="display:flex;"><span>server.crt	server.key	server.req
+</span></span><span style="display:flex;"><span>root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># cp ../data12/server.* .</span>
+</span></span><span style="display:flex;"><span>root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># chown postgres:postgres server.crt server.key server.req</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Finally, I turned on TLS on the <code>postgresql.conf</code> file with:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># - SSL -</span>
-ssl <span style="color:#f92672">=</span> on
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># - SSL -</span>
+</span></span><span style="display:flex;"><span>ssl <span style="color:#f92672">=</span> on
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>As I said previously, I&rsquo;m also using the <a href="https://www.postgresql.org/docs/current/protocol-logical-replication.html">Logical Streaming Replication Protocol</a> to ingest data into OpenSearch using a connector, so I had to tweak this knob for configuring the write-ahead log:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#------------------------------------------------------------------------------</span>
-<span style="color:#75715e"># WRITE-AHEAD LOG</span>
-<span style="color:#75715e">#------------------------------------------------------------------------------</span>
-
-<span style="color:#75715e"># - Settings -</span>
-wal_level <span style="color:#f92672">=</span> logical                    <span style="color:#75715e"># minimal, replica, or logical</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#------------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># WRITE-AHEAD LOG</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#------------------------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># - Settings -</span>
+</span></span><span style="display:flex;"><span>wal_level <span style="color:#f92672">=</span> logical                    <span style="color:#75715e"># minimal, replica, or logical</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Alternatively, I could just run the following command, modifying postgresql.auto.conf (this specific change requires a restart, and it&rsquo;s unlikely you need it, by the way):</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">SYSTEM</span> <span style="color:#66d9ef">SET</span> wal_level <span style="color:#f92672">=</span> logical;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">SYSTEM</span> <span style="color:#66d9ef">SET</span> wal_level <span style="color:#f92672">=</span> logical;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>I also had to edit the <a href="https://www.postgresql.org/docs/current/auth-pg-hba-conf.html">pg_hba.conf file</a> used for client authentication to add a few lines:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Checking what are the changes I need to do:</span>
-root@bsd:/var/db/postgres/data14 diff pg_hba.conf ../data12/pg_hba.conf
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Checking what are the changes I need to do:</span>
+</span></span><span style="display:flex;"><span>root@bsd:/var/db/postgres/data14 diff pg_hba.conf ../data12/pg_hba.conf
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Lines I had to add back:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">&gt; <span style="color:#75715e"># Henrique&#39;s connections</span>
-&gt; host    all             all             100.117.1.1/32     password
-&gt; hostssl    all             all             100.117.1.1/32     password
-&gt; hostssl    all             all             100.117.1.1/32   cert
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>&gt; <span style="color:#75715e"># Henrique&#39;s connections</span>
+</span></span><span style="display:flex;"><span>&gt; host    all             all             100.117.1.1/32     password
+</span></span><span style="display:flex;"><span>&gt; hostssl    all             all             100.117.1.1/32     password
+</span></span><span style="display:flex;"><span>&gt; hostssl    all             all             100.117.1.1/32   cert
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Otherwise, I&rsquo;d have run into this error when trying to connect to the database from my laptop:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ pgcli
-could not connect to server: Connection refused
-	Is the server running on host <span style="color:#e6db74">&#34;bsd.henvic.dev&#34;</span> <span style="color:#f92672">(</span>100.125.227.84<span style="color:#f92672">)</span> and accepting
-	TCP/IP connections on port 5432?
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pgcli
+</span></span><span style="display:flex;"><span>could not connect to server: Connection refused
+</span></span><span style="display:flex;"><span>	Is the server running on host <span style="color:#e6db74">&#34;bsd.henvic.dev&#34;</span> <span style="color:#f92672">(</span>100.125.227.84<span style="color:#f92672">)</span> and accepting
+</span></span><span style="display:flex;"><span>	TCP/IP connections on port 5432?
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="starting-postgresql">Starting PostgreSQL</h2>
 <p>Now, I initialized a new database, and then started PostgreSQL as a service.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Initialize the new PostgreSQL 14 version by running:</span>
-$ postgres initdb -D /var/db/postgres/data14
-
-<span style="color:#75715e"># Make PostgreSQL run automatically on boot time, if you haven&#39;t (see /etc/rc.conf):</span>
-$ sysrc postgresql_enable<span style="color:#f92672">=</span>yes
-
-<span style="color:#75715e"># To start the service manually, run:</span>
-$ service postgresql start
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Initialize the new PostgreSQL 14 version by running:</span>
+</span></span><span style="display:flex;"><span>$ postgres initdb -D /var/db/postgres/data14
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make PostgreSQL run automatically on boot time, if you haven&#39;t (see /etc/rc.conf):</span>
+</span></span><span style="display:flex;"><span>$ sysrc postgresql_enable<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># To start the service manually, run:</span>
+</span></span><span style="display:flex;"><span>$ service postgresql start
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="restoring-your-backup">Restoring your backup</h2>
 <p>Go back to the directory where you saved your database dump and run the following command to restore everything on your database:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ gzcat backup.sql.gz | psql -U postgres postgres
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ gzcat backup.sql.gz | psql -U postgres postgres
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Once you restore your backup, you should be done and ready to use PostgreSQL.</p>
 <p>You can try to connect to the database and run a few commands to check if everything works. If something goes wrong, the following commands might help you:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Check service status:</span>
-$ service postgresql status
-
-<span style="color:#75715e"># List open TCPv4 ports:</span>
-$ sockstat -l4 -P tcp
-
-<span style="color:#75715e"># List open TCPv6 ports</span>
-$ sockstat -l6 -P tcp
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Check service status:</span>
+</span></span><span style="display:flex;"><span>$ service postgresql status
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># List open TCPv4 ports:</span>
+</span></span><span style="display:flex;"><span>$ sockstat -l4 -P tcp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># List open TCPv6 ports</span>
+</span></span><span style="display:flex;"><span>$ sockstat -l6 -P tcp
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Running an old version? Read the blog post <a href="https://unflyingobject.com/posts/upgrading-postgresql-on-freebsd/">Upgrading PostgreSQL on FreeBSD</a> (2016) by <a href="https://unflyingobject.com/">Filipp Lepalaan</a>.</p>
 <div id="amzn-assoc-ad-a57797e1-77da-4c74-b2e4-53128feea58e"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=a57797e1-77da-4c74-b2e4-53128feea58e"></script>
 <h2 id="logging">Logging</h2>
 <p>While setting up, I ran into this error and needed more information to fix it:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># service postgresql start</span>
-pg_ctl: could not start server
-Examine the log output.
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># service postgresql start</span>
+</span></span><span style="display:flex;"><span>pg_ctl: could not start server
+</span></span><span style="display:flex;"><span>Examine the log output.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>I started looking for this log file and discovered that I had to set up part of the <a href="https://www.postgresql.org/docs/current/runtime-config-logging.html">error reporting and logging</a> infrastructure to gather logs.</p>
 <p>To do so, I added the following line to /etc/syslog.conf:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">local0.*    /var/log/postgresql
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>local0.*    /var/log/postgresql
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can use LOCAL0 through LOCAL7 as the preceding syslog_facility.</p>
 <blockquote>
@@ -560,135 +560,135 @@ Change the logserver facility if you are having a conflict with other applicatio
 <p>Source: <a href="https://postgresqlco.nf/doc/en/param/syslog_facility/">PostgresqlCO.NF&rsquo;s syslog_facility</a></p>
 </blockquote>
 <p>I followed this <a href="https://serverfault.com/questions/943096/where-to-find-logs-from-postgres-11-1-on-freebsd-11-2/967959#967959">advice</a> and created a log file for PostgreSQL:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ touch /var/log/postgresql.log
-$ chown postgres:wheel /var/log/postgresql.log
-$ chmod <span style="color:#ae81ff">640</span> /var/log/postgresql.log
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ touch /var/log/postgresql.log
+</span></span><span style="display:flex;"><span>$ chown postgres:wheel /var/log/postgresql.log
+</span></span><span style="display:flex;"><span>$ chmod <span style="color:#ae81ff">640</span> /var/log/postgresql.log
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Next, I sent a <a href="https://en.wikipedia.org/wiki/SIGHUP">SIGHUP</a> signal meant to signal the daemon that its configuration file should be re-read and restarted PostgreSQL:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ kill -HUP <span style="color:#e6db74">`</span>sudo cat /var/run/syslog.pid <span style="color:#e6db74">`</span>
-$ service postgresql start
-2021-11-09 21:16:58.545 CET <span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span> FATAL:  could not load private key file <span style="color:#e6db74">&#34;server.key&#34;</span>: Permission denied
-2021-11-09 21:16:58.546 CET <span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span> LOG:  database system is shut down
-pg_ctl: could not start server
-Examine the log output.
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ kill -HUP <span style="color:#e6db74">`</span>sudo cat /var/run/syslog.pid <span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>$ service postgresql start
+</span></span><span style="display:flex;"><span>2021-11-09 21:16:58.545 CET <span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span> FATAL:  could not load private key file <span style="color:#e6db74">&#34;server.key&#34;</span>: Permission denied
+</span></span><span style="display:flex;"><span>2021-11-09 21:16:58.546 CET <span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span> LOG:  database system is shut down
+</span></span><span style="display:flex;"><span>pg_ctl: could not start server
+</span></span><span style="display:flex;"><span>Examine the log output.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Interestingly the <code>service postgresql start</code> command now returns some logs, so I didn&rsquo;t even need to check the logs files.</p>
 <p>You can read the stream of PostgreSQL logs with the following command:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ tail -f /var/log/postgresql.log
-Nov  <span style="color:#ae81ff">9</span> 21:16:58 bsd postgres<span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span>: <span style="color:#f92672">[</span>1-1<span style="color:#f92672">]</span> 2021-11-09 21:16:58.545 CET <span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span> FATAL:  could not load private key file <span style="color:#e6db74">&#34;server.key&#34;</span>: Permission denied
-Nov  <span style="color:#ae81ff">9</span> 21:16:58 bsd postgres<span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span>: <span style="color:#f92672">[</span>2-1<span style="color:#f92672">]</span> 2021-11-09 21:16:58.546 CET <span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span> LOG:  database system is shut down
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ tail -f /var/log/postgresql.log
+</span></span><span style="display:flex;"><span>Nov  <span style="color:#ae81ff">9</span> 21:16:58 bsd postgres<span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span>: <span style="color:#f92672">[</span>1-1<span style="color:#f92672">]</span> 2021-11-09 21:16:58.545 CET <span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span> FATAL:  could not load private key file <span style="color:#e6db74">&#34;server.key&#34;</span>: Permission denied
+</span></span><span style="display:flex;"><span>Nov  <span style="color:#ae81ff">9</span> 21:16:58 bsd postgres<span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span>: <span style="color:#f92672">[</span>2-1<span style="color:#f92672">]</span> 2021-11-09 21:16:58.546 CET <span style="color:#f92672">[</span>33755<span style="color:#f92672">]</span> LOG:  database system is shut down
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>With the context of what was going on, it was pretty easy to spot the problem: the permissions for the certificate files were incorrect.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># ls -la</span>
-total <span style="color:#ae81ff">106</span>
-drwx------  <span style="color:#ae81ff">19</span> postgres  postgres     <span style="color:#ae81ff">28</span> Nov  <span style="color:#ae81ff">9</span> 21:16 .
-drwxr-xr-x   <span style="color:#ae81ff">5</span> postgres  postgres      <span style="color:#ae81ff">6</span> Nov  <span style="color:#ae81ff">9</span> 20:24 ..
--rw-------   <span style="color:#ae81ff">1</span> postgres  postgres      <span style="color:#ae81ff">3</span> Nov  <span style="color:#ae81ff">9</span> 20:24 PG_VERSION
-drwx------  <span style="color:#ae81ff">13</span> postgres  postgres     <span style="color:#ae81ff">13</span> Nov  <span style="color:#ae81ff">9</span> 20:25 base
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres     <span style="color:#ae81ff">60</span> Nov  <span style="color:#ae81ff">9</span> 21:00 global
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_commit_ts
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_dynshmem
--rw-------   <span style="color:#ae81ff">1</span> postgres  postgres   <span style="color:#ae81ff">5367</span> Nov  <span style="color:#ae81ff">9</span> 20:59 pg_hba.conf
--rw-------   <span style="color:#ae81ff">1</span> postgres  postgres   <span style="color:#ae81ff">1636</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_ident.conf
-drwx------   <span style="color:#ae81ff">4</span> postgres  postgres      <span style="color:#ae81ff">5</span> Nov  <span style="color:#ae81ff">9</span> 21:09 pg_logical
-drwx------   <span style="color:#ae81ff">4</span> postgres  postgres      <span style="color:#ae81ff">4</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_multixact
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_notify
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_replslot
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_serial
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_snapshots
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres     <span style="color:#ae81ff">13</span> Nov  <span style="color:#ae81ff">9</span> 21:09 pg_stat
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 21:09 pg_stat_tmp
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">3</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_subtrans
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_tblspc
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_twophase
-drwx------   <span style="color:#ae81ff">3</span> postgres  postgres     <span style="color:#ae81ff">29</span> Nov  <span style="color:#ae81ff">9</span> 20:34 pg_wal
-drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">3</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_xact
--rw-------   <span style="color:#ae81ff">1</span> postgres  postgres     <span style="color:#ae81ff">88</span> Nov  <span style="color:#ae81ff">9</span> 20:24 postgresql.auto.conf
--rw-------   <span style="color:#ae81ff">1</span> postgres  postgres  <span style="color:#ae81ff">28915</span> Nov  <span style="color:#ae81ff">9</span> 21:09 postgresql.conf
--rw-------   <span style="color:#ae81ff">1</span> postgres  postgres     <span style="color:#ae81ff">55</span> Nov  <span style="color:#ae81ff">9</span> 20:59 postmaster.opts
--rw-r--r--   <span style="color:#ae81ff">1</span> root      postgres   <span style="color:#ae81ff">4631</span> Nov  <span style="color:#ae81ff">9</span> 21:09 server.crt
--rw-------   <span style="color:#ae81ff">1</span> root      postgres   <span style="color:#ae81ff">1675</span> Nov  <span style="color:#ae81ff">9</span> 21:09 server.key
--rw-r--r--   <span style="color:#ae81ff">1</span> root      postgres   <span style="color:#ae81ff">3569</span> Nov  <span style="color:#ae81ff">9</span> 21:10 server.req
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># ls -la</span>
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">106</span>
+</span></span><span style="display:flex;"><span>drwx------  <span style="color:#ae81ff">19</span> postgres  postgres     <span style="color:#ae81ff">28</span> Nov  <span style="color:#ae81ff">9</span> 21:16 .
+</span></span><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#ae81ff">5</span> postgres  postgres      <span style="color:#ae81ff">6</span> Nov  <span style="color:#ae81ff">9</span> 20:24 ..
+</span></span><span style="display:flex;"><span>-rw-------   <span style="color:#ae81ff">1</span> postgres  postgres      <span style="color:#ae81ff">3</span> Nov  <span style="color:#ae81ff">9</span> 20:24 PG_VERSION
+</span></span><span style="display:flex;"><span>drwx------  <span style="color:#ae81ff">13</span> postgres  postgres     <span style="color:#ae81ff">13</span> Nov  <span style="color:#ae81ff">9</span> 20:25 base
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres     <span style="color:#ae81ff">60</span> Nov  <span style="color:#ae81ff">9</span> 21:00 global
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_commit_ts
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_dynshmem
+</span></span><span style="display:flex;"><span>-rw-------   <span style="color:#ae81ff">1</span> postgres  postgres   <span style="color:#ae81ff">5367</span> Nov  <span style="color:#ae81ff">9</span> 20:59 pg_hba.conf
+</span></span><span style="display:flex;"><span>-rw-------   <span style="color:#ae81ff">1</span> postgres  postgres   <span style="color:#ae81ff">1636</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_ident.conf
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">4</span> postgres  postgres      <span style="color:#ae81ff">5</span> Nov  <span style="color:#ae81ff">9</span> 21:09 pg_logical
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">4</span> postgres  postgres      <span style="color:#ae81ff">4</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_multixact
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_notify
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_replslot
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_serial
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_snapshots
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres     <span style="color:#ae81ff">13</span> Nov  <span style="color:#ae81ff">9</span> 21:09 pg_stat
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 21:09 pg_stat_tmp
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">3</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_subtrans
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_tblspc
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">2</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_twophase
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">3</span> postgres  postgres     <span style="color:#ae81ff">29</span> Nov  <span style="color:#ae81ff">9</span> 20:34 pg_wal
+</span></span><span style="display:flex;"><span>drwx------   <span style="color:#ae81ff">2</span> postgres  postgres      <span style="color:#ae81ff">3</span> Nov  <span style="color:#ae81ff">9</span> 20:24 pg_xact
+</span></span><span style="display:flex;"><span>-rw-------   <span style="color:#ae81ff">1</span> postgres  postgres     <span style="color:#ae81ff">88</span> Nov  <span style="color:#ae81ff">9</span> 20:24 postgresql.auto.conf
+</span></span><span style="display:flex;"><span>-rw-------   <span style="color:#ae81ff">1</span> postgres  postgres  <span style="color:#ae81ff">28915</span> Nov  <span style="color:#ae81ff">9</span> 21:09 postgresql.conf
+</span></span><span style="display:flex;"><span>-rw-------   <span style="color:#ae81ff">1</span> postgres  postgres     <span style="color:#ae81ff">55</span> Nov  <span style="color:#ae81ff">9</span> 20:59 postmaster.opts
+</span></span><span style="display:flex;"><span>-rw-r--r--   <span style="color:#ae81ff">1</span> root      postgres   <span style="color:#ae81ff">4631</span> Nov  <span style="color:#ae81ff">9</span> 21:09 server.crt
+</span></span><span style="display:flex;"><span>-rw-------   <span style="color:#ae81ff">1</span> root      postgres   <span style="color:#ae81ff">1675</span> Nov  <span style="color:#ae81ff">9</span> 21:09 server.key
+</span></span><span style="display:flex;"><span>-rw-r--r--   <span style="color:#ae81ff">1</span> root      postgres   <span style="color:#ae81ff">3569</span> Nov  <span style="color:#ae81ff">9</span> 21:10 server.req
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>Cause:</strong> I had copied the files while logged in as <code>root</code>, but forgot to set their group owner to <code>postgres</code>.</p>
 <p>Let&rsquo;s fix this:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># chown postgres:postgres server.crt server.key server.req</span>
-root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># ls -la server.*</span>
--rw-r--r--  <span style="color:#ae81ff">1</span> postgres  postgres  <span style="color:#ae81ff">4631</span> Nov  <span style="color:#ae81ff">9</span> 21:09 server.crt
--rw-------  <span style="color:#ae81ff">1</span> postgres  postgres  <span style="color:#ae81ff">1675</span> Nov  <span style="color:#ae81ff">9</span> 21:09 server.key
--rw-r--r--  <span style="color:#ae81ff">1</span> postgres  postgres  <span style="color:#ae81ff">3569</span> Nov  <span style="color:#ae81ff">9</span> 21:10 server.req
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># chown postgres:postgres server.crt server.key server.req</span>
+</span></span><span style="display:flex;"><span>root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># ls -la server.*</span>
+</span></span><span style="display:flex;"><span>-rw-r--r--  <span style="color:#ae81ff">1</span> postgres  postgres  <span style="color:#ae81ff">4631</span> Nov  <span style="color:#ae81ff">9</span> 21:09 server.crt
+</span></span><span style="display:flex;"><span>-rw-------  <span style="color:#ae81ff">1</span> postgres  postgres  <span style="color:#ae81ff">1675</span> Nov  <span style="color:#ae81ff">9</span> 21:09 server.key
+</span></span><span style="display:flex;"><span>-rw-r--r--  <span style="color:#ae81ff">1</span> postgres  postgres  <span style="color:#ae81ff">3569</span> Nov  <span style="color:#ae81ff">9</span> 21:10 server.req
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Running <code>service postgresql start</code> again worked like a charm!</p>
 <p>Next, I&rsquo;ve checked connectivity from my laptop. Finally, everything worked, including the database replication protocol I use at work for ingesting data into a search engine (but that topic is for an upcoming post, hopefully, in a couple of months).</p>
@@ -708,6 +708,10 @@ root@bsd:/var/db/postgres/data14 <span style="color:#75715e"># ls -la server.*</
                 <h3>Read also</h3>
                 <ul>
                         
+                        <li>
+                                <a href="/posts/go-utf8/">UTF-8 strings with Go: len(s) isn&#39;t enough</a>
+                                <time datetime="2006-01-02">Monday 7, March 2022</time>
+                        </li>
                         <li>
                                 <a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a>
                                 <time datetime="2006-01-02">Monday 22, November 2021</time>

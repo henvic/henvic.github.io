@@ -267,7 +267,7 @@
 <h2 id="architecture">Architecture</h2>
 <p>market has a core application (read: monolith) that handles all requests to its API and regular web pages - both served by separate hosts.
 Requests received via <code>www.</code> are handled by the web pages HTTP handlers. The API HTTP endpoints handle requests received via <code>api.</code></p>
-<p><a href="https://golang.org/">Go</a> has been my language of choice for years, and it is perfect for this kind of project thanks to its simplicity and straight-forward &lsquo;no magic&rsquo; approach to software engineering.</p>
+<p><a href="https://golang.org/">Go</a> has been my language of choice for years, and it is perfect for this kind of project thanks to its simplicity and straight-forward &rsquo;no magic&rsquo; approach to software engineering.</p>
 <p>For the frontend of the application, I am going to rely on <a href="https://reactjs.org/">React</a> and, to be on the safe side of types, I am going to be using <a href="https://www.typescriptlang.org/">TypeScript</a>. Having had a long pause from frontend development, I still don&rsquo;t know how well these two play together, but I am not worried too much.</p>
 <table class="stack">
         <caption>External services</caption>
@@ -329,7 +329,7 @@ Hopefully, version 1 is going to have a long run. A critical aspect of this is d
 <li>Start selling online;</li>
 </ol>
 <p>Moreover, if they are small enough, they can get away doing it almost for free. I admit this is a long shot, but it can happen. Cloud providers such as Google Cloud, AWS, and Azure already provide some products that make this easier to achieve, such as <a href="https://cloud.google.com/functions/">Cloud Functions</a>.</p>
-<p>Due to latency concerns, though, one day, they might decide to use a lightweight <a href="/posts/homelab">Intel NUC server</a> to run everything on-premises. For example, if they are opening up shop in a rocket flying to Mars. Thanks to the &lsquo;no strings attached&rsquo; concept of the public domain, they can do it without having to ask.</p>
+<p>Due to latency concerns, though, one day, they might decide to use a lightweight <a href="/posts/homelab">Intel NUC server</a> to run everything on-premises. For example, if they are opening up shop in a rocket flying to Mars. Thanks to the &rsquo;no strings attached&rsquo; concept of the public domain, they can do it without having to ask.</p>
 <h2 id="a-few-more-points">A few more points</h2>
 <ul>
 <li>Seach Engine Optimization using techniques such as structured data to drive high conversion rates.</li>
@@ -349,6 +349,10 @@ Hopefully, version 1 is going to have a long run. A critical aspect of this is d
                 <h3>Read also</h3>
                 <ul>
                         
+                        <li>
+                                <a href="/posts/go-utf8/">UTF-8 strings with Go: len(s) isn&#39;t enough</a>
+                                <time datetime="2006-01-02">Monday 7, March 2022</time>
+                        </li>
                         <li>
                                 <a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a>
                                 <time datetime="2006-01-02">Monday 22, November 2021</time>

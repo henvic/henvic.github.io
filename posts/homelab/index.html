@@ -419,17 +419,17 @@ amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
 </li>
 </ol>
 <p>Thanks to William Lam and Andrew Roderos for the articles and help figuring out what was going on.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh">$ esxcli network firewall ruleset set -e true -r httpClient
-$ wget https://download3.vmware.com/software/vmw-tools/ESXi670-NE1000-32543355-offline_bundle-15486963.zip
-$ esxcli software vib install -d /ESXi670-NE1000–32543355-offline_bundle-15486963.zip
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ esxcli network firewall ruleset set -e true -r httpClient
+</span></span><span style="display:flex;"><span>$ wget https://download3.vmware.com/software/vmw-tools/ESXi670-NE1000-32543355-offline_bundle-15486963.zip
+</span></span><span style="display:flex;"><span>$ esxcli software vib install -d /ESXi670-NE1000–32543355-offline_bundle-15486963.zip
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can run esxcli with the <strong>&ndash;dry-run</strong> flag to see what changes it&rsquo;ll make on your system. Be aware that the drivers versioning is a little confusing.</p>
 <p><a href="/img/posts/homelab/thunderbolt-nic.jpg"><img src="/img/posts/homelab/thunderbolt-nic_small.jpg" alt="Perhaps this one would work out of the box? Unfortunately, I lost mine."></a></p>
@@ -440,19 +440,19 @@ $ esxcli software vib install -d /ESXi670-NE1000–32543355-offline_bundle-15486
 <p><a href="/img/posts/homelab/virtual-switch.png"><img src="/img/posts/homelab/virtual-switch_small.png" alt="Virtual switch screenshot"></a></p>
 <h4 id="fail-over">Fail-over</h4>
 <p>An exciting surprise is that by using two NICs, I&rsquo;ve now, out of the box, fail-over. You can check your virtual switch settings for more options and play with active/standby possibilities.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>root@homelab:~<span style="color:#f92672">]</span> esxcfg-nics --list
-Name    PCI             Driver  Link    Speed       Duplex MAC Address       MTU    Description
-vmnic0  0000:00:1f.6    ne1000  Up      1000Mbps    Full   1c:69:7a:61:30:c0 <span style="color:#ae81ff">1500</span>   Intel Corporation Ethernet Connection <span style="color:#f92672">(</span>10<span style="color:#f92672">)</span> 1219-V
-vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <span style="color:#ae81ff">1500</span>   ASIX Elec. Corp. AX88179
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#f92672">[</span>root@homelab:~<span style="color:#f92672">]</span> esxcfg-nics --list
+</span></span><span style="display:flex;"><span>Name    PCI             Driver  Link    Speed       Duplex MAC Address       MTU    Description
+</span></span><span style="display:flex;"><span>vmnic0  0000:00:1f.6    ne1000  Up      1000Mbps    Full   1c:69:7a:61:30:c0 <span style="color:#ae81ff">1500</span>   Intel Corporation Ethernet Connection <span style="color:#f92672">(</span>10<span style="color:#f92672">)</span> 1219-V
+</span></span><span style="display:flex;"><span>vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <span style="color:#ae81ff">1500</span>   ASIX Elec. Corp. AX88179
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>See also:
 <code>$ esxcli network list</code></p>
@@ -666,6 +666,10 @@ vusb0   Pseudo          uether  Up      1000Mbps    Full   00:90:9e:9d:a6:7a <sp
                 <h3>Read also</h3>
                 <ul>
                         
+                        <li>
+                                <a href="/posts/go-utf8/">UTF-8 strings with Go: len(s) isn&#39;t enough</a>
+                                <time datetime="2006-01-02">Monday 7, March 2022</time>
+                        </li>
                         <li>
                                 <a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a>
                                 <time datetime="2006-01-02">Monday 22, November 2021</time>

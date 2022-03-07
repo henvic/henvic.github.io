@@ -555,31 +555,31 @@ A perspectiva milagrosa de enriquecer rapidamente definitivamente cega as pessoa
 	</div>
 </div>
 <h2 id="escassez">Escassez</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-c" data-lang="c"><span style="color:#75715e">/** No amount larger than this (in satoshi) is valid.
-</span><span style="color:#75715e"> *
-</span><span style="color:#75715e"> * Note that this constant is *not* the total money supply, which in Bitcoin
-</span><span style="color:#75715e"> * currently happens to be less than 21,000,000 BTC for various reasons, but
-</span><span style="color:#75715e"> * rather a sanity check. As this sanity check is used by consensus-critical
-</span><span style="color:#75715e"> * validation code, the exact value of the MAX_MONEY constant is consensus
-</span><span style="color:#75715e"> * critical; in unusual circumstances like a(nother) overflow bug that allowed
-</span><span style="color:#75715e"> * for the creation of coins out of thin air modification could lead to a fork.
-</span><span style="color:#75715e"> * */</span>
-<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> CAmount MAX_MONEY <span style="color:#f92672">=</span> <span style="color:#ae81ff">21000000</span> <span style="color:#f92672">*</span> COIN;
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">/** No amount larger than this (in satoshi) is valid.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Note that this constant is *not* the total money supply, which in Bitcoin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * currently happens to be less than 21,000,000 BTC for various reasons, but
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * rather a sanity check. As this sanity check is used by consensus-critical
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * validation code, the exact value of the MAX_MONEY constant is consensus
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * critical; in unusual circumstances like a(nother) overflow bug that allowed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * for the creation of coins out of thin air modification could lead to a fork.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> CAmount MAX_MONEY <span style="color:#f92672">=</span> <span style="color:#ae81ff">21000000</span> <span style="color:#f92672">*</span> COIN;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Um dos benefícios alegados do Bitcoin é que seu suprimento seria limitado a 21 milhões de moedas, conforme definido <a href="https://github.com/bitcoin/bitcoin/blob/06ba77973e7f8938c8461bffeee3718a8f7712f5/src/amount.h#L16-L25">em uma constante</a> em seu código-fonte.
 Na prática, explorar a fragilidade desse tipo de parâmetro para um <a href="https://en.bitcoin.it/wiki/Weaknesses">ataque</a> é <a href="https://river.com/learn/can-bitcoins-hard-cap-of-21-million-be-changed">improvável</a> agora, mas isso pode acontecer sistematicamente como uma estratégia de fork (bifurcação) ou como parte de um ataque ou mudança de mentalidade na comunidade Bitcoin.</p>
@@ -974,6 +974,10 @@ Eu queria falar mais sobre coisas interessantes, como <a href="https://en.wikipe
                 <h3>Read also</h3>
                 <ul>
                         
+                        <li>
+                                <a href="/posts/go-utf8/">UTF-8 strings with Go: len(s) isn&#39;t enough</a>
+                                <time datetime="2006-01-02">Monday 7, March 2022</time>
+                        </li>
                         <li>
                                 <a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a>
                                 <time datetime="2006-01-02">Monday 22, November 2021</time>

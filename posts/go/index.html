@@ -433,29 +433,29 @@ In this article, you&rsquo;ll find resources to learn about Go and its ecosystem
 </tbody>
 </table>
 <h2 id="hello-world-in-go">Hello World in Go</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
-
-<span style="color:#f92672">import</span> (
-	<span style="color:#e6db74">&#34;fmt&#34;</span>
-)
-
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello, playground&#34;</span>)
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello, playground&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="https://play.golang.org/">Run this code in The Go Playground</a></p>
 <script type="text/javascript">
@@ -483,21 +483,21 @@ amzn_assoc_asins = "0134190440,1617291781,1617297003,B001QI4UJW";
 <p>The <em>go1compat</em> promise by the Go Team is worth highlighting in a world where most languages swiftly roll major versions with breaking changes and ever-changing APIs almost yearly. I highly suggest you read their compatibility document to understand the expectations you can have and how they might apply to topics such as bugs, spec errors, security issues, the use of unkeyed struct literals, and the <a href="https://pkg.go.dev/unsafe">unsafe</a> package.</p>
 <h2 id="a-simple-language">A simple language</h2>
 <p>Consulting the <a href="https://golang.org/ref/spec">spec</a>, you can find out that Go has only 25 <a href="https://en.wikipedia.org/wiki/Reserved_word">reserved keywords</a>.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-text" data-lang="text">break        default      func         interface    select
-case         defer        go           map          struct
-chan         else         goto         package      switch
-const        fallthrough  if           range        type
-continue     for          import       return       var
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>break        default      func         interface    select
+</span></span><span style="display:flex;"><span>case         defer        go           map          struct
+</span></span><span style="display:flex;"><span>chan         else         goto         package      switch
+</span></span><span style="display:flex;"><span>const        fallthrough  if           range        type
+</span></span><span style="display:flex;"><span>continue     for          import       return       var
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You&rsquo;ll also discover it is a concise language with regular syntax. In fact, one with the goals the Go team had when designing it was <a href="https://talks.golang.org/2012/splash.article">to increase the productivity of software engineering at scale</a> at Google.</p>
 <table>
@@ -706,34 +706,34 @@ Go has two types of tests: <code>*testing.T</code> (regular tests) and <code>*te
 <li>Heavy assertion libraries slows down testing due to increased build time.</li>
 <li>BDD testing libraries make it especially hard to debug code using common tooling.</li>
 </ul>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAbs</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
-	<span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Abs</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
-		<span style="color:#75715e">// You almost always want to use t.Error* functions instead of t.Fatal*.
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Abs(-1) = %d; want 1&#34;</span>, <span style="color:#a6e22e">got</span>)
-	}
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAbs</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Abs</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// You almost always want to use t.Error* functions instead of t.Fatal*.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Abs(-1) = %d; want 1&#34;</span>, <span style="color:#a6e22e">got</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>To run the tests, I use an alias I called <code>gotest</code>:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go test -race -coverprofile<span style="color:#f92672">=</span>coverage.out <span style="color:#f92672">&amp;&amp;</span> go tool cover -html coverage.out -o coverage.html
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test -race -coverprofile<span style="color:#f92672">=</span>coverage.out <span style="color:#f92672">&amp;&amp;</span> go tool cover -html coverage.out -o coverage.html
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>-race</code> flag enables the <a href="https://golang.org/doc/articles/race_detector">Data Race Detector</a></li>
@@ -742,13 +742,13 @@ Go has two types of tests: <code>*testing.T</code> (regular tests) and <code>*te
 <p>Most of the time, I&rsquo;ve been running this all from within Visual Studio Code, in any case.
 The <code>-run</code> flag enables you to run functions matching a specific regex – really useful when you need to run a specific test or group of related tests.
 Use <code>go test helpflag</code> to learn more about the available flags.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go test -run<span style="color:#f92672">=</span>TestValidUser
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test -run<span style="color:#f92672">=</span>TestValidUser
+</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Visual Studio Code shortcuts I use with Go:<br>F13 Show Editor Context Menu<br>F16 Test Function At Cursor<br>F17 Debug Test At Cursor<br>F18 Generate Unit Tests for Function<br>F19 Toggle Test Coverage<br><br>I wanted bright Magic KB shortcut key caps.<a href="https://t.co/TnGNoWcmWt">https://t.co/TnGNoWcmWt</a><a href="https://t.co/KjQ0ApbEdT">https://t.co/KjQ0ApbEdT</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1370366670787780614?ref_src=twsrc%5Etfw">March 12, 2021</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -771,27 +771,27 @@ I also find it very productive to have a <a href="https://en.wikipedia.org/wiki/
 </blockquote>
 <p>The <code>go vet</code> is part of the Go toolchain, and have a list of analyzers you can see with <code>go tool vet help</code>.
 By default, all analyzers are run.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ <span style="color:#75715e"># ./... to walk the working directory recursively</span>
-$ go vet ./...
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ <span style="color:#75715e"># ./... to walk the working directory recursively</span>
+</span></span><span style="display:flex;"><span>$ go vet ./...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>As with typical Unix-like commands, no output or exit error = 0 means you&rsquo;re good.</p>
 <h4 id="staticcheck">Staticcheck</h4>
 <p><a href="https://staticcheck.io/">Staticcheck</a> is a state of the art linter for Go by <a href="https://dominik.honnef.co/">Dominik Honnef</a>.
 You don&rsquo;t really need any other linter besides <code>go vet</code> and <code>staticcheck</code>.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ staticcheck ./...
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ staticcheck ./...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="github-security-code-scanning">GitHub Security code scanning</h4>
 <p>Suppose you’re using GitHub to host an open source project&rsquo;s repository or willing to pay extra for their Enterprise plan. In that case, <a href="https://github.com/features/security">GitHub Security</a> has you covered with its <a href="https://securitylab.github.com/tools/codeql">CodeQL</a> security scanner.
@@ -800,40 +800,40 @@ You don&rsquo;t really need any other linter besides <code>go vet</code> and <co
 <p><a href="https://github.com/securego/gosec">gosec</a> is a security checker for Go.
 It scans your code and pinpoints unsafe security usage.
 By default, I find it quite noisy as it reports unhandled errors ignoring what I see as many false-positive cases, so I exclude this specific rule when I decide to use this tool on one of my projects.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ <span style="color:#75715e"># Ignoring gosec unhandled errors warning due to many false-positives.</span>
-$ gosec -quiet -exclude G104 ./...
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ <span style="color:#75715e"># Ignoring gosec unhandled errors warning due to many false-positives.</span>
+</span></span><span style="display:flex;"><span>$ gosec -quiet -exclude G104 ./...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="unparam">unparam</h4>
 <p><a href="https://github.com/mvdan/unparam">unparam</a> helps you find unused function parameters and results in your code. <strong>I must warn that I use this tool manually</strong>, not in a script or CI system, as I find it distracting there, especially at the beginning of a project.</p>
 <h4 id="mispell">mispell</h4>
 <p><a href="https://github.com/client9/misspell">mispell</a> is a great tool for checking common English mistakes on your source code.
 I also often use <a href="https://www.grammarly.com/">Grammarly</a> to review my writing on documentation.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ misspell cmd/**/*.<span style="color:#f92672">{</span>go,sh<span style="color:#f92672">}</span> internal/**/*.<span style="color:#f92672">{</span>go<span style="color:#f92672">}</span> README.md
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ misspell cmd/**/*.<span style="color:#f92672">{</span>go,sh<span style="color:#f92672">}</span> internal/**/*.<span style="color:#f92672">{</span>go<span style="color:#f92672">}</span> README.md
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>I also use other static analyzer tools from time-to-time, manually, and that I&rsquo;d advise against adding to a Continuous Integration pipeline.</p>
 <h4 id="gocyclo">gocyclo</h4>
 <p><a href="https://github.com/fzipp/gocyclo">gocyclo</a> calculates <a href="https://en.wikipedia.org/wiki/Cyclomatic_complexity">cyclomatic complexity</a> of functions in your Go source code.</p>
 <p>I&rsquo;ve used this in the past to find complicated code and to decide where to start refactoring code. I also prefer to use this manually, but I see some value in adding it as a step of a CI pipeline – as long as you err by being generous and configure the tool to scream only in case of undeniable high values.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ gocyclo -over <span style="color:#ae81ff">15</span> -ignore <span style="color:#e6db74">&#34;generated.go|pb.go|_test|vendor/&#34;</span> .
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ gocyclo -over <span style="color:#ae81ff">15</span> -ignore <span style="color:#e6db74">&#34;generated.go|pb.go|_test|vendor/&#34;</span> .
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="standard-library">Standard library</h2>
 <p>Go&rsquo;s standard library is outstanding both in terms of covering a wide range of needs and in terms of quality.
@@ -969,17 +969,17 @@ Maybe solutions like <a href="https://jfrog.com/integration/go-registry/">JFrog 
 <p><a href="https://pkg.go.dev/golang.org/x/tools/cmd/godoc">godoc</a> is a program that extracts and generates documentation for Go programs.
 You can use it to browse the documentation for your code and the standard library off-line easily, using a web browser.</p>
 <p>It is also what originally powered godoc.org, before it was sunset by <a href="https://pkg.go.dev">pkg.go.dev</a>, which is powered by the more complex <a href="https://github.com/golang/pkgsite">pkgsite</a>.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go install golang.org/x/tools/cmd/godoc@latest
-$ godoc
-$ open http://localhost:6060
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go install golang.org/x/tools/cmd/godoc@latest
+</span></span><span style="display:flex;"><span>$ godoc
+</span></span><span style="display:flex;"><span>$ open http://localhost:6060
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Use <code>godoc</code> flags <code>-play</code> to enable playground and <code>-index</code> to enable the search index.</p>
 <ul>
@@ -1033,13 +1033,13 @@ It&rsquo;s useful for writing simple and direct presentations when you don&rsquo
 <li><a href="https://github.com/golang/talks">Go talks</a> created with present</li>
 <li><a href="https://medium.com/@drashti.ved_84172/level-up-your-go-presentations-b4d06fc495e5">Tutorial</a></li>
 </ul>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-shell" data-lang="shell">$ go install golang.org/x/tools/cmd/present@latest
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go install golang.org/x/tools/cmd/present@latest
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="hugo">Hugo</h3>
 <p><a href="https://gohugo.io/">Hugo</a> is the world&rsquo;s fastest framework for building websites by <a href="https://bep.is/">Bjørn Erik Pedersen</a> and <a href="https://spf13.com/">Steve Francia</a>, and it&rsquo;s able to compile whole websites in a fraction of a second!
@@ -1096,27 +1096,27 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
 <li>Files are key objects in Plan 9 with their <a href="https://en.wikipedia.org/wiki/9P_(protocol)">9P</a> protocol (even more than in UNIX), and even a mouse is a file.</li>
 <li><a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>, a variable-width character encoding that is de facto the core of <a href="https://home.unicode.org/">Unicode</a>, was also created by Ken Thompson and Rob Pike, and the original implementation was for Plan 9. Not surprisingly, Go has great UTF-8 support!</li>
 </ul>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822"><code class="language-go" data-lang="go"><span style="color:#75715e">// Quadratic takes a general quadratic equation of the form
-</span><span style="color:#75715e">// ax² + bx + c = 0.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Quadratic</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">float64</span>) (<span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#66d9ef">float64</span>) {
-	<span style="color:#a6e22e">Δ</span> = <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#a6e22e">b</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">-</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">c</span>)
-	<span style="color:#a6e22e">x1</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
-	<span style="color:#a6e22e">x2</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#75715e">// Just don&#39;t go this wild!!!
-</span><span style="color:#75715e"></span>}
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Quadratic takes a general quadratic equation of the form
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// ax² + bx + c = 0.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Quadratic</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">float64</span>) (<span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#66d9ef">float64</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Δ</span> = <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#a6e22e">b</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">-</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">x1</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">x2</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#75715e">// Just don&#39;t go this wild!!!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Thanks! If you liked what I wrote, maybe you want to check out my other posts, such as my experience creating a <a href="/posts/homelab/">homelab</a> to play with different operating systems or learn about <a href="/posts/my-go-mistakes/">my Go mistakes</a>.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The ecosystem of the Go programming language<a href="https://t.co/t8cOOfTu3Q">https://t.co/t8cOOfTu3Q</a><a href="https://twitter.com/hashtag/golang?src=hash&amp;ref_src=twsrc%5Etfw">#golang</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1373980655906852867?ref_src=twsrc%5Etfw">March 22, 2021</a></blockquote>
@@ -1133,6 +1133,10 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
                 <h3>Read also</h3>
                 <ul>
                         
+                        <li>
+                                <a href="/posts/go-utf8/">UTF-8 strings with Go: len(s) isn&#39;t enough</a>
+                                <time datetime="2006-01-02">Monday 7, March 2022</time>
+                        </li>
                         <li>
                                 <a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a>
                                 <time datetime="2006-01-02">Monday 22, November 2021</time>
