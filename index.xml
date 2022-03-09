@@ -14,9 +14,8 @@
       
       <guid>https://henvic.dev/posts/go-utf8/</guid>
       <description>In this post, I show you the bare minimum you need to know how to do UTF-8 string manipulation in Go safely.
-Read also: Back to basics: Writing an application using Go and PostgreSQL and Homelab: Intel NUC with the ESXi hypervisor.
-tl;dr Use the unicode/utf8 package to:
- Validate if string isn&amp;rsquo;t in another encoding or corrupted:  1  fmt.Println(utf8.ValidString(s))   Get the right number of runes in a UTF-8 string:  1 2  fmt.</description>
+Update 09/03/2022: Someone at Reddit pointed out that counting runes isn&amp;rsquo;t enough to slice strings correctly, given that Unicode has multi-codepoint glyphs, such as for flags. I&amp;rsquo;ve updated the post to reflect that but couldn&amp;rsquo;t find a concise and straightforward solution.
+Read also: Back to basics: Writing an application using Go and PostgreSQL and Homelab: Intel NUC with the ESXi hypervisor.</description>
     </item>
     
     <item>
