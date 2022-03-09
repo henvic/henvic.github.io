@@ -8,6 +8,9 @@ hashtags: "golang"
 ---
 In this post, I show you the bare minimum you need to know how to do UTF-8 string manipulation in Go safely.
 
+**Update 09/03/2022:** Someone at Reddit [pointed out](https://www.reddit.com/r/golang/comments/t91ctb/comment/hzusdko/?utm_source=reddit&utm_medium=web2x&context=3) that counting runes isn't enough to slice strings correctly, given that Unicode has multi-codepoint glyphs, such as for flags.
+I've updated the post to reflect that but couldn't find a concise and straightforward solution.
+
 <small>Read also: [Back to basics: Writing an application using Go and PostgreSQL](/posts/go-postgres/) and [Homelab: Intel NUC with the ESXi hypervisor](/posts/homelab/).</small>
 
 # tl;dr
@@ -22,11 +25,17 @@ fmt.Println(utf8.ValidString(s))
 2. Get the right number of runes in a UTF-8 string:
 
 ```go
-fmt.Println(utf8.RuneCountInString("é um cãozinho")) // returns 13 as expected
+fmt.Println(utf8.RuneCountInString("é um cãozinho")) // returns 13 as expected, but there's a gotcha (keep reading)
 fmt.Println(len("é um cãozinho")) // returns 15 because 'é' and 'ã' are represented by two bytes each
 ```
 
-1. Strings might get corrupted if you try to slice them incorrectly:
+But here is a surprise:
+
+```go
+fmt.Println(utf8.RuneCountInString("🇱🇮")) // returns 2. Why? Keep reading...
+```
+
+3. Strings might get corrupted if you try to slice them directly with taking its binary length:
 
 ```go
 package main
@@ -46,7 +55,7 @@ func main() {
 // got: "� um cãozinho" (valid: false)
 ```
 
-To slice them correctly, use `utf8.DecodeRune` or `utf8.DecodeRuneInString` to get the first rune and its size:
+To slice them in runes correctly, you might think to use `utf8.DecodeRune` or `utf8.DecodeRuneInString` to get the first rune and its size:
 
 ```go
 func main() {
@@ -59,6 +68,58 @@ func main() {
 // Output:
 // got: " um cãozinho" (valid: true)
 ```
+
+Then, this:
+
+```go
+func main() {
+	var broken = "🇱🇮 is the flag for Liechtenstein"
+        _, offset := utf8.DecodeRuneInString(broken)
+	broken = broken[offset:]
+	fmt.Printf("got: %q (valid: %v)\n", broken, utf8.ValidString(broken))
+}
+
+// Output:
+// got: "🇮 is the flag for Liechtenstein" (valid: true)
+```
+
+This is not what we wanted (`" is the flag for Liechtenstein"`), but it's still valid UTF-8.
+Also, this is not a false positive: the leading rune is valid. Confusing, right?
+
+Turns out [Unicode text segmentation](http://unicode.org/reports/tr29/) is harder than I expected as some glyphs uses multiple codepoints (runes).
+
+The package [github.com/rivo/uniseg](https://github.com/rivo/uniseg) provides a limited API that can help you with that:
+
+```go
+package main
+
+import (
+	"fmt"
+	"unicode/utf8"
+
+	"github.com/rivo/uniseg"
+)
+
+func main() {
+	var s = "🇱🇮: Liechtenstein"
+	fmt.Printf("glyphs=%d runes=%d len(s)=%d\n", uniseg.GraphemeClusterCount(s), utf8.RuneCountInString(s), len(s))
+
+	gr := uniseg.NewGraphemes(s)
+	gr.Next()
+	from, to := gr.Positions()
+	fmt.Printf("First glyph runes: %x (bytes positions: %d-%d)\n", gr.Runes(), from, to)
+	fmt.Printf("slicing after first glyph: %q", s[to:])
+}
+
+// Output:
+// glyphs=16 runes=17 len(s)=23
+// First glyph runes: [1f1f1 1f1ee] (bytes positions: 0-8)
+// slicing after first glyph: ": Liechtenstein"
+```
+
+So, if you need to cut a string in a place that is not a clear " " (whitespace) or other symbols you can precisely define, you might want to walk through the glyphs one by one to do it safely.
+
+
 
 # Background
 
@@ -92,10 +153,12 @@ package main
 import (
 	"fmt"
 	"unicode/utf8"
+
+	"github.com/rivo/uniseg"
 )
 
 func main() {
-	var examples = "abcdeáãàâéíóõúûüç世界😁"
+	var examples = "abcdeáãàâéíóõúûüç世界😁🇱🇮"
 	for _, c := range examples {
 		fmt.Printf("%#U\tdecimal: %d\tbinary: %b \tbytes: %d\n", c, c, c, utf8.RuneLen(c))
 	}
@@ -122,10 +185,14 @@ func main() {
 // U+4E16 '世'	decimal: 19990	binary: 100111000010110 	bytes: 3
 // U+754C '界'	decimal: 30028	binary: 111010101001100 	bytes: 3
 // U+1F601 '😁'	decimal: 128513	binary: 11111011000000001 	bytes: 4
+// U+1F1F1 '🇱'	decimal: 127473	binary: 11111000111110001 	bytes: 4
+// U+1F1EE '🇮'	decimal: 127470	binary: 11111000111101110 	bytes: 4
 ```
 
-Each of these preceding single characters is represented by what in [character encoding](https://en.wikipedia.org/wiki/Character_encoding) terminology is called a [code point](https://en.wikipedia.org/wiki/Code_point), a numeric value that computers use to map, transmit, and store.
-Now, UTF-8 is a [variable-width encoding](https://en.wikipedia.org/wiki/Variable-width_encoding) requiring one to four bytes (that is, 8, 16, 24, or 32 bits) to represent a single ~~character~~ code point.
+The last two bytes on lines 38 and 39 are for 🇱🇮.
+
+Each of these preceding single characters in the variable `examples` is represented by one or more of what in [character encoding](https://en.wikipedia.org/wiki/Character_encoding) terminology is called a [code point](https://en.wikipedia.org/wiki/Code_point), a numeric value that computers use to map, transmit, and store.
+Now, UTF-8 is a [variable-width encoding](https://en.wikipedia.org/wiki/Variable-width_encoding) requiring one to four bytes (that is, 8, 16, 24, or 32 bits) to represent a single code point.
 UTF-8 uses one byte for the first 128 code points (backward-compatible with ASCII), and up to 4 bytes for the rest.
 While UTF-8 and many other encodings, such as ISO-8859-1, are backward-compatible with ASCII, their extended codespace aren't compatible between themselves.
 
@@ -162,6 +229,8 @@ package main
 import (
 	"fmt"
 	"unicode/utf8"
+
+	"github.com/rivo/uniseg"
 )
 
 func main() {
@@ -173,28 +242,75 @@ func main() {
 		"pà",
 		"Hello, World",
 		"Hello, 世界",
+		"now a string with a 🇱🇮 multi-coded glyph",
 	}
 	for _, w := range examples {
-		fmt.Printf("%s\tlen: %d\trunes: %d\n", w, len(w), utf8.RuneCountInString(w))
+		fmt.Printf("%s\t", w)
+		fmt.Printf("len: %d\t", len(w))
+		fmt.Printf("runes: %d\t", utf8.RuneCountInString(w))
+		fmt.Printf("glyphs: %d\n", uniseg.GraphemeClusterCount(w))
 	}
 }
 
 // Output:
-dog	len: 3	runes: 3
-cão	len: 4	runes: 3
-pa	len: 2	runes: 2
-pá	len: 3	runes: 2
-pà	len: 3	runes: 2
-Hello, World	len: 12	runes: 12
-Hello, 世界	len: 13	runes: 9
+// dog	len: 3	runes: 3	glyphs: 3
+// cão	len: 4	runes: 3	glyphs: 3
+// pa	len: 2	runes: 2	glyphs: 2
+// pá	len: 3	runes: 2	glyphs: 2
+// pà	len: 3	runes: 2	glyphs: 2
+// Hello, World	len: 12	runes: 12	glyphs: 12
+// Hello, 世界	len: 13	runes: 9	glyphs: 9
+// now a string with a 🇱🇮 multi-coded glyph	len: 46	runes: 40	glyphs: 39
 ```
 
-As you can see, len cannot be used to count the number of runes properly.
-Instead, you must use the following functions:
+As you can see, neither len(s) nor runes can be used to count the number of glyphs properly.
+
+Using github.com/rivo/uniseg, you can iterate between graphemes like [this](https://go.dev/play/p/L0CSTN1JcbC):
+
+```go
+package main
+
+import (
+	"fmt"
+	"unicode/utf8"
+
+	"github.com/rivo/uniseg"
+)
+
+func main() {
+	s := "Scheveningen 🏖 is where I live. It's in the 🇳🇱. I was born in 🇧🇷."
+	cut(s, 14)
+}
+
+func cut(s string, max int) {
+	fmt.Printf("len: %d\t", len(s))
+	fmt.Printf("runes: %d\t", utf8.RuneCountInString(s))
+	fmt.Printf("glyphs: %d\n", uniseg.GraphemeClusterCount(s))
+
+	gs := uniseg.NewGraphemes(s)
+	for i := 0; i < max; i++ {
+		gs.Next()
+	}
+	_, to := gs.Positions()
+	fmt.Printf("cropped: %q", s[:to])
+}
+
+// Output:
+// len: 80	runes: 65	glyphs: 63
+// cropped: "Scheveningen 🏖"
+```
+
+You can use the following functions to get the number of runes (not glyphs):
 
 ```go
 utf8.RuneCount(p []byte) int
 utf8.RuneCountInString(s string) (n int)
+```
+
+To get the exact number of glyphs, you might want to try out github.com/rivo/uniseg:
+
+```go
+uniseg.GraphemeClusterCount(s string) (n int)
 ```
 
 To validate if a string is consists entirely of valid UTF-8-encoded runes use the following functions:
