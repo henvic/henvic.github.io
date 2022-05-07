@@ -192,7 +192,7 @@ It is mostly inspired in curl&#39;s verbose mode, and also on the httputil.DumpR
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://henvic.dev/talks/</guid>
-      <description>Year 2018   Using a Socket.Io Client Implementation for Go  Westside GoLang Meetup Los Angeles, CA Thursday, 12 April 2018    CLI: How can people contribute? WeDeploy&#39;s Retreat, Liferay Tuesday, 23 January 2018    Year 2017   picel - HTTP middleware for image processing (undergraduate project)  UFPE Tuesday, 12 December 2017   Write in Go: The Go Programming Language (slides). Liferay&#39;s Developer Retreat 2017 Thursday, 27 January 2017   Year 2016   Writing a modern CLI tool Liferay Friday, 2 September 2016   Year 2015   Writing CLI tools with Node (slides, notes).</description>
+      <description>Year 2022   Writing a Go application with PostgreSQL using pgx  Go meetup @ HATCH, Amsterdam Tuesday, 12 April 2022    Year 2018   Using a Socket.Io Client Implementation for Go  Westside GoLang Meetup Los Angeles, CA Thursday, 12 April 2018    CLI: How can people contribute? WeDeploy&#39;s Retreat, Liferay Tuesday, 23 January 2018    Year 2017   picel - HTTP middleware for image processing (undergraduate project)  UFPE Tuesday, 12 December 2017   Write in Go: The Go Programming Language (slides).</description>
     </item>
     
   </channel>

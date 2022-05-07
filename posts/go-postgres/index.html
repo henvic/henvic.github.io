@@ -331,6 +331,9 @@ Don&rsquo;t forget to check out the accompanying repository <a href="https://git
 </aside>
 
 
+<blockquote>
+<p>See also my presentation <a href="https://docs.google.com/presentation/d/1YoIMHpVtWgSndvp5gQNdAtG9QUTpqY5vMVBhrqyq-uQ%22%3E">Writing a Go application with PostgreSQL using pgx</a> during a Go meetup @ HATCH in Amsterdam (Tuesday, 12 April 2022).</p>
+</blockquote>
 <p><small>Read also: <a href="/posts/go/">The ecosystem of the Go programming language</a> and <a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a>.</small></p>
 <h2 id="context">Context</h2>
 <p>PostgreSQL, also known as Postgres, is an extendible feature-rich <a href="https://arctype.com/blog/postgres-ordbms-explainer/">Object-Relational Database Management System</a> that is almost 100% <a href="https://en.wikipedia.org/wiki/SQL_compliance">SQL standards-compliant</a> and released as open source software under a permissive license.</p>
@@ -347,41 +350,41 @@ You&rsquo;ll need to connect to a <a href="https://www.postgresql.org/">PostgreS
 You can check if a connection is working by calling <code>psql</code>.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Clone my repository with any of the following commands:</span>
-</span></span><span style="display:flex;"><span>$ gh repo clone henvic/pgxtutorial
-</span></span><span style="display:flex;"><span>$ git clone https://github.com/henvic/pgxtutorial.git
-</span></span><span style="display:flex;"><span>$ git clone git@github.com:henvic/pgxtutorial.git
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># then:</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ git clone https://github.com/henvic/pgxtutorial.git
 </span></span><span style="display:flex;"><span>$ cd pgxtutorial
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a database</span>
-</span></span><span style="display:flex;"><span>$ psql -c <span style="color:#e6db74">&#34;CREATE DATABASE pgxtutorial;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set the environment variable PGDATABASE</span>
-</span></span><span style="display:flex;"><span>$ export PGDATABASE<span style="color:#f92672">=</span>pgxtutorial
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run migrations</span>
-</span></span><span style="display:flex;"><span>$ tern migrate -m ./migrations
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run all tests passing INTEGRATION_TESTDB explicitly</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Run tests with:</span>
 </span></span><span style="display:flex;"><span>$ INTEGRATION_TESTDB<span style="color:#f92672">=</span>true go test -v ./...
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Execute application</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># To execute application, first create a database and run migrations.</span>
+</span></span><span style="display:flex;"><span>$ psql -c <span style="color:#e6db74">&#34;CREATE DATABASE pgxtutorial;&#34;</span>
+</span></span><span style="display:flex;"><span>$ export PGDATABASE<span style="color:#f92672">=</span>pgxtutorial
+</span></span><span style="display:flex;"><span>$ tern migrate -m ./migrations
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Then, run it (without installing):</span>
 </span></span><span style="display:flex;"><span>$ go run ./cmd/pgxtutorial
 </span></span><span style="display:flex;"><span>2021/11/22 07:21:21 HTTP server listening at localhost:8080
 </span></span><span style="display:flex;"><span>2021/11/22 07:21:21 gRPC server listening at 127.0.0.1:8082
@@ -618,7 +621,7 @@ You can use it to write sequential migration (even for your tests, as we&rsquo;l
 <blockquote>
 <p>Tip: Be extra careful doing data migrations! It can be destructive!</p>
 </blockquote>
-<script id="asciicast-Diy7Nutmq3TWCCFdNFozbY9tl" src="https://asciinema.org/a/Diy7Nutmq3TWCCFdNFozbY9tl.js" async></script>
+<script id="asciicast-450576" src="https://asciinema.org/a/450576.js" async></script>
 <h2 id="main-package">main package</h2>
 <p>Let&rsquo;s see how we can connect to PostgreSQL using pgx from a program written in <a href="https://golang.org/">Go</a>.</p>
 <p>First, to use pgx in a concurrency-safe and reliable manner, we must use a connection pool.
@@ -694,7 +697,7 @@ We can do this by using <a href="https://pkg.go.dev/github.com/jackc/pgx/v4/pgxp
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// pgx, by default, does some I/O operation on initialization of a pool to check if the database is reachable.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Comment the following line if you don&#39;t want pgx to try to connect pool once the Connect function is called,
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// If comment it, and your application seems stuck, you probably forgot to set up PGCONNECT_TIMEOUT,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// If you comment it, and your application seems stuck, you probably forgot to set up PGCONNECT_TIMEOUT,
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// and your code is hanging waiting for a connection to be established.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">LazyConnect</span> = <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>
@@ -880,38 +883,48 @@ In Go, the idiomatic thing to do is to <a href="https://golang.org/doc/effective
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// DB layer.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate mockgen --build_flags=--mod=mod -package inventory -destination mock_db_test.go . DB
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DB</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// TransactionContext returns a copy of the parent context which begins a transaction
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// to PostgreSQL.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">TransactionContext</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Commit transaction from context.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Commit</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Rollback transaction from context.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Rollback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// WithAcquire returns a copy of the parent context which acquires a connection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// to PostgreSQL from pgxpool to make sure commands executed in series reuse the
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// same database connection.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">WithAcquire</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#a6e22e">dbCtx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Release PostgreSQL connection acquired by context back to the pool.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Release</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>)
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// CreateProduct creates a new product.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">CreateProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateProductParams</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// UpdateProduct updates an existing product.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">UpdateProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateProductParams</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProduct returns a product.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// SearchProducts returns a list of products.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">SearchProducts</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">SearchProductsParams</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">SearchProductsResponse</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// DeleteProduct deletes a product.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">DeleteProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// CreateProductReview for a given product.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">CreateProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateProductReviewDBParams</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// UpdateProductReview for a given product.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">UpdateProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateProductReviewParams</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProductReview gets a specific review.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">ProductReview</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProductReviews gets reviews for a given product or from a given user.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProductReviews</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">ProductReviewsParams</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">ProductReviewsResponse</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// DeleteProductReview deletes a review.
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">DeleteProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
 </span></span><span style="display:flex;"><span>}
