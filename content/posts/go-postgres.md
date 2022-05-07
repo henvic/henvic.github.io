@@ -24,6 +24,8 @@ Don't forget to check out the accompanying repository [github.com/henvic/pgxtuto
 
 {{< table_of_contents >}}
 
+> See also my presentation [Writing a Go application with PostgreSQL using pgx](https://docs.google.com/presentation/d/1YoIMHpVtWgSndvp5gQNdAtG9QUTpqY5vMVBhrqyq-uQ">) during a Go meetup @ HATCH in Amsterdam (Tuesday, 12 April 2022).
+
 <small>Read also: [The ecosystem of the Go programming language](/posts/go/) and [Homelab: Intel NUC with the ESXi hypervisor](/posts/homelab/).</small>
 
 ## Context
@@ -45,21 +47,21 @@ You'll need to connect to a [PostgreSQL](https://www.postgresql.org/) database.
 You can check if a connection is working by calling `psql`.
 
 ```sh
-# Clone my repository with any of the following commands:
-$ gh repo clone henvic/pgxtutorial
 $ git clone https://github.com/henvic/pgxtutorial.git
-$ git clone git@github.com:henvic/pgxtutorial.git
-# then:
 $ cd pgxtutorial
-# Create a database
-$ psql -c "CREATE DATABASE pgxtutorial;"
-# Set the environment variable PGDATABASE
-$ export PGDATABASE=pgxtutorial
-# Run migrations
-$ tern migrate -m ./migrations
-# Run all tests passing INTEGRATION_TESTDB explicitly
+```
+
+```sh
+# Run tests with:
 $ INTEGRATION_TESTDB=true go test -v ./...
-# Execute application
+```
+
+```sh
+# To execute application, first create a database and run migrations.
+$ psql -c "CREATE DATABASE pgxtutorial;"
+$ export PGDATABASE=pgxtutorial
+$ tern migrate -m ./migrations
+# Then, run it (without installing):
 $ go run ./cmd/pgxtutorial
 2021/11/22 07:21:21 HTTP server listening at localhost:8080
 2021/11/22 07:21:21 gRPC server listening at 127.0.0.1:8082
@@ -265,7 +267,7 @@ The following commands might be useful:
 
 > Tip: Be extra careful doing data migrations! It can be destructive!
 
-<script id="asciicast-Diy7Nutmq3TWCCFdNFozbY9tl" src="https://asciinema.org/a/Diy7Nutmq3TWCCFdNFozbY9tl.js" async></script>
+<script id="asciicast-450576" src="https://asciinema.org/a/450576.js" async></script>
 
 ## main package
 Let's see how we can connect to PostgreSQL using pgx from a program written in [Go](https://golang.org/).
@@ -300,7 +302,7 @@ func NewPGXPool(ctx context.Context, connString string, logger pgx.Logger, logLe
 	// pgx, by default, does some I/O operation on initialization of a pool to check if the database is reachable.
 	// Comment the following line if you don't want pgx to try to connect pool once the Connect function is called,
 	//
-	// If comment it, and your application seems stuck, you probably forgot to set up PGCONNECT_TIMEOUT,
+	// If you comment it, and your application seems stuck, you probably forgot to set up PGCONNECT_TIMEOUT,
 	// and your code is hanging waiting for a connection to be established.
 	conf.LazyConnect = true
 
@@ -422,33 +424,38 @@ In Go, the idiomatic thing to do is to [define interfaces where they're used](ht
 // DB layer.
 //go:generate mockgen --build_flags=--mod=mod -package inventory -destination mock_db_test.go . DB
 type DB interface {
+	// TransactionContext returns a copy of the parent context which begins a transaction
+	// to PostgreSQL.
+	TransactionContext(ctx context.Context) (context.Context, error)
+	// Commit transaction from context.
+	Commit(ctx context.Context) error
+	// Rollback transaction from context.
+	Rollback(ctx context.Context) error
+	// WithAcquire returns a copy of the parent context which acquires a connection
+	// to PostgreSQL from pgxpool to make sure commands executed in series reuse the
+	// same database connection.
+	WithAcquire(ctx context.Context) (dbCtx context.Context, err error)
+	// Release PostgreSQL connection acquired by context back to the pool.
+	Release(ctx context.Context)
+
 	// CreateProduct creates a new product.
 	CreateProduct(ctx context.Context, params CreateProductParams) error
-
 	// UpdateProduct updates an existing product.
 	UpdateProduct(ctx context.Context, params UpdateProductParams) error
-
 	// GetProduct returns a product.
 	GetProduct(ctx context.Context, id string) (*Product, error)
-
 	// SearchProducts returns a list of products.
 	SearchProducts(ctx context.Context, params SearchProductsParams) (*SearchProductsResponse, error)
-
 	// DeleteProduct deletes a product.
 	DeleteProduct(ctx context.Context, id string) error
-
 	// CreateProductReview for a given product.
 	CreateProductReview(ctx context.Context, params CreateProductReviewDBParams) error
-
 	// UpdateProductReview for a given product.
 	UpdateProductReview(ctx context.Context, params UpdateProductReviewParams) error
-
 	// GetProductReview gets a specific review.
 	GetProductReview(ctx context.Context, id string) (*ProductReview, error)
-
 	// GetProductReviews gets reviews for a given product or from a given user.
 	GetProductReviews(ctx context.Context, params ProductReviewsParams) (*ProductReviewsResponse, error)
-
 	// DeleteProductReview deletes a review.
 	DeleteProductReview(ctx context.Context, id string) error
 }
