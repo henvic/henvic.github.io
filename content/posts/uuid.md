@@ -103,7 +103,7 @@ In this specific case, the CLI tool I maintained appended entries to a file flus
 
 Thank you for reading this article.
 
-{{< tweet 1399330361126031363 >}}
+{{< tweet henriquev 1399330361126031363 >}}
 
 <script type="text/javascript">
 amzn_assoc_tracking_id = "henvic-20";

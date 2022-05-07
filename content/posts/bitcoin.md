@@ -137,7 +137,7 @@ Within the following years, many will lose their fortunes because of cryptocurre
 Given that the price of Bitcoin is constructed upon a mindset that it is worth just because it is exchangeable, what stops people moving from it to any other random shitcoin like Dogecoin? Nothing.
 
 <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">So far in 2021 <a href="https://twitter.com/hashtag/Bitcoin?src=hash&amp;ref_src=twsrc%5Etfw">#Bitcoin</a> has lost 97% of its value verses <a href="https://twitter.com/hashtag/Dogecoin?src=hash&amp;ref_src=twsrc%5Etfw">#Dogecoin</a>. The market has spoken. Dogecoin is eating Bitcoin. All the Bitcoin pumpers who claim Bitcoin is better than gold because its price has risen more than gold&#39;s must now concede that Dogecoin is better than Bitcoin.</p>&mdash; Peter Schiff (@PeterSchiff) <a href="https://twitter.com/PeterSchiff/status/1383134331946827776?ref_src=twsrc%5Etfw">April 16, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!-- could have been {{< tweet 1383134331946827776 >}}, if not for the dark theme -->
+<!-- could have been {{< tweet PeterSchiff 1383134331946827776 >}}, if not for the dark theme -->
 
 > [Peter Schiff](https://www.schiffradio.com/), famous for <a href="https://www.youtube.com/watch?v=sgRGBNekFIw" title="Peter Schiff was Right (2006-2007 Edition)">his predictions</a> about the United States housing bubble, has been exposing the truth about Bitcoin for 12 years.
 
@@ -607,7 +607,7 @@ What really matters is people's perception of value, and Bitcoin is based on sil
 In the upcoming years, we should see Dogecoin surpassing Bitcoin.
 
 <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">ur welcome <a href="https://t.co/e2KF57KLxb">pic.twitter.com/e2KF57KLxb</a></p>&mdash; Elon Musk (@elonmusk) <a href="https://twitter.com/elonmusk/status/1357236825589432322?ref_src=twsrc%5Etfw">February 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!-- could have been {{< tweet 1357236825589432322 >}}, if not for the dark theme -->
+<!-- could have been {{< tweet elonmusk 1357236825589432322 >}}, if not for the dark theme -->
 
 All it takes is for an influential personality to say something silly to see cryptocurrency's value drift wildly.
 At some point, the market will wake up to reality and understand there is a huge mistake going on.
@@ -655,7 +655,7 @@ Yeah, they are talking about state-issued shitcoins that...
 
 <a href="https://www.amazon.com/The-Economist-US-Edition/dp/B0027VSU9S?dchild=1&keywords=the+economist&qid=1620607728&sr=8-2&linkCode=li3&tag=henvic-20&linkId=98e5a06adc9eee7947ecce81a19ac53b&language=en_US&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0027VSU9S&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=henvic-20&language=en_US" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=henvic-20&language=en_US&l=li3&o=1&a=B0027VSU9S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
-{{< tweet 1391718603515482113 >}}
+{{< tweet henriquev 1391718603515482113 >}}
 
 I hope you enjoyed my article.
 If you hated it, thanks for reaching here anyways!
