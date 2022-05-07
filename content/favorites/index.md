@@ -50,6 +50,7 @@ kind: list
 * [Modular conversion, encoding and encryption online — Cryptii](https://cryptii.com) (Enigma machine, Base64, HMAC, and so on)
 * [Your GitHub story in 3D](https://skyline.github.com/) ([view my own](https://skyline.github.com/henvic/2020))
 * [sitecheker.pro: Website SSO Checker & Audit Tool](https://sitechecker.pro/app/main/project/1876363/audit/summary)
+* [Object-Relational mapping is the Vietnam of our industry, by Ted Neward](http://blogs.tedneward.com/post/the-vietnam-of-computer-science/)
 
 <hr />
 
