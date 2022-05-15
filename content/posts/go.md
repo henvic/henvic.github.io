@@ -113,6 +113,7 @@ No matter if you're an experienced developer or a newcomer to programming, Go is
 * [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/)
 * [A Tour of Go](https://tour.golang.org/)
 * [Go by Example](https://gobyexample.com/)
+* [Learn Go: The complete course](https://www.karanpratapsingh.com/blog/learn-go-the-complete-course)
 
 ### Books
 * [The Go Programming Language](https://amzn.to/2ONS33T) ([website](https://www.gopl.io/)) was written by [Alan A. A. Donovan](https://alandonovan.net/) and [Brian W. Kernighan](https://www.cs.princeton.edu/~bwk/) (co-author of [The C Programming Language](https://amzn.to/3qFOpX6) with [Dennis Ritchie](https://www.bell-labs.com/usr/dmr/www/) and [The Unix Programming Environment](https://amzn.to/3rJTGyk) with [Rob Pike](http://www.herpolhode.com/rob/))
