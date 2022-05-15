@@ -13,6 +13,7 @@ kind: list
 * [The Art Of Unix Programming - Eric S. Raymond](http://catb.org/esr/writings/taoup/html/graphics/taoup.pdf)
 * [Do No Harm: Stories of Life, Death, and Brain Surgery - Henry Marsh](https://www.amazon.com/Do-No-Harm-Stories-Surgery-ebook/dp/B00P5KFCW6/)
 * [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/)
+* [Vintage Apple](https://vintageapple.org/)
 
 ### Free markets, libertarianism
 * [The Bastiat Collection](https://mises.org/library/bastiat-collection) (contains both works below)
@@ -51,6 +52,7 @@ kind: list
 * [Your GitHub story in 3D](https://skyline.github.com/) ([view my own](https://skyline.github.com/henvic/2020))
 * [sitecheker.pro: Website SSO Checker & Audit Tool](https://sitechecker.pro/app/main/project/1876363/audit/summary)
 * [Object-Relational mapping is the Vietnam of our industry, by Ted Neward](http://blogs.tedneward.com/post/the-vietnam-of-computer-science/)
+* [Animate SQL](https://animatesql.com/)
 
 <hr />
 
