@@ -1,3 +1,7 @@
+.highlight {
+    overflow: auto;
+}
+
 .dark {
     background: #232323;
     color: #ededed;
