@@ -91,7 +91,7 @@ You also have access to a shell that resembles a regular Unix system, but it [is
 
 ## Web client
 
-[![VMware ESXi 7 web client showing a virtual machine console running [Plan 9](https://plan9.io/plan9/) from Bell Labs](/img/posts/homelab/esxi_small.png)](/img/posts/homelab/esxi.png)
+[![VMware ESXi 7 web client showing a virtual machine console running Plan 9](/img/posts/homelab/esxi_small.png)](/img/posts/homelab/esxi.png)
 
 *VMware ESXi 7 web client showing a virtual machine console running [Plan 9](https://plan9.io/plan9/) from Bell Labs*
 
