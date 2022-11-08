@@ -173,7 +173,7 @@ Here&amp;rsquo;s I discuss what everyone should be doing about distributing soft
       <guid>https://henvic.dev/opensource/</guid>
       <description>I have created and contributed to many open source projects. Here is a selected few.
 On my portfolio and GitHub profile, you can find more opensource projects.
-I created   clino is Go package for creating CLI (command-line interface) tools with multiple commands. Wednesday, 25 March 2020   httpretty is Go package for printing your HTTP requests on the terminal. Sunday, 2 February 2020   kubeapply is kubeapply is a microservice for running kubectl apply through a web API.</description>
+I created   pgq is a query builder for PostgreSQL written in Go (Squirrel fork). Sunday, 16 October 2022   pgtools provides infrastructure for working more effectively with PostgreSQL and Go using pgx, tern, and scany. Friday, 6 August 2021   tel is an OpenTelemetry API wrapper to make using opentelemetry-go more idiomatic (experiment).</description>
     </item>
     
     <item>
