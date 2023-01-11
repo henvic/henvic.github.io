@@ -254,7 +254,7 @@
         <h1 class="post-title">The ecosystem of the Go programming language</h1>
         
         
-        <p class="post-date">Posted in <time class="stat" datetime="2021-03-22 00:00:00 &#43;0000 UTC"></time>Monday, 22 March 2021</time>.</p>
+        <p class="post-date"><time class="stat" datetime="2021-03-22 00:00:00 &#43;0000 UTC"></time>Monday, 22 March 2021</time>.</p>
         
         <p>Go is one of the most prominent general-purpose programming languages nowadays.
 Google, Apple, Microsoft, Amazon, and Adobe, <a href="https://github.com/golang/go/wiki/GoUsers">to name a few</a>, have been using the language extensively.
@@ -1110,11 +1110,11 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Quadratic takes a general quadratic equation of the form
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// ax² + bx + c = 0.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Quadratic</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">float64</span>) (<span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#66d9ef">float64</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Δ</span> = <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#a6e22e">b</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">-</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">c</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">x1</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">x2</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#a6e22e">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#a6e22e">Δ</span> <span style="color:#75715e">// Just don&#39;t go this wild!!!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Quadratic</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">float64</span>) (<span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#960050;background-color:#1e0010">Δ</span> <span style="color:#66d9ef">float64</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">Δ</span> = <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pow</span>(<span style="color:#a6e22e">b</span>, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">-</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">x1</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#960050;background-color:#1e0010">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">x2</span> = (<span style="color:#f92672">-</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sqrt</span>(<span style="color:#960050;background-color:#1e0010">Δ</span>)) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">a</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x1</span>, <span style="color:#a6e22e">x2</span>, <span style="color:#960050;background-color:#1e0010">Δ</span> <span style="color:#75715e">// Just don&#39;t go this wild!!!
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1133,6 +1133,10 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
                 <h3>Read also</h3>
                 <ul>
                         
+                        <li>
+                                <a href="/posts/tesla/">My new Tesla Model Y 2023</a>
+                                <time datetime="2006-01-02">Wednesday 11, January 2023</time>
+                        </li>
                         <li>
                                 <a href="/posts/go-utf8/">UTF-8 strings with Go: len(s) isn&#39;t enough</a>
                                 <time datetime="2006-01-02">Monday 7, March 2022</time>
@@ -1176,10 +1180,6 @@ Part of the Plan 9 team included <a href="http://www.herpolhode.com/rob/">Rob P
                         <li>
                                 <a href="/posts/cs-security/">Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely.</a>
                                 <time datetime="2006-01-02">Wednesday 22, April 2020</time>
-                        </li>
-                        <li>
-                                <a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a>
-                                <time datetime="2006-01-02">Monday 20, April 2020</time>
                         </li>
                 </ul>
         </aside>

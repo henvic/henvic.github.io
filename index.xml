@@ -6,7 +6,17 @@
     <description>Recent content on Henrique Vicente</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://henvic.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My new Tesla Model Y 2023</title>
+      <link>https://henvic.dev/posts/tesla/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://henvic.dev/posts/tesla/</guid>
+      <description>On December 12th, I took a train to the small city of Tilburg to go to the Tesla Factory to take delivery of my 2023 Tesla Model Y. This post covers some key points about the Tesla Model Y and more.
+Fact sheet Model Tesla Model Y 2023 Rear-Wheel Drive Autopilot Standard (Basic Autopilot) Exterior Pear White Multi-Coat Interior Full Premium (black) Wheels 19&amp;quot; Gemini Seating Layout Five Seat Interior Battery Lithium iron phosphate (LFP) Windows Double-insulated (front and rear) Sensors Tesla Vision with 5MP cameras Table of Contents show/hide Timeline Delivery Oops :~ missed the 10,000km Supercharging credit for 3 days!</description>
+    </item>
+    
     <item>
       <title>UTF-8 strings with Go: len(s) isn&#39;t enough</title>
       <link>https://henvic.dev/posts/go-utf8/</link>
