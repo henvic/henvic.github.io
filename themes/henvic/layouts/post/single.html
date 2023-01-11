@@ -4,7 +4,7 @@
         <h1 class="post-title">{{ .Title }}</h1>
         
         {{ if .Date }}
-        <p class="post-date">Posted in <time class="stat" datetime="{{ .Date }}"></time>
+        <p class="post-date"><time class="stat" datetime="{{ .Date }}"></time>
                 {{- .Date.Format "Monday, 2 January 2006" -}}
         </time>.</p>
         {{ end }}
