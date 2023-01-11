@@ -560,7 +560,7 @@ Maybe I should wait and get the winter tire package in the next winter season.
 </div>
 </div>
 
-<h3>Tire inflator</h3>
+### Tire inflator
 
 I considered buying a [Tire Repair Kit](https://shop.tesla.com/product/tire-repair-kit) for safety during long road trips in remote areas. Then – [reading complaints](https://teslamotorsclub.com/tmc/threads/tire-repair-kit-and-sound-absorbing-foam.274012/) about its quality and learning that using the sealant made it impossible to professionally repair the tire due to EV tires' sound-absorbing foam – I decided it wasn't for me.
 However, I might eventually get a portable, robust [tire inflator (air compressor) with a pressure gauge](https://amzn.to/3IWu1Oz) for peace of mind.
