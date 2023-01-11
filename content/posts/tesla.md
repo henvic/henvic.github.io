@@ -632,6 +632,8 @@ How could Tesla make it even better?
 * New Model S/X steering wheel with buttons instead of stalks (and, maybe, an option for the yoke)
 * Steam gaming platform
 
+{{< tweet henriquev 1613301032146161664 >}}
+
 ## Bonus
 These videos show the huge scale of the Shanghai Gigafactory and port operations with Tesla boarding [Roll-on/roll-off](https://en.wikipedia.org/wiki/Roll-on/roll-off) ships.
 
