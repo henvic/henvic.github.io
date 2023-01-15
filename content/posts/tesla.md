@@ -617,6 +617,14 @@ For a review of the Full-Self Driving (Beta) with Tesla Vision and flaws of the 
 </div>
 </div>
 
+## Resources
+* [Tesla Motors Club](https://teslamotorsclub.com/)
+* [Tesla Info](https://tesla-info.com/) and its [VIN decoder](https://tesla-info.com/vin-decoder.php)
+* [TeslaTap](https://teslatap.com/) and its [VIN decoder](https://teslatap.com/vin-decoder/)
+* [A Better Routeplanner](https://abetterrouteplanner.com/)
+* [PlugShare](https://www.plugshare.com/)
+* [Chargemap](https://chargemap.com/)
+
 ## Closing thoughts
 I am delighted with my purchase!
 The Tesla Model Y is quick, spacious, sleek, safe, and fun to drive.
