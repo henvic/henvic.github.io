@@ -290,7 +290,7 @@ amzn_assoc_linkid = "fc3a980c0ca1b848fbf23ff496ce279b";
 <div class="cell auto">
 {{% markdown %}}
 ### Glass Screen Protector
-[Spigen Glass Screen Protector](https://amzn.to/3WLxjYf) ([Amazon DE](https://amzn.to/3WFsCjn)), available for around $40 USD / €36.
+[Spigen Glass Screen Protector](https://amzn.to/3QFDefH) ([Amazon DE](https://amzn.to/3WFsCjn)), available for around $40 USD / €36.
 I decided to try this matte screen protector even though I prefer glossy screens, and I don't regret a thing!
 
 Spigen's matte screen protector is less prone to getting fingerprints all over it **but is still glossy enough for my taste** and has a touch feel close to the one on the original screen.
