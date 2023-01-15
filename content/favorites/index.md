@@ -103,6 +103,7 @@ kind: list
 * [CERT Vulnerability Notes Database](https://www.kb.cert.org/vuls/)
 * [National Vulnerability Database](https://nvd.nist.gov)
 * [JSON-to-Go](https://mholt.github.io/json-to-go/)
+* [OWASP Risk Assessment Calculator](https://javierolmedo.github.io/OWASP-Calculator/)
 
 <hr />
 
