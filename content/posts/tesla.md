@@ -555,8 +555,8 @@ On high-profile detailing providers such as [Unplugged Performance](https://unpl
 <div class="cell large-6">
 {{% markdown %}}
 [![Model Y Carbon Fiber Spoiler](/img/posts/tesla/spoiler.jpg)](https://shop.tesla.com/product/model-y-carbon-fiber-spoiler)
-I started considering getting a spoiler after bumping the [lift gate](https://www.tesla.com/ownersmanual/modely/en_us/GUID-3667D28B-5B3B-49CE-A1C1-3D70AC60D9F6.html) into the ceiling of a short garage – even though I knew this was a common problem). 
-The damage is a tiny line on the area north of the Tesla logo, where the spoiler rests.
+I started considering getting a spoiler after bumping the [lift gate](https://www.tesla.com/ownersmanual/modely/en_us/GUID-3667D28B-5B3B-49CE-A1C1-3D70AC60D9F6.html) into the ceiling of a low garage – even though I knew this was a common problem). 
+The [damage is a tiny area](/img/posts/tesla/damage.jpg) north of the Tesla logo, that might be covered by a spoiler.
 Tesla even told me they could fix it quickly with the Paint Repair Kit, but when I got to their Service Center, they took a look and told me the car had to go to the paint shop.
 Later, they sent me a quote of €1000 – more than what their spoiler should cost.
 
@@ -566,7 +566,7 @@ This leaves me with two decent alternatives:
 * Wait for them to become available
 * Have my detailer fix it for 30% of the price with promised 90-95% accuracy
 
-Even if I decide to get the spoiler, I want to cover the area with the paint repair kit to protect it adequately.
+Even if I decide to get the spoiler, I want to cover the area with the paint repair kit to protect the area.
 {{% /markdown %}}
 </div>
 </div>
