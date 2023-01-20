@@ -104,7 +104,7 @@ Tesla [Wireless Charging Platform](https://shop.tesla.com/product/wireless-charg
 </div>
 </div>
 
-### Oops :~ missed the 10,000km Supercharging credit for 3 days!
+### Oops :~ missing 10,000km Supercharging credit for 3 days, and $$$ discount for a month!
 
 <div class="grid-x grid-margin-x">
 <div class="cell auto">
@@ -120,6 +120,8 @@ Verbatim translation:
 > All new vehicles delivered this year will receive 10,000 km of free Supercharging. Terms and Conditions*
 >
 > DISCOVER OUR STOCK
+
+**Update:** And just a month after my delivery, Tesla [dropped the prices of their whole vehicle line-up worldwide](https://www.youtube.com/watch?v=AN7ABID6i2w). Today, I could've gotten the Long Range model for just €4000 more in the Netherlands. The Standard Range is now €3000 cheaper.
 
 By the way, if you are planning on getting a Tesla Solar Roof feel free to use my [referral link](https://www.tesla.com/referral/henrique299805).
 {{% /markdown %}}
