@@ -541,6 +541,39 @@ One thing to have in mind is that Tesla software upgrades are tied to the vehicl
 <div class="grid-x grid-margin-x">
 <div class="cell auto">
 {{% markdown %}}
+### Model Y Carbon Fiber Spoiler
+A spoiler is an aerodynamic device that may reduce drag, improve stability and increase performance.
+Tesla just started offering the [Model Y Carbon Fiber Spoiler](https://shop.tesla.com/product/model-y-carbon-fiber-spoiler) for $800 USD (including installation) in the United States.
+
+There are other spoilers alternatives out there for a wide price range:
+On Amazon, you will find some self-install kits for a fraction of the price.
+On high-profile detailing providers such as [Unplugged Performance](https://unpluggedperformance.com/), you can find some for [around the same price](https://unpluggedperformance.com/product/high-efficiency-trunk-spoiler-for-tesla-model-y/) or for many thousands of Dollars.
+
+[![Paint Repair Kit](/img/posts/tesla/paintrepairkit.jpg)](https://shop.tesla.com/product/paint-repair-kit)
+{{% /markdown %}}
+</div>
+<div class="cell large-6">
+{{% markdown %}}
+[![Model Y Carbon Fiber Spoiler](/img/posts/tesla/spoiler.jpg)](https://shop.tesla.com/product/model-y-carbon-fiber-spoiler)
+I started considering getting a spoiler after bumping the [lift gate](https://www.tesla.com/ownersmanual/modely/en_us/GUID-3667D28B-5B3B-49CE-A1C1-3D70AC60D9F6.html) into the ceiling of a short garage – even though I knew this was a common problem). 
+The damage is a tiny line on the area north of the Tesla logo, where the spoiler rests.
+Tesla even told me they could fix it quickly with the Paint Repair Kit, but when I got to their Service Center, they took a look and told me the car had to go to the paint shop.
+Later, they sent me a quote of €1000 – more than what their spoiler should cost.
+
+However, neither the spoiler nor the [Paint Repair Kit](https://shop.tesla.com/product/paint-repair-kit) (#60 USD) is currently offered on their webshop in the Netherlands.
+This leaves me with two decent alternatives:
+
+* Wait for them to become available
+* Have my detailer fix it for 30% of the price with promised 90-95% accuracy
+
+Even if I decide to get the spoiler, I want to cover the area with the paint repair kit to protect it adequately.
+{{% /markdown %}}
+</div>
+</div>
+
+<div class="grid-x grid-margin-x">
+<div class="cell auto">
+{{% markdown %}}
 ### Winter tires
 Tesla offers the [Model&nbsp;Y 19" Gemini Wheel and Pirelli Winter Tire Package](https://shop.tesla.com/product/model-y-19_-gemini-wheel-and-pirelli-winter-tire-package) for $2750 USD / €3150.
 
