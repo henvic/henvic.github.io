@@ -24,7 +24,7 @@ Don't forget to check out the accompanying repository [github.com/henvic/pgxtuto
 
 {{< table_of_contents >}}
 
-> See also my presentation [Writing a Go application with PostgreSQL using pgx](https://docs.google.com/presentation/d/1YoIMHpVtWgSndvp5gQNdAtG9QUTpqY5vMVBhrqyq-uQ">) during a Go meetup @ HATCH in Amsterdam (Tuesday, 12 April 2022).
+> See also my presentation [Writing a Go application with PostgreSQL using pgx](https://docs.google.com/presentation/d/1YoIMHpVtWgSndvp5gQNdAtG9QUTpqY5vMVBhrqyq-uQ) during a Go meetup @ HATCH in Amsterdam (Tuesday, 12 April 2022).
 
 <small>Read also: [The ecosystem of the Go programming language](/posts/go/) and [Homelab: Intel NUC with the ESXi hypervisor](/posts/homelab/).</small>
 
