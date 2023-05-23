@@ -25,10 +25,12 @@
                         {{- if eq .Type "post" -}}
                         {{- if ne . $original -}}
                         {{- if .IsPage }}
+                        {{- if ne .Params.polemic true -}}
                         <li>
                                 <a href="{{ .RelPermalink }}">{{ .Title | default "untitled" }}</a>
                                 <time datetime="2006-01-02">{{ .Date.Format "Monday 2, January 2006" }}</time>
                         </li>
+                        {{- end -}}
                         {{- end -}}
                         {{- end -}}
                         {{- end -}}
