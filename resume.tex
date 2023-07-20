@@ -57,21 +57,12 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
+\newcommand{\resumeSubheadingExtra}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
     \end{tabular*}\vspace{-7pt}
 }
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
@@ -104,10 +95,6 @@
 \section{Experience}
   \resumeSubHeadingListStart
 
-  \resumeSubheading
-      {Go Developer}{May 2023 -- June 2023}
-      {Qredo}{Remote}
-
     \resumeSubheading
       {Senior Software Engineer}{August 2022 -- April 2023}
       {Form3}{Remote}
@@ -119,7 +106,7 @@
       {Senior Software Engineer}{February 2021 -- July 2022}
       {Stitch, PVH Corp.}{Remote \& Amsterdam, Netherlands}
       \resumeItemListStart
-        \resumeItem{Lead a major platform project of migrating all internal services to the PostgreSQL database and OpenSearch (Elasticsearch fork) search engine with automated testing infrastructure and a focus on scalability, developer experience, and reducing costs.}
+        \resumeItem{Led a migration of all internal services to the PostgreSQL database and OpenSearch (Elasticsearch fork) search engine with automated testing infrastructure and a focus on scalability, developer experience, and costs reduction.}
         \resumeItem{Experience with Go, Kubernetes, Terraform, and Amazon Web Services.}
       \resumeItemListEnd
 
@@ -132,9 +119,8 @@
         \resumeItem{Experience with Go, Google Cloud Platform, Kubernetes, and microservices.}
     \resumeItemListEnd
     
-    \resumeSubheading
+    \resumeSubheadingExtra
       {Senior Software Engineer}{January 2018 -- May 2019}
-      {Liferay Cloud}{Remote}
     \resumeSubheading
       {Software Engineer}{March 2014 -- December 2017}
       {Liferay, Inc.}{Recife, Brazil \& Remote}
@@ -142,15 +128,6 @@
         \resumeItem{Designed, implemented, and maintained projects such as the CLI tool of WeDeploy and Liferay Cloud DXP.}
         \resumeItem{Experience developing projects with Go and JavaScript (frontend and backend).}
         \resumeItem{Reverse engineered the socket.io protocol to create a remote access protocol emulating SSH.}
-    \resumeItemListEnd
-    
-    \resumeSubheading
-      {Co-Founder, Software Engineer}{c. 2013 -- 2015}
-      {Vehikel}{}
-      \resumeItemListStart
-        \resumeItem{Created this online marketplace for vehicles, inspired by Craigslist and eBay using PHP, ElasticSearch, MySQL, etc.}
-        \resumeItem{Implemented a real-time search engine with faceted filters, and pages with maps, edit-in-place, and photo carousel.}
-        \resumeItem{Implemented a web crawler for extracting data from industry sources on the web using CasperJS and PhantomJS.}
     \resumeItemListEnd
     
     \resumeSubheading
@@ -168,16 +145,6 @@
       \resumeItemListStart
         \resumeItem{Contract work for several Fortune 500 clients projects using a PHP and MySQL stack.}
     \resumeItemListEnd
-    
-    \resumeSubheading
-      {Founder, Software Engineer}{c. 2009 -- 2011}
-      {Plifk}{}
-      \resumeItemListStart
-        \resumeItem{File-sharing web service. UX with a progressive enhancement mindset. API with OAuth support.}
-        \resumeItem{Experience with cloud computing (AWS), Linux, PHP, JavaScript, Memcached, and MySQL.}
-    \resumeItemListEnd
-    
-    
   \resumeSubHeadingListEnd
 
 %-----------EDUCATION-----------
@@ -193,14 +160,25 @@
 \section{Technical Skills, Language Skills, and Interests}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-    \textbf{Operating Systems}{: Linux, macOS, VMware ESXi.} \\
-     \textbf{Programming Languages}{: Go (including contribution to the standard library), JavaScript, PHP, Unix scripting, Java, TCL.} \\
+    \textbf{Operating Systems}{: Linux, macOS, FreeBSD, VMware ESXi.} \\
+     \textbf{Programming Languages}{: Go, JavaScript, Java, PHP, Unix scripting, TCL.} \\
      \textbf{Software development}{: Cloud computing, Kubernetes, CI, SQL, PostgreSQL, OpenSearch, Terraform, Grafana, Security, dev tools.} \\
      \textbf{Languages}{: Portuguese (native), English (fluent), Dutch (beginner).} \\
      \textbf{Interests}{: Open-source software, Photography, Nature, Travel, Drones, Industrial design, Homelab, Airplanes.}
     }}
  \end{itemize}
 
+%-----------OTHER-----------
+\section{Projects}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Portfolio}{: \href{https://henvic.dev/portfolio/}{https://henvic.dev/portfolio/}} \\
+     \textbf{Open source libraries}{: \href{https://henvic.dev/opensource/}{https://henvic.dev/opensource/}} \\
+     \textbf{Talks}{: \href{https://henvic.dev/talks/}{https://henvic.dev/talks/}} \\
+     \textbf{Articles}{: \href{https://henvic.dev/posts/}{https://henvic.dev/posts/}} \\
+     \textbf{Open source contributions}{: \href{https://go-review.googlesource.com/c/go/+/219640}{Go's signal.NotifyContext}}
+ \end{itemize}
+ 
 %-----------CERTIFICATIONS-----------
 \section{Certifications \& Awards}
  \begin{itemize}[leftmargin=0.15in, label={}]
