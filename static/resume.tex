@@ -27,7 +27,7 @@
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
+\addtolength{\topmargin}{-.25in}
 \addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
@@ -37,16 +37,15 @@
 \setlength{\tabcolsep}{0in}
 
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\centering
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \scshape\centering
+}{}{0em}{}[\color{black}\titlerule]
 
 
 \pdfgentounicode=1
 
 \newcommand{\resumeItem}[1]{
-  \item\small{
+  \item
     {#1 \vspace{-2pt}}
-  }
 }
 
 \newcommand{\resumeSubheading}[4]{
@@ -64,12 +63,19 @@
     \end{tabular*}\vspace{-7pt}
 }
 
+\newcommand{\resumeSubheadingEducation}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
 
 \begin{document}
 
@@ -90,7 +96,6 @@
     \end{multicols}
 \end{center}
 
-
 %-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
@@ -99,95 +104,67 @@
       {Senior Software Engineer}{August 2022 -- April 2023}
       {Form3}{Remote}
       \resumeItemListStart
-        \resumeItem{Worked in the Core Data team of the London-based Cloud-native Payment Processing Platform Form3.}
+        \resumeItem{Worked in the Core Data team of the London-based Cloud-native Payment Processing Platform Form3 on internal services that handle payment and payment returns.}
+        \resumeItem{Experience with Go, gRPC, NATS, PostgreSQL, Kubernetes, Terraform, and multi-cloud environments.}
       \resumeItemListEnd
       
       \resumeSubheading
       {Senior Software Engineer}{February 2021 -- July 2022}
-      {Stitch, PVH Corp.}{Remote \& Amsterdam, Netherlands}
+      {Stitch, PVH Corp.}{The Netherlands}
       \resumeItemListStart
-        \resumeItem{Led a migration of all internal services to the PostgreSQL database and OpenSearch (Elasticsearch fork) search engine with automated testing infrastructure and a focus on scalability, developer experience, and costs reduction.}
-        \resumeItem{Experience with Go, Kubernetes, Terraform, and Amazon Web Services.}
+        \resumeItem{Led a comprehensive project to enhance developer experience, ensure reliability, improve efficiency, and reduce operational costs by planning and implementing a robust automated testing infrastructure with fast integration tests (2s on average for the entire test suite) and replacing a non-relational database with PostgreSQL and Elasticsearch/OpenSearch, yielding a remarkable impact: a lasting expense reduction of over 90\% of our recurring database cloud computing and licensing expenses and enhanced software development efficiency throughout multiple teams.}
+        \resumeItem{Worked on data migration of media assets from renowned fashion brands, including internal clients such as Tommy Hilfiger and Calvin Klein and external ones such as Havaianas and Scotch \& Soda.}
+        \resumeItem{Experience with Go, gRPC, GraphQL, Kubernetes, Terraform, and Amazon Web Services.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Senior Software Engineer}{June 2019 -- January 2021}
-      {HousingAnywhere}{Rotterdam, Netherlands}
+      {HousingAnywhere}{The Netherlands}
       \resumeItemListStart
-        \resumeItem{Worked on the Platform team on internal and public-facing APIs, services, and integration with affiliate partners.}
-        \resumeItem{Worked on the Payments team on the backend of the payments and payouts infrastructure.}
-        \resumeItem{Experience with Go, Google Cloud Platform, Kubernetes, and microservices.}
+        \resumeItem{Worked on diverse areas, including public-facing APIs, internal services, integration with affiliate partners, and payments and payouts infrastructure.}
+        \resumeItem{Experience with Go, gRPC, Google Cloud Platform, Kubernetes, and microservices.}
     \resumeItemListEnd
     
     \resumeSubheadingExtra
       {Senior Software Engineer}{January 2018 -- May 2019}
     \resumeSubheading
       {Software Engineer}{March 2014 -- December 2017}
-      {Liferay, Inc.}{Recife, Brazil \& Remote}
+      {Liferay, Inc.}{Brazil}
       \resumeItemListStart
-        \resumeItem{Designed, implemented, and maintained projects such as the CLI tool of WeDeploy and Liferay Cloud DXP.}
-        \resumeItem{Experience developing projects with Go and JavaScript (frontend and backend).}
-        \resumeItem{Reverse engineered the socket.io protocol to create a remote access protocol emulating SSH.}
+        \resumeItem{As a key member of WeDeploy / Liferay DXP in its early days, led the development of its CLI tool, which was the primary client developers utilized to access and use the platform.}
+        \resumeItem{Developed sophisticated solutions using Go and JavaScript for front and backend libraries and applications, such as reverse-engineering the socket.io protocol to use it for emulating an SSH connection.}
     \resumeItemListEnd
     
     \resumeSubheading
       {Software Engineer}{October 2012 -- July 2013}
-      {MGR Tecnologia – Cahier corporate social network}{Recife, Brazil}
-      \resumeItemListStart
-        \resumeItem{Introduced static analysis tools to improve code quality for the PHP backend.}
-        \resumeItem{Fixed slow pages loading time by profiling bottlenecks, and refactoring PHP code and MySQL/PostgreSQL queries.}
-        \resumeItem{Lead the implementation of a chat system with Node.js.}
-    \resumeItemListEnd
-    
+      {MGR Tecnologia}{Brazil}
+    \medskip
     \resumeSubheading
       {Software Engineer}{March 2011 -- December 2011}
-      {Ogilvy \& Mather}{Recife, Brazil}
-      \resumeItemListStart
-        \resumeItem{Contract work for several Fortune 500 clients projects using a PHP and MySQL stack.}
-    \resumeItemListEnd
+      {Ogilvy \& Mather}{Brazil}
   \resumeSubHeadingListEnd
 
+%-----------Highlights-----------
+\section{Hightlights}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \item{
+     \textbf{Portfolio}{: } \href{https://henvic.dev/portfolio/#vehikel}{Vehikel}, \href{https://henvic.dev/portfolio/#wedeploy}{DXP Cloud CLI}, \href{https://henvic.dev/portfolio/#httpretty}{httpretty}, and others on {\href{https://henvic.dev/portfolio/}{https://henvic.dev/portfolio/}} \\
+     \textbf{Open source libraries and contributions}{: }\href{https://go-review.googlesource.com/c/go/+/219640}{Go's signal.NotifyContext}, {\href{https://henvic.dev/opensource/}{https://henvic.dev/opensource/}} \\
+     \textbf{Talks}{: \href{https://henvic.dev/talks/}{https://henvic.dev/talks/}} \\
+     \textbf{Articles}{: \href{https://henvic.dev/posts/}{https://henvic.dev/posts/}}
+    }
+    \item{
+      \textbf{Interests}{: Open-source software, Photography, Nature, Travel, Drones, Industrial design, Homelab, Airplanes.} \\
+      \textbf{Keywords}{: Linux, macOS, FreeBSD, VMware ESXi, Go, JavaScript, Java, Unix scripting, cloud computing, Kubernetes, CI, SQL, PostgreSQL, OpenSearch, Elasticsearch, Terraform, Grafana, Security, dev tools.}
+    }
+ \end{itemize}
+
 %-----------EDUCATION-----------
-\vspace{-2pt}
 \section{Education}
   \resumeSubHeadingListStart
       \resumeSubheading
       {Universidade Federal de Pernambuco}{October 2013 -- December 2017}
-      {Bachelor of Science in Computer Science}{Recife, Brazil}
+      {Bachelor of Science in Computer Science}{}
   \resumeSubHeadingListEnd
-
-%-----------PROGRAMMING SKILLS-----------
-\section{Technical Skills, Language Skills, and Interests}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-    \textbf{Operating Systems}{: Linux, macOS, FreeBSD, VMware ESXi.} \\
-     \textbf{Programming Languages}{: Go, JavaScript, Java, PHP, Unix scripting, TCL.} \\
-     \textbf{Software development}{: Cloud computing, Kubernetes, CI, SQL, PostgreSQL, OpenSearch, Terraform, Grafana, Security, dev tools.} \\
-     \textbf{Languages}{: Portuguese (native), English (fluent), Dutch (beginner).} \\
-     \textbf{Interests}{: Open-source software, Photography, Nature, Travel, Drones, Industrial design, Homelab, Airplanes.}
-    }}
- \end{itemize}
-
-%-----------OTHER-----------
-\section{Projects}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Portfolio}{: \href{https://henvic.dev/portfolio/}{https://henvic.dev/portfolio/}} \\
-     \textbf{Open source libraries}{: \href{https://henvic.dev/opensource/}{https://henvic.dev/opensource/}} \\
-     \textbf{Talks}{: \href{https://henvic.dev/talks/}{https://henvic.dev/talks/}} \\
-     \textbf{Articles}{: \href{https://henvic.dev/posts/}{https://henvic.dev/posts/}} \\
-     \textbf{Open source contributions}{: \href{https://go-review.googlesource.com/c/go/+/219640}{Go's signal.NotifyContext}}
- \end{itemize}
  
-%-----------CERTIFICATIONS-----------
-\section{Certifications \& Awards}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Dell EMC Academic Associate}{: \href{https://www.certmetrics.com/DellEmc/public/verification.aspx?code=Z043ZNDTJMB11QS1}{Cloud Infrastructure and Services. Certificate issued on June 12, 2017}} \\
-     \textbf{Zend Certified Engineer}{: \href{https://www.zend-zce.com/en/yellow-pages/ZEND013948}{PHP 5. Certificate issued on May 13, 2010}} \\
-     \textbf{New York Film Academy}{: 4-week filmmaking workshop during January, 2009} \\
-     \textbf{Brazilian Physics Olympiad}{: \href{https://sec.sbfisica.org.br/olimpiadas/obf2004/resultadofinal_2serie.htm}{Honors, 2004}}
-     }}
- \end{itemize}
-
 \end{document}
