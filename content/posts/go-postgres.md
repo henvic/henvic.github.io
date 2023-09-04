@@ -555,7 +555,7 @@ func (db *DB) DeleteReviewFeedback(ctx context.Context, params CreateReviewFeedb
 * [scany](https://github.com/georgysavva/scany) is a package for scanning from a database into Go structs and more.
 * [pgtools](https://github.com/hatch-studio/pgtools) is a library containing code for testing infrastructure and more.
 * [go-cmp](https://github.com/google/go-cmp) is a package for comparing Go values in tests.
-* [GoMock](https://github.com/golang/mock) is a mocking framework for the Go programming language.
+* [GoMock](https://github.com/uber-go/mock) is a mocking framework for the Go programming language.
 
 I've had a bad experience with ORM in the recent past, and I generally recommend against introducing this sort of abstraction to code.
 I prefer much more something much closer to using pgx with scany and `pgtools.Wildcard()` than to a full-featured ORM.

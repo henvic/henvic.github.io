@@ -92,6 +92,8 @@ kind: list
 * [Unicode - Compart](https://www.compart.com/en/unicode/)
 * [Why three prongs?](http://amasci.com/amateur/whygnd.html)
 * [AmIUnique](https://amiunique.org/) (your browser fingerprint)
+* [BrowserLeaks](https://browserleaks.com/)
+* [You're the OS!](https://plbrault.github.io/youre-the-os/)
 * [lcamtuf.coredump.cx](http://lcamtuf.coredump.cx) (home of American Fuzzy Lop and more)
 * [HSTS Preload List](https://hstspreload.org)
 * [git](https://git-scm.com) distributed version control system
