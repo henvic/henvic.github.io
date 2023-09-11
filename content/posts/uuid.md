@@ -58,7 +58,7 @@ It has 16^32 = 2^128 bits that guarantee uniqueness and has an insignificant ris
 > Read [Binary number: conversion to and from other numeral systems](https://en.wikipedia.org/wiki/Binary_number#Conversion_to_and_from_other_numeral_systems) if you want to learn or review how it works.
 
 ## Practical solutions
-As Tom Scott shows in his video, 11 base58-encoded characters are enough for YouTube to serve content even when considering that private videos should be undiscoverable.
+As Tom Scott shows in his video, 11 base58-encoded characters are enough for YouTube to serve content even when considering that unlisted videos should be undiscoverable.
 
 Let's see what a simple and elegant solution for generating that in Go might be:
 
