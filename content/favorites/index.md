@@ -133,12 +133,14 @@ kind: list
 
 ## Conferences
 ### I attended
-* [FOSDEM](https://fosdem.org/) 2020
-* [GopherCon](https://www.gophercon.com/) 2017, 2018, 2019, and 2020
+* [GopherCon](https://www.gophercon.com/) 2017, 2018, 2019, 2020, 2021 (virtual only), and 2023
+* [GopherCon EU](https://gophercon.eu/) 2022 and 2023
 * [GopherCon Iceland 2018](https://gophercon.is/)
 * [GopherCon Brasil](https://gopherconbr.org/) editions
 [2016](https://2016.gopherconbr.org/), and
 [2017](https://2017.gopherconbr.org/)
+* [FOSDEM](https://fosdem.org/) 2020 and 2023
+* [KubeCon + CloudNativeCon North America](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/) 2022
 * [BrazilJS](https://braziljs.org/) editions 
 [2013](https://braziljs.org/conf/2013/),
 [2014](https://braziljs.org/conf/2014/),
