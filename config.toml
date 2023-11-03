@@ -48,6 +48,10 @@ paginate = 150
     name = "About me"
     url = "/about/"
     weight = 7
+  [[menu.main]]
+    name = "Résumé"
+    url = "/resume.pdf"
+    weight = 8
 
   [[menu.main]]
     name = "httpretty"

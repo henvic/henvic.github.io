@@ -100,27 +100,6 @@ div, dd, ul, ol, li, pre, form, blockquote, th, td, p {
     background: #042356;
 }
 
-.button-resume {
-    background-color: #24995E;
-    color: #eee;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.button-resume:hover, .button-resume:focus {
-    background-color: #22bb5b;
-    color: #fff;
-}
-
-@media screen and (min-width: 64em) {
-    .button-resume {
-        border-radius: 16px;
-        margin-left: 1rem;
-        -webkit-appearance: none;
-    }
-}
-
 .asciicast-carrier .asciicast {
     margin: 0 !important;
     overflow: hidden;
@@ -209,6 +188,14 @@ pre, samp, code, kbd, .fingerprint {
     .dark .nav-card {
         border-color: transparent;
     }
+}
+
+.breadcrumbs li {
+    text-transform: none;
+}
+
+.breadcrumbs a {
+    color: #333;
 }
 
 /* menu-social */
