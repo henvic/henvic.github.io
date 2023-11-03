@@ -106,6 +106,7 @@ kind: list
 * [National Vulnerability Database](https://nvd.nist.gov)
 * [JSON-to-Go](https://mholt.github.io/json-to-go/)
 * [OWASP Risk Assessment Calculator](https://javierolmedo.github.io/OWASP-Calculator/)
+* [MailCatcher](https://mailcatcher.me/)
 
 <hr />
 
@@ -128,6 +129,7 @@ kind: list
 * [The System Design Primer](https://github.com/donnemartin/system-design-primer)
 * [awesome-scalability](https://github.com/binhnguyennus/awesome-scalability)
 * [Free AIS Ship Tracking of Marine Traffic - VesselFinder](https://www.vesselfinder.com/)
+* [Neal.fun](https://neal.fun/) (see [Internet Artifacts](https://neal.fun/internet-artifacts/))
 
 <hr />
 
