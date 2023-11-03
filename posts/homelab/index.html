@@ -34,7 +34,7 @@
     <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
     <div class="title-bar-title invisible">Menu</div>
 </nav>
-<nav class="top-bar" id="responsive-menu">
+<nav class="top-bar show-for-small-only" id="responsive-menu">
     <div class="top-bar-right no-js">
         <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
             data-dropdown-menu data-smooth-scroll>
@@ -192,9 +192,19 @@
             
             
             
+                <li class=" ">
+                    <a href="/resume.pdf" >
+                        Résumé
+                    </a>
+                </li>
             
             
-            <li><a href="/resume.pdf" class="button-resume">Résumé</a></li>
+            
+            
+            
+            
+            
+            
         </ul>
     </div>
 </nav>
@@ -213,62 +223,138 @@
             <p>
                 <span itemprop="title">Software Engineer</span>
             </p>
+            <div class="menu-social">
+                <a class="webicon github" href="https://github.com/henvic">
+                    GitHub
+                </a>
+                <a class="webicon twitter" href="https://twitter.com/henriquev">
+                    Twitter
+                </a>
+                <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
+                    Linkedin
+                </a>
+                <a class="webicon instagram" href="https://www.instagram.com/henvic/">
+                    Instagram
+                </a>
+                <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
+                    Flickr
+                </a>
+                <a class="webicon rss" href="/index.xml" />
+                rss feed
+                </a>
+                <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
+                    henriquevicente@gmail.com
+                </a>
+                <br />
+                <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span class="space"></span>DFBD<span
+                        class="space"></span>257C<span class="space"></span>1575</a>
+            </div>
         </div>
     </div>
-    <ul class="nav-about-me no-bullet">
+    
+    <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs" id="breadcrumbs">
+            <li><a href="/"></a></li>
+            <li><a href="/posts/">Blog posts</a></li>
+            <li><a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a></li>
+    </ul>
+</nav>
+    <ul class="menu vertical show-for-medium">
         
-        <li>
-            <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span
-                    class="space"></span>DFBD<span class="space"></span>257C<span class="space"></span>1575</a>
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/" >
+                Home
+            </a>
         </li>
-    </ul>
-    <div class="menu-social">
-        <a class="webicon github" href="https://github.com/henvic">
-            GitHub
-        </a>
-        <a class="webicon twitter" href="https://twitter.com/henriquev">
-            Twitter
-        </a>
-        <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
-            Linkedin
-        </a>
-        <a class="webicon instagram" href="https://www.instagram.com/henvic/">
-            Instagram
-        </a>
-        <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
-            Flickr
-        </a>
-        <a class="webicon rss" href="/index.xml" />
-            rss feed
-        </a>
-        <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
-            henriquevicente@gmail.com
-        </a>
-    </div>
-    <h4>Highlighted projects</h4>
-    <ul>
-        <li><a href="https://github.com/henvic/pgxtutorial">pgxtutorial</a></li>
-        <li><a href="https://github.com/henvic/httpretty">httpretty</a></li>
-        <li><a href="https://github.com/henvic/pseudoterm">pseudoterm</a></li>
-        <li><a href="https://github.com/henvic/picel">picel</a> (<a
-                href="https://www.cin.ufpe.br/~tg/2017-2/hvop-tg.pdf">undergraduate work</a> based on it)</li>
-        <li><a href="/portfolio/#wedeploy">WeDeploy / Liferay Cloud CLI</a></li>
-        <li><a href="/portfolio/#vehikel">Vehikel marketplace</a> (see <a
-                href="https://www.youtube.com/watch?v=dML0FQIUcTY">video</a>)</li>
-        <li><a href="/portfolio/#plifk">Plifk file-sharing service</a></li>
-        <li><a href="/talks">Talks</a></li>
-        <li><a href="https://www.flickr.com/photos/henriquev">Photos</a>
-    </ul>
-    <h4>Highlighted posts</h4>
-    <ul>
-        <li><a href="/posts/tesla/">My new Tesla Model Y 2023</a></li>
-        <li><a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a></li>
-        <li><a href="/posts/go">The ecosystem of the Go programming language</a></li>
-        <li><a href="/posts/my-go-mistakes/">My Go mistakes</a></li>
-        <li><a href="/posts/env/">Environment variables, config, secrets, and globals</a></li>
-        <li><a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using
-                context</a></li>
-        <li><a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a></li>
+        
+        
+        
+        
+        
+        
+        <li class=" active">
+            <a href="/posts/" aria-current="page" >
+                Blog posts
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/talks/" >
+                Talks
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/portfolio/" >
+                Portfolio
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/opensource/" >
+                Open Source
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/favorites/" >
+                Favorites
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/about/" >
+                About me
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/resume.pdf" >
+                Résumé
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
     </ul>
 </div>
 </div>
