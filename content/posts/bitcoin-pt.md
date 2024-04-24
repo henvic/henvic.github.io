@@ -130,7 +130,7 @@ Nos anos seguintes, muitos perderão suas fortunas por causa de investimentos ru
 Dado que o preço do Bitcoin é uma construção social fraca baseada na pura especulação de que poderá ser repassado adiante por um valor maior, o que impede as pessoas de passarem ele para qualquer outra criptomoeda aleatório como a Dogecoin? Nada.
 
 <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">So far in 2021 <a href="https://twitter.com/hashtag/Bitcoin?src=hash&amp;ref_src=twsrc%5Etfw">#Bitcoin</a> has lost 97% of its value verses <a href="https://twitter.com/hashtag/Dogecoin?src=hash&amp;ref_src=twsrc%5Etfw">#Dogecoin</a>. The market has spoken. Dogecoin is eating Bitcoin. All the Bitcoin pumpers who claim Bitcoin is better than gold because its price has risen more than gold&#39;s must now concede that Dogecoin is better than Bitcoin.</p>&mdash; Peter Schiff (@PeterSchiff) <a href="https://twitter.com/PeterSchiff/status/1383134331946827776?ref_src=twsrc%5Etfw">April 16, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!-- could have been {{< tweet PeterSchiff 1383134331946827776 >}}, if not for the dark theme -->
+<!-- could have been {{< tweet user=PeterSchiff id=1383134331946827776 >}}, if not for the dark theme -->
 
 > [Peter Schiff](https://www.schiffradio.com/), famoso por <a href="https://www.youtube.com/watch?v=sgRGBNekFIw" title="Peter Schiff was Right (2006-2007 Edition)">suas previsões</a> a respeito da Bolha Imobiliária nos Estados Unidos vem expondo a verdade sobre o Bitcoin a 12 anos.
 
@@ -621,7 +621,7 @@ O que realmente importa é a percepção de valor das pessoas, e o Bitcoin é ba
 Nos próximos anos, devemos ver o Dogecoin ultrapassando o Bitcoin.
 
 <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">ur welcome <a href="https://t.co/e2KF57KLxb">pic.twitter.com/e2KF57KLxb</a></p>&mdash; Elon Musk (@elonmusk) <a href="https://twitter.com/elonmusk/status/1357236825589432322?ref_src=twsrc%5Etfw">February 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<!-- could have been {{< tweet elonmusk 1357236825589432322 >}}, if not for the dark theme -->
+<!-- could have been {{< tweet user=elonmusk id=1357236825589432322 >}}, if not for the dark theme -->
 
 Basta que uma personalidade influente diga algo bobo para ver o valor da criptomoeda flutuar descontroladamente.
 Em algum momento, o mercado vai acordar para a realidade e entender que há um grande erro acontecendo.
@@ -670,7 +670,7 @@ Eles querem que você acredita que shitcoins estatais vão dar garantias...
 
 <a href="https://www.amazon.com/The-Economist-US-Edition/dp/B0027VSU9S?dchild=1&keywords=the+economist&qid=1620607728&sr=8-2&linkCode=li3&tag=henvic-20&linkId=98e5a06adc9eee7947ecce81a19ac53b&language=en_US&ref_=as_li_ss_il" target="_blank"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0027VSU9S&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=henvic-20&language=en_US" ></a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=henvic-20&language=en_US&l=li3&o=1&a=B0027VSU9S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
-{{< tweet henriquev 1392870229722767360 >}}
+{{< tweet user=henriquev id=1392870229722767360 >}}
 
 Eu espero que você tenha gostado do meu artigo.
 Se você odiou, obrigado por ter chegado aqui de qualquer maneira!

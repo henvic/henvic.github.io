@@ -61,7 +61,7 @@ amzn_assoc_asins = "0134190440,1617291781,1617297003,B001QI4UJW";
 </script>
 <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 
-{{< tweet henriquev 1252360422683897856 >}}
+{{< tweet user=henriquev id=1252360422683897856 >}}
 
 ## A stable platform
 
@@ -296,7 +296,7 @@ Use `go test helpflag` to learn more about the available flags.
 $ go test -run=TestValidUser
 ```
 
-{{< tweet henriquev 1370366670787780614 >}}
+{{< tweet user=henriquev id=1370366670787780614 >}}
 
 #### httptest
 The [http](https://pkg.go.dev/net/http) package is one of the best packages in Go.
@@ -676,7 +676,7 @@ func Quadratic(a, b, c float64) (x1, x2, Δ float64) {
 
 Thanks! If you liked what I wrote, maybe you want to check out my other posts, such as my experience creating a [homelab](/posts/homelab/) to play with different operating systems or learn about [my Go mistakes](/posts/my-go-mistakes/).
 
-{{< tweet henriquev 1373980655906852867 >}}
+{{< tweet user=henriquev id=1373980655906852867 >}}
 
 <div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
 

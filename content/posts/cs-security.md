@@ -12,8 +12,8 @@ The [source code](https://en.wikipedia.org/wiki/Source_code) for the game [Count
 
 Here's I discuss what everyone should be doing about distributing software to the general public safely, and why I trust this statement:
 
-{{< tweet CSGO 1253075594901774336 >}}
-{{< tweet SteamDB 1252961862058205184 >}}
+{{< tweet user=CSGO id=1253075594901774336 >}}
+{{< tweet user=SteamDB id=1252961862058205184 >}}
 
 The reason why people are concerned is because bad practices such as [security through obscurity](https://en.wikipedia.org/wiki/Security_through_obscurity) or blindly trusting "secure servers" to invoke remote code are widespread in the software industry.
 

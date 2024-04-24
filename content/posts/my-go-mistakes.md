@@ -248,4 +248,4 @@ Thank you for reading.
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
 
-{{< tweet henriquev 1362206448520945664 >}}
+{{< tweet user=henriquev id=1362206448520945664 >}}

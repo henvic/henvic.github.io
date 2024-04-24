@@ -291,7 +291,7 @@ Once you verify the migration happened successfully, you can get rid of your old
 
 I hope you find this article useful somehow.
 
-{{< tweet henriquev 1458767291315896328 >}}
+{{< tweet user=henriquev id=1458767291315896328 >}}
 
 <div id="amzn-assoc-ad-650fc264-1310-445e-ba75-6bf6849026cc"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=650fc264-1310-445e-ba75-6bf6849026cc"></script>
 
