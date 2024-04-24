@@ -1,6 +1,5 @@
 ---
 title: "Favorites"
-kind: list
 ---
 
 {{< table_of_contents >}}
@@ -36,6 +35,7 @@ kind: list
 * [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
 * [A Tour of Go](https://tour.golang.org/)
 * [Hypertext Transfer Protocol -- HTTP/1.1](https://tools.ietf.org/html/rfc2616)
+* [API Improvement Proposals](https://google.aip.dev/)
 * [How To Ask Questions The Smart Way](http://www.catb.org/esr/faqs/smart-questions.html)
 * [Code School - Try Git](https://try.github.io/)
 * [GIT Commit Good Practice](https://wiki.openstack.org/wiki/GitCommitMessages)
@@ -107,10 +107,12 @@ kind: list
 * [JSON-to-Go](https://mholt.github.io/json-to-go/)
 * [OWASP Risk Assessment Calculator](https://javierolmedo.github.io/OWASP-Calculator/)
 * [MailCatcher](https://mailcatcher.me/)
+* [OSV - Open Source Vulnerabilities](https://osv.dev/)
 
 <hr />
 
 ## Miscellaneous
+* [SRENITY ONLINE](https://www.srenity.online/)
 * [Uncrate](https://uncrate.com/)
 * [Nautilus | Science Connected](https://nautil.us/)
 * [Mises Institute](https://mises.org/)
@@ -130,6 +132,7 @@ kind: list
 * [awesome-scalability](https://github.com/binhnguyennus/awesome-scalability)
 * [Free AIS Ship Tracking of Marine Traffic - VesselFinder](https://www.vesselfinder.com/)
 * [Neal.fun](https://neal.fun/) (see [Internet Artifacts](https://neal.fun/internet-artifacts/))
+* [Ishkur's Guide to Electronic Music](https://music.ishkur.com/)
 
 <hr />
 
