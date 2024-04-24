@@ -44,8 +44,8 @@ On December 12th, I took a train to the small city of Tilburg to go to the Tesla
 {{% /markdown %}}
 </div>
 <div class="cell large-6">
+{{< youtube id="Q1CK0GD1Nl8" >}}
 {{% markdown %}}
-{{< youtube Q1CK0GD1Nl8 >}}
 Outside of the building where the Delivery Center is located.
 {{% /markdown %}}
 </div>
@@ -311,8 +311,8 @@ Besides Spigen's instructions, I recommend you to:
 <div class="cell large-6">
 {{% markdown %}}
 [![Screen protector](/img/posts/tesla/screenprotector.jpg)](https://amzn.to/3WLxjYf)
-{{< youtube 42QHs9J_SuE >}}
 {{% /markdown %}}
+{{< youtube id="42QHs9J_SuE" >}}
 </div>
 </div>
 
@@ -417,7 +417,7 @@ While I could buy an [8Bitdo adapter](https://amzn.to/3VwWX27) to connect it wir
 {{% /markdown %}}
 </div>
 <div class="cell large-6">
-{{<youtube CEhBzX-6FjA >}}
+{{< youtube id="CEhBzX-6FjA" >}}
 {{% markdown %}}
 Steam is only available for the refreshed Model S and Model Y.
 {{% /markdown %}}
@@ -489,11 +489,13 @@ Some PPF options in the market change the look of your vehicle as Vinyl does and
 {{% /markdown %}}
 </div>
 <div class="cell large-6">
+{{< youtube id="xDHHqHTidkc" >}}
 {{% markdown %}}
-{{<youtube xDHHqHTidkc >}}
 Ceramic coating application
+{{% /markdown %}}
 
-{{<youtube e9uRp-RX8V0 >}}
+{{< youtube id="e9uRp-RX8V0" >}}
+{{% markdown %}}
 PPF application
 {{% /markdown %}}
 </div>
@@ -514,7 +516,7 @@ Finally, visit the official GitHub repository [github.com/teslamotors/light-show
 {{% /markdown %}}
 </div>
 <div class="cell large-6">
-{{< youtube aU_3NmOwekE >}}
+{{< youtube id="aU_3NmOwekE" >}}
 </div>
 </div>
 
@@ -534,9 +536,7 @@ One thing to have in mind is that Tesla software upgrades are tied to the vehicl
 {{% /markdown %}}
 </div>
 <div class="cell large-6">
-{{% markdown %}}
-{{< youtube pqmdc9YoFVY >}}
-{{% /markdown %}}
+{{< youtube id="pqmdc9YoFVY" >}}
 </div>
 </div>
 
@@ -640,11 +640,13 @@ For a review of the Full-Self Driving (Beta) with Tesla Vision and flaws of the 
 {{% /markdown %}}
 </div>
 <div class="cell large-6">
+{{< youtube id="qSF87li7Wd4" >}}
 {{% markdown %}}
-{{< youtube qSF87li7Wd4 >}}
 [2021 Tesla Model Y IIHS crashworthiness tests](https://www.youtube.com/watch?v=qSF87li7Wd4)
+{{% /markdown %}}
 
-{{< youtube dKaN3f2zmCQ >}}
+{{< youtube id="dKaN3f2zmCQ" >}}
+{{% markdown %}}
 [Euro NCAP Safety Tests of Tesla Model Y 2022](https://www.youtube.com/watch?v=dKaN3f2zmCQ)
 
 {{< tweet user=Tesla id=1613115505354620928 >}}
@@ -682,14 +684,14 @@ These videos show the huge scale of the Shanghai Gigafactory and port operations
 
 <div class="grid-x grid-margin-x">
 <div class="cell auto">
+{{< youtube id="2kCt8M_lYYc" >}}
 {{% markdown %}}
-{{<youtube 2kCt8M_lYYc >}}
 [Gigafactory Shanghai after resuming production in 2023](https://www.youtube.com/watch?v=2kCt8M_lYYc)
 {{% /markdown %}}
 </div>
 <div class="cell large-6">
+{{< youtube id="65LKYh1mCGg" >}}
 {{% markdown %}}
-{{<youtube 65LKYh1mCGg >}}
 [Shanghai Nangang Terminal Tesla Time](https://www.youtube.com/watch?v=65LKYh1mCGg)
 {{% /markdown %}}
 </div>
