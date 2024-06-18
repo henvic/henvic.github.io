@@ -368,7 +368,7 @@
         <p>Most modern programming language ecosystems provide assert functions in their testing libraries but not Go&rsquo;s.
 Its <a href="https://pkg.go.dev/testing">standard testing package</a> follows a more direct and to-the-point approach.
 In fact, there isn&rsquo;t even a single assertion function in the testing package, and writing idiomatic tests in Go isn&rsquo;t that different from writing application code.</p>
-<p>You mainly use the t.Errorf and t.Fatalf functions, which borrows the idioms of the <a href="https://pkg.go.dev/fmt">fmt package</a> to format output, as shown in this code, meaning you get to use the helpful printing verbs of the fmt package, such as:</p>
+<p>You mainly use the <code>t.Errorf</code> and <code>t.Fatalf</code> functions, which borrows the idioms of the <a href="https://pkg.go.dev/fmt">fmt package</a> to format output, as shown in this code, meaning you get to use the helpful printing verbs of the fmt package, such as:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -534,7 +534,7 @@ On <a href="https://research.swtch.com/testing">Go Testing By Example</a>, Russ 
 
 </div>
 </div>
-<p><strong>Sidenote:</strong> While you can also pass additional arguments to <code>assert.Equal</code> function to add a line with a reason why a failure occurred, this isn&rsquo;t common and doesn&rsquo;t work as well.</p>
+<p><strong>Sidenote:</strong> You can also pass additional arguments to Testify&rsquo;s <code>assert.Equal</code> (and others functions) to add a line with why a failure occurred, but this isn&rsquo;t common.</p>
 <h2 id="on-tfailnow-and-testifyrequire">On t.FailNow() and testify/require</h2>
 <p>Another widespread problem I see with assertion libraries for Go is that they indiscriminately call <a href="https://pkg.go.dev/testing#T.FailNow">t.FailNow</a> whenever an error happens is widespread.</p>
 <p>This is the effect of doing this:</p>
@@ -553,21 +553,35 @@ On <a href="https://research.swtch.com/testing">Go Testing By Example</a>, Russ 
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;this stops execution&#34;</span>)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;this doesn&#39;t stops the execution&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;this kills a test&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;not printed&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// $ go test ./...
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// --- FAIL: TestAbs (0.00s)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:13: this stops execution
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:13: this doesn&#39;t stop the execution
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:14: this kills a test
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL	github.com/henvic/exp	0.115s
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL
 </span></span></span></code></pre></td></tr></table>
 </div>
+</div><p>Which, when using Testify, might look be hidden in something like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;this doesn&#39;t stop the execution&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;this kills a test&#34;</span>) <span style="color:#75715e">// any errors after this won&#39;t be printed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;not printed&#34;</span>)
+</span></span></code></pre></td></tr></table>
+</div>
 </div><p>The effect is that the test doesn&rsquo;t print the third error (&ldquo;not printed&rdquo;) as the preceding <code>t.Fatal</code> invocation terminates the goroutine executing the test by calling <code>t.FailNow()</code>, which is basically a call to <code>t.Fail()</code> followed by a call to <code>runtime.Goexit()</code>.</p>
-<p>For reasons I can&rsquo;t fathom, testify has two packages: <a href="https://pkg.go.dev/github.com/stretchr/testify/assert">assert</a> and <a href="https://pkg.go.dev/github.com/stretchr/testify/require">require</a> where the difference is that the functions of the second call the functions of the first but stop the test execution when a test fails by calling <code>t.FailNow()</code>:</p>
+<p>As you can see, Testify has two packages: <a href="https://pkg.go.dev/github.com/stretchr/testify/assert">assert</a> and <a href="https://pkg.go.dev/github.com/stretchr/testify/require">require</a>, where the difference is that the functions of the second call the functions of the first but also stop the test execution when a test fails by calling <code>t.FailNow()</code> once the first returns.
+I can&rsquo;t fathom their design decison of separating this into two packages.</p>
 <p>¯\_(ツ)_/¯</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -591,19 +605,14 @@ On <a href="https://research.swtch.com/testing">Go Testing By Example</a>, Russ 
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Unfortunately, some developers have a strong preference for always using t.Fatal or require.
-This dubious choice becomes a problem whenever you&rsquo;re working with multiple goroutines because:</p>
-<blockquote>
-<p>FailNow marks the function as having failed and stops its execution by calling runtime.Goexit (which then runs all deferred calls in the current goroutine). Execution will continue at the next test or benchmark. FailNow must be called from the goroutine running the test or benchmark function, not from other goroutines created during the test. Calling FailNow does not stop those other goroutines.</p>
+</div><blockquote>
+<p>FailNow marks the function as having failed and stops its execution by calling <code>runtime.Goexit</code> (which then runs all deferred calls in the current goroutine). Execution will continue at the next test or benchmark. FailNow must be called from the goroutine running the test or benchmark function, not from other goroutines created during the test. Calling FailNow does not stop those other goroutines.</p>
 </blockquote>
-<p>I find this situation particularly awful, too, because:</p>
-<ul>
-<li>Some developers go as far as enforcing this by a linter or code review process, usually in the name of consistency.</li>
-<li>I was also repetitively told that the Go team had &ldquo;fixed this,&rdquo; and it was now safe to call <code>it.FailNow</code> anywhere. Well, not really.</li>
-</ul>
-<p>Besides, they are missing the point.
-By calling <code>t.Fatal</code> you often end up hiding a more useful error message from a check that comes after your initial check that called t.FailNow (as shown in the example before), meaning that you lose useful feedback precisely when it&rsquo;s essential to identify a defect earlier.
-I&rsquo;ve found myself hit by this particular issue on codebases which heavily uses testify/require multiple times, especially when a deferred function executes a t.FailNow(), masking test panics (see <a href="https://github.com/golang/go/issues/29207">Go issue #29207</a>).</p>
+<p>Some developers have a strong risky preference for always using <code>t.Fatal</code> or Testify&rsquo;s require, going as far as enforcing this linter logic or during code review process, usually in the name of consistency.
+Arguing against this, for many times I heard that the Go team had &ldquo;fixed this already,&rdquo; and it was now safe to call <code>it.FailNow</code> anywhere. Well, not really.
+Besides, they are missing the point.</p>
+<p>By calling <code>t.Fatal</code> indiscriminately you more often than not hides useful error messages from a check that comes after your initial check that failed.
+I&rsquo;ve been hit by this particular issue on many codebases multiple times, such as when something such as a deferred function executes a <code>t.FailNow()</code>, masking test panics (see <a href="https://github.com/golang/go/issues/29207">Go issue #29207</a>).</p>
 <h2 id="helper-functions-vs-assertion-function">Helper functions vs. assertion function</h2>
 <p>From time to time you might find yourself trying to check the same logic over and over.
 For example, you might want to check if all positive numbers of a slice are even.</p>
@@ -839,7 +848,7 @@ However, you still can&rsquo;t know exactly <strong>why</strong> the values are 
 <p>If your function returns a struct, don’t write test code that performs an individual comparison for each field of the struct. Instead, construct the struct that you’re expecting your function to return, and compare in one shot using diffs or deep comparisons. The same rule applies to arrays and maps.
 Source: <a href="https://go.dev/wiki/TestComments">Go Wiki: Go Test Comments</a></p>
 </blockquote>
-<p>Instead of using testify/assert, we can use go-cmp and have a much clearer error message:</p>
+<p>Instead of using testify/assert, we can use go-cmp and have a much clearer and to-the-point error message:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -897,11 +906,11 @@ Source: <a href="https://go.dev/wiki/TestComments">Go Wiki: Go Test Comments</a>
 </span></span><span style="display:flex;"><span>FAIL	github.com/henvic/exp	0.146s
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>I wonder if developers using Testify often use require rather than assert because Testify always prints duplicated information.</p>
+</div><p>I wonder if developers using Testify often use require rather than assert just because Testify needlessly prints too many lines.</p>
 <p>Now, what if you want to skip fields or check dynamic data?
 What do you do?
-This is quite a common problem I often have to deal with.</p>
-<p>One strategy that I often see is to extract such fields you want to verify explicitly, and then your testing code becomes a wall of lousy assertion calls, like this:</p>
+This is quite a common problem I often have to deal with.
+One strategy is to extract such fields you want to verify explicitly, and then your testing code becomes &ldquo;a wall&rdquo; of assertion calls, like this:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -974,8 +983,8 @@ So you end up with:</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="more-complex-comparisons">More complex comparisons</h3>
-<p>If you need to make more complex comparisons, look at the go-cmp documentation to see how you can check and transform the values.
-Here is an example.</p>
+<p>If you need to make more complex comparisons, look at the <a href="https://pkg.go.dev/github.com/google/go-cmp/cmp">go-cmp documentation</a> to learn how you can check and transform the values.
+Here is a simple example:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1018,10 +1027,13 @@ Here is an example.</p>
 <li>if it detects incomparable values or anonymous structs</li>
 <li>if it detects an unexported field and you didn&rsquo;t explicitly ignore it (might want to see <a href="https://pkg.go.dev/github.com/google/go-cmp/cmp/cmpopts#IgnoreUnexported">cmpopts.IgnoreUnexported</a>).</li>
 </ul>
+<p>While I don&rsquo;t use Testify on my projects, I understand its charms to newcomers to Go who are already used to xUnit-style tests from other ecosystems.
+This testing approach is just one of the few Go design decisions that deviate from modern practice, and I&rsquo;m fine with that.</p>
 <h2 id="can-we-do-worse">Can we do worse?</h2>
 <p>Yes.
 <strong>Much worse.</strong>
-The hardest to maintain and slowest tests I have witnessed in my career used Ginkgo and Gomega to test a web platform built using Gorm (slow and buggy <a href="(https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/)">ORM</a>).
+Ginkgo&rsquo;s approach to Behavior-driven Development (BDD) hinders productivity beyond acceptable for me, both from an objective point-of-view, considering <a href="https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.mechanical-sympathy.en.html">mechanical sympathy</a>, and from a developer experience expectation.
+The hardest to maintain and slowest tests I have witnessed and had to tolerate in my career used Ginkgo and Gomega to test a web platform built using GORM (slow and buggy <a href="(https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/)">ORM</a>).
 By some back-of-the-envelope calculation, I can estimate they were at least 100 times slower than they could be (over 10min for something that should never take longer than half a minute in any circumstances) and at least a ten-fold order of magnitude harder to maintain due to their design choices getting in the way of Go tooling and completely ignoring the language idioms.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1097,9 +1109,8 @@ By some back-of-the-envelope calculation, I can estimate they were at least 100 
 </span></span><span style="display:flex;"><span>})
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>While Testify is tolerable, Ginkgo&rsquo;s approach to Behavior-driven Development (BDD) hinders productivity beyond acceptable, both from an objective point-of-view, considering <a href="https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.mechanical-sympathy.en.html">mechanical sympathy</a>, and from a developer experience expectation.</p>
-<h3 id="want-to-see-something-else-wild-that-makes-no-sense">Want to see something else wild that makes no sense?</h3>
-<p>And people use&hellip; ¯\_(ツ)_/¯</p>
+</div><h3 id="do-you-want-another-wild-bdd-tests-against-the-go-idioms-that-people-use">Do you want another wild BDD tests against the Go idioms that people use?</h3>
+<p>¯\_(ツ)_/¯</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1136,33 +1147,33 @@ By some back-of-the-envelope calculation, I can estimate they were at least 100 
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">eaterStage</span> <span style="color:#66d9ef">struct</span> {
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">eateryStage</span> <span style="color:#66d9ef">struct</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">and</span>() { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>) <span style="color:#a6e22e">and</span>() { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span> }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">IAmHungry</span>() { <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">you</span>.<span style="color:#a6e22e">food</span>, <span style="color:#ae81ff">0</span>) }
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">thereIsFood</span>() { <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">fridge</span>.<span style="color:#a6e22e">food</span> = <span style="color:#ae81ff">10</span> }
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">IEat</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>) <span style="color:#a6e22e">IAmHungry</span>() { <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">you</span>.<span style="color:#a6e22e">food</span>, <span style="color:#ae81ff">0</span>) }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>) <span style="color:#a6e22e">thereIsFood</span>() { <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">fridge</span>.<span style="color:#a6e22e">food</span> = <span style="color:#ae81ff">10</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>) <span style="color:#a6e22e">IEat</span>() {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">you</span>.<span style="color:#a6e22e">food</span><span style="color:#f92672">++</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">fridge</span>.<span style="color:#a6e22e">food</span><span style="color:#f92672">--</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">GreaterThan</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">fridge</span>.<span style="color:#a6e22e">food</span>, <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">IGetUnhungry</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>) <span style="color:#a6e22e">IGetUnhungry</span>() {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">GreaterThan</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">you</span>.<span style="color:#a6e22e">food</span>, <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">newTestEaterStage</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">eaterStage</span>{
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">newTestEateryStage</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">eateryStage</span>{
 </span></span><span style="display:flex;"><span>		<span style="color:#75715e">// blah blah blah...
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">s</span> <span style="color:#75715e">// 🤢 lol
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestEat</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">given</span>, <span style="color:#a6e22e">when</span>, <span style="color:#a6e22e">then</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">newTestEaterStage</span>(<span style="color:#a6e22e">t</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">given</span>, <span style="color:#a6e22e">when</span>, <span style="color:#a6e22e">then</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">newTestEateryStage</span>(<span style="color:#a6e22e">t</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">given</span>.<span style="color:#a6e22e">IAmHungry</span>().<span style="color:#a6e22e">and</span>().<span style="color:#a6e22e">thereIsFood</span>()
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">when</span>.<span style="color:#a6e22e">IEat</span>()
