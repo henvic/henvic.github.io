@@ -1,6 +1,6 @@
 <!-- Don't add Google Analytics when running Hugo with live-reload (as this is what I use for development mode) -->
 <!-- from https://discourse.gohugo.io/t/how-to-exclude-google-analytics-when-running-under-hugo-local-server/6092/34 -->
-{{- if not .Site.IsServer -}}
+{{- if not hugo.IsServer -}}
 {{ template "_internal/google_analytics.html" . }}
 {{- end -}}
 {{/*  Modernizr with SVG detection required for webicons. http://modernizr.com  */}}
