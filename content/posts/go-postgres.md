@@ -75,19 +75,6 @@ $ evans repl --host localhost --port 8082 -r
 
 <script id="asciicast-1bVgY061isn2EHtk2wYwNXJtg" src="https://asciinema.org/a/1bVgY061isn2EHtk2wYwNXJtg.js" async></script>
 
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B0859PF5HB";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "14f3adb449e0071a86e28d28a1a33996";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
 ## SQL is alive and well
 What if there is a powerful domain-specific structured query language designed to manage data out there?
 It turns out there is one created almost half a century ago, in 1974: [SQL](https://en.wikipedia.org/wiki/SQL), created by Donald D. Chamberlin and Raymond F. Boyce.
@@ -192,19 +179,6 @@ The most interesting ones probably are:
 * Faster binary format instead of a textual representation at the protocol level for datatypes different than `int64, float64, bool, []byte, string, time.Time, or nil`.
 * JSON and BJSON support.
 * Conversion of PostgreSQL arrays to Go slice mappings for integers, floats, and strings.
-
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B0184N7WWS";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "10528842874d7a1789b89f3c8652d0ea";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 
 ## Database migrations and SQL schema
 [tern](https://github.com/jackc/tern) is a standalone migration tool for PostgreSQL that is part of the pgx toolkit.
@@ -547,8 +521,6 @@ func (db *DB) DeleteReviewFeedback(ctx context.Context, params CreateReviewFeedb
 }
 ```
 
-<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
-
 ## Packages and tools
 * [pgx](https://github.com/jackc/pgx) is the SQL driver.
 * [tern](https://github.com/jackc/tern) is a migration tool that is part of the pgx toolkit.
@@ -781,5 +753,3 @@ jobs:
 {{< tweet user=henriquev id=1462723601703096322 >}}
 
 I hope you enjoyed this tutorial. Now go ahead and checkout the repository [github.com/henvic/pgxtutorial](https://github.com/henvic/pgxtutorial).
-
-<small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>

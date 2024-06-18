@@ -47,20 +47,6 @@ func main() {
 
 [Run this code in The Go Playground](https://play.golang.org/)
 
-<script type="text/javascript">
-amzn_assoc_placement = "adunit0";
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_linkid = "dc91c08424afa81183b8cf582406ddac";
-amzn_assoc_search_bar = "true";
-amzn_assoc_title = "Go";
-amzn_assoc_asins = "0134190440,1617291781,1617297003,B001QI4UJW";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
 {{< tweet user=henriquev id=1252360422683897856 >}}
 
 ## A stable platform
@@ -120,32 +106,6 @@ No matter if you're an experienced developer or a newcomer to programming, Go is
 * For a concise and comprehensive guide, try [Go in Action](https://www.manning.com/books/go-in-action) ([online version](https://livebook.manning.com/book/go-in-action/) and [on Amazon](https://amzn.to/2OfIbjR)) by [Bill Kennedy](https://twitter.com/goinggodotnet) and [Brian Ketelsen](https://www.brian.dev/) (known for co-organizing GopherCon)
 * [Learning Go: An Idiomatic Approach to Real-World Go Programming](https://amzn.to/2QmB89s) by [Jon Bodner](https://twitter.com/jonbodner) ([published by O'Reilly](https://www.oreilly.com/library/view/learning-go/9781492077206/))
 * [Practical Go Lessons](https://www.practical-go-lessons.com/) by [Maximilien Andile](https://twitter.com/maximilienald)
-
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "0134190440";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "9da8cfa3d8c20690df5251108220866d";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "1617291781";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "020cf6e02222213b0e94a5466dc12cf6";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 
 ### Articles, tutorials, talks, opinions, etc.
 * [Go wiki](https://github.com/golang/go/wiki/)
@@ -608,8 +568,6 @@ I decided to create my own, so I used a minimal one as the base in the very begi
 
 [Hugo in Action](https://amzn.to/3c3je3W) is an upcoming book about Hugo (Summer 2021). You can learn more about it on the [publisher's page](https://www.manning.com/books/hugo-in-action).
 
-<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
-
 ### Caddy
 [Caddy](https://github.com/caddyserver/caddy) is an extensible HTTP server platform written in Go.
 
@@ -677,7 +635,5 @@ func Quadratic(a, b, c float64) (x1, x2, Δ float64) {
 Thanks! If you liked what I wrote, maybe you want to check out my other posts, such as my experience creating a [homelab](/posts/homelab/) to play with different operating systems or learn about [my Go mistakes](/posts/my-go-mistakes/).
 
 {{< tweet user=henriquev id=1373980655906852867 >}}
-
-<div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>

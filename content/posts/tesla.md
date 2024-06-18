@@ -163,23 +163,6 @@ I missed the incredible end-of-year promotion, but…
 </div>
 </div>
 
-<div id="amzn-assoc-ad-8a2b619d-34d9-4dce-b0af-366f25e2f733"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=8a2b619d-34d9-4dce-b0af-366f25e2f733"></script>
-
-<script type="text/javascript">
-amzn_assoc_placement = "adunit0";
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "search";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_default_search_phrase = "ev wall charger";
-amzn_assoc_default_category = "Automotive";
-amzn_assoc_linkid = "e7530eafc3cc29478bc0b2e190dd3699";
-amzn_assoc_design = "in_content";
-amzn_assoc_default_browse_node = "15684181";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
 <div class="grid-x grid-margin-x">
 <div class="cell large-4">
 {{% markdown %}}
@@ -248,45 +231,6 @@ If you can, have the mud flaps installed during delivery, as the installation ar
 {{% /markdown %}}
 </div>
 </div>
-
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B08VHQSXD1";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "cc204c87bc00f99a12a4d64dd5bfc9dd";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B0B45G45Y3";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "04d0050d3df57f84a824ba1fb723017c";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B07RM5D9C3";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "fc3a980c0ca1b848fbf23ff496ce279b";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 
 <div class="grid-x grid-margin-x">
 <div class="cell auto">
@@ -391,20 +335,6 @@ For safety, skip using side door trays (particularly tight ones) for the rear do
 </div>
 </div>
 
-<!-- Silicone front underseat storage tray -->
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B09HTNJ1KR";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "3e56d8dde35af42bb0697c4278ce5ad4";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
 <div class="grid-x grid-margin-x">
 <div class="cell auto">
 {{% markdown %}}
@@ -424,20 +354,6 @@ Steam is only available for the refreshed Model S and Model Y.
 </div>
 </div>
 
-<!-- 8Bitdo adapter -->
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B09ZQN76PC";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "f209377f0575ac2bf2b79e6536d80edd";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
 {{% markdown %}}
 ### Head-up Display (HUD): the cool accessory I could not find
 For the past couple of years, I have used the [car-sharing service Sixt Share](https://www.sixt.nl/invite/RPqfRrcDRc==) frequently, and I really like the see-through [HUD found in the Hyundai Kona](https://www.youtube.com/watch?v=a2hSQ7VT_Wc), which allows you to keep your eyes on the road.
@@ -446,20 +362,6 @@ To my surprise, the location of the speedometer at the top left of the center co
 I would still consider purchasing a HUD, but I have yet to see any that satisfies me.
 I wanted a contraption that projects the image at a distance on a small transparent display screen, but I only found small displays for the A/C vent or other similar paraphernalia.
 {{% /markdown %}}
-
-<!-- Tesla "HUD" -->
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B0BBC24X9R";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "e2ad0e95b5bbae3a9fd1b17770ca7c3c";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 
 <div class="grid-x grid-margin-x">
 <div class="cell auto">
@@ -696,33 +598,6 @@ These videos show the huge scale of the Shanghai Gigafactory and port operations
 {{% /markdown %}}
 </div>
 </div>
-
-<!-- microfiber cleaning cloth -->
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B08BRJHJF9";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "c32ea97790ce3f9799812f348537908c";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B0B45G45Y3";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "5a7f8ec8c096c2b9ada18827d7afa39b";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 
 [![haha yes!](/img/posts/tesla/hahayes.jpg)](https://www.tesla.com/referral/henrique299805)
 

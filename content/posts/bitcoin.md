@@ -10,7 +10,6 @@ polemic: true
 dark: true
 ---
 <p><a href="/posts/bitcoin-pt" lang="pt-BR" class="button secondary">Português 🇧🇷</a></p>
-<div id="amzn-assoc-ad-85697961-f8e0-4ef6-ba7d-417e502a427f"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=85697961-f8e0-4ef6-ba7d-417e502a427f"></script>
 <div class="grid-x grid-margin-x">
   <div class="cell medium-8 large-8">
 	<blockquote>
@@ -78,18 +77,6 @@ dark: true
 	</tr>
 	</tbody>
 	</table>
-	<script type="text/javascript">
-	amzn_assoc_tracking_id = "henvic-20";
-	amzn_assoc_ad_mode = "manual";
-	amzn_assoc_ad_type = "smart";
-	amzn_assoc_marketplace = "amazon";
-	amzn_assoc_region = "US";
-	amzn_assoc_design = "enhanced_links";
-	amzn_assoc_asins = "B07W2Z9N7Q";
-	amzn_assoc_placement = "adunit";
-	amzn_assoc_linkid = "8af0290d589c17be4eec55d31659d399";
-	</script>
-	<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
   </div>
   <div class="cell auto">
 	<p>
@@ -536,19 +523,6 @@ There are advantages and pitfalls for both scenarios.
 ### What is a wallet?
 A [cryptocurrency wallet](https://en.wikipedia.org/wiki/Cryptocurrency_wallet) is a software or hardware device that manages [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) for encrypting and signing information or cryptocurrency transactions.
 Hardware wallets provide better protection than software ones through isolation and physical layers of protection.
-
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B07Q19WN6G";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "198e220cff1db83c540e79d0771b21dd";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 
 If you're not tech-savvy, you probably don't want the burden to manage your own wallet.
 If you are, the page [Choose your Bitcoin wallet](https://bitcoin.org/en/choose-your-wallet) on Bitcoin.org does a great job explaining your options.

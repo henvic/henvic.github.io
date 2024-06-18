@@ -59,8 +59,6 @@ $ pkg delete postgresql12-client postgresql12-server
 $ pkg install postgresql14-client postgresql14-server
 ```
 
-<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
-
 ## Settings
 Now, remember the `/var/db/postgres` directory I mentioned previously.
 There, you'll find a new `/var/db/postgres/data14` directory alongside another directory named `data13` if you had version 13, `data12` if you had version 12, and so on.
@@ -181,8 +179,6 @@ $ sockstat -l6 -P tcp
 
 Running an old version? Read the blog post [Upgrading PostgreSQL on FreeBSD](https://unflyingobject.com/posts/upgrading-postgresql-on-freebsd/) (2016) by [Filipp Lepalaan](https://unflyingobject.com/).
 
-<div id="amzn-assoc-ad-a57797e1-77da-4c74-b2e4-53128feea58e"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=a57797e1-77da-4c74-b2e4-53128feea58e"></script>
-
 ## Logging
 While setting up, I ran into this error and needed more information to fix it:
 
@@ -292,7 +288,5 @@ Once you verify the migration happened successfully, you can get rid of your old
 I hope you find this article useful somehow.
 
 {{< tweet user=henriquev id=1458767291315896328 >}}
-
-<div id="amzn-assoc-ad-650fc264-1310-445e-ba75-6bf6849026cc"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=650fc264-1310-445e-ba75-6bf6849026cc"></script>
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>

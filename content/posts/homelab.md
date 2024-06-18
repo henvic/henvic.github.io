@@ -20,19 +20,6 @@ In this blog post, I'm going to talk a little about my experience running multip
 
 {{< table_of_contents >}}
 
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B00JFFIHEC";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
 ## Hardware
 
 I thought I'd get a full-size ATX tower case with plenty of space for expansion and components, but I was always open to any [form factor](https://en.wikipedia.org/wiki/Computer_form_factor). When browsing [r/homelab](https://www.reddit.com/r/homelab/) and asking for opinions from people elsewhere, I noticed Intel's [Next Unit of Computing](https://en.wikipedia.org/wiki/Next_Unit_of_Computing) (also known as Intel NUC) line of [barebone computers](https://en.wikipedia.org/wiki/Barebone_computer) stood out as a popular choice, and I decided to give it a chance.
@@ -64,8 +51,6 @@ In an ideal scenario, I'd be using at least an SSD, maybe with RAID 0. However, 
 The Intel NUC has a 2.5-inch hard-drive bay unused by now, but I should eventually add an extra SSD there — perhaps, a small and fast SSD dedicated to Lightroom previews and video editing.
 
 At this time, I'm using Backblaze for backups, but for this setup, I'll be moving off the cloud as this will be way cheaper (break-even is months), and I'll be under the control of my data.
-
-<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
 
 ## Hypervisor and operating systems
 
@@ -108,8 +93,6 @@ I used [Filippo Valsorda](https://filippo.io)'s [mkcert](https://mkcert.dev/) pr
 For me, it doesn't matter if we are talking about servers on the local network. If you are using it seriously, you should consider doing the same regardless if you're going to be accessing it from inside your own home or not. Don't trust your network.
 
 Please notice I use a .dev TLD here, and modern browsers force .dev domains to use HTTPS — what is interesting because it will mitigate some security risks by avoiding sending data over plain HTTP.
-
-<div id="amzn-assoc-ad-adf2bdde-8955-4e72-9092-6c582f65477f"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=adf2bdde-8955-4e72-9092-6c582f65477f"></script>
 
 ## Back to Intel NUC 10
 
@@ -440,8 +423,6 @@ One problem I've with SSH is that it's easy to close my laptop lid and to lose a
 ## Thanks
 
 I hope you enjoyed this blog post. If you have any tips for me, interesting stuff to share or just want to talk about this article, please reach out.
-
-<div id="amzn-assoc-ad-d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></script>
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
 

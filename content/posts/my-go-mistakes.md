@@ -58,8 +58,6 @@ It turns out that... Constants are constants!
 As if breaking the update notification wasn't enough, I forgot to check if a pointer value was `nil` and broke the update command.
 Thankfully, it was fixed minutes afterward, after I spotted it on my post-release tests, so the impact was *null*.
 
-<div id="amzn-assoc-ad-ad25996e-b01c-41ce-9c26-7a19c265ee96"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=ad25996e-b01c-41ce-9c26-7a19c265ee96"></script>
-
 ## Comments and documentation
 Once I read that you should only write comments when you fail to express yourself with code because they might get outdated and out of sync.
 While you should aim to express your reasoning and thoughts with code using proper naming for variables, structs, interfaces, and functions, don't underestimate the power of comments!
@@ -212,8 +210,6 @@ However, I forgot to measure what was the impact of adding this second implement
 It doubled the compressed file size from slightly over 4 to 9 Megabytes.
 It was a substantial increase in file size, and although not critical, I regret not spotting this. Had I noticed, I'd hide this alternative implementation using build tags until it was ready for A/B testing.
 
-<div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
-
 ## Concurrency and streams
 I didn't learn about concurrency with Go, but I committed the most rookie mistake possible quite a few times: writing from multiple goroutines or Threads will cause text to be all mingled.
 
@@ -243,9 +239,5 @@ For me, this is a typical case where good documentation with examples can do won
 Alternatively, there could be different ways to define blocking and non-blocking handlers!
 
 Thank you for reading.
-
-<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
-
-<small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
 
 {{< tweet user=henriquev id=1362206448520945664 >}}

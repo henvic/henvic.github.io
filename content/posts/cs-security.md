@@ -28,8 +28,6 @@ Application sandboxing appeared in iOS since its very beginning. Android is also
 
 Google also has been doing great work bringing safer machines to the general public with its [Chrome OS](https://www.google.com/chromebook/chrome-os/) too.
 
-<div id="amzn-assoc-ad-650fc264-1310-445e-ba75-6bf6849026cc"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=650fc264-1310-445e-ba75-6bf6849026cc"></script>
-
 ## Traditional computers
 However, the situation for "general" computers is not good, with [sandboxing](https://en.wikipedia.org/wiki/Sandbox_(computer_security)) still flourishing. It is an essential responsibility of any company that develops and publishes software for the public at large to enforce boundaries and limits to deal with their practically unrestricted trust and risks.
 
@@ -70,8 +68,6 @@ This risk can only be partly mitigated by using HTTPS. However, this lacks a def
 
 ### Why even bother code notarizing?
 If you notarize your application, your Apple users will likely trust you more and have a smoother user experience when installing your application.
-
-<div id="amzn-assoc-ad-867f8b7d-ea56-4a22-8a65-086e6d53aa5a"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=867f8b7d-ea56-4a22-8a65-086e6d53aa5a"></script>
 
 ## Apple's Gatekeeper
 Apple tightened up software installation making the operating system more likely to stop users from executing untrusted code. Some people complain that they are closing down the platform and that this is a bad thing, and I must disagree. For me, they are trying to make macOS as safe to use as iOS.
@@ -177,8 +173,6 @@ Here is the [implementation](https://github.com/henvic/wedeploycli/tree/master/u
 The good thing about it was that I was free of having to use Windows to release a new code signed version each time I decided to do it.
 
 [GitHub's official command line tool](https://cli.github.com) (gh; but not related to the [NodeGH](http://nodegh.io) I used to maintain a long time ago!) does the code signing on every release. If you want it, take a look at [their code](https://github.com/cli/cli/blob/master/.github/workflows/releases.yml).
-
-<div id="amzn-assoc-ad-6763ebda-8a65-4dde-84c8-de9b85de01d7"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=6763ebda-8a65-4dde-84c8-de9b85de01d7"></script>
 
 ## Summary
 If you are a Valve consumer, I'd say you can trust their words and expect nothing bad is going to happen. While many people resort to obfuscation when working on closed-source software, I'd say Valve probably doesn't or they would already be screwed. In theory, issues might exist and get discovered by bad actors easier but I wouldn't worry about it either.

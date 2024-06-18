@@ -64,8 +64,4 @@ Please note that the second returned value of the `signal.NotifyContext` functio
 
 Thanks a lot to everyone who provided ideas, feedback, or code-reviewed my code. In particular, the Go team for the patience in helping me out.
 
-<div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
-
-If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).
-
 {{< tweet user=henriquev id=1306063440948137985 >}}

@@ -131,8 +131,6 @@ You should expect a similar result on any other language, as inheriting environm
 
 Maybe you don't call any external process yourself, but are you sure no library you depend on does it? Are you sure no one will ever really add an external call on future changes?
 
-<div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
-
 ### A safer way of using environment variables?
 Yes, environment variables are globals. The good (?) news is that you can set and unset them during execution.
 
@@ -216,8 +214,6 @@ Oh, if you're using Kubernetes, you can
 * [OWASP Cheat Sheet: Authentication](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
 * [Modern Operating Systems, Andrew S. Tanenbaum](https://amzn.to/3swOApT)
 * [xkcd: Duty Calls](https://xkcd.com/386/)
-
-<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
 

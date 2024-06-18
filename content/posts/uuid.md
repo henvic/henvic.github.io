@@ -105,17 +105,4 @@ Thank you for reading this article.
 
 {{< tweet user=henriquev id=1399330361126031363 >}}
 
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "0984782850";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "65cdf509fe5c5bb4f9b616660057129c";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
