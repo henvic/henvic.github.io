@@ -11,7 +11,7 @@ Most modern programming language ecosystems provide assert functions in their te
 Its [standard testing package](https://pkg.go.dev/testing) follows a more direct and to-the-point approach.
 In fact, there isn't even a single assertion function in the testing package, and writing idiomatic tests in Go isn't that different from writing application code.
 
-You mainly use the t.Errorf and t.Fatalf functions, which borrows the idioms of the [fmt package](https://pkg.go.dev/fmt) to format output, as shown in this code, meaning you get to use the helpful printing verbs of the fmt package, such as:
+You mainly use the `t.Errorf` and `t.Fatalf` functions, which borrows the idioms of the [fmt package](https://pkg.go.dev/fmt) to format output, as shown in this code, meaning you get to use the helpful printing verbs of the fmt package, such as:
 
 ```txt
 %s	the uninterpreted bytes of the string or slice
@@ -119,30 +119,40 @@ On [Go Testing By Example](https://research.swtch.com/testing), Russ Cox provide
 </div>
 </div>
 
-**Sidenote:** While you can also pass additional arguments to `assert.Equal` function to add a line with a reason why a failure occurred, this isn't common and doesn't work as well.
+**Sidenote:** You can also pass additional arguments to Testify's `assert.Equal` (and others functions) to add a line with why a failure occurred, but this isn't common.
 
 
 ## On t.FailNow() and testify/require
 Another widespread problem I see with assertion libraries for Go is that they indiscriminately call [t.FailNow](https://pkg.go.dev/testing#T.FailNow) whenever an error happens is widespread.
 
 This is the effect of doing this:
+
 ```go
-t.Error("this stops execution")
+t.Error("this doesn't stops the execution")
 t.Fatal("this kills a test")
 t.Error("not printed")
 
 // $ go test ./...
 // --- FAIL: TestAbs (0.00s)
-//     code_test.go:13: this stops execution
+//     code_test.go:13: this doesn't stop the execution
 //     code_test.go:14: this kills a test
 // FAIL
 // FAIL	github.com/henvic/exp	0.115s
 // FAIL
 ```
 
+Which, when using Testify, might look be hidden in something like this:
+
+```go
+assert.Equal(t, 1, 2, "this doesn't stop the execution")
+require.Equal(t, true, false, "this kills a test") // any errors after this won't be printed
+assert.Equal(t, "a", "b", "not printed")
+```
+
 The effect is that the test doesn't print the third error ("not printed") as the preceding `t.Fatal` invocation terminates the goroutine executing the test by calling `t.FailNow()`, which is basically a call to `t.Fail()` followed by a call to `runtime.Goexit()`.
 
-For reasons I can't fathom, testify has two packages: [assert](https://pkg.go.dev/github.com/stretchr/testify/assert) and [require](https://pkg.go.dev/github.com/stretchr/testify/require) where the difference is that the functions of the second call the functions of the first but stop the test execution when a test fails by calling `t.FailNow()`:
+As you can see, Testify has two packages: [assert](https://pkg.go.dev/github.com/stretchr/testify/assert) and [require](https://pkg.go.dev/github.com/stretchr/testify/require), where the difference is that the functions of the second call the functions of the first but also stop the test execution when a test fails by calling `t.FailNow()` once the first returns.
+I can't fathom their design decison of separating this into two packages.
 
 ¯\\\_(ツ)\_/¯
 
@@ -157,19 +167,14 @@ func Equal(t Testing.TB, expected interface{}, actual interface{}, msgAndArgs ..
 }
 ```
 
-Unfortunately, some developers have a strong preference for always using t.Fatal or require.
-This dubious choice becomes a problem whenever you're working with multiple goroutines because:
+> FailNow marks the function as having failed and stops its execution by calling `runtime.Goexit` (which then runs all deferred calls in the current goroutine). Execution will continue at the next test or benchmark. FailNow must be called from the goroutine running the test or benchmark function, not from other goroutines created during the test. Calling FailNow does not stop those other goroutines.
 
-> FailNow marks the function as having failed and stops its execution by calling runtime.Goexit (which then runs all deferred calls in the current goroutine). Execution will continue at the next test or benchmark. FailNow must be called from the goroutine running the test or benchmark function, not from other goroutines created during the test. Calling FailNow does not stop those other goroutines.
-
-I find this situation particularly awful, too, because:
-
-* Some developers go as far as enforcing this by a linter or code review process, usually in the name of consistency.
-* I was also repetitively told that the Go team had "fixed this," and it was now safe to call `it.FailNow` anywhere. Well, not really.
-
+Some developers have a strong risky preference for always using `t.Fatal` or Testify's require, going as far as enforcing this linter logic or during code review process, usually in the name of consistency.
+Arguing against this, for many times I heard that the Go team had "fixed this already," and it was now safe to call `it.FailNow` anywhere. Well, not really.
 Besides, they are missing the point.
-By calling `t.Fatal` you often end up hiding a more useful error message from a check that comes after your initial check that called t.FailNow (as shown in the example before), meaning that you lose useful feedback precisely when it's essential to identify a defect earlier.
-I've found myself hit by this particular issue on codebases which heavily uses testify/require multiple times, especially when a deferred function executes a t.FailNow(), masking test panics (see [Go issue #29207](https://github.com/golang/go/issues/29207)).
+
+By calling `t.Fatal` indiscriminately you more often than not hides useful error messages from a check that comes after your initial check that failed.
+I've been hit by this particular issue on many codebases multiple times, such as when something such as a deferred function executes a `t.FailNow()`, masking test panics (see [Go issue #29207](https://github.com/golang/go/issues/29207)).
 
 ## Helper functions vs. assertion function
 From time to time you might find yourself trying to check the same logic over and over.
@@ -320,7 +325,7 @@ However, that won't work for too long either, as you might want to skip fields o
 > If your function returns a struct, don’t write test code that performs an individual comparison for each field of the struct. Instead, construct the struct that you’re expecting your function to return, and compare in one shot using diffs or deep comparisons. The same rule applies to arrays and maps.
 > Source: [Go Wiki: Go Test Comments](https://go.dev/wiki/TestComments)
 
-Instead of using testify/assert, we can use go-cmp and have a much clearer error message:
+Instead of using testify/assert, we can use go-cmp and have a much clearer and to-the-point error message:
 
 ```go
 if !cmp.Equal(dog, gecko) {
@@ -352,13 +357,12 @@ exit status 1
 FAIL	github.com/henvic/exp	0.146s
 ```
 
-I wonder if developers using Testify often use require rather than assert because Testify always prints duplicated information.
+I wonder if developers using Testify often use require rather than assert just because Testify needlessly prints too many lines.
 
 Now, what if you want to skip fields or check dynamic data?
 What do you do?
 This is quite a common problem I often have to deal with.
-
-One strategy that I often see is to extract such fields you want to verify explicitly, and then your testing code becomes a wall of lousy assertion calls, like this:
+One strategy is to extract such fields you want to verify explicitly, and then your testing code becomes "a wall" of assertion calls, like this:
 
 ```go
 got := getAnimal("dog")
@@ -400,8 +404,8 @@ if got.Age < 3 {
 ```
 
 ### More complex comparisons
-If you need to make more complex comparisons, look at the go-cmp documentation to see how you can check and transform the values.
-Here is an example.
+If you need to make more complex comparisons, look at the [go-cmp documentation](https://pkg.go.dev/github.com/google/go-cmp/cmp) to learn how you can check and transform the values.
+Here is a simple example:
 
 ```go
 func compareAgeDelta(delta int) cmp.Option {
@@ -428,10 +432,14 @@ You should also know that go-cmp will panic in some cases, such as:
 * if it detects incomparable values or anonymous structs
 * if it detects an unexported field and you didn't explicitly ignore it (might want to see [cmpopts.IgnoreUnexported](https://pkg.go.dev/github.com/google/go-cmp/cmp/cmpopts#IgnoreUnexported)).
 
+While I don't use Testify on my projects, I understand its charms to newcomers to Go who are already used to xUnit-style tests from other ecosystems.
+This testing approach is just one of the few Go design decisions that deviate from modern practice, and I'm fine with that.
+
 ## Can we do worse?
 Yes.
 **Much worse.**
-The hardest to maintain and slowest tests I have witnessed in my career used Ginkgo and Gomega to test a web platform built using Gorm (slow and buggy [ORM]((https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/))).
+Ginkgo's approach to Behavior-driven Development (BDD) hinders productivity beyond acceptable for me, both from an objective point-of-view, considering [mechanical sympathy](https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.mechanical-sympathy.en.html), and from a developer experience expectation.
+The hardest to maintain and slowest tests I have witnessed and had to tolerate in my career used Ginkgo and Gomega to test a web platform built using GORM (slow and buggy [ORM]((https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/))).
 By some back-of-the-envelope calculation, I can estimate they were at least 100 times slower than they could be (over 10min for something that should never take longer than half a minute in any circumstances) and at least a ten-fold order of magnitude harder to maintain due to their design choices getting in the way of Go tooling and completely ignoring the language idioms.
 
 ```go
@@ -471,39 +479,37 @@ var _ = Describe("Service test", func() {
 })
 ```
 
-While Testify is tolerable, Ginkgo's approach to Behavior-driven Development (BDD) hinders productivity beyond acceptable, both from an objective point-of-view, considering [mechanical sympathy](https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.mechanical-sympathy.en.html), and from a developer experience expectation.
-
-### Want to see something else wild that makes no sense?
-And people use... ¯\\\_(ツ)\_/¯
+### Do you want another wild BDD tests against the Go idioms that people use?
+¯\\\_(ツ)\_/¯
 
 ```go
-type eaterStage struct {
+type eateryStage struct {
 	t *testing.T
         // ...
 }
 
-func (s *eaterStage) and() { return s }
+func (s *eateryStage) and() { return s }
 
-func (s *eaterStage) IAmHungry() { require.Equal(s.you.food, 0) }
-func (s *eaterStage) thereIsFood() { s.fridge.food = 10 }
-func (s *eaterStage) IEat() {
+func (s *eateryStage) IAmHungry() { require.Equal(s.you.food, 0) }
+func (s *eateryStage) thereIsFood() { s.fridge.food = 10 }
+func (s *eateryStage) IEat() {
         s.you.food++
         s.fridge.food--
         require.GreaterThan(t, s.fridge.food, 0)
 }
-func (s *eaterStage) IGetUnhungry() {
+func (s *eateryStage) IGetUnhungry() {
         require.GreaterThan(t, s.you.food, 0)
 }
 
-func newTestEaterStage(t *testing.T) (*eaterStage, *eaterStage, *eaterStage) {
-	s := &eaterStage{
+func newTestEateryStage(t *testing.T) (*eateryStage, *eateryStage, *eateryStage) {
+	s := &eateryStage{
 		// blah blah blah...
 	}
 	return s, s, s // 🤢 lol
 }
 
 func TestEat(t *testing.T) {
-	given, when, then := newTestEaterStage(t)
+	given, when, then := newTestEateryStage(t)
 
 	given.IAmHungry().and().thereIsFood()
 	when.IEat()
