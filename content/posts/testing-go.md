@@ -527,5 +527,7 @@ While there is some truth to that, if you use the standard library directly rath
 You'll also find it easier to debug a problem whenever something goes terribly wrong.
 And when you find an opportunity to casually write a benchmark of fuzzing, you'll be able to do so in no time, maybe confidently reusing existing code.
 
+{{< tweet user=henriquev id=1803055128305336449 >}}
+
 I hope you enjoyed this blog post showing the value of the standard testing library.
 If you don't, that's fine. Please take it easy as [someone is wrong on the Internet](https://xkcd.com/386/), and it might as well be me.
