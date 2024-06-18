@@ -7,7 +7,7 @@ image: "/img/posts/go/go-logo-blue.png"
 hashtags: "golang"
 ---
 Go is one of the most prominent general-purpose programming languages nowadays.
-Google, Apple, Microsoft, Amazon, and Adobe, [to name a few](https://github.com/golang/go/wiki/GoUsers), have been using the language extensively.
+Google, Apple, Microsoft, Amazon, and Adobe, [to name a few](https://go.dev/wiki/GoUsers), have been using the language extensively.
 It's the language of choice behind multiple cloud computing projects such as [Kubernetes](https://kubernetes.io/), and it's steadily expanding towards numerous areas of software development.
 In this article, you'll find resources to learn about Go and its ecosystem.
 
@@ -29,8 +29,8 @@ If you want to see how people are using Go, check out the [Go Developer Survey 2
 | Typing | Inferred, static, strong, structural. |
 | Known for being | Modern, readable, concise, garbage-collected, fast to compile, statically linked. |
 | Site | [golang.org](https://golang.org/) |
-| Release cycle | [Major release every 6 months](https://github.com/golang/go/wiki/Go-Release-Cycle) |
-| Essentials | [Effective Go](https://golang.org/doc/effective_go), [Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments), [Specification](https://golang.org/ref/spec), and [FAQ](https://golang.org/doc/faq) |
+| Release cycle | [Major release every 6 months](https://go.dev/wiki/Go-Release-Cycle) |
+| Essentials | [Effective Go](https://golang.org/doc/effective_go), [Code Review Comments](https://go.dev/wiki/CodeReviewComments), [Specification](https://golang.org/ref/spec), and [FAQ](https://golang.org/doc/faq) |
 
 ## Hello World in Go
 ```go
@@ -87,7 +87,7 @@ You'll also discover it is a concise language with regular syntax. In fact, one 
 Source: [Hello, Gophers!](https://talks.golang.org/2014/hellogophers.slide)
 
 ## Learning
-[Effective Go](https://golang.org/doc/effective_go), [Code Review Comments](https://github.com/golang/go/wiki/CodeReviewComments), and [Specification](https://golang.org/ref/spec) are must-read documents if you want to be serious about Go.
+[Effective Go](https://golang.org/doc/effective_go), [Code Review Comments](https://go.dev/wiki/CodeReviewComments), and [Specification](https://golang.org/ref/spec) are must-read documents if you want to be serious about Go.
 I always recommend anyone using the language to follow the recommendations of **Effective Go** and **Code Review Comments** for the sake of consistency – even when not 100% sold to them.
 
 In the end of 2019, the Go Team launched [go.dev](https://go.dev/) website, a *hub for Go users providing centralized and curated resources from across the Go ecosystem*. Go to [learn.go.dev](https://learn.go.dev/) to see a list of **Learning Resources** with a range of tactics and focus subjects.
@@ -108,7 +108,7 @@ No matter if you're an experienced developer or a newcomer to programming, Go is
 * [Practical Go Lessons](https://www.practical-go-lessons.com/) by [Maximilien Andile](https://twitter.com/maximilienald)
 
 ### Articles, tutorials, talks, opinions, etc.
-* [Go wiki](https://github.com/golang/go/wiki/)
+* [Go wiki](https://go.dev/wiki/)
 * [Go talks](https://talks.golang.org/)
 * [The Go Memory Model](https://golang.org/ref/mem)
 * [Data Race Detector](https://golang.org/doc/articles/race_detector)

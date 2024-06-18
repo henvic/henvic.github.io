@@ -58,7 +58,7 @@ Please note that the second returned value of the `signal.NotifyContext` functio
 * [Go 1.16](https://tip.golang.org/doc/go1.16) is expected to be released in February.
 
 ## Other points
-* I delayed working on it and missed the Go 1.15 release due to its [code freeze window](https://github.com/golang/go/wiki/Go-Release-Cycle).
+* I delayed working on it and missed the Go 1.15 release due to its [code freeze window](https://go.dev/wiki/Go-Release-Cycle).
 * Go uses [Gerrit](https://www.gerritcodereview.com/) to track changes and code reviews.
 * I found Gerrit's patchsets better over GitHub's pull-requests to keep track of changes without losing context (pun intended).
 

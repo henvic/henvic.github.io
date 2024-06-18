@@ -64,7 +64,7 @@ While you should aim to express your reasoning and thoughts with code using prop
 I used to underestimate comments subconsciously following this mindset.
 Thankfully, after a couple of years working with Go, I learned to value the power of good comments.
 If you have doubts about what is reasonable or not to express with comments, I suggest reading the standard library's source code and seeing how they do it.
-The [Go Code Review Comments section on comments](https://github.com/golang/go/wiki/CodeReviewComments#doc-comments) is also a useful reference.
+The [Go Code Review Comments section on comments](https://go.dev/wiki/CodeReviewComments#doc-comments) is also a useful reference.
 
 Documentation is also a key point. You want to use [godoc](https://blog.golang.org/godoc) to generate documentation for your public API.
 All it takes is for you to follow some minimal and unobtrusive commenting patterns.
