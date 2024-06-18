@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>On testing Go code using the standard library | Henrique Vicente</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Fira+Code|Comfortaa:300" rel="stylesheet">
+    <link rel="stylesheet" href="/css/foundation-icons.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/webicons/webicons.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/henvic.css">
+    <link rel="alternate" type="application/rss+xml" title="Henrique Vicente" href="/index.xml" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta property="og:title" content="On testing Go code using the standard library | Henrique Vicente">
+    <meta name="twitter:title" content="On testing Go code using the standard library | Henrique Vicente" />
+    <meta property="og:url" content="https://henvic.dev/posts/testing-go/">
+    
+    <meta name="description" content="Most programming language ecosystems provide assert functions in their testing libraries but not Go&#39;s. Go&#39;s standard testing package follows a more direct and to-the-point approach.">
+    <meta property="og:description" content="Most programming language ecosystems provide assert functions in their testing libraries but not Go&#39;s. Go&#39;s standard testing package follows a more direct and to-the-point approach.">
+    <meta name="twitter:description" content="Most programming language ecosystems provide assert functions in their testing libraries but not Go&#39;s. Go&#39;s standard testing package follows a more direct and to-the-point approach." />
+    
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2024-06-18">
+    
+    <meta property="twitter:url" content="https://henvic.dev/posts/testing-go/">
+    
+    <meta name="og:image" content="https://henvic.dev/img/posts/go/go-logo-blue.png" />
+    <meta name="twitter:image" content="https://henvic.dev/img/posts/go/go-logo-blue.png" />
+    
+</head>
+<body><div class="grid-y medium-grid-frame">
+        <nav class="title-bar show-for-small-only" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    <div class="title-bar-title invisible">Menu</div>
+</nav>
+<nav class="top-bar show-for-small-only" id="responsive-menu">
+    <div class="top-bar-right no-js">
+        <ul class="dropdown menu vertical medium-horizontal large-horizontal" data-active-class="active" data-hover-delay="150" data-closing-time="80" data-alignment="left"
+            data-dropdown-menu data-smooth-scroll>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/" >
+                        Home
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/posts/" >
+                        Blog posts
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/talks/" >
+                        Talks
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class="show-for-small-only ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                </li>
+            
+            
+                <li class="hide-for-small-only is-dropdown-submenu-parent ">
+                    <a href="/portfolio/" >
+                        Portfolio
+                    </a>
+                <ul class="vertical menu nested submenu">
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#httpretty" title="httpretty">
+                            httpretty
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#wedeploy" title="WeDeploy CLI Tool">
+                            WeDeploy CLI Tool
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#vehikel" title="Vehikel">
+                            Vehikel
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#tic-tac-toe" title="Tic-tac-toe">
+                            Tic-tac-toe
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#accidents" title="accidents">
+                            accidents
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#topostit" title="to-post.it">
+                            to-post.it
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#trazqueeupago" title="trazqueeupago.com">
+                            trazqueeupago.com
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#cahier" title="Cahier">
+                            Cahier
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
+                        <a href="/portfolio/#plifk" title="Plifk">
+                            Plifk
+                        </a>
+                    </li>
+                    
+                </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/opensource/" >
+                        Open Source
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/favorites/" >
+                        Favorites
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/about/" >
+                        About me
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+                <li class=" ">
+                    <a href="/resume.pdf" >
+                        Résumé
+                    </a>
+                </li>
+            
+            
+            
+            
+            
+            
+            
+            
+        </ul>
+    </div>
+</nav>
+
+        <div class="cell medium-auto medium-cell-block-container">
+            <div class="grid-x grid-padding-x">
+                <div class="nav cell large-3 medium-4 large-cell-block-y medium-cell-block-y"><div itemscope itemtype="http://schema.org/Person">
+    <div class="nav-card grid-x">
+        <div class="cell small-2 medium-12 nav-card-photo-cell">
+            <a href="/" itemprop="photo" class="nav-card-photo">
+                <img src="/img/me_at_gullfoss_cropped.jpg" alt="me at Gullfoss" width="549" height="549" />
+            </a>
+        </div>
+        <div class="cell card-section small-10 medium-12 medium-text-center">
+            <h4 itemprop="name">Henrique Vicente</h4>
+            <p>
+                <span itemprop="title">Software Engineer</span>
+            </p>
+            <div class="menu-social">
+                <a class="webicon github" href="https://github.com/henvic">
+                    GitHub
+                </a>
+                <a class="webicon twitter" href="https://twitter.com/henriquev">
+                    Twitter
+                </a>
+                <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
+                    Linkedin
+                </a>
+                <a class="webicon instagram" href="https://www.instagram.com/henvic/">
+                    Instagram
+                </a>
+                <a class="webicon flickr" href="https://www.flickr.com/photos/henriquev/">
+                    Flickr
+                </a>
+                <a class="webicon rss" href="/index.xml" />
+                rss feed
+                </a>
+                <a class="webicon mail" href="mailto:henriquevicente@gmail.com" itemprop="email">
+                    henriquevicente@gmail.com
+                </a>
+                <br />
+                <a href="https://keybase.io/henvic" class="fingerprint" title="Keybase profile">D0F4<span class="space"></span>DFBD<span
+                        class="space"></span>257C<span class="space"></span>1575</a>
+            </div>
+        </div>
+    </div>
+    
+    <nav aria-label="You are here:" role="navigation">
+    <ul class="breadcrumbs" id="breadcrumbs">
+            <li><a href="/"></a></li>
+            <li><a href="/posts/">Blog posts</a></li>
+            <li><a href="/posts/testing-go/">On testing Go code using the standard library</a></li>
+    </ul>
+</nav>
+    <ul class="menu vertical show-for-medium">
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/" >
+                Home
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class=" active">
+            <a href="/posts/" aria-current="page" >
+                Blog posts
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/talks/" >
+                Talks
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/portfolio/" >
+                Portfolio
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/opensource/" >
+                Open Source
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/favorites/" >
+                Favorites
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/about/" >
+                About me
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="">
+            <a href="/resume.pdf" >
+                Résumé
+            </a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+    </ul>
+</div>
+</div>
+
+<article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
+        <h1 class="post-title">On testing Go code using the standard library</h1>
+        
+        
+        <p class="post-date"><time class="stat" datetime="2024-06-18 00:00:00 &#43;0000 UTC"></time>Tuesday, 18 June 2024</time>.</p>
+        
+        <p>Most modern programming language ecosystems provide assert functions in their testing libraries but not Go&rsquo;s.
+Its <a href="https://pkg.go.dev/testing">standard testing package</a> follows a more direct and to-the-point approach.
+In fact, there isn&rsquo;t even a single assertion function in the testing package, and writing idiomatic tests in Go isn&rsquo;t that different from writing application code.</p>
+<p>You mainly use the t.Errorf and t.Fatalf functions, which borrows the idioms of the <a href="https://pkg.go.dev/fmt">fmt package</a> to format output, as shown in this code, meaning you get to use the helpful printing verbs of the fmt package, such as:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>%s	the uninterpreted bytes of the string or slice
+</span></span><span style="display:flex;"><span>%q	a double-quoted string safely escaped with Go syntax
+</span></span><span style="display:flex;"><span>%v	the value in a default format when printing structs, the plus flag (%+v) adds field names
+</span></span><span style="display:flex;"><span>%#v	a Go-syntax representation of the value
+</span></span><span style="display:flex;"><span>%T	a Go-syntax representation of the type of the value
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For example:</p>
+<div class="grid-x">
+<div class="cell medium-12 large-6">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">abs</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;testing&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAbs</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Abs</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Abs(-1) = %d; want 1&#34;</span>, <span style="color:#a6e22e">got</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+<div class="cell auto">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test <span style="color:#75715e"># on success</span>
+</span></span><span style="display:flex;"><span>PASS
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># On failure</span>
+</span></span><span style="display:flex;"><span>$ go test
+</span></span><span style="display:flex;"><span>--- FAIL: TestAbs <span style="color:#f92672">(</span>0.00s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    code_test.go:14: Abs<span style="color:#f92672">(</span>-1<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> 3; want <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>FAIL
+</span></span><span style="display:flex;"><span>exit status <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>FAIL	github.com/henvic/exp	0.114s
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<p>To me, this provides a vastly superior experience than writing a test using an assertion library that follows the <a href="https://en.wikipedia.org/wiki/XUnit">XUnit</a>-style:</p>
+<div class="grid-x">
+<div class="cell medium-12 large-6">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">abs</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;testing&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// testify is very used in the Go ecosystem.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#e6db74">&#34;github.com/stretchr/testify/assert&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAbs</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">Abs</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+<div class="cell auto">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test
+</span></span><span style="display:flex;"><span>--- FAIL: TestAbs <span style="color:#f92672">(</span>0.00s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    code_test.go:14:
+</span></span><span style="display:flex;"><span>        	Error Trace:	/exp/code_test.go:14
+</span></span><span style="display:flex;"><span>        	Error:      	Not equal:
+</span></span><span style="display:flex;"><span>        	            	expected: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        	            	actual  : <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>        	Test:       	TestAbs
+</span></span><span style="display:flex;"><span>FAIL
+</span></span><span style="display:flex;"><span>exit status <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>FAIL	github.com/henvic/exp	0.152s
+</span></span><span style="display:flex;"><span>​
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+<p>Using an assertion library is often seen as a way to reduce the effort in writing testing code.
+Sure, we can save three lines of code using <a href="https://pkg.go.dev/github.com/stretchr/testify/assert#Equal">assert.Equal</a> instead of t.Error, but is this really a good idea?
+For me, this is a distraction.</p>
+<blockquote>
+<p>There are many things in the Go language and libraries that differ from modern practices, simply because we feel it&rsquo;s sometimes worth trying a different approach.</p>
+<p>Source: <a href="https://go.dev/doc/faq#assertions">Go FAQ: Why does Go not have assertions?</a></p>
+</blockquote>
+<h2 id="optimizing-for-reading-vs-optimizing-for-writing">Optimizing for reading vs. optimizing for writing</h2>
+<p>Rather than focusing on small gains in speed when writing the initial code, you want to make the intention of your code clear in the long run.
+Writing idiomatic Go code reduces the amount of time you spend chasing defects and maintaining your software.
+On <a href="https://research.swtch.com/testing">Go Testing By Example</a>, Russ Cox provides excellent tips on how to do that.</p>
+<div class="grid-x">
+<div class="cell large-4 medium-6">
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/X4rxi9jStLo?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+</div>
+</div>
+<p><strong>Sidenote:</strong> While you can also pass additional arguments to <code>assert.Equal</code> function to add a line with a reason why a failure occurred, this isn&rsquo;t common and doesn&rsquo;t work as well.</p>
+<h2 id="on-tfailnow-and-testifyrequire">On t.FailNow() and testify/require</h2>
+<p>Another widespread problem I see with assertion libraries for Go is that they indiscriminately call <a href="https://pkg.go.dev/testing#T.FailNow">t.FailNow</a> whenever an error happens is widespread.</p>
+<p>This is the effect of doing this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;this stops execution&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;this kills a test&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;not printed&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// $ go test ./...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// --- FAIL: TestAbs (0.00s)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:13: this stops execution
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:14: this kills a test
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL	github.com/henvic/exp	0.115s
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>The effect is that the test doesn&rsquo;t print the third error (&ldquo;not printed&rdquo;) as the preceding <code>t.Fatal</code> invocation terminates the goroutine executing the test by calling <code>t.FailNow()</code>, which is basically a call to <code>t.Fail()</code> followed by a call to <code>runtime.Goexit()</code>.</p>
+<p>For reasons I can&rsquo;t fathom, testify has two packages: <a href="https://pkg.go.dev/github.com/stretchr/testify/assert">assert</a> and <a href="https://pkg.go.dev/github.com/stretchr/testify/require">require</a> where the difference is that the functions of the second call the functions of the first but stop the test execution when a test fails by calling <code>t.FailNow()</code>:</p>
+<p>¯\_(ツ)_/¯</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">require</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span> <span style="color:#a6e22e">Testing</span>.<span style="color:#a6e22e">TB</span>, <span style="color:#a6e22e">expected</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">actual</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">msgAndArgs</span> <span style="color:#f92672">...</span><span style="color:#66d9ef">interface</span>{}) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Helper</span>() <span style="color:#75715e">// When printing file and line information, this function will be skipped.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">expected</span>, <span style="color:#a6e22e">actual</span>, <span style="color:#a6e22e">msgAndArgs</span><span style="color:#f92672">...</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">FailNow</span>()
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Unfortunately, some developers have a strong preference for always using t.Fatal or require.
+This dubious choice becomes a problem whenever you&rsquo;re working with multiple goroutines because:</p>
+<blockquote>
+<p>FailNow marks the function as having failed and stops its execution by calling runtime.Goexit (which then runs all deferred calls in the current goroutine). Execution will continue at the next test or benchmark. FailNow must be called from the goroutine running the test or benchmark function, not from other goroutines created during the test. Calling FailNow does not stop those other goroutines.</p>
+</blockquote>
+<p>I find this situation particularly awful, too, because:</p>
+<ul>
+<li>Some developers go as far as enforcing this by a linter or code review process, usually in the name of consistency.</li>
+<li>I was also repetitively told that the Go team had &ldquo;fixed this,&rdquo; and it was now safe to call <code>it.FailNow</code> anywhere. Well, not really.</li>
+</ul>
+<p>Besides, they are missing the point.
+By calling <code>t.Fatal</code> you often end up hiding a more useful error message from a check that comes after your initial check that called t.FailNow (as shown in the example before), meaning that you lose useful feedback precisely when it&rsquo;s essential to identify a defect earlier.
+I&rsquo;ve found myself hit by this particular issue on codebases which heavily uses testify/require multiple times, especially when a deferred function executes a t.FailNow(), masking test panics (see <a href="https://github.com/golang/go/issues/29207">Go issue #29207</a>).</p>
+<h2 id="helper-functions-vs-assertion-function">Helper functions vs. assertion function</h2>
+<p>From time to time you might find yourself trying to check the same logic over and over.
+For example, you might want to check if all positive numbers of a slice are even.</p>
+<p>The following code is a reasonable option:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">assertPositiveEvens</span>(<span style="color:#a6e22e">t</span> <span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">TB</span>, <span style="color:#a6e22e">numbers</span> []<span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">pos</span>, <span style="color:#a6e22e">num</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">numbers</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">num</span> &gt; <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">num</span><span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;number at index %d = %d is not a positive even&#34;</span>, <span style="color:#a6e22e">pos</span>, <span style="color:#a6e22e">num</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>However, as you can see in this <a href="https://google.github.io/styleguide/go/decisions#assertion-libraries">other example</a>, it might be more interesting to have a function that returns <em>a value or an error that can be used in the test&rsquo;s failure message instead</em>.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">checkPositiveEvens</span>(<span style="color:#a6e22e">numbers</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">pos</span>, <span style="color:#a6e22e">num</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">numbers</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">num</span> &gt; <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">num</span><span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;index(%d) = %d is not a positive even&#34;</span>, <span style="color:#a6e22e">pos</span>, <span style="color:#a6e22e">num</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">checkPositiveEvens</span>(<span style="color:#a6e22e">vector</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;invalid vector:&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Why?</strong> This makes composing errors much easier:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestVectors</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">checkPositiveEvens</span>([]<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">7</span>}); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;invalid vector:&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// exp/code_test.go:27: invalid vector: index(5) = 7 is not a positive even
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>P.S. Have you noticed that <code>assertPositiveEvens</code> masked a call to <code>t.FailNow</code> by using <code>t.Fatal</code> rather than <code>t.Error</code>?</p>
+<h2 id="comparing-full-structures">Comparing full structures</h2>
+<p>The package <a href="https://github.com/google/go-cmp">github.com/google/go-cmp</a> is a package for the equality of Go values.
+Using it, you have a powerful approach for comparing whether two values are semantically equal.</p>
+<p>Suppose you&rsquo;ve a list of animals on a database and need to verify if the animal you retrieved after calling it matches what you expect.
+So, you have a struct with:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Animal</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>  <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Class</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Sound</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And a set of values like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">gecko</span> = <span style="color:#a6e22e">Animal</span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>:  <span style="color:#e6db74">&#34;Gecko&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Class</span>: <span style="color:#e6db74">&#34;Reptile&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Sound</span>: <span style="color:#e6db74">&#34;gecko&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dog</span> = <span style="color:#a6e22e">Animal</span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>:  <span style="color:#e6db74">&#34;Dog&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Class</span>: <span style="color:#e6db74">&#34;Mammal&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Sound</span>: <span style="color:#e6db74">&#34;Bark&#34;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>One naïve strategy might be to use:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">dog</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">gecko</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;dog and gecko are not the same animal&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This would work so far, but not for too long as:</p>
+<blockquote>
+<p>Struct types are comparable if all their field types are comparable. Two struct values are equal if their corresponding non-blank field values are equal. The fields are compared in source order, and comparison stops as soon as two field values differ (or all fields have been compared).</p>
+<p>Source: <a href="https://go.dev/ref/spec#Comparison_operators">Go spec: Comparison operators</a></p>
+</blockquote>
+<p>For comparing struct with such fields you need at least <a href="https://pkg.go.dev/reflect#DeepEqual">reflect.DeepEqual</a>:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">reflect</span>.<span style="color:#a6e22e">DeepEqual</span>(<span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">gecko</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;dog and gecko are not the same animal&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Great! Now, it seems to be working as intended.
+However, you still can&rsquo;t know exactly <strong>why</strong> the values are different.</p>
+<p>Can you use the following testify/assert to rescue you?</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">getAnimal</span>(<span style="color:#e6db74">&#34;dog&#34;</span>))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you now change the type of the <code>Sound</code> field to a slice of strings, you get something like:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test
+</span></span><span style="display:flex;"><span>--- FAIL: TestAnimals <span style="color:#f92672">(</span>0.00s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    code_test.go:29:
+</span></span><span style="display:flex;"><span>        	Error Trace:	/Users/henvic/projects/gocode/src/github.com/henvic/exp/animalia_test.go:29
+</span></span><span style="display:flex;"><span>        	Error:      	Not equal:
+</span></span><span style="display:flex;"><span>        	            	expected: animalia.Animal<span style="color:#f92672">{</span>Name:<span style="color:#e6db74">&#34;Dog&#34;</span>, Class:<span style="color:#e6db74">&#34;Mammal&#34;</span>, Sound:<span style="color:#f92672">[]</span>string<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;Bark&#34;</span><span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>        	            	actual  : animalia.Animal<span style="color:#f92672">{</span>Name:<span style="color:#e6db74">&#34;Gecko&#34;</span>, Class:<span style="color:#e6db74">&#34;Reptile&#34;</span>, Sound:<span style="color:#f92672">[]</span>string<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;Click&#34;</span><span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        	            	Diff:
+</span></span><span style="display:flex;"><span>        	            	--- Expected
+</span></span><span style="display:flex;"><span>        	            	+++ Actual
+</span></span><span style="display:flex;"><span>        	            	@@ -1,6 +1,6 @@
+</span></span><span style="display:flex;"><span>        	            	 <span style="color:#f92672">(</span>animalia.Animal<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        	            	- Name: <span style="color:#f92672">(</span>string<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>len<span style="color:#f92672">=</span>3<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;Dog&#34;</span>,
+</span></span><span style="display:flex;"><span>        	            	- Class: <span style="color:#f92672">(</span>string<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>len<span style="color:#f92672">=</span>6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;Mammal&#34;</span>,
+</span></span><span style="display:flex;"><span>        	            	+ Name: <span style="color:#f92672">(</span>string<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>len<span style="color:#f92672">=</span>5<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;Gecko&#34;</span>,
+</span></span><span style="display:flex;"><span>        	            	+ Class: <span style="color:#f92672">(</span>string<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>len<span style="color:#f92672">=</span>7<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;Reptile&#34;</span>,
+</span></span><span style="display:flex;"><span>        	            	  Sound: <span style="color:#f92672">([]</span>string<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>len<span style="color:#f92672">=</span>1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        	            	-  <span style="color:#f92672">(</span>string<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>len<span style="color:#f92672">=</span>4<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;Bark&#34;</span>
+</span></span><span style="display:flex;"><span>        	            	+  <span style="color:#f92672">(</span>string<span style="color:#f92672">)</span> <span style="color:#f92672">(</span>len<span style="color:#f92672">=</span>5<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;Click&#34;</span>
+</span></span><span style="display:flex;"><span>        	            	  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        	Test:       	TestAnimals
+</span></span><span style="display:flex;"><span>FAIL
+</span></span><span style="display:flex;"><span>exit status <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>FAIL	github.com/henvic/exp	0.146s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>It looks like it did the trick!</p>
+<p>However, that won&rsquo;t work for too long either, as you might want to skip fields or check dynamic data, but let&rsquo;s talk about it later.</p>
+<h3 id="can-we-do-better">Can we do better?</h3>
+<blockquote>
+<p>If your function returns a struct, don’t write test code that performs an individual comparison for each field of the struct. Instead, construct the struct that you’re expecting your function to return, and compare in one shot using diffs or deep comparisons. The same rule applies to arrays and maps.
+Source: <a href="https://go.dev/wiki/TestComments">Go Wiki: Go Test Comments</a></p>
+</blockquote>
+<p>Instead of using testify/assert, we can use go-cmp and have a much clearer error message:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">gecko</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animal is not a dog: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">gecko</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// or even:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">gecko</span>); <span style="color:#a6e22e">diff</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animal is not a dog: %v&#34;</span>, <span style="color:#a6e22e">diff</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Which should print:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test
+</span></span><span style="display:flex;"><span>--- FAIL: TestAnimals <span style="color:#f92672">(</span>0.00s<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    code_test.go:37: animal is not a dog:   animalia.Animal<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        - 	Name:  <span style="color:#e6db74">&#34;Dog&#34;</span>,
+</span></span><span style="display:flex;"><span>        + 	Name:  <span style="color:#e6db74">&#34;Gecko&#34;</span>,
+</span></span><span style="display:flex;"><span>        - 	Class: <span style="color:#e6db74">&#34;Mammal&#34;</span>,
+</span></span><span style="display:flex;"><span>        + 	Class: <span style="color:#e6db74">&#34;Reptile&#34;</span>,
+</span></span><span style="display:flex;"><span>        - 	Sound: <span style="color:#f92672">[]</span>string<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;Bark&#34;</span><span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>        + 	Sound: <span style="color:#f92672">[]</span>string<span style="color:#f92672">{</span><span style="color:#e6db74">&#34;Click&#34;</span><span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>FAIL
+</span></span><span style="display:flex;"><span>exit status <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>FAIL	github.com/henvic/exp	0.146s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I wonder if developers using Testify often use require rather than assert because Testify always prints duplicated information.</p>
+<p>Now, what if you want to skip fields or check dynamic data?
+What do you do?
+This is quite a common problem I often have to deal with.</p>
+<p>One strategy that I often see is to extract such fields you want to verify explicitly, and then your testing code becomes a wall of lousy assertion calls, like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">got</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">getAnimal</span>(<span style="color:#e6db74">&#34;dog&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#e6db74">&#34;Dog&#34;</span>, <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Name</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#e6db74">&#34;Mammal&#34;</span>, <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Class</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;Bark&#34;</span>}, <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Sound</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">WithinDuration</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>(), <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">*</span><span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">GreaterOrEqual</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Age</span>, <span style="color:#ae81ff">3</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once you&rsquo;ve enough fields, this can quickly get out of control, so you might find yourself starting to mix strategies of checking some individual fields, then preparing the bigger struct for an equality assertion.
+So you end up with:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">WithinDuration</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>(), <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">*</span><span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">GreaterOrEqual</span>(<span style="color:#a6e22e">t</span>, <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Age</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Cleaning dynamic values.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Age</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span> = <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>{}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Location</span> = <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">want</span>.<span style="color:#a6e22e">Location</span> = <span style="color:#66d9ef">nil</span> <span style="color:#75715e">// Location is always initialized for [some reason], so also needs to be reset.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Test the rest.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>With go-cmp, you could do the same using the <a href="https://pkg.go.dev/github.com/google/go-cmp/cmp/cmpopts">cmpopts package</a> to help you a bit in reducing this amount of preparation before checking two structs:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">dog</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">EquateApproxTime</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>), <span style="color:#75715e">// Check if recorded was just created.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">IgnoreFields</span>(<span style="color:#a6e22e">Animal</span>{}, <span style="color:#e6db74">&#34;Age&#34;</span>, <span style="color:#e6db74">&#34;Location&#34;</span>)) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animal is not a dog: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">got</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Age</span> &lt; <span style="color:#ae81ff">3</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animal age should be at least 3, got %d instead&#34;</span>, <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Age</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="more-complex-comparisons">More complex comparisons</h3>
+<p>If you need to make more complex comparisons, look at the go-cmp documentation to see how you can check and transform the values.
+Here is an example.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">compareAgeDelta</span>(<span style="color:#a6e22e">delta</span> <span style="color:#66d9ef">int</span>) <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Option</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">FilterPath</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">p</span> <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Path</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">GoString</span>() <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;.Age&#34;</span>
+</span></span><span style="display:flex;"><span>	}, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Comparer</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Abs</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">delta</span>
+</span></span><span style="display:flex;"><span>	}))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAnimals</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">compareAgeDelta</span>(<span style="color:#ae81ff">3</span>)); <span style="color:#a6e22e">diff</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animals mismatch: %v&#34;</span>, <span style="color:#a6e22e">diff</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You should also know that go-cmp will panic in some cases, such as:</p>
+<ul>
+<li>if you try to write a non-deterministic comparer (why we used the Abs function inside compareAgeDelta)</li>
+<li>if you try to compare structs with unexported fields without ignoring them</li>
+<li>if you use an invalid transformer or sorting function</li>
+<li>if it detects incomparable values or anonymous structs</li>
+<li>if it detects an unexported field and you didn&rsquo;t explicitly ignore it (might want to see <a href="https://pkg.go.dev/github.com/google/go-cmp/cmp/cmpopts#IgnoreUnexported">cmpopts.IgnoreUnexported</a>).</li>
+</ul>
+<h2 id="can-we-do-worse">Can we do worse?</h2>
+<p>Yes.
+<strong>Much worse.</strong>
+The hardest to maintain and slowest tests I have witnessed in my career used Ginkgo and Gomega to test a web platform built using Gorm (slow and buggy <a href="(https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/)">ORM</a>).
+By some back-of-the-envelope calculation, I can estimate they were at least 100 times slower than they could be (over 10min for something that should never take longer than half a minute in any circumstances) and at least a ten-fold order of magnitude harder to maintain due to their design choices getting in the way of Go tooling and completely ignoring the language idioms.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">torture_test</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// The fun starts by not using qualified identifiers on imports
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	. <span style="color:#e6db74">&#34;github.com/onsi/ginkgo/v2&#34;</span>
+</span></span><span style="display:flex;"><span>	. <span style="color:#e6db74">&#34;github.com/onsi/gomega&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">client</span> = <span style="color:#a6e22e">music</span>.<span style="color:#a6e22e">NewClient</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestRequests</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">RegisterFailHandler</span>(<span style="color:#a6e22e">Fail</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">RunSpecs</span>(<span style="color:#a6e22e">t</span>, <span style="color:#e6db74">&#34;Something speccial&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">BeforeSuite</span>(<span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">client</span> = <span style="color:#a6e22e">service</span>.<span style="color:#a6e22e">NewClient</span>()
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">Describe</span>(<span style="color:#e6db74">&#34;Service test&#34;</span>, <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Context</span>(<span style="color:#e6db74">&#34;Receiving a request&#34;</span>, <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">It</span>(<span style="color:#e6db74">&#34;Returning a response&#34;</span>, <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Do</span>(<span style="color:#a6e22e">request</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">Expect</span>(<span style="color:#a6e22e">err</span>).<span style="color:#a6e22e">NotTo</span>(<span style="color:#a6e22e">HaveOccurred</span>())
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">Expect</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">StatusCode</span>).<span style="color:#a6e22e">To</span>(<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">Body</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">Expect</span>(<span style="color:#a6e22e">err</span>).<span style="color:#a6e22e">NotTo</span>(<span style="color:#a6e22e">HaveOccurred</span>())
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">Expect</span>(string(<span style="color:#a6e22e">body</span>)).<span style="color:#a6e22e">To</span>(<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">wantResp</span>))
+</span></span><span style="display:flex;"><span>		})
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>While Testify is tolerable, Ginkgo&rsquo;s approach to Behavior-driven Development (BDD) hinders productivity beyond acceptable, both from an objective point-of-view, considering <a href="https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.mechanical-sympathy.en.html">mechanical sympathy</a>, and from a developer experience expectation.</p>
+<h3 id="want-to-see-something-else-wild-that-makes-no-sense">Want to see something else wild that makes no sense?</h3>
+<p>And people use&hellip; ¯\_(ツ)_/¯</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">eaterStage</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">and</span>() { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">IAmHungry</span>() { <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">you</span>.<span style="color:#a6e22e">food</span>, <span style="color:#ae81ff">0</span>) }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">thereIsFood</span>() { <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">fridge</span>.<span style="color:#a6e22e">food</span> = <span style="color:#ae81ff">10</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">IEat</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">you</span>.<span style="color:#a6e22e">food</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">fridge</span>.<span style="color:#a6e22e">food</span><span style="color:#f92672">--</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">GreaterThan</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">fridge</span>.<span style="color:#a6e22e">food</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) <span style="color:#a6e22e">IGetUnhungry</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">GreaterThan</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">you</span>.<span style="color:#a6e22e">food</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">newTestEaterStage</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">eaterStage</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">eaterStage</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// blah blah blah...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">s</span> <span style="color:#75715e">// 🤢 lol
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestEat</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">given</span>, <span style="color:#a6e22e">when</span>, <span style="color:#a6e22e">then</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">newTestEaterStage</span>(<span style="color:#a6e22e">t</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">given</span>.<span style="color:#a6e22e">IAmHungry</span>().<span style="color:#a6e22e">and</span>().<span style="color:#a6e22e">thereIsFood</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">when</span>.<span style="color:#a6e22e">IEat</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">then</span>.<span style="color:#a6e22e">IGetUnhungry</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="closing-thoughts">Closing thoughts</h2>
+<blockquote>
+<p>Are you familiar with writing benchmark tests and Fuzz tests?</p>
+</blockquote>
+<p>A presenter often asks this question when discussing either topic. Despite having plenty of experience writing tests with the language, attendees often won&rsquo;t be familiar with it.</p>
+<p>Sometimes, they perceive this as very different than writing regular, mundane tests.
+While there is some truth to that, if you use the standard library directly rather than abstractions from assertion libraries, you are already familiar with 90% of what it takes to do either.
+You&rsquo;ll also find it easier to debug a problem whenever something goes terribly wrong.
+And when you find an opportunity to casually write a benchmark of fuzzing, you&rsquo;ll be able to do so in no time, maybe confidently reusing existing code.</p>
+<p>I hope you enjoyed this blog post showing the value of the standard testing library.
+If you don&rsquo;t, that&rsquo;s fine. Please take it easy as <a href="https://xkcd.com/386/">someone is wrong on the Internet</a>, and it might as well be me.</p>
+
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="On testing Go code using the standard library" data-url="https://henvic.dev/posts/testing-go/" data-via="henriquev"
+                        data-hashtags="golang,testing"  data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <aside class="read-also">
+                <h3>Read also</h3>
+                <ul>
+                        <li>
+                                <a href="/posts/tesla/">My new Tesla Model Y 2023</a>
+                                <time datetime="2006-01-02">Wednesday 11, January 2023</time>
+                        </li><li>
+                                <a href="/posts/go-utf8/">UTF-8 strings with Go: len(s) isn&#39;t enough</a>
+                                <time datetime="2006-01-02">Monday 7, March 2022</time>
+                        </li><li>
+                                <a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a>
+                                <time datetime="2006-01-02">Monday 22, November 2021</time>
+                        </li><li>
+                                <a href="/posts/postgres-14-freebsd-13/">Upgrading to PostgreSQL 14 on FreeBSD 13</a>
+                                <time datetime="2006-01-02">Thursday 11, November 2021</time>
+                        </li><li>
+                                <a href="/posts/uuid/">You don&#39;t need UUID</a>
+                                <time datetime="2006-01-02">Sunday 30, May 2021</time>
+                        </li><li>
+                                <a href="/posts/go/">The ecosystem of the Go programming language</a>
+                                <time datetime="2006-01-02">Monday 22, March 2021</time>
+                        </li><li>
+                                <a href="/posts/my-go-mistakes/">My Go mistakes</a>
+                                <time datetime="2006-01-02">Thursday 18, February 2021</time>
+                        </li><li>
+                                <a href="/posts/env/">Environment variables, config, secrets, and globals</a>
+                                <time datetime="2006-01-02">Saturday 16, January 2021</time>
+                        </li><li>
+                                <a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a>
+                                <time datetime="2006-01-02">Wednesday 16, September 2020</time>
+                        </li><li>
+                                <a href="/posts/e-commerce/">I&#39;m starting an opensource e-commerce project.</a>
+                                <time datetime="2006-01-02">Wednesday 17, June 2020</time>
+                        </li>
+                </ul>
+        </aside>
+</article>
+
+            </div>
+        </div>
+    </div>
+
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1GFSFWX85"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-Y1GFSFWX85');
+        }
+      </script>
+    
+  
+
+
+<script src="/js/vendor/modernizr-custom-svg.js"></script>
+<script src="/js/vendor/what-input.js"></script>
+<script src="/js/vendor/jquery.min.js"></script>
+<script src="/js/vendor/foundation.min.js"></script>
+<script>
+        $(document).ready(function () {
+                $(document).foundation();
+        });
+</script>
+</body>
+</html>

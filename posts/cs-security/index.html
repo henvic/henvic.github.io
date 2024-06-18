@@ -383,7 +383,6 @@
 <p>Application sandboxing appeared in iOS since its very beginning. Android is also <a href="https://developer.android.com/training/data-storage#scoped-storage">moving towards this direction </a> as users are getting more concerned over the topic.</p>
 <p><a href="https://www.freebsd.org">FreeBSD</a> and Linux distributions have a history of mirroring packages in public mirrors safely thanks to package signature. By the way, FreeBSD has the concept of jails, that allows you to isolate processes and what computer resources they can access. Something useful to mitigate attack vectors.</p>
 <p>Google also has been doing great work bringing safer machines to the general public with its <a href="https://www.google.com/chromebook/chrome-os/">Chrome OS</a> too.</p>
-<div id="amzn-assoc-ad-650fc264-1310-445e-ba75-6bf6849026cc"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=650fc264-1310-445e-ba75-6bf6849026cc"></script>
 <h2 id="traditional-computers">Traditional computers</h2>
 <p>However, the situation for &ldquo;general&rdquo; computers is not good, with <a href="https://en.wikipedia.org/wiki/Sandbox_(computer_security)">sandboxing</a> still flourishing. It is an essential responsibility of any company that develops and publishes software for the public at large to enforce boundaries and limits to deal with their practically unrestricted trust and risks.</p>
 <p>Browsers are, perhaps, the only understood example of a successful sandbox on traditional computers.</p>
@@ -411,7 +410,6 @@
 <p>This risk can only be partly mitigated by using HTTPS. However, this lacks a defense in depth or Castle Approach. You want to minimize your attack surface.</p>
 <h3 id="why-even-bother-code-notarizing">Why even bother code notarizing?</h3>
 <p>If you notarize your application, your Apple users will likely trust you more and have a smoother user experience when installing your application.</p>
-<div id="amzn-assoc-ad-867f8b7d-ea56-4a22-8a65-086e6d53aa5a"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=867f8b7d-ea56-4a22-8a65-086e6d53aa5a"></script>
 <h2 id="apples-gatekeeper">Apple&rsquo;s Gatekeeper</h2>
 <p>Apple tightened up software installation making the operating system more likely to stop users from executing untrusted code. Some people complain that they are closing down the platform and that this is a bad thing, and I must disagree. For me, they are trying to make macOS as safe to use as iOS.</p>
 <p><a href="/img/posts/cs-security/gatekeeper.png"><img src="/img/posts/cs-security/gatekeeper_small.png" alt="Gatekeeper screenshot"></a></p>
@@ -487,7 +485,6 @@
 <p>Here is the <a href="https://github.com/henvic/wedeploycli/tree/master/update/internal/installer">implementation</a>, if you are curious.</p>
 <p>The good thing about it was that I was free of having to use Windows to release a new code signed version each time I decided to do it.</p>
 <p><a href="https://cli.github.com">GitHub&rsquo;s official command line tool</a> (gh; but not related to the <a href="http://nodegh.io">NodeGH</a> I used to maintain a long time ago!) does the code signing on every release. If you want it, take a look at <a href="https://github.com/cli/cli/blob/master/.github/workflows/releases.yml">their code</a>.</p>
-<div id="amzn-assoc-ad-6763ebda-8a65-4dde-84c8-de9b85de01d7"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=6763ebda-8a65-4dde-84c8-de9b85de01d7"></script>
 <h2 id="summary">Summary</h2>
 <p>If you are a Valve consumer, I&rsquo;d say you can trust their words and expect nothing bad is going to happen. While many people resort to obfuscation when working on closed-source software, I&rsquo;d say Valve probably doesn&rsquo;t or they would already be screwed. In theory, issues might exist and get discovered by bad actors easier but I wouldn&rsquo;t worry about it either.</p>
 <p>If you&rsquo;re worried about this, you might consider to buy a dedicated gaming machine to mitigate the risks, and this is a good measure if you can afford.</p>
@@ -501,6 +498,9 @@
                 <h3>Read also</h3>
                 <ul>
                         <li>
+                                <a href="/posts/testing-go/">On testing Go code using the standard library</a>
+                                <time datetime="2006-01-02">Tuesday 18, June 2024</time>
+                        </li><li>
                                 <a href="/posts/tesla/">My new Tesla Model Y 2023</a>
                                 <time datetime="2006-01-02">Wednesday 11, January 2023</time>
                         </li><li>

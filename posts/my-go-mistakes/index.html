@@ -453,14 +453,13 @@ Suddenly, by changing <code>var</code> to <code>const</code>, I silently broke m
 <h2 id="nil-pointer-dereference">Nil pointer dereference</h2>
 <p>As if breaking the update notification wasn&rsquo;t enough, I forgot to check if a pointer value was <code>nil</code> and broke the update command.
 Thankfully, it was fixed minutes afterward, after I spotted it on my post-release tests, so the impact was <em>null</em>.</p>
-<div id="amzn-assoc-ad-ad25996e-b01c-41ce-9c26-7a19c265ee96"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=ad25996e-b01c-41ce-9c26-7a19c265ee96"></script>
 <h2 id="comments-and-documentation">Comments and documentation</h2>
 <p>Once I read that you should only write comments when you fail to express yourself with code because they might get outdated and out of sync.
 While you should aim to express your reasoning and thoughts with code using proper naming for variables, structs, interfaces, and functions, don&rsquo;t underestimate the power of comments!
 I used to underestimate comments subconsciously following this mindset.
 Thankfully, after a couple of years working with Go, I learned to value the power of good comments.
 If you have doubts about what is reasonable or not to express with comments, I suggest reading the standard library&rsquo;s source code and seeing how they do it.
-The <a href="https://github.com/golang/go/wiki/CodeReviewComments#doc-comments">Go Code Review Comments section on comments</a> is also a useful reference.</p>
+The <a href="https://go.dev/wiki/CodeReviewComments#doc-comments">Go Code Review Comments section on comments</a> is also a useful reference.</p>
 <p>Documentation is also a key point. You want to use <a href="https://blog.golang.org/godoc">godoc</a> to generate documentation for your public API.
 All it takes is for you to follow some minimal and unobtrusive commenting patterns.
 It&rsquo;s relatively straight-forward to use it, and you gain consistency following it even if it&rsquo;s not your preferred style!</p>
@@ -645,7 +644,6 @@ I added a new <code>--experimental</code> flag and continued to move towards a p
 However, I forgot to measure what was the impact of adding this second implementation.
 It doubled the compressed file size from slightly over 4 to 9 Megabytes.
 It was a substantial increase in file size, and although not critical, I regret not spotting this. Had I noticed, I&rsquo;d hide this alternative implementation using build tags until it was ready for A/B testing.</p>
-<div id="amzn-assoc-ad-e4e6eccf-8b48-4046-a4d9-37f587a481a3"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=e4e6eccf-8b48-4046-a4d9-37f587a481a3"></script>
 <h2 id="concurrency-and-streams">Concurrency and streams</h2>
 <p>I didn&rsquo;t learn about concurrency with Go, but I committed the most rookie mistake possible quite a few times: writing from multiple goroutines or Threads will cause text to be all mingled.</p>
 <p>I made this error even more so when writing packages for text animation in the terminal.
@@ -670,8 +668,6 @@ The idea of creating one right away was probably thinking about performance.
 For me, this is a typical case where good documentation with examples can do wonders in explaining to the user what they need to know.
 Alternatively, there could be different ways to define blocking and non-blocking handlers!</p>
 <p>Thank you for reading.</p>
-<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
-<p><small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</small></p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">My Go mistakes<a href="https://t.co/hHSIZ3KxZs">https://t.co/hHSIZ3KxZs</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1362206448520945664?ref_src=twsrc%5Etfw">February 18, 2021</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -685,6 +681,9 @@ Alternatively, there could be different ways to define blocking and non-blocking
                 <h3>Read also</h3>
                 <ul>
                         <li>
+                                <a href="/posts/testing-go/">On testing Go code using the standard library</a>
+                                <time datetime="2006-01-02">Tuesday 18, June 2024</time>
+                        </li><li>
                                 <a href="/posts/tesla/">My new Tesla Model Y 2023</a>
                                 <time datetime="2006-01-02">Wednesday 11, January 2023</time>
                         </li><li>
@@ -711,9 +710,6 @@ Alternatively, there could be different ways to define blocking and non-blocking
                         </li><li>
                                 <a href="/posts/e-commerce/">I&#39;m starting an opensource e-commerce project.</a>
                                 <time datetime="2006-01-02">Wednesday 17, June 2020</time>
-                        </li><li>
-                                <a href="/posts/cs-security/">Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely.</a>
-                                <time datetime="2006-01-02">Wednesday 22, April 2020</time>
                         </li>
                 </ul>
         </aside>

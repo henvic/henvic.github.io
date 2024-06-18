@@ -6,8 +6,15 @@
     <description>Recent content on Henrique Vicente</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://henvic.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On testing Go code using the standard library</title>
+      <link>https://henvic.dev/posts/testing-go/</link>
+      <pubDate>Tue, 18 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://henvic.dev/posts/testing-go/</guid>
+      <description>Most modern programming language ecosystems provide assert functions in their testing libraries but not Go&amp;rsquo;s. Its standard testing package follows a more direct and to-the-point approach. In fact, there isn&amp;rsquo;t even a single assertion function in the testing package, and writing idiomatic tests in Go isn&amp;rsquo;t that different from writing application code.&#xA;You mainly use the t.Errorf and t.Fatalf functions, which borrows the idioms of the fmt package to format output, as shown in this code, meaning you get to use the helpful printing verbs of the fmt package, such as:</description>
+    </item>
     <item>
       <title>My new Tesla Model Y 2023</title>
       <link>https://henvic.dev/posts/tesla/</link>

@@ -451,18 +451,6 @@
 </aside>
 
 
-<script type="text/javascript">
-amzn_assoc_tracking_id = "henvic-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "B00JFFIHEC";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 <h2 id="hardware">Hardware</h2>
 <p>I thought I&rsquo;d get a full-size ATX tower case with plenty of space for expansion and components, but I was always open to any <a href="https://en.wikipedia.org/wiki/Computer_form_factor">form factor</a>. When browsing <a href="https://www.reddit.com/r/homelab/">r/homelab</a> and asking for opinions from people elsewhere, I noticed Intel&rsquo;s <a href="https://en.wikipedia.org/wiki/Next_Unit_of_Computing">Next Unit of Computing</a> (also known as Intel NUC) line of <a href="https://en.wikipedia.org/wiki/Barebone_computer">barebone computers</a> stood out as a popular choice, and I decided to give it a chance.</p>
 <p><a href="/img/posts/homelab/intel-nuc-10.jpg"><img src="/img/posts/homelab/intel-nuc-10_small.jpg" alt="Intel NUC Performance Kit photo"></a></p>
@@ -489,7 +477,6 @@ amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
 <p>In an ideal scenario, I&rsquo;d be using at least an SSD, maybe with RAID 0. However, this would be too expensive, and this is a great alternative.</p>
 <p>The Intel NUC has a 2.5-inch hard-drive bay unused by now, but I should eventually add an extra SSD there — perhaps, a small and fast SSD dedicated to Lightroom previews and video editing.</p>
 <p>At this time, I&rsquo;m using Backblaze for backups, but for this setup, I&rsquo;ll be moving off the cloud as this will be way cheaper (break-even is months), and I&rsquo;ll be under the control of my data.</p>
-<div id="amzn-assoc-ad-28708ac8-a880-4aff-b5fd-2649b98d4954"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=28708ac8-a880-4aff-b5fd-2649b98d4954"></script>
 <h2 id="hypervisor-and-operating-systems">Hypervisor and operating systems</h2>
 <p>I decided to use <a href="https://www.vmware.com/products/esxi-and-esx.html">VMware ESXi</a>, a type-1 or native <a href="https://en.wikipedia.org/wiki/Hypervisor">hypervisor</a>, to be able to run multiple operating systems on my new Intel NUC. ESXi is free for personal use, and you can download it from VMware&rsquo;s website after registering for an account and getting a trial license.</p>
 <p><a href="/img/posts/homelab/dcui.png"><img src="/img/posts/homelab/dcui_small.png" alt="If you plug a display on your machine, all you&rsquo;ll see is the ESXi Direct Console User Interface."></a></p>
@@ -511,7 +498,6 @@ amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
 <p>I used <a href="https://filippo.io">Filippo Valsorda</a>&rsquo;s <a href="https://mkcert.dev/">mkcert</a> program to generate a HTTPS certificate to use on the hypervisor and on my <a href="https://www.freenas.org/">FreeNAS</a> instance.</p>
 <p>For me, it doesn&rsquo;t matter if we are talking about servers on the local network. If you are using it seriously, you should consider doing the same regardless if you&rsquo;re going to be accessing it from inside your own home or not. Don&rsquo;t trust your network.</p>
 <p>Please notice I use a .dev TLD here, and modern browsers force .dev domains to use HTTPS — what is interesting because it will mitigate some security risks by avoiding sending data over plain HTTP.</p>
-<div id="amzn-assoc-ad-adf2bdde-8955-4e72-9092-6c582f65477f"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=adf2bdde-8955-4e72-9092-6c582f65477f"></script>
 <h2 id="back-to-intel-nuc-10">Back to Intel NUC 10</h2>
 <p>VMware doesn&rsquo;t list the Intel NUC line on its <a href="https://www.vmware.com/resources/compatibility/search.php">compatibility guide</a>. However, many people have a positive experience running ESXi with it. I was confident everything would work out of the box, and only during installation, I discovered the <a href="https://www.vmware.com/resources/compatibility/search.php">Ethernet NIC</a> wasn&rsquo;t working. This hardware was released in Q4/2019 and used a new network card.</p>
 <p>I lost some time trying to solve this issue, and here is how I fixed it:</p>
@@ -760,7 +746,6 @@ amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
 </ul>
 <h2 id="thanks">Thanks</h2>
 <p>I hope you enjoyed this blog post. If you have any tips for me, interesting stuff to share or just want to talk about this article, please reach out.</p>
-<div id="amzn-assoc-ad-d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=d9bdb317-57e8-4c0b-9651-1cdfe5cf0657"></script>
 <p><small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their <a href="https://affiliate-program.amazon.com/">Affiliate program</a>.</small></p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I bought an Intel NUC 10th generation and installed the VMware ESXi hypervisor, FreeBSD, FreeNAS, Clear Linux, and more to serve as my homeserver, run containers, backup data, etc. :)<br><br>Sharing my experience here...<a href="https://t.co/gscoxPDuTa">https://t.co/gscoxPDuTa</a></p>&mdash; Henrique Vicente (@henriquev) <a href="https://twitter.com/henriquev/status/1252360422683897856?ref_src=twsrc%5Etfw">April 20, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -775,6 +760,9 @@ amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
                 <h3>Read also</h3>
                 <ul>
                         <li>
+                                <a href="/posts/testing-go/">On testing Go code using the standard library</a>
+                                <time datetime="2006-01-02">Tuesday 18, June 2024</time>
+                        </li><li>
                                 <a href="/posts/tesla/">My new Tesla Model Y 2023</a>
                                 <time datetime="2006-01-02">Wednesday 11, January 2023</time>
                         </li><li>
@@ -804,9 +792,6 @@ amzn_assoc_linkid = "e5696f5837f11aacad32ec01244dbc53";
                         </li><li>
                                 <a href="/posts/e-commerce/">I&#39;m starting an opensource e-commerce project.</a>
                                 <time datetime="2006-01-02">Wednesday 17, June 2020</time>
-                        </li><li>
-                                <a href="/posts/cs-security/">Counter-Strike code leaked: should you worry? What if your code leaks? Learn how to deliver software securely.</a>
-                                <time datetime="2006-01-02">Wednesday 22, April 2020</time>
                         </li>
                 </ul>
         </aside>
