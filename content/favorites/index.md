@@ -144,7 +144,7 @@ title: "Favorites"
 * [GopherCon Brasil](https://gopherconbr.org/) editions
 [2016](https://2016.gopherconbr.org/), and
 [2017](https://2017.gopherconbr.org/)
-* [FOSDEM](https://fosdem.org/) 2020 and 2023
+* [FOSDEM](https://fosdem.org/) 2020, 2023, and 2024
 * [KubeCon + CloudNativeCon North America](https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/) 2022
 * [BrazilJS](https://braziljs.org/) editions 
 [2013](https://braziljs.org/conf/2013/),
