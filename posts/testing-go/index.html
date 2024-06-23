@@ -512,8 +512,10 @@ In fact, there isn&rsquo;t even a single assertion function in the testing packa
 </div></div>
 </div>
 <p>Using an assertion library is often seen as a way to reduce the effort in writing testing code.
-Sure, we can save three lines of code using <a href="https://pkg.go.dev/github.com/stretchr/testify/assert#Equal">assert.Equal</a> instead of t.Error, but is this really a good idea?
+Sure, we can save three lines of code using <a href="https://pkg.go.dev/github.com/stretchr/testify/assert#Equal">assert.Equal</a> instead of <code>t.Error</code>, but is this really a good idea?
 For me, this is a distraction.</p>
+<p>Also, Testify bloats tests with dependencies and too many indirections, making it much harder to understand what is happening behidn the scenes.
+There are other lighter-weight xUnit-style assertion packages without these problems, but I wouldn&rsquo;t consider using them either.</p>
 <blockquote>
 <p>There are many things in the Go language and libraries that differ from modern practices, simply because we feel it&rsquo;s sometimes worth trying a different approach.</p>
 <p>Source: <a href="https://go.dev/doc/faq#assertions">Go FAQ: Why does Go not have assertions?</a></p>
