@@ -12,6 +12,7 @@
     <div class="cell large-12">
       <h4>Highlighted posts</h4>
       <ul>
+        <li><a href="/posts/testing-go/">On testing Go code using the standard library</a></li>
         <li><a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a></li>
         <li><a href="/posts/go">The ecosystem of the Go programming language</a></li>
         <li><a href="/posts/my-go-mistakes/">My Go mistakes</a></li>

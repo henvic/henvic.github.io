@@ -100,8 +100,11 @@ FAIL	github.com/henvic/exp	0.152s
 </div>
 
 Using an assertion library is often seen as a way to reduce the effort in writing testing code.
-Sure, we can save three lines of code using [assert.Equal](https://pkg.go.dev/github.com/stretchr/testify/assert#Equal) instead of t.Error, but is this really a good idea?
+Sure, we can save three lines of code using [assert.Equal](https://pkg.go.dev/github.com/stretchr/testify/assert#Equal) instead of `t.Error`, but is this really a good idea?
 For me, this is a distraction.
+
+Also, Testify bloats tests with dependencies and too many indirections, making it much harder to understand what is happening behidn the scenes.
+There are other lighter-weight xUnit-style assertion packages without these problems, but I wouldn't consider using them either.
 
 > There are many things in the Go language and libraries that differ from modern practices, simply because we feel it's sometimes worth trying a different approach.
 >
