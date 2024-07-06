@@ -6,14 +6,20 @@ date: "2020-09-16"
 image: "/img/posts/signal-notify-context/gopher-frontpage.png"
 hashtags: "go,golang,os,signal"
 ---
-From Go 1.16 onwards, you'll be able to use
+From Go 1.16 onwards, thanks to after this [change I introduced to the standard library](https://go-review.googlesource.com/c/go/+/219640) you'll be able to use the following to control context cancelation using Unix signals, simplifying handling operating system signals in Go for certain common cases. This is my first contribution to the Go standard library, and I am very excited!
 
 ```go
 ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
 defer stop()
 ```
 
-to control context cancelation using Unix signals, simplifying handling operating system signals in Go for certain common cases. This is my first contribution to the Go standard library, and I am very excited!
+You might want to also handle SIGTERM to cover the case where a process is terminated without a terminal Interruption (which will most likely be the case in a production deployment):
+
+```go
+ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+defer stop()
+```
+
 
 ## Why
 When writing <abbr title="command-line interface">CLI</abbr> code, I often needed to handle cancellation – for instance, when a user presses CTRL+C producing an interrupt signal. Another possible use case is to handle graceful termination of HTTP servers using `http.*Server.Shutdown(ctx)`.
@@ -29,7 +35,7 @@ However, I kept finding it in other places and noticing people would often not h
 func main() {
 	// Pass a context with a timeout to tell a blocking function that it
 	// should abandon its work after the timeout elapses.
-	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
 	select {
