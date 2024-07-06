@@ -365,7 +365,7 @@
         
         <p class="post-date"><time class="stat" datetime="2020-09-16 00:00:00 &#43;0000 UTC"></time>Wednesday, 16 September 2020</time>.</p>
         
-        <p>From Go 1.16 onwards, you&rsquo;ll be able to use</p>
+        <p>From Go 1.16 onwards, thanks to after this <a href="https://go-review.googlesource.com/c/go/+/219640">change I introduced to the standard library</a> you&rsquo;ll be able to use the following to control context cancelation using Unix signals, simplifying handling operating system signals in Go for certain common cases. This is my first contribution to the Go standard library, and I am very excited!</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -376,8 +376,18 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">stop</span>()
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>to control context cancelation using Unix signals, simplifying handling operating system signals in Go for certain common cases. This is my first contribution to the Go standard library, and I am very excited!</p>
-<h2 id="why">Why</h2>
+</div><p>You might want to also handle SIGTERM to cover the case where a process is terminated without a terminal Interruption (which will most likely be the case in a production deployment):</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">stop</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">signal</span>.<span style="color:#a6e22e">NotifyContext</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Interrupt</span>, <span style="color:#a6e22e">syscall</span>.<span style="color:#a6e22e">SIGTERM</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">stop</span>()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="why">Why</h2>
 <p>When writing <abbr title="command-line interface">CLI</abbr> code, I often needed to handle cancellation – for instance, when a user presses CTRL+C producing an interrupt signal. Another possible use case is to handle graceful termination of HTTP servers using <code>http.*Server.Shutdown(ctx)</code>.</p>
 <p>I had to write code using the signal package often and in multiple places. I didn&rsquo;t want that, so I wrote the <a href="https://github.com/henvic/ctxsignal">ctxsignal</a> package to solve this common problem two years ago.</p>
 <p>However, I kept finding it in other places and noticing people would often not handle proper termination correctly or at all, so I got motivated to submit a proposal and try to improve this situation.</p>
@@ -407,7 +417,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Pass a context with a timeout to tell a blocking function that it
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// should abandon its work after the timeout elapses.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">stop</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">signal</span>.<span style="color:#a6e22e">NotifyContext</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Interrupt</span>)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">stop</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">signal</span>.<span style="color:#a6e22e">NotifyContext</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Interrupt</span>, <span style="color:#a6e22e">syscall</span>.<span style="color:#a6e22e">SIGTERM</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">stop</span>()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">select</span> {
