@@ -5,7 +5,9 @@ theme = "henvic"
 sectionPagesMenu = "main"
 googleAnalytics = "G-Y1GFSFWX85"
 pygmentsStyle = "monokai"
-paginate = 150
+
+[pagination]
+  pagerSize = 150
 
 [markup]
   [markup.highlight]
