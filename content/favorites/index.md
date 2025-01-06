@@ -133,6 +133,7 @@ title: "Favorites"
 * [Free AIS Ship Tracking of Marine Traffic - VesselFinder](https://www.vesselfinder.com/)
 * [Neal.fun](https://neal.fun/) (see [Internet Artifacts](https://neal.fun/internet-artifacts/))
 * [Ishkur's Guide to Electronic Music](https://music.ishkur.com/)
+* [Ethnologue | Languages of the world](https://www.ethnologue.com/)
 
 <hr />
 
