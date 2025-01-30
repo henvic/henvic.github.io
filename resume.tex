@@ -1,4 +1,4 @@
-\documentclass[letterpaper,10pt]{article}
+\documentclass[letterpaper,12pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -20,6 +20,7 @@
 \pagestyle{fancy}
 \fancyhf{} 
 \fancyfoot{}
+\setlength{\footskip}{4.5pt}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
@@ -60,7 +61,7 @@
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-2em}
 }
 
 \newcommand{\resumeSubheadingEducation}[2]{
@@ -79,69 +80,75 @@
 
 \begin{document}
 
-
-
-\begin{center}
-    {\LARGE \scshape Henrique Vicente de Oliveira Pinto} \\ \vspace{2pt}
-    \begin{multicols}{2}
-    \begin{flushleft}
-    \href{https://henvic.dev/}{https://henvic.dev}\\
-    \href{https://github.com/henvic}{https://github.com/henvic}\\
-    \end{flushleft}
-    
-    \begin{flushright}
-    \href{mailto:henriquevicente@gmail.com}{henriquevicente@gmail.com}\\
-    \href{https://linkedin.com/in/henvic}{https://linkedin.com/in/henvic}
-    \end{flushright}
-    \end{multicols}
-\end{center}
+{\LARGE \scshape Henrique Vicente de Oliveira Pinto}\\
+\href{mailto:henriquevicente@gmail.com}{henriquevicente@gmail.com}\\
+\vspace{1em}
+Website: \href{https://henvic.dev/}{https://henvic.dev}\\
+GitHub: \href{https://github.com/henvic}{https://github.com/henvic}\\
+LinkedIn: \href{https://linkedin.com/in/henvic}{https://linkedin.com/in/henvic}
 
 %-----------EXPERIENCE-----------
+\vspace{1em}
+\textbf{Summary:} Software engineer with 15 years of professional experience working in the software development industry, with an \href{https://henvic.dev/portfolio/}{portfolio of several products and projects}.
+Seasoned {\href{https://henvic.dev/opensource/}{open-source software contributor}} with experience \href{https://henvic.dev/talks/}{speaking} at diverse events in Europe, South, and North America.
+
 \section{Experience}
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Senior Software Engineer}{November 2023 -- Present}
+      {Senior Software Engineer}{Nov 2023 -- Present}
       {Self-employed contractor}{Remote}
       \resumeItemListStart
-        \resumeItem{Working as a contractor for hire on projects using technologies such as Go, PostgreSQL, Elasticsearch/OpenSearch, Kubernetes, OAuth, and OpenTelemetry.}
+        \resumeItem{Contractor with over 15 years of software engineering experience and 9 years with the Go programming language.}
+        \resumeItem{Work with technologies such as Go, PostgreSQL, Elasticsearch/OpenSearch, Kubernetes, authentication/authorization with authorization with OAuth, authentication with OpenID, monitoring distributed systems with OpenTelemetry, Grafana, Terraform, Google Cloud, and Amazon Web Services.}
+        \resumeItem{Implementation of new solutions adopting Go to match existing implementations to spec using reverse engineering.}
       \resumeItemListEnd
-
       \resumeSubheading
-      {Senior Software Engineer}{August 2022 -- April 2023}
+      {Senior Software Engineer}{Aug 2022 -- Apr 2023}
       {Form3}{Remote}
       \resumeItemListStart
         \resumeItem{Worked in the Core Data team of the London-based Cloud-native Payment Processing Platform Form3 on internal services that handle payment and payment returns.}
         \resumeItem{Experience with Go, gRPC, NATS, PostgreSQL, Kubernetes, Terraform, and multi-cloud environments.}
       \resumeItemListEnd
-      
       \resumeSubheading
-      {Senior Software Engineer}{February 2021 -- July 2022}
+      {Senior Software Engineer}{Feb 2021 -- Jul 2022}
       {Stitch, PVH Corp.}{The Netherlands}
       \resumeItemListStart
-        \resumeItem{Led a comprehensive project to enhance developer experience, ensure reliability, improve efficiency, and reduce operational costs by planning and implementing a robust automated testing infrastructure with fast integration tests (2s on average for the entire test suite) and replacing a non-relational database with PostgreSQL and Elasticsearch/OpenSearch, yielding a remarkable impact: a lasting expense reduction of over 90\% of our recurring database cloud computing and licensing expenses and enhanced software development efficiency throughout multiple teams.}
+        \resumeItem{Led a comprehensive project to enhance developer experience, ensure reliability, improve efficiency, and reduce operational costs by planning and implementing a robust automated testing infrastructure with fast integration tests (2s on average for the entire test suite) and replacing a non-relational database with PostgreSQL and Elasticsearch/OpenSearch.}
+        \resumeItem{As part of the preceding goal, we yield a remarkable impact: a lasting expense reduction of over 90\% of our recurring database cloud computing and licensing expenses and enhanced software development efficiency throughout multiple teams.}
+        \resumeItem{Worked on multiple web services with API development with Go, Kubernetes, Terraform, and other technologies.}
         \resumeItem{Worked on data migration of media assets from renowned fashion brands, including internal clients such as Tommy Hilfiger and Calvin Klein and external ones such as Havaianas and Scotch \& Soda.}
         \resumeItem{Experience with Go, gRPC, GraphQL, Kubernetes, Terraform, and Amazon Web Services.}
       \resumeItemListEnd
-
+      \newpage
     \resumeSubheading
-      {Senior Software Engineer}{June 2019 -- January 2021}
+      {Senior Software Engineer}{Jun 2019 -- Jan 2021}
       {HousingAnywhere}{The Netherlands}
       \resumeItemListStart
-        \resumeItem{Worked on diverse areas, including public-facing APIs, internal services, integration with affiliate partners, and payments and payouts infrastructure.}
+        \resumeItem{On the platform team, worked public-facing RESTful APIs, internal services, and integration with affiliate partners.}
+        \resumeItem{Worked on the payment system and payouts infrastructure with Stripe.}
         \resumeItem{Experience with Go, gRPC, Google Cloud Platform, Kubernetes, and microservices.}
     \resumeItemListEnd
-    
     \resumeSubheadingExtra
-      {Senior Software Engineer}{January 2018 -- May 2019}
+      {Senior Software Engineer}{Jan 2018 -- May 2019}
     \resumeSubheading
-      {Software Engineer}{March 2014 -- December 2017}
+      {Software Engineer}{Mar 2014 -- Dec 2017}
       {Liferay, Inc.}{Brazil}
       \resumeItemListStart
         \resumeItem{As a key member of WeDeploy / Liferay DXP in its early days, led the development of its CLI tool, which was the primary client developers utilized to access and use the platform.}
         \resumeItem{Developed sophisticated solutions using Go and JavaScript for front and backend libraries and applications, such as reverse-engineering the socket.io protocol to use it for emulating an SSH connection.}
+        \resumeItem{Worked on multiple front-end open-source programs, libraries, and frameworks maintained by the company for internal and external use.}
+        \resumeItem{Experience with deploying desktop applications to end-users on multiple platforms (macOS, Linux, and Windows).}
+        \resumeItem{Experience with function and integration tests for a diverse range of applications (web-based and desktop-based CLI tools for internal and external developers).}
+        \resumeItem{Led the development of a CLI tool for managing GitHub very similar to today’s GitHub CLI tool many years before an official tool had been released.}
     \resumeItemListEnd
   \resumeSubHeadingListEnd
+
+\parbox[t]{\dimexpr\linewidth-0.95em}{
+  \hspace{0.95em}\parbox[t]{\dimexpr\linewidth-0.95em}{
+    {\textbf{Important:} For an extensive look at greenfield projects I've initiated independently or collaborated on during previous employment, as well as insights into my significant career, please visit my \href{https://henvic.dev/portfolio}{portfolio page} on my website.}
+  }
+}
 
 %-----------EDUCATION-----------
 \section{Education}
@@ -149,17 +156,17 @@
       \resumeSubheading
       {Bachelor of Science in Computer Science}{October 2013 -- December 2017}
       {Universidade Federal de Pernambuco}{}
+      \resumeSubheading
+      {EMC Academic Associate}{2017}
+      {Cloud Infrastructure and Services}{}
   \resumeSubHeadingListEnd
 
 %-----------Highlights-----------
 \section{Hightlights}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \item{
-     \textbf{Open source libraries and contributions}{: }\href{https://go-review.googlesource.com/c/go/+/219640}{Go's stdlib: signal.NotifyContext}, {\href{https://henvic.dev/opensource/}{https://henvic.dev/opensource/}} \\
-     \textbf{Portfolio}{: } \href{https://henvic.dev/portfolio/#vehikel}{Vehikel}, \href{https://henvic.dev/portfolio/#wedeploy}{DXP Cloud CLI}, \href{https://henvic.dev/portfolio/#httpretty}{httpretty}, and others on {\href{https://henvic.dev/portfolio/}{https://henvic.dev/portfolio/}} \\
-     \textbf{Talks}{: On multiple software development topics; in Brazil, the United States, and Europe. \href{https://henvic.dev/talks/}{https://henvic.dev/talks/}} \\
-      \textbf{Interests}{: Open-source software, Photography, Nature, Skiing, Drones, Homelab, Airplanes, Industrial design, EVs.} \\
-      \textbf{Keywords}{: gRPC, Protobuf, HTTP(S) REST API, Go, JavaScript, Java, Unix scripting, cloud computing, Kubernetes, CI, CD, SQL, PostgreSQL, OpenSearch, Elasticsearch, Terraform, Grafana, Security, dev tools, DNS, networking, Linux, macOS, FreeBSD, VMware ESXi.}
+     \textbf{Interests}{: Open-source software, Software Engineering, Photography, Nature, Skiing, Drones, Homelab, Airplanes, Industrial Design, Electric Vehicles (EV), piano, music.} \\
+      \textbf{Keywords}{: gRPC, Protobuf, HTTP(S), REST API, Go, JavaScript, Java, Unix scripting, cloud computing, Kubernetes, CI, CD, SQL, PostgreSQL, OpenSearch, Elasticsearch, Terraform, Grafana, Security, dev tools, DNS, networking, Linux, macOS, FreeBSD, VMware ESXi, golang.}
     }
  \end{itemize}
  
