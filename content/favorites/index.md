@@ -108,6 +108,7 @@ title: "Favorites"
 * [OWASP Risk Assessment Calculator](https://javierolmedo.github.io/OWASP-Calculator/)
 * [MailCatcher](https://mailcatcher.me/)
 * [OSV - Open Source Vulnerabilities](https://osv.dev/)
+* [Oefenen.nl](https://oefenen.nl/) is useful for learning Dutch
 
 <hr />
 
@@ -134,6 +135,7 @@ title: "Favorites"
 * [Neal.fun](https://neal.fun/) (see [Internet Artifacts](https://neal.fun/internet-artifacts/))
 * [Ishkur's Guide to Electronic Music](https://music.ishkur.com/)
 * [Ethnologue | Languages of the world](https://www.ethnologue.com/)
+* [F1 Reaction Time Test](https://cpstest.io/f1-reaction-test)
 
 <hr />
 
