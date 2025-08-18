@@ -12,4 +12,4 @@ _gen
 Session.vim
 /nbproject
 .idea
-
+.hugo_build.lock
