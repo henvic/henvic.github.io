@@ -227,7 +227,7 @@
                 <a class="webicon github" href="https://github.com/henvic">
                     GitHub
                 </a>
-                <a class="webicon twitter" href="https://twitter.com/henriquev">
+                <a class="webicon x" href="https://x.com/henriquev">
                     Twitter
                 </a>
                 <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
@@ -380,8 +380,7 @@ Don&rsquo;t forget to check out the accompanying repository <a href="https://git
 <p><a href="https://www.golang.org/"><img src="/img/posts/go/go-logo-blue.png" alt="Go logo"></a>
 <a href="https://www.postgresql.org/"><img src="/img/posts/go-postgres/slonik_with_black_text_and_tagline.gif" alt="PostgreSQL mascot Slonik"></a></p>
 <blockquote>
-<p>Check out the <a href="https://github.com/henvic/pgxtutorial/blob/main/internal/api/api.proto">api.proto file</a> to see the gRPC API created for this tutorial.</p>
-</blockquote>
+<p>Check out the <a href="https://github.com/henvic/pgxtutorial/blob/main/internal/api/api.proto">api.proto file</a> to see the gRPC API created for this tutorial.</p></blockquote>
 
 <aside class="toc">
     <dl>
@@ -443,8 +442,7 @@ Don&rsquo;t forget to check out the accompanying repository <a href="https://git
 
 
 <blockquote>
-<p>See also my presentation <a href="https://docs.google.com/presentation/d/1YoIMHpVtWgSndvp5gQNdAtG9QUTpqY5vMVBhrqyq-uQ">Writing a Go application with PostgreSQL using pgx</a> during a Go meetup @ HATCH in Amsterdam (Tuesday, 12 April 2022).</p>
-</blockquote>
+<p>See also my presentation <a href="https://docs.google.com/presentation/d/1YoIMHpVtWgSndvp5gQNdAtG9QUTpqY5vMVBhrqyq-uQ">Writing a Go application with PostgreSQL using pgx</a> during a Go meetup @ HATCH in Amsterdam (Tuesday, 12 April 2022).</p></blockquote>
 <p><small>Read also: <a href="/posts/go/">The ecosystem of the Go programming language</a> and <a href="/posts/homelab/">Homelab: Intel NUC with the ESXi hypervisor</a>.</small></p>
 <h2 id="context">Context</h2>
 <p>PostgreSQL, also known as Postgres, is an extendible feature-rich <a href="https://arctype.com/blog/postgres-ordbms-explainer/">Object-Relational Database Management System</a> that is almost 100% <a href="https://en.wikipedia.org/wiki/SQL_compliance">SQL standards-compliant</a> and released as open source software under a permissive license.</p>
@@ -706,8 +704,7 @@ You can use it to write sequential migration (even for your tests, as we&rsquo;l
 </ul>
 <p><a href="https://github.com/jackc/tern">tern</a> keeps track of your migration version by creating and maintaining a <code>schema_version</code> table on your database.</p>
 <blockquote>
-<p>Tip: Be extra careful doing data migrations! It can be destructive!</p>
-</blockquote>
+<p>Tip: Be extra careful doing data migrations! It can be destructive!</p></blockquote>
 <script id="asciicast-450576" src="https://asciinema.org/a/450576.js" async></script>
 <h2 id="main-package">main package</h2>
 <p>Let&rsquo;s see how we can connect to PostgreSQL using pgx from a program written in <a href="https://golang.org/">Go</a>.</p>
@@ -758,41 +755,41 @@ We can do this by using <a href="https://pkg.go.dev/github.com/jackc/pgx/v4/pgxp
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// NewPGXPool is a PostgreSQL connection pool for pgx.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// pgPool := database.NewPGXPool(context.Background(), &#34;&#34;, &amp;PGXStdLogger{}, pgx.LogLevelInfo)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// defer pgPool.Close() // Close any remaining connections before shutting down your application.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Instead of passing a configuration explictly with a connString,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// you might use PG environment variables such as the following to configure the database:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// PGDATABASE, PGHOST, PGPORT, PGUSER, PGPASSWORD, PGCONNECT_TIMEOUT, etc.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Reference: https://www.postgresql.org/docs/current/libpq-envars.html
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">connString</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">logger</span> <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">Logger</span>, <span style="color:#a6e22e">logLevel</span> <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevel</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span>, <span style="color:#66d9ef">error</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">conf</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">ParseConfig</span>(<span style="color:#a6e22e">connString</span>) <span style="color:#75715e">// Using environment variables instead of a connection string.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// NewPGXPool is a PostgreSQL connection pool for pgx.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// pgPool := database.NewPGXPool(context.Background(), &#34;&#34;, &amp;PGXStdLogger{}, pgx.LogLevelInfo)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// defer pgPool.Close() // Close any remaining connections before shutting down your application.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Instead of passing a configuration explictly with a connString,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// you might use PG environment variables such as the following to configure the database:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// PGDATABASE, PGHOST, PGPORT, PGUSER, PGPASSWORD, PGCONNECT_TIMEOUT, etc.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Reference: https://www.postgresql.org/docs/current/libpq-envars.html</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">connString</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">logger</span> <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">Logger</span>, <span style="color:#a6e22e">logLevel</span> <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevel</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">conf</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">ParseConfig</span>(<span style="color:#a6e22e">connString</span>) <span style="color:#75715e">// Using environment variables instead of a connection string.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">ConnConfig</span>.<span style="color:#a6e22e">Logger</span> = <span style="color:#a6e22e">logger</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Set the log level for pgx, if set.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">logLevel</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Set the log level for pgx, if set.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">logLevel</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">ConnConfig</span>.<span style="color:#a6e22e">LogLevel</span> = <span style="color:#a6e22e">logLevel</span>
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// pgx, by default, does some I/O operation on initialization of a pool to check if the database is reachable.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// Comment the following line if you don&#39;t want pgx to try to connect pool once the Connect function is called,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// If you comment it, and your application seems stuck, you probably forgot to set up PGCONNECT_TIMEOUT,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// and your code is hanging waiting for a connection to be established.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">LazyConnect</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// pgx, by default, does some I/O operation on initialization of a pool to check if the database is reachable.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Comment the following line if you don&#39;t want pgx to try to connect pool once the Connect function is called,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// If you comment it, and your application seems stuck, you probably forgot to set up PGCONNECT_TIMEOUT,</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// and your code is hanging waiting for a connection to be established.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">conf</span>.<span style="color:#a6e22e">LazyConnect</span> = <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// pgxpool default max number of connections is the number of CPUs on your machine returned by runtime.NumCPU().
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// This number is very conservative, and you might be able to improve performance for highly concurrent applications
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// by increasing it.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// conf.MaxConns = runtime.NumCPU() * 5
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// pgxpool default max number of connections is the number of CPUs on your machine returned by runtime.NumCPU().</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// This number is very conservative, and you might be able to improve performance for highly concurrent applications</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// by increasing it.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// conf.MaxConns = runtime.NumCPU() * 5</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">ConnectConfig</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">conf</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;pgx connection error: %w&#34;</span>, <span style="color:#a6e22e">err</span>)
@@ -820,12 +817,12 @@ The pgx driver supports a few loggers <a href="https://github.com/jackc/pgx/tree
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// For github.com/jackc/pgx/v4/log/zapadapter:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">zapadapter</span>.<span style="color:#a6e22e">NewLogger</span>(<span style="color:#a6e22e">logger</span>), <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// For github.com/jackc/pgx/v4/log/zapadapter:</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">zapadapter</span>.<span style="color:#a6e22e">NewLogger</span>(<span style="color:#a6e22e">logger</span>), <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Close</span>()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// For github.com/jackc/pgx/v4/log/logrusadapter:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">logrusadapter</span>.<span style="color:#a6e22e">NewLogger</span>(<span style="color:#a6e22e">logger</span>), <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// For github.com/jackc/pgx/v4/log/logrusadapter:</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">logrusadapter</span>.<span style="color:#a6e22e">NewLogger</span>(<span style="color:#a6e22e">logger</span>), <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Close</span>()
 </span></span></code></pre></td></tr></table>
 </div>
@@ -857,27 +854,27 @@ The pgx driver supports a few loggers <a href="https://github.com/jackc/pgx/tree
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// PGXStdLogger prints pgx logs to the standard logger.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// os.Stderr by default.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// This satisfies the following pgx.Logger interface:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// type Logger interface {
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 	// Log a message at the given level with data key/value pairs. data may be nil.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 	Log(level pgx.LogLevel, msg string, data map[string]interface{})
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// }
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PGXStdLogger</span> <span style="color:#66d9ef">struct</span> {}
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// PGXStdLogger prints pgx logs to the standard logger.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// os.Stderr by default.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// This satisfies the following pgx.Logger interface:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// type Logger interface {</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 	// Log a message at the given level with data key/value pairs. data may be nil.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 	Log(level pgx.LogLevel, msg string, data map[string]interface{})</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// }</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">PGXStdLogger</span> <span style="color:#66d9ef">struct</span> {}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">l</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">PGXStdLogger</span>) <span style="color:#a6e22e">Log</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">level</span> <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevel</span>, <span style="color:#a6e22e">msg</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">data</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">args</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">interface</span>{}, <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">data</span>)<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e">// making space for arguments + level + msg
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">args</span> = append(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">level</span>, <span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">args</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">interface</span>{}, <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">data</span>)<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e">// making space for arguments + level + msg</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">args</span> = append(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">level</span>, <span style="color:#a6e22e">msg</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">data</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">args</span> = append(<span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s=%v&#34;</span>, <span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span>))
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">args</span><span style="color:#f92672">...</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// For this logger:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">PGXStdLogger</span>{}, <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// For this logger:</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewPGXPool</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">PGXStdLogger</span>{}, <span style="color:#a6e22e">pgx</span>.<span style="color:#a6e22e">LogLevelInfo</span>)
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Close</span>()
 </span></span></code></pre></td></tr></table>
 </div>
@@ -889,8 +886,7 @@ The pgx driver supports a few loggers <a href="https://github.com/jackc/pgx/tree
 <p><a href="https://pkg.go.dev/github.com/jackc/pgx/v4/pgxpool">pgxpool</a> manages a pool of connections to your Postgres database, which you can safely use concurrently from multiple Goroutines, without having to worry about the thread-safety aspects with regards to individual database connections.
 <em>pgxpool</em> works by managing a dynamic number of individual TCP connections to the database and controlling access, ensuring each goroutine acquiring the database connection accesses them safely (without data races).</p>
 <blockquote>
-<p>Remember that each request handled by net/http is handled by its own goroutine.</p>
-</blockquote>
+<p>Remember that each request handled by net/http is handled by its own goroutine.</p></blockquote>
 <p>By reusing open connections, you also avoid the expensive round-trip costs of establishing a new TCP connection and (perhaps) performing a TLS handshake for each connection to the database.
 <em>pgxpool&rsquo;s</em> default max number of connections is the number of CPUs on your machine.
 This setting is very conservative, and you might be able to gain performance for highly concurrent applications by increasing <a href="https://pkg.go.dev/github.com/jackc/pgx/v4/pgxpool#Config">*pgxpool.Config.MaxConns</a>.</p>
@@ -916,13 +912,13 @@ By doing so, we reduce the risk of introducing a low-level pgx API method call (
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Assuming db is your postgres.PGXInterface
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span>); <span style="color:#a6e22e">ok</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Variable pool is a *pgxpool.Pool
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// So you can do whatever you need to do bypassing the interface now.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Print stats from the connection pool.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Stat</span>())
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Assuming db is your postgres.PGXInterface</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">pool</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span>); <span style="color:#a6e22e">ok</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Variable pool is a *pgxpool.Pool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// So you can do whatever you need to do bypassing the interface now.</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Print stats from the connection pool.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v\n&#34;</span>, <span style="color:#a6e22e">pool</span>.<span style="color:#a6e22e">Stat</span>())
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
@@ -933,8 +929,7 @@ I don&rsquo;t care about the naming or exact definition of such patterns.
 For me, the end goal is to create a sane layer for the separation of concerns of your application and database.
 In Go, the idiomatic thing to do is to <a href="https://golang.org/doc/effective_go#interfaces_and_types">define interfaces where they&rsquo;re used</a>, so let&rsquo;s start by that.</p>
 <blockquote>
-<p>Now is an excellent time to remind you that creating thousands of packages is awful! Keep things simple.</p>
-</blockquote>
+<p>Now is an excellent time to remind you that creating thousands of packages is awful! Keep things simple.</p></blockquote>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -977,43 +972,43 @@ In Go, the idiomatic thing to do is to <a href="https://golang.org/doc/effective
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// DB layer.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate mockgen --build_flags=--mod=mod -package inventory -destination mock_db_test.go . DB
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DB</span> <span style="color:#66d9ef">interface</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// TransactionContext returns a copy of the parent context which begins a transaction
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// to PostgreSQL.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">TransactionContext</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Commit transaction from context.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Commit</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Rollback transaction from context.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Rollback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// WithAcquire returns a copy of the parent context which acquires a connection
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// to PostgreSQL from pgxpool to make sure commands executed in series reuse the
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// same database connection.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">WithAcquire</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#a6e22e">dbCtx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Release PostgreSQL connection acquired by context back to the pool.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Release</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>)
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// DB layer.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate mockgen --build_flags=--mod=mod -package inventory -destination mock_db_test.go . DB</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DB</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// TransactionContext returns a copy of the parent context which begins a transaction</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// to PostgreSQL.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">TransactionContext</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Commit transaction from context.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Commit</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Rollback transaction from context.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Rollback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// WithAcquire returns a copy of the parent context which acquires a connection</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// to PostgreSQL from pgxpool to make sure commands executed in series reuse the</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// same database connection.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">WithAcquire</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#a6e22e">dbCtx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Release PostgreSQL connection acquired by context back to the pool.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Release</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// CreateProduct creates a new product.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">CreateProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateProductParams</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// UpdateProduct updates an existing product.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">UpdateProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateProductParams</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProduct returns a product.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// SearchProducts returns a list of products.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">SearchProducts</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">SearchProductsParams</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">SearchProductsResponse</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// DeleteProduct deletes a product.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">DeleteProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// CreateProductReview for a given product.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">CreateProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateProductReviewDBParams</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// UpdateProductReview for a given product.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">UpdateProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateProductReviewParams</span>) <span style="color:#66d9ef">error</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProductReview gets a specific review.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">ProductReview</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProductReviews gets reviews for a given product or from a given user.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">GetProductReviews</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">ProductReviewsParams</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">ProductReviewsResponse</span>, <span style="color:#66d9ef">error</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// DeleteProductReview deletes a review.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">DeleteProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// CreateProduct creates a new product.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">CreateProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateProductParams</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// UpdateProduct updates an existing product.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">UpdateProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateProductParams</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProduct returns a product.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">GetProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// SearchProducts returns a list of products.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">SearchProducts</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">SearchProductsParams</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">SearchProductsResponse</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// DeleteProduct deletes a product.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DeleteProduct</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// CreateProductReview for a given product.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">CreateProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateProductReviewDBParams</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// UpdateProductReview for a given product.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">UpdateProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateProductReviewParams</span>) <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProductReview gets a specific review.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">GetProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">ProductReview</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// GetProductReviews gets reviews for a given product or from a given user.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">GetProductReviews</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">ProductReviewsParams</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">ProductReviewsResponse</span>, <span style="color:#66d9ef">error</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// DeleteProductReview deletes a review.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">DeleteProductReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
@@ -1097,43 +1092,43 @@ This way I can start the implementation already starting fast integration tests 
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// DB handles database communication with PostgreSQL.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DB</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Postgres</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span> <span style="color:#75715e">// Alternatively, a postgres.PGXInterface.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// DB handles database communication with PostgreSQL.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DB</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Postgres</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">pgxpool</span>.<span style="color:#a6e22e">Pool</span> <span style="color:#75715e">// Alternatively, a postgres.PGXInterface.</span>
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// CreateReview for a given product.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">CreateReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewParams</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// CreateReview for a given product.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">CreateReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewParams</span>) <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// UpdateReview for a given product.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">UpdateReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateReviewParams</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// UpdateReview for a given product.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">UpdateReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">UpdateReviewParams</span>) <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// GetReview gets a specific review.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">GetReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Review</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// GetReview gets a specific review.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">GetReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Review</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// GetReviews gets reviews for a given product or from a given user.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">GetReviews</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">GetReviewsParams</span>) ([]<span style="color:#f92672">*</span><span style="color:#a6e22e">Review</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// GetReviews gets reviews for a given product or from a given user.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">GetReviews</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">GetReviewsParams</span>) ([]<span style="color:#f92672">*</span><span style="color:#a6e22e">Review</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// DeleteReview from the database.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">DeleteReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// DeleteReview from the database.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">DeleteReview</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// CreateReviewFeedback with a score for a review.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">CreateReviewFeedback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewFeedbackParams</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// CreateReviewFeedback with a score for a review.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">CreateReviewFeedback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewFeedbackParams</span>) <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// DeleteReviewFeedback removes a review feedback.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">DeleteReviewFeedback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewFeedbackParams</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// DeleteReviewFeedback removes a review feedback.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">DB</span>) <span style="color:#a6e22e">DeleteReviewFeedback</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">params</span> <span style="color:#a6e22e">CreateReviewFeedbackParams</span>) <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>	panic(<span style="color:#e6db74">&#34;not implemented&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
@@ -1232,8 +1227,8 @@ For example, in the pgxtutorial repository, I resorted to skipping all tests of 
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">db</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">DB</span>{
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Postgres</span>: <span style="color:#a6e22e">pool</span>,
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Check the pgtools/sqltest documentation to learn about all existing options.
@@ -1262,8 +1257,8 @@ It contains only a thin layer of test doubles using <a href="https://github.com/
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//go:generate mockgen --build_flags=--mod=mod -package inventory -destination mock_db_test.go . DB
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//go:generate mockgen --build_flags=--mod=mod -package inventory -destination mock_db_test.go . DB</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>The code for your test cases relying on a mock is a little bit awkward to get used to but are powerful and easy to use once you understand how they work. Example:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
@@ -1326,13 +1321,13 @@ In others, we decided to ignore it.</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Ignoring field generated automatically:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">IgnoreFields</span>(<span style="color:#a6e22e">inventory</span>.<span style="color:#a6e22e">ProductReview</span>{}, <span style="color:#e6db74">&#34;ID&#34;</span>)) {
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Ignoring field generated automatically:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">IgnoreFields</span>(<span style="color:#a6e22e">inventory</span>.<span style="color:#a6e22e">ProductReview</span>{}, <span style="color:#e6db74">&#34;ID&#34;</span>)) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;value returned by Service.GetProductReview() doesn&#39;t match: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Several ways to check for equality treating time values as special:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">EquateApproxTime</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Minute</span>)) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Several ways to check for equality treating time values as special:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">EquateApproxTime</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Minute</span>)) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;value returned by Service.GetProduct() doesn&#39;t match: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
@@ -1376,8 +1371,8 @@ For example:</p>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>.<span style="color:#a6e22e">CreatedAt</span> = <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">want</span>.<span style="color:#a6e22e">ModifiedAt</span> = <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">ModifiedAt</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Now, compare structures here.
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Now, compare structures here.</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="failed-idea-replay-testing">Failed idea: replay testing</h3>
 <p>I&rsquo;ve experimented with creating a replay testing framework <a href="https://github.com/henvic/pgmock/tree/feat/pgplayback/pgplayback">built on top of pgmock</a> to run tests without requiring a database, but the idea wasn&rsquo;t practical.
@@ -1479,7 +1474,7 @@ Besides, the main reason for having it wasn&rsquo;t justifiable: the integration
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          --health-cmd pg_isready
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          --health-interval 10s
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          --health-timeout 5s
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          --health-retries 5</span>          
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          --health-retries 5</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">ports</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#75715e"># Maps tcp port 5432 on service container to the host</span>
 </span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">5432</span>:<span style="color:#ae81ff">5432</span>

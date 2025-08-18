@@ -227,7 +227,7 @@
                 <a class="webicon github" href="https://github.com/henvic">
                     GitHub
                 </a>
-                <a class="webicon twitter" href="https://twitter.com/henriquev">
+                <a class="webicon x" href="https://x.com/henriquev">
                     Twitter
                 </a>
                 <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
@@ -409,8 +409,7 @@
 <h2 id="init-functions">init() functions</h2>
 <p>In Go, you can define the special function <strong>init</strong> multiple times on a single package or file. From <a href="https://golang.org/doc/effective_go.html#init">Effective Go</a>, we learn that:</p>
 <blockquote>
-<p>init is called after all the variable declarations in the package have evaluated their initializers, and those are evaluated only after all the imported packages have been initialized.</p>
-</blockquote>
+<p>init is called after all the variable declarations in the package have evaluated their initializers, and those are evaluated only after all the imported packages have been initialized.</p></blockquote>
 <p>While there are cases where using init is the sure way to go, you want to reduce the number of times you use it.
 First, the typical use of this is to initialize globals, and you probably want to reduce your amount of globals.</p>
 <p>A good reason to think twice before using it&rsquo;s that you cannot call <code>init</code> functions from code.
@@ -422,8 +421,7 @@ Moving a package or renaming a file might change it.</p>
 By the way, Go 1.16 was released yesterday and offers some good news.</p>
 <blockquote>
 <p>Setting the GODEBUG environment variable to inittrace=1 now causes the runtime to emit a single line to standard error for each package init, summarizing its execution time and memory allocation.
-<a href="https://golang.org/doc/go1.16">Go 1.16 Release Notes</a></p>
-</blockquote>
+<a href="https://golang.org/doc/go1.16">Go 1.16 Release Notes</a></p></blockquote>
 <h2 id="constants">Constants</h2>
 <p>This value wasn&rsquo;t changed anywhere in the codebase:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
@@ -432,8 +430,8 @@ By the way, Go 1.16 was released yesterday and offers some good news.</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Version of the application
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Version</span> = <span style="color:#e6db74">&#34;master&#34;</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Version of the application</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Version</span> = <span style="color:#e6db74">&#34;master&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>So I naively thought to make it a constant just for the sake of it!
@@ -557,8 +555,7 @@ If your API has a small surface, you&rsquo;ll be free to do internal changes wit
 <p>If you&rsquo;re worried about this idea because certainly your code might be useful throughout your team projects, it might be a good time to reflect on the following <a href="https://go-proverbs.github.io/">Go proverb</a>:</p>
 <blockquote>
 <p>A little copying is better than a little dependency.
-<a href="https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=9m28s">Go Proverbs - Rob Pike - Gopherfest - November 18, 2015</a></p>
-</blockquote>
+<a href="https://www.youtube.com/watch?v=PAAkCSZUG1c&amp;t=9m28s">Go Proverbs - Rob Pike - Gopherfest - November 18, 2015</a></p></blockquote>
 <p>You can even use <a href="https://golang.org/s/apidiff-readme">apidiff</a>, a tool to detect incompatible API changes, to check your API contracts. Watch the GopherCon 2019&rsquo;s <a href="https://www.youtube.com/watch?v=JhdL5AkH-AQ">Detecting Incompatible API Changes</a> talk by Jonathan Amsterdam (<a href="https://about.sourcegraph.com/go/gophercon-2019-detecting-incompatible-api-changes/">transcript</a>).</p>
 <h2 id="globals-and-configuration">Globals and configuration</h2>
 <p><em>If you haven&rsquo;t read yet, see my previous blog post on <a href="/posts/env/">environment variables, config, secrets, and globals</a>.</em></p>
@@ -598,27 +595,27 @@ You usually can pass your configuration explicitly when initializing objects, fo
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Params for the metrics system.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Params</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Hostname of your service.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Hostname</span> <span style="color:#66d9ef">string</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Params for the metrics system.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Params</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Hostname of your service.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Hostname</span> <span style="color:#66d9ef">string</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Verbose flag.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Verbose</span> <span style="color:#66d9ef">bool</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Verbose flag.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Verbose</span> <span style="color:#66d9ef">bool</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// paramsContextKey is the key for the params context.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">paramsContextKey</span> <span style="color:#66d9ef">struct</span>{}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// paramsContextKey is the key for the params context.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Using struct{} here to guarantee there are no conflicts with keys defined outside of this package.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">paramsContextKey</span> <span style="color:#66d9ef">struct</span>{}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Context returns a copy of the parent context with the given params.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Params</span>) <span style="color:#a6e22e">Context</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Context returns a copy of the parent context with the given params.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Params</span>) <span style="color:#a6e22e">Context</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">WithValue</span>(<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">paramsContextKey</span>{}, <span style="color:#a6e22e">p</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// FromContext gets params from context.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FromContext</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Params</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// FromContext gets params from context.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">FromContext</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Context</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">Params</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">p</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">Value</span>(<span style="color:#a6e22e">paramsContextKey</span>{}).(<span style="color:#f92672">*</span><span style="color:#a6e22e">Params</span>); <span style="color:#a6e22e">ok</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">p</span>, <span style="color:#66d9ef">nil</span>
 </span></span><span style="display:flex;"><span>	}
@@ -653,8 +650,7 @@ It was a substantial increase in file size, and although not critical, I regret 
 If you find yourself with this issue, you can probably use a mutex to set what goroutine can write at the moment, or, in more complicated cases, use channels to print from a single goroutine.
 Also, be aware that if the output&rsquo;s order is important, you might want to sync whether you&rsquo;re printing to standard error (<code>os.Stderr</code>) or standard output (<code>os.Stdout</code>).</p>
 <blockquote>
-<p>Tip: Go has a fantastic data race detector. You can build your test or application with it by passing the <code>-race</code> flag to your <code>go test</code> or <code>go build</code> commands, respectively.</p>
-</blockquote>
+<p>Tip: Go has a fantastic data race detector. You can build your test or application with it by passing the <code>-race</code> flag to your <code>go test</code> or <code>go build</code> commands, respectively.</p></blockquote>
 <p>Using the data race detector might even save lives: <a href="https://thedailywtf.com/articles/the-therac-25-incident">The Therac-25 Incident</a> (<a href="http://sunnyday.mit.edu/papers/therac.pdf">paper</a>).</p>
 <h3 id="sockets-and-websocket">Sockets and WebSocket</h3>
 <p>Something fun I solved was when implementing a “SSH over WebSocket” feature.

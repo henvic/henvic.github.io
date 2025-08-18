@@ -360,3 +360,10 @@ pre, samp, code, kbd, .fingerprint {
     margin-top: -.5rem;
     font-weight: bold;
 }
+
+.webicon.x {
+    background: url("/img/x.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -227,7 +227,7 @@
                 <a class="webicon github" href="https://github.com/henvic">
                     GitHub
                 </a>
-                <a class="webicon twitter" href="https://twitter.com/henriquev">
+                <a class="webicon x" href="https://x.com/henriquev">
                     Twitter
                 </a>
                 <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
@@ -471,8 +471,8 @@ In fact, there isn&rsquo;t even a single assertion function in the testing packa
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;testing&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// testify is very used in the Go ecosystem.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#e6db74">&#34;github.com/stretchr/testify/assert&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// testify is very used in the Go ecosystem.</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/stretchr/testify/assert&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAbs</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
@@ -521,16 +521,14 @@ For me, this is a distraction.</p>
 There are other lighter-weight xUnit-style assertion packages without these problems, but I wouldn&rsquo;t consider using them either.</p>
 <blockquote>
 <p>There are many things in the Go language and libraries that differ from modern practices, simply because we feel it&rsquo;s sometimes worth trying a different approach.</p>
-<p>Source: <a href="https://go.dev/doc/faq#assertions">Go FAQ: Why does Go not have assertions?</a></p>
-</blockquote>
+<p>Source: <a href="https://go.dev/doc/faq#assertions">Go FAQ: Why does Go not have assertions?</a></p></blockquote>
 <h2 id="optimizing-for-reading-vs-optimizing-for-writing">Optimizing for reading vs. optimizing for writing</h2>
 <p>Rather than focusing on small gains in speed when writing the initial code, you want to make the intention of your code clear in the long run.
 Writing idiomatic Go code reduces the amount of time you spend chasing defects and maintaining your software.
 On <a href="https://research.swtch.com/testing">Go Testing By Example</a>, Russ Cox provides excellent tips on how to do that.</p>
 <div class="grid-x">
 <div class="cell large-4 medium-6">
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/X4rxi9jStLo?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 
@@ -559,14 +557,14 @@ On <a href="https://research.swtch.com/testing">Go Testing By Example</a>, Russ 
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;this kills a test&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;not printed&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// $ go test ./...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// --- FAIL: TestAbs (0.00s)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:13: this doesn&#39;t stop the execution
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:14: this kills a test
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL	github.com/henvic/exp	0.115s
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// $ go test ./...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// --- FAIL: TestAbs (0.00s)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:13: this doesn&#39;t stop the execution</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//     code_test.go:14: this kills a test</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL	github.com/henvic/exp	0.115s</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// FAIL</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Which, when using Testify, might look be hidden in something like this:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
@@ -577,8 +575,8 @@ On <a href="https://research.swtch.com/testing">Go Testing By Example</a>, Russ 
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;this doesn&#39;t stop the execution&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;this kills a test&#34;</span>) <span style="color:#75715e">// any errors after this won&#39;t be printed
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;not printed&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">require</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#66d9ef">true</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;this kills a test&#34;</span>) <span style="color:#75715e">// any errors after this won&#39;t be printed</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;not printed&#34;</span>)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>The effect is that the test doesn&rsquo;t print the third error (&ldquo;not printed&rdquo;) as the preceding <code>t.Fatal</code> invocation terminates the goroutine executing the test by calling <code>t.FailNow()</code>, which is basically a call to <code>t.Fail()</code> followed by a call to <code>runtime.Goexit()</code>.</p>
@@ -598,18 +596,17 @@ I can&rsquo;t fathom their design decison of separating this into two packages.<
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">require</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span> <span style="color:#a6e22e">Testing</span>.<span style="color:#a6e22e">TB</span>, <span style="color:#a6e22e">expected</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">actual</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">msgAndArgs</span> <span style="color:#f92672">...</span><span style="color:#66d9ef">interface</span>{}) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Helper</span>() <span style="color:#75715e">// When printing file and line information, this function will be skipped.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">expected</span>, <span style="color:#a6e22e">actual</span>, <span style="color:#a6e22e">msgAndArgs</span><span style="color:#f92672">...</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span> <span style="color:#a6e22e">Testing</span>.<span style="color:#a6e22e">TB</span>, <span style="color:#a6e22e">expected</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">actual</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#a6e22e">msgAndArgs</span> <span style="color:#f92672">...</span><span style="color:#66d9ef">interface</span>{}) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Helper</span>() <span style="color:#75715e">// When printing file and line information, this function will be skipped.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">expected</span>, <span style="color:#a6e22e">actual</span>, <span style="color:#a6e22e">msgAndArgs</span><span style="color:#f92672">...</span>) {
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">FailNow</span>()
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>FailNow marks the function as having failed and stops its execution by calling <code>runtime.Goexit</code> (which then runs all deferred calls in the current goroutine). Execution will continue at the next test or benchmark. FailNow must be called from the goroutine running the test or benchmark function, not from other goroutines created during the test. Calling FailNow does not stop those other goroutines.</p>
-</blockquote>
+<p>FailNow marks the function as having failed and stops its execution by calling <code>runtime.Goexit</code> (which then runs all deferred calls in the current goroutine). Execution will continue at the next test or benchmark. FailNow must be called from the goroutine running the test or benchmark function, not from other goroutines created during the test. Calling FailNow does not stop those other goroutines.</p></blockquote>
 <p>Some developers have a strong risky preference for always using <code>t.Fatal</code> or Testify&rsquo;s require, going as far as enforcing this linter logic or during code review process, usually in the name of consistency.
 Arguing against this, for many times I heard that the Go team had &ldquo;fixed this already,&rdquo; and it was now safe to call <code>it.FailNow</code> anywhere. Well, not really.
 Besides, they are missing the point.</p>
@@ -666,8 +663,8 @@ For example, you might want to check if all positive numbers of a slice are even
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">checkPositiveEvens</span>(<span style="color:#a6e22e">vector</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage:</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">checkPositiveEvens</span>(<span style="color:#a6e22e">vector</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Error</span>(<span style="color:#e6db74">&#34;invalid vector:&#34;</span>, <span style="color:#a6e22e">err</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
@@ -690,8 +687,8 @@ For example, you might want to check if all positive numbers of a slice are even
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// exp/code_test.go:27: invalid vector: index(5) = 7 is not a positive even
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// exp/code_test.go:27: invalid vector: index(5) = 7 is not a positive even</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>P.S. Have you noticed that <code>assertPositiveEvens</code> masked a call to <code>t.FailNow</code> by using <code>t.Fatal</code> rather than <code>t.Error</code>?</p>
 <h2 id="comparing-full-structures">Comparing full structures</h2>
@@ -760,8 +757,7 @@ So, you have a struct with:</p>
 </div><p>This would work so far, but not for too long as:</p>
 <blockquote>
 <p>Struct types are comparable if all their field types are comparable. Two struct values are equal if their corresponding non-blank field values are equal. The fields are compared in source order, and comparison stops as soon as two field values differ (or all fields have been compared).</p>
-<p>Source: <a href="https://go.dev/ref/spec#Comparison_operators">Go spec: Comparison operators</a></p>
-</blockquote>
+<p>Source: <a href="https://go.dev/ref/spec#Comparison_operators">Go spec: Comparison operators</a></p></blockquote>
 <p>For comparing struct with such fields you need at least <a href="https://pkg.go.dev/reflect#DeepEqual">reflect.DeepEqual</a>:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -848,8 +844,7 @@ However, you still can&rsquo;t know exactly <strong>why</strong> the values are 
 <h3 id="can-we-do-better">Can we do better?</h3>
 <blockquote>
 <p>If your function returns a struct, don’t write test code that performs an individual comparison for each field of the struct. Instead, construct the struct that you’re expecting your function to return, and compare in one shot using diffs or deep comparisons. The same rule applies to arrays and maps.
-Source: <a href="https://go.dev/wiki/TestComments">Go Wiki: Go Test Comments</a></p>
-</blockquote>
+Source: <a href="https://go.dev/wiki/TestComments">Go Wiki: Go Test Comments</a></p></blockquote>
 <p>Instead of using testify/assert, we can use go-cmp and have a much clearer and to-the-point error message:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -868,8 +863,8 @@ Source: <a href="https://go.dev/wiki/TestComments">Go Wiki: Go Test Comments</a>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animal is not a dog: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">gecko</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// or even:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// or even:</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">gecko</span>); <span style="color:#a6e22e">diff</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animal is not a dog: %v&#34;</span>, <span style="color:#a6e22e">diff</span>)
 </span></span><span style="display:flex;"><span>}
@@ -950,13 +945,13 @@ So you end up with:</p>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">WithinDuration</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>(), <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">*</span><span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">GreaterOrEqual</span>(<span style="color:#a6e22e">t</span>, <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Age</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Cleaning dynamic values.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Age</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Cleaning dynamic values.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Age</span> = <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">CreatedAt</span> = <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>{}
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">got</span>.<span style="color:#a6e22e">Location</span> = <span style="color:#66d9ef">nil</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">want</span>.<span style="color:#a6e22e">Location</span> = <span style="color:#66d9ef">nil</span> <span style="color:#75715e">// Location is always initialized for [some reason], so also needs to be reset.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Test the rest.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">want</span>.<span style="color:#a6e22e">Location</span> = <span style="color:#66d9ef">nil</span> <span style="color:#75715e">// Location is always initialized for [some reason], so also needs to be reset.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Test the rest.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">assert</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">t</span>, <span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>With go-cmp, you could do the same using the <a href="https://pkg.go.dev/github.com/google/go-cmp/cmp/cmpopts">cmpopts package</a> to help you a bit in reducing this amount of preparation before checking two structs:</p>
@@ -974,8 +969,8 @@ So you end up with:</p>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Equal</span>(<span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">dog</span>,
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">EquateApproxTime</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>), <span style="color:#75715e">// Check if recorded was just created.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">IgnoreFields</span>(<span style="color:#a6e22e">Animal</span>{}, <span style="color:#e6db74">&#34;Age&#34;</span>, <span style="color:#e6db74">&#34;Location&#34;</span>)) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">EquateApproxTime</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>), <span style="color:#75715e">// Check if recorded was just created.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">cmpopts</span>.<span style="color:#a6e22e">IgnoreFields</span>(<span style="color:#a6e22e">Animal</span>{}, <span style="color:#e6db74">&#34;Age&#34;</span>, <span style="color:#e6db74">&#34;Location&#34;</span>)) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animal is not a dog: %v&#34;</span>, <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">got</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
@@ -1014,8 +1009,8 @@ Here is a simple example:</p>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestAnimals</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">compareAgeDelta</span>(<span style="color:#ae81ff">3</span>)); <span style="color:#a6e22e">diff</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">diff</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cmp</span>.<span style="color:#a6e22e">Diff</span>(<span style="color:#a6e22e">want</span>, <span style="color:#a6e22e">got</span>, <span style="color:#a6e22e">compareAgeDelta</span>(<span style="color:#ae81ff">3</span>)); <span style="color:#a6e22e">diff</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;animals mismatch: %v&#34;</span>, <span style="color:#a6e22e">diff</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
@@ -1078,10 +1073,10 @@ By some back-of-the-envelope calculation, I can estimate they were at least 100 
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">torture_test</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// The fun starts by not using qualified identifiers on imports
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	. <span style="color:#e6db74">&#34;github.com/onsi/ginkgo/v2&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// The fun starts by not using qualified identifiers on imports</span>
+</span></span><span style="display:flex;"><span>	. <span style="color:#e6db74">&#34;github.com/onsi/ginkgo/v2&#34;</span>
 </span></span><span style="display:flex;"><span>	. <span style="color:#e6db74">&#34;github.com/onsi/gomega&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
@@ -1151,8 +1146,8 @@ By some back-of-the-envelope calculation, I can estimate they were at least 100 
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">eateryStage</span> <span style="color:#66d9ef">struct</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ...</span>
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>) <span style="color:#a6e22e">and</span>() { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span> }
 </span></span><span style="display:flex;"><span>
@@ -1169,10 +1164,10 @@ By some back-of-the-envelope calculation, I can estimate they were at least 100 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">newTestEateryStage</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">eateryStage</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">eateryStage</span>{
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// blah blah blah...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">s</span> <span style="color:#75715e">// 🤢 lol
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// blah blah blah...</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">s</span> <span style="color:#75715e">// 🤢 lol</span>
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestEat</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">given</span>, <span style="color:#a6e22e">when</span>, <span style="color:#a6e22e">then</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">newTestEateryStage</span>(<span style="color:#a6e22e">t</span>)
@@ -1185,8 +1180,7 @@ By some back-of-the-envelope calculation, I can estimate they were at least 100 
 </div>
 </div><h2 id="closing-thoughts">Closing thoughts</h2>
 <blockquote>
-<p>Are you familiar with writing benchmark tests and Fuzz tests?</p>
-</blockquote>
+<p>Are you familiar with writing benchmark tests and Fuzz tests?</p></blockquote>
 <p>A presenter often asks this question when discussing either topic. Despite having plenty of experience writing tests with the language, attendees often won&rsquo;t be familiar with it.</p>
 <p>Sometimes, they perceive this as very different than writing regular, mundane tests.
 While there is some truth to that, if you use the standard library directly rather than abstractions from assertion libraries, you are already familiar with 90% of what it takes to do either.

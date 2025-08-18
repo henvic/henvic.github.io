@@ -227,7 +227,7 @@
                 <a class="webicon github" href="https://github.com/henvic">
                     GitHub
                 </a>
-                <a class="webicon twitter" href="https://twitter.com/henriquev">
+                <a class="webicon x" href="https://x.com/henriquev">
                     Twitter
                 </a>
                 <a class="webicon linkedin" href="https://www.linkedin.com/in/henvic">
@@ -394,9 +394,9 @@ I&rsquo;ve updated the post to reflect that but couldn&rsquo;t find a concise an
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">RuneCountInString</span>(<span style="color:#e6db74">&#34;é um cãozinho&#34;</span>)) <span style="color:#75715e">// returns 13 as expected, but there&#39;s a gotcha (keep reading)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(len(<span style="color:#e6db74">&#34;é um cãozinho&#34;</span>)) <span style="color:#75715e">// returns 15 because &#39;é&#39; and &#39;ã&#39; are represented by two bytes each
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">RuneCountInString</span>(<span style="color:#e6db74">&#34;é um cãozinho&#34;</span>)) <span style="color:#75715e">// returns 13 as expected, but there&#39;s a gotcha (keep reading)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(len(<span style="color:#e6db74">&#34;é um cãozinho&#34;</span>)) <span style="color:#75715e">// returns 15 because &#39;é&#39; and &#39;ã&#39; are represented by two bytes each</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>But here is a surprise:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
@@ -404,8 +404,8 @@ I&rsquo;ve updated the post to reflect that but couldn&rsquo;t find a concise an
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">RuneCountInString</span>(<span style="color:#e6db74">&#34;🇱🇮&#34;</span>)) <span style="color:#75715e">// returns 2. Why? Keep reading...
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">RuneCountInString</span>(<span style="color:#e6db74">&#34;🇱🇮&#34;</span>)) <span style="color:#75715e">// returns 2. Why? Keep reading...</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>Strings might get corrupted if you try to slice them directly with taking its binary length:</li>
@@ -442,9 +442,9 @@ I&rsquo;ve updated the post to reflect that but couldn&rsquo;t find a concise an
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;got: %q (valid: %v)\n&#34;</span>, <span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#a6e22e">dog</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// got: &#34;� um cãozinho&#34; (valid: false)
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// got: &#34;� um cãozinho&#34; (valid: false)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>To slice them in runes correctly, you might think to use <code>utf8.DecodeRune</code> or <code>utf8.DecodeRuneInString</code> to get the first rune and its size:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
@@ -467,9 +467,9 @@ I&rsquo;ve updated the post to reflect that but couldn&rsquo;t find a concise an
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;got: %q (valid: %v)\n&#34;</span>, <span style="color:#a6e22e">dog</span>, <span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#a6e22e">dog</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// got: &#34; um cãozinho&#34; (valid: true)
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// got: &#34; um cãozinho&#34; (valid: true)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Then, this:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
@@ -492,9 +492,9 @@ I&rsquo;ve updated the post to reflect that but couldn&rsquo;t find a concise an
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;got: %q (valid: %v)\n&#34;</span>, <span style="color:#a6e22e">broken</span>, <span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#a6e22e">broken</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// got: &#34;🇮 is the flag for Liechtenstein&#34; (valid: true)
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// got: &#34;🇮 is the flag for Liechtenstein&#34; (valid: true)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>This is not what we wanted (<code>&quot; is the flag for Liechtenstein&quot;</code>), but it&rsquo;s still valid UTF-8.
 Also, this is not a false positive: the leading rune is valid. Confusing, right?</p>
@@ -548,11 +548,11 @@ Also, this is not a false positive: the leading rune is valid. Confusing, right?
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;slicing after first glyph: %q&#34;</span>, <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">to</span>:])
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// glyphs=16 runes=17 len(s)=23
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// First glyph runes: [1f1f1 1f1ee] (bytes positions: 0-8)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// slicing after first glyph: &#34;: Liechtenstein&#34;
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// glyphs=16 runes=17 len(s)=23</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// First glyph runes: [1f1f1 1f1ee] (bytes positions: 0-8)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// slicing after first glyph: &#34;: Liechtenstein&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>So, if you need to cut a string in a place that is not a clear &quot; &quot; (whitespace) or other symbols you can precisely define, you might want to walk through the glyphs one by one to do it safely.</p>
 <h1 id="background">Background</h1>
@@ -668,30 +668,30 @@ To show that, let me write a small program that will iterate over a string rune 
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0061 &#39;a&#39;	decimal: 97	binary: 1100001 		bytes: 1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0062 &#39;b&#39;	decimal: 98	binary: 1100010 		bytes: 1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0063 &#39;c&#39;	decimal: 99	binary: 1100011 		bytes: 1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0064 &#39;d&#39;	decimal: 100	binary: 1100100 		bytes: 1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0065 &#39;e&#39;	decimal: 101	binary: 1100101 		bytes: 1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E1 &#39;á&#39;	decimal: 225	binary: 11100001 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E3 &#39;ã&#39;	decimal: 227	binary: 11100011 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E0 &#39;à&#39;	decimal: 224	binary: 11100000 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E2 &#39;â&#39;	decimal: 226	binary: 11100010 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E9 &#39;é&#39;	decimal: 233	binary: 11101001 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00ED &#39;í&#39;	decimal: 237	binary: 11101101 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00F3 &#39;ó&#39;	decimal: 243	binary: 11110011 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00F5 &#39;õ&#39;	decimal: 245	binary: 11110101 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00FA &#39;ú&#39;	decimal: 250	binary: 11111010 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00FB &#39;û&#39;	decimal: 251	binary: 11111011 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00FC &#39;ü&#39;	decimal: 252	binary: 11111100 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E7 &#39;ç&#39;	decimal: 231	binary: 11100111 		bytes: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+4E16 &#39;世&#39;	decimal: 19990	binary: 100111000010110 	bytes: 3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+754C &#39;界&#39;	decimal: 30028	binary: 111010101001100 	bytes: 3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+1F601 &#39;😁&#39;	decimal: 128513	binary: 11111011000000001 	bytes: 4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+1F1F1 &#39;🇱&#39;	decimal: 127473	binary: 11111000111110001 	bytes: 4
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// U+1F1EE &#39;🇮&#39;	decimal: 127470	binary: 11111000111101110 	bytes: 4
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0061 &#39;a&#39;	decimal: 97	binary: 1100001 		bytes: 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0062 &#39;b&#39;	decimal: 98	binary: 1100010 		bytes: 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0063 &#39;c&#39;	decimal: 99	binary: 1100011 		bytes: 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0064 &#39;d&#39;	decimal: 100	binary: 1100100 		bytes: 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+0065 &#39;e&#39;	decimal: 101	binary: 1100101 		bytes: 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E1 &#39;á&#39;	decimal: 225	binary: 11100001 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E3 &#39;ã&#39;	decimal: 227	binary: 11100011 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E0 &#39;à&#39;	decimal: 224	binary: 11100000 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E2 &#39;â&#39;	decimal: 226	binary: 11100010 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E9 &#39;é&#39;	decimal: 233	binary: 11101001 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00ED &#39;í&#39;	decimal: 237	binary: 11101101 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00F3 &#39;ó&#39;	decimal: 243	binary: 11110011 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00F5 &#39;õ&#39;	decimal: 245	binary: 11110101 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00FA &#39;ú&#39;	decimal: 250	binary: 11111010 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00FB &#39;û&#39;	decimal: 251	binary: 11111011 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00FC &#39;ü&#39;	decimal: 252	binary: 11111100 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+00E7 &#39;ç&#39;	decimal: 231	binary: 11100111 		bytes: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+4E16 &#39;世&#39;	decimal: 19990	binary: 100111000010110 	bytes: 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+754C &#39;界&#39;	decimal: 30028	binary: 111010101001100 	bytes: 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+1F601 &#39;😁&#39;	decimal: 128513	binary: 11111011000000001 	bytes: 4</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+1F1F1 &#39;🇱&#39;	decimal: 127473	binary: 11111000111110001 	bytes: 4</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// U+1F1EE &#39;🇮&#39;	decimal: 127470	binary: 11111000111101110 	bytes: 4</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>The last two bytes on lines 38 and 39 are for 🇱🇮.</p>
 <p>Each of these preceding single characters in the variable <code>examples</code> is represented by one or more of what in <a href="https://en.wikipedia.org/wiki/Character_encoding">character encoding</a> terminology is called a <a href="https://en.wikipedia.org/wiki/Code_point">code point</a>, a numeric value that computers use to map, transmit, and store.
@@ -699,8 +699,7 @@ Now, UTF-8 is a <a href="https://en.wikipedia.org/wiki/Variable-width_encoding">
 UTF-8 uses one byte for the first 128 code points (backward-compatible with ASCII), and up to 4 bytes for the rest.
 While UTF-8 and many other encodings, such as ISO-8859-1, are backward-compatible with ASCII, their extended codespace aren&rsquo;t compatible between themselves.</p>
 <blockquote>
-<p>In the Go world, a code point is called a rune.</p>
-</blockquote>
+<p>In the Go world, a code point is called a rune.</p></blockquote>
 <p>From Go&rsquo;s <a href="https://cs.opensource.google/go/go/+/master:src/builtin/builtin.go;l=90-92">src/builtin/builtin.go</a> definition of rune, we can see it uses an int32 internally for each code point:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -709,9 +708,9 @@ While UTF-8 and many other encodings, such as ISO-8859-1, are backward-compatibl
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// rune is an alias for int32 and is equivalent to int32 in all ways. It is
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// used, by convention, to distinguish character values from integer values.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#66d9ef">rune</span> = <span style="color:#66d9ef">int32</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// rune is an alias for int32 and is equivalent to int32 in all ways. It is</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// used, by convention, to distinguish character values from integer values.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#66d9ef">rune</span> = <span style="color:#66d9ef">int32</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="how-can-this-affect-you-anyway">How can this affect you, anyway?</h1>
@@ -794,16 +793,16 @@ What is the length of the following words?</p>
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// dog	len: 3	runes: 3	glyphs: 3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// cão	len: 4	runes: 3	glyphs: 3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// pa	len: 2	runes: 2	glyphs: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// pá	len: 3	runes: 2	glyphs: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// pà	len: 3	runes: 2	glyphs: 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Hello, World	len: 12	runes: 12	glyphs: 12
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Hello, 世界	len: 13	runes: 9	glyphs: 9
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// now a string with a 🇱🇮 multi-coded glyph	len: 46	runes: 40	glyphs: 39
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// dog	len: 3	runes: 3	glyphs: 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// cão	len: 4	runes: 3	glyphs: 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// pa	len: 2	runes: 2	glyphs: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// pá	len: 3	runes: 2	glyphs: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// pà	len: 3	runes: 2	glyphs: 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Hello, World	len: 12	runes: 12	glyphs: 12</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Hello, 世界	len: 13	runes: 9	glyphs: 9</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// now a string with a 🇱🇮 multi-coded glyph	len: 46	runes: 40	glyphs: 39</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>As you can see, neither len(s) nor runes can be used to count the number of glyphs properly.</p>
 <p>Using github.com/rivo/uniseg, you can iterate between graphemes like <a href="https://go.dev/play/p/L0CSTN1JcbC">this</a>:</p>
@@ -868,10 +867,10 @@ What is the length of the following words?</p>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;cropped: %q&#34;</span>, <span style="color:#a6e22e">s</span>[:<span style="color:#a6e22e">to</span>])
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// len: 80	runes: 65	glyphs: 63
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// cropped: &#34;Scheveningen 🏖&#34;
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// len: 80	runes: 65	glyphs: 63</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// cropped: &#34;Scheveningen 🏖&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can use the following functions to get the number of runes (not glyphs):</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
@@ -913,9 +912,9 @@ What is the length of the following words?</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#e6db74">&#34;isso é um exemplo&#34;</span>)) <span style="color:#75715e">// Should print true.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#e6db74">&#34;\xe0&#34;</span>)) <span style="color:#75715e">// Should print false.
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#e6db74">&#34;isso é um exemplo&#34;</span>)) <span style="color:#75715e">// Should print true.</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#e6db74">&#34;\xe0&#34;</span>)) <span style="color:#75715e">// Should print false.</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="converting-between-encodings">Converting between encodings</h1>
 <p>To convert to/from other encodings, you might use the <a href="https://pkg.go.dev/golang.org/x/text/encoding/charmap">golang.org/x/text/encoding/charmap package</a>.</p>
@@ -955,18 +954,18 @@ What is the length of the following words?</p>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">invalid</span> = <span style="color:#e6db74">&#34;\xe0 \xe1 \xe2 \xe3 \xe9&#34;</span> <span style="color:#75715e">// this is &#34;à á â ã é&#34; in ISO-8859-1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Not UTF-8: %q (valid: %v)\n&#34;</span>, <span style="color:#a6e22e">invalid</span>, <span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#a6e22e">invalid</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">invalid</span> = <span style="color:#e6db74">&#34;\xe0 \xe1 \xe2 \xe3 \xe9&#34;</span> <span style="color:#75715e">// this is &#34;à á â ã é&#34; in ISO-8859-1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Not UTF-8: %q (valid: %v)\n&#34;</span>, <span style="color:#a6e22e">invalid</span>, <span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#a6e22e">invalid</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// If we convert it from ISO8859-1 to UTF-8:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">dec</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">charmap</span>.<span style="color:#a6e22e">ISO8859_1</span>.<span style="color:#a6e22e">NewDecoder</span>().<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">invalid</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// If we convert it from ISO8859-1 to UTF-8:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">dec</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">charmap</span>.<span style="color:#a6e22e">ISO8859_1</span>.<span style="color:#a6e22e">NewDecoder</span>().<span style="color:#a6e22e">String</span>(<span style="color:#a6e22e">invalid</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Decoded: %q (valid UTF8: %v)\n&#34;</span>, <span style="color:#a6e22e">dec</span>, <span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">ValidString</span>(<span style="color:#a6e22e">dec</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Not UTF-8: &#34;\xe0 \xe1 \xe2 \xe3 \xe9&#34; (valid: false)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Decoded: &#34;à á â ã é&#34; (valid UTF8: true)
-</span></span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Not UTF-8: &#34;\xe0 \xe1 \xe2 \xe3 \xe9&#34; (valid: false)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Decoded: &#34;à á â ã é&#34; (valid UTF8: true)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>If you need help reading a malformed string, or getting runes individually, read the documentation for the <a href="https://pkg.go.dev/unicode/utf8">unicode/utf8 package</a> and check out its examples.</p>
 <h1 id="references">References</h1>
