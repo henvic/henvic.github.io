@@ -11,7 +11,6 @@ title: "Favorites"
 * [The Unix Programming Environment](https://www.amazon.com/Unix-Programming-Environment-Prentice-Hall-Software/dp/013937681X)
 * [The Art Of Unix Programming - Eric S. Raymond](http://catb.org/esr/writings/taoup/html/graphics/taoup.pdf)
 * [Do No Harm: Stories of Life, Death, and Brain Surgery - Henry Marsh](https://www.amazon.com/Do-No-Harm-Stories-Surgery-ebook/dp/B00P5KFCW6/)
-* [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM/)
 * [Vintage Apple](https://vintageapple.org/)
 
 ### Free markets, libertarianism
@@ -45,7 +44,6 @@ title: "Favorites"
 * [Node.js Tutorial](https://blog.udemy.com/node-js-tutorial/)
 * [GitHub Guides](https://guides.github.com/)
 * [GitHub Training & Guides videos](https://www.youtube.com/user/GitHubGuides/)
-* [Learn Clean Code - Uncle Bob](https://www.youtube.com/watch?v=SXkgYZw0evs)
 * [Fossil / Rebase Considered Harmful](https://www.fossil-scm.org/home/doc/trunk/www/rebaseharm.md)
 * [The Unix Heritage Wiki](https://wiki.tuhs.org/doku.php)
 * [Modular conversion, encoding and encryption online — Cryptii](https://cryptii.com) (Enigma machine, Base64, HMAC, and so on)
@@ -109,6 +107,7 @@ title: "Favorites"
 * [MailCatcher](https://mailcatcher.me/)
 * [OSV - Open Source Vulnerabilities](https://osv.dev/)
 * [Oefenen.nl](https://oefenen.nl/) is useful for learning Dutch
+* [PostgresqlCO.NF](https://postgresqlco.nf/)
 
 <hr />
 
@@ -136,6 +135,7 @@ title: "Favorites"
 * [Ishkur's Guide to Electronic Music](https://music.ishkur.com/)
 * [Ethnologue | Languages of the world](https://www.ethnologue.com/)
 * [F1 Reaction Time Test](https://cpstest.io/f1-reaction-test)
+* [Page Speed Benchmarks | SpeedCurve](https://app.speedcurve.com/benchmarks/)
 
 <hr />
 
@@ -171,3 +171,4 @@ title: "Favorites"
 * [Atlas Obscura](https://www.atlasobscura.com)
 * [Wikivoyage](https://en.wikivoyage.org/)
 * [Lonely Planet](https://www.lonelyplanet.com)
+* [Numbeo](https://www.numbeo.com/) is a cost of living database and a crowdsourced global resource for quality of life data
