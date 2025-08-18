@@ -287,6 +287,6 @@ Once you verify the migration happened successfully, you can get rid of your old
 
 I hope you find this article useful somehow.
 
-{{< tweet user=henriquev id=1458767291315896328 >}}
+{{< x user=henriquev id=1458767291315896328 >}}
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>

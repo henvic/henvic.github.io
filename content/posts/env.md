@@ -217,4 +217,4 @@ Oh, if you're using Kubernetes, you can
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>
 
-{{< tweet user=henriquev id=1351293266025709568 >}}
+{{< x user=henriquev id=1351293266025709568 >}}

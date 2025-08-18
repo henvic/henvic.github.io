@@ -538,7 +538,7 @@ However, they might have been distracted (and yes, this includes drivers coming 
 
 For a review of the Full-Self Driving (Beta) with Tesla Vision and flaws of the system, read a [Twitter thread by Tim Heckman](https://twitter.com/theckman/status/1609684069767577600):
 
-{{< tweet user=theckman id=1609684069767577600 >}}
+{{< x user=theckman id=1609684069767577600 >}}
 {{% /markdown %}}
 </div>
 <div class="cell large-6">
@@ -551,7 +551,7 @@ For a review of the Full-Self Driving (Beta) with Tesla Vision and flaws of the 
 {{% markdown %}}
 [Euro NCAP Safety Tests of Tesla Model Y 2022](https://www.youtube.com/watch?v=dKaN3f2zmCQ)
 
-{{< tweet user=Tesla id=1613115505354620928 >}}
+{{< x user=Tesla id=1613115505354620928 >}}
 {{% /markdown %}}
 </div>
 </div>
@@ -579,7 +579,7 @@ How could Tesla make it even better?
 * New Model S/X steering wheel with buttons instead of stalks (and, maybe, an option for the yoke)
 * Steam gaming platform
 
-{{< tweet user=henriquev id=1613301032146161664 >}}
+{{< x user=henriquev id=1613301032146161664 >}}
 
 ## Bonus
 These videos show the huge scale of the Shanghai Gigafactory and port operations with Tesla boarding [Roll-on/roll-off](https://en.wikipedia.org/wiki/Roll-on/roll-off) ships.

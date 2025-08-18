@@ -750,6 +750,6 @@ jobs:
         path-to-profile: profile.cov
 ```
 
-{{< tweet user=henriquev id=1462723601703096322 >}}
+{{< x user=henriquev id=1462723601703096322 >}}
 
 I hope you enjoyed this tutorial. Now go ahead and checkout the repository [github.com/henvic/pgxtutorial](https://github.com/henvic/pgxtutorial).

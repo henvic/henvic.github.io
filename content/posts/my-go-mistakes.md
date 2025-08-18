@@ -240,4 +240,4 @@ Alternatively, there could be different ways to define blocking and non-blocking
 
 Thank you for reading.
 
-{{< tweet user=henriquev id=1362206448520945664 >}}
+{{< x user=henriquev id=1362206448520945664 >}}

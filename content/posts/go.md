@@ -47,7 +47,7 @@ func main() {
 
 [Run this code in The Go Playground](https://play.golang.org/)
 
-{{< tweet user=henriquev id=1252360422683897856 >}}
+{{< x user=henriquev id=1252360422683897856 >}}
 
 ## A stable platform
 
@@ -256,7 +256,7 @@ Use `go test helpflag` to learn more about the available flags.
 $ go test -run=TestValidUser
 ```
 
-{{< tweet user=henriquev id=1370366670787780614 >}}
+{{< x user=henriquev id=1370366670787780614 >}}
 
 #### httptest
 The [http](https://pkg.go.dev/net/http) package is one of the best packages in Go.
@@ -634,6 +634,6 @@ func Quadratic(a, b, c float64) (x1, x2, Δ float64) {
 
 Thanks! If you liked what I wrote, maybe you want to check out my other posts, such as my experience creating a [homelab](/posts/homelab/) to play with different operating systems or learn about [my Go mistakes](/posts/my-go-mistakes/).
 
-{{< tweet user=henriquev id=1373980655906852867 >}}
+{{< x user=henriquev id=1373980655906852867 >}}
 
 <small>If you click and buy any of these from Amazon after visiting the links above, I might get a commission from their [Affiliate program](https://affiliate-program.amazon.com/).</small>

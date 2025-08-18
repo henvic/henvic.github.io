@@ -70,4 +70,4 @@ Please note that the second returned value of the `signal.NotifyContext` functio
 
 Thanks a lot to everyone who provided ideas, feedback, or code-reviewed my code. In particular, the Go team for the patience in helping me out.
 
-{{< tweet user=henriquev id=1306063440948137985 >}}
+{{< x user=henriquev id=1306063440948137985 >}}
