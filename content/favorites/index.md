@@ -108,6 +108,7 @@ title: "Favorites"
 * [OSV - Open Source Vulnerabilities](https://osv.dev/)
 * [Oefenen.nl](https://oefenen.nl/) is useful for learning Dutch
 * [PostgresqlCO.NF](https://postgresqlco.nf/)
+* [endoflife.date](https://endoflife.date/) documents EOL dates and support lifecycles for various products (software and hardware)
 
 <hr />
 
