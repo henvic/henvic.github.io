@@ -647,7 +647,10 @@ You can use it to write sequential migration (even for your tests, as we&rsquo;l
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">-- Then delete the separator line above.
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>You can then replace this with a simple schema like the following for your first migration:</p>
+</div><blockquote>
+<p>Tip: The only way is up! Down migrations are error-prone, and it&rsquo;s better to avoid them entirely.
+When things go wrong, this typically happens in an unpredictable manner, and down migrations can easily exacerbate the situation.</p></blockquote>
+<p>You can then replace this with a simple schema like the following for your first migration:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
