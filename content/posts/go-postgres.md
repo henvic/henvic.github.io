@@ -203,6 +203,9 @@ Running `tern new product` will generate a file named `001_initial_schema.sql` w
 -- Then delete the separator line above.
 ```
 
+> Tip: The only way is up! Down migrations are error-prone, and it's better to avoid them entirely.
+> When things go wrong, this typically happens in an unpredictable manner, and down migrations can easily exacerbate the situation.
+
 You can then replace this with a simple schema like the following for your first migration:
 
 ```sql
