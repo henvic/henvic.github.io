@@ -137,6 +137,7 @@ title: "Favorites"
 * [Ethnologue | Languages of the world](https://www.ethnologue.com/)
 * [F1 Reaction Time Test](https://cpstest.io/f1-reaction-test)
 * [Page Speed Benchmarks | SpeedCurve](https://app.speedcurve.com/benchmarks/)
+* [Strado – 10min walk score for every European neighborhood](https://strado.info/)
 
 <hr />
 

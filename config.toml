@@ -56,6 +56,12 @@ pygmentsStyle = "monokai"
     weight = 8
 
   [[menu.main]]
+    name = "Docana"
+    url = "/portfolio/#docana"
+    parent = "portfolio"
+    weight = 399
+
+  [[menu.main]]
     name = "httpretty"
     url = "/portfolio/#httpretty"
     parent = "portfolio"

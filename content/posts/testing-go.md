@@ -442,7 +442,7 @@ This testing approach is just one of the few Go design decisions that deviate fr
 Yes.
 **Much worse.**
 Ginkgo's approach to Behavior-driven Development (BDD) hinders productivity beyond acceptable for me, both from an objective point-of-view, considering [mechanical sympathy](https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.mechanical-sympathy.en.html), and from a developer experience expectation.
-The hardest to maintain and slowest tests I have witnessed and had to tolerate in my career used Ginkgo and Gomega to test a web platform built using GORM (slow and buggy [ORM]((https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/))).
+The hardest to maintain and slowest tests I have witnessed and had to tolerate in my career used Ginkgo and Gomega to test a web platform built using GORM (slow and buggy [ORM](https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/)).
 By some back-of-the-envelope calculation, I can estimate they were at least 100 times slower than they could be (over 10min for something that should never take longer than half a minute in any circumstances) and at least a ten-fold order of magnitude harder to maintain due to their design choices getting in the way of Go tooling and completely ignoring the language idioms.
 
 ```go
