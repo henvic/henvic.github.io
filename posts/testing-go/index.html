@@ -91,6 +91,13 @@
                     
                     
                     <li >
+                        <a href="/portfolio/#docana" title="Docana">
+                            Docana
+                        </a>
+                    </li>
+                    
+                    
+                    <li >
                         <a href="/portfolio/#httpretty" title="httpretty">
                             httpretty
                         </a>
@@ -1030,7 +1037,7 @@ This testing approach is just one of the few Go design decisions that deviate fr
 <p>Yes.
 <strong>Much worse.</strong>
 Ginkgo&rsquo;s approach to Behavior-driven Development (BDD) hinders productivity beyond acceptable for me, both from an objective point-of-view, considering <a href="https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.mechanical-sympathy.en.html">mechanical sympathy</a>, and from a developer experience expectation.
-The hardest to maintain and slowest tests I have witnessed and had to tolerate in my career used Ginkgo and Gomega to test a web platform built using GORM (slow and buggy <a href="(https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/)">ORM</a>).
+The hardest to maintain and slowest tests I have witnessed and had to tolerate in my career used Ginkgo and Gomega to test a web platform built using GORM (slow and buggy <a href="https://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/">ORM</a>).
 By some back-of-the-envelope calculation, I can estimate they were at least 100 times slower than they could be (over 10min for something that should never take longer than half a minute in any circumstances) and at least a ten-fold order of magnitude harder to maintain due to their design choices getting in the way of Go tooling and completely ignoring the language idioms.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">

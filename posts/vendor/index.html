@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Henrique Vicente</title>
@@ -13,12 +13,13 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <meta property="og:title" content="Henrique Vicente">
     <meta name="twitter:title" content="Henrique Vicente" />
-    <meta property="og:url" content="https://henvic.dev/tags/">
+    <meta property="og:url" content="http://localhost:1313/posts/vendor/">
     
     
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="0001-01-01">
     
-    <meta property="twitter:url" content="https://henvic.dev/tags/">
+    <meta property="twitter:url" content="http://localhost:1313/posts/vendor/">
     
     <meta property="og:image" content="https://henvic.dev/img/me.jpg">
     <meta property="twitter:image" content="https://henvic.dev/img/me.jpg">
@@ -83,13 +84,6 @@
                         Portfolio
                     </a>
                 <ul class="vertical menu nested submenu">
-                    
-                    
-                    <li >
-                        <a href="/portfolio/#docana" title="Docana">
-                            Docana
-                        </a>
-                    </li>
                     
                     
                     <li >
@@ -260,7 +254,8 @@
     <nav aria-label="You are here:" role="navigation">
     <ul class="breadcrumbs" id="breadcrumbs">
             <li><a href="/"></a></li>
-            <li><a href="/tags/">Tags</a></li>
+            <li><a href="/posts/">Blog posts</a></li>
+            <li><a href="/posts/vendor/"></a></li>
     </ul>
 </nav>
     <ul class="menu vertical show-for-medium">
@@ -281,8 +276,8 @@
         
         
         
-        <li class="">
-            <a href="/posts/" >
+        <li class=" active">
+            <a href="/posts/" aria-current="page" >
                 Blog posts
             </a>
         </li>
@@ -362,31 +357,63 @@
     </ul>
 </div>
 </div>
+
 <article class="cell large-9 medium-8 large-cell-block-y medium-cell-block-y main">
-    
-    <section>
+        <h1 class="post-title"></h1>
         
-    </section>
+        
+        <p>Vendorizing&hellip;.
+npm is a mess.</p>
+
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large"
+                        data-text="" data-url="http://localhost:1313/posts/vendor/" data-via="henriquev"
+                         data-show-count="false">Tweet</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <aside class="read-also">
+                <h3>Read also</h3>
+                <ul>
+                        <li>
+                                <a href="/posts/testing-go/">On testing Go code using the standard library</a>
+                                <time datetime="2006-01-02">Tuesday 18, June 2024</time>
+                        </li><li>
+                                <a href="/posts/tesla/">My new Tesla Model Y 2023</a>
+                                <time datetime="2006-01-02">Wednesday 11, January 2023</time>
+                        </li><li>
+                                <a href="/posts/go-utf8/">UTF-8 strings with Go: len(s) isn&#39;t enough</a>
+                                <time datetime="2006-01-02">Monday 7, March 2022</time>
+                        </li><li>
+                                <a href="/posts/go-postgres/">Back to basics: Writing an application using Go and PostgreSQL</a>
+                                <time datetime="2006-01-02">Monday 22, November 2021</time>
+                        </li><li>
+                                <a href="/posts/postgres-14-freebsd-13/">Upgrading to PostgreSQL 14 on FreeBSD 13</a>
+                                <time datetime="2006-01-02">Thursday 11, November 2021</time>
+                        </li><li>
+                                <a href="/posts/uuid/">You don&#39;t need UUID</a>
+                                <time datetime="2006-01-02">Sunday 30, May 2021</time>
+                        </li><li>
+                                <a href="/posts/go/">The ecosystem of the Go programming language</a>
+                                <time datetime="2006-01-02">Monday 22, March 2021</time>
+                        </li><li>
+                                <a href="/posts/my-go-mistakes/">My Go mistakes</a>
+                                <time datetime="2006-01-02">Thursday 18, February 2021</time>
+                        </li><li>
+                                <a href="/posts/env/">Environment variables, config, secrets, and globals</a>
+                                <time datetime="2006-01-02">Saturday 16, January 2021</time>
+                        </li><li>
+                                <a href="/posts/signal-notify-context/">signal.NotifyContext: handling cancelation with Unix signals using context</a>
+                                <time datetime="2006-01-02">Wednesday 16, September 2020</time>
+                        </li><li>
+                                <a href="/posts/e-commerce/">I&#39;m starting an opensource e-commerce project.</a>
+                                <time datetime="2006-01-02">Wednesday 17, June 2020</time>
+                        </li>
+                </ul>
+        </aside>
 </article>
 
             </div>
         </div>
     </div>
 
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1GFSFWX85"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-Y1GFSFWX85');
-        }
-      </script>
 <script src="/js/vendor/modernizr-custom-svg.js"></script>
 <script src="/js/vendor/what-input.js"></script>
 <script src="/js/vendor/jquery.min.js"></script>
