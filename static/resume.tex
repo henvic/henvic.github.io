@@ -115,7 +115,7 @@ Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maint
 \section{Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \item{\textbf{Core:} Go (\#golang), PostgreSQL, Kubernetes, Docker, Google Cloud (GCP), AWS, Pulumi, gRPC, GraphQL, Prometheus, OpenTelemetry, Elasticsearch, Redis, TypeScript.} \\
-    \item{\textbf{AI/LLM:} RAG over PostgreSQL (pgvector, AlloyDB ScaNN), Gemini via Vertex AI, Vercel AI SDK, agent tooling (web browsing via Gemini URL Context and headless browsers), per-tenant LLM cost and latency monitoring; AI-assisted development with Claude Code, Cursor, and Gemini CLI.}
+    \item{\textbf{AI/LLM:} RAG over PostgreSQL (pgvector, AlloyDB ScaNN), Gemini via Vertex AI, Vercel AI SDK, agent tooling, LLM metrics; AI-assisted development.}
  \end{itemize}
 
 %-----------EXPERIENCE-----------
@@ -132,14 +132,14 @@ Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maint
         \resumeItem{Implemented bot protection against the scalping of hot products, based on consumer trustworthiness data.}
         \resumeItem{Reduced CPU usage, memory allocations, and network overhead through profiling with pprof and AI-assisted analysis.}
         \resumeItem{Worked on acceptance and integration tests, metrics, request header enrichment, JWT authentication, rate limiting, and Content Security Policy; reviewed bol.com's implementation of the \href{https://netflixtechblog.com/edge-authentication-and-token-agnostic-identity-propagation-514e47e0b602}{Token-Agnostic Identity (Passport)} pattern for performance gains.}
-        \resumeItem{Evaluated GraphQL federation routers, WunderGraph Cosmo (Go) and Hive Router (Rust), on the effort of extending them with plugins and sidecars and on how their built-in protections compare with \href{https://github.com/ldebruijn/graphql-protect}{graphql-protect}.}
+        \resumeItem{Evaluated GraphQL federation routers, WunderGraph Cosmo (Go) and Hive Router (Rust), on the effort of extending them with plugins and sidecars and on how their built-in protections compare.}
         \resumeItem{Wrote runbooks and ADRs, and discovered and documented technical details that had never been written down.}
         \resumeItem{Helped the team adopt Go idioms and good practices through pair programming and code reviews.}
 
         \resumeLead{\textbf{Supplier \& Financial Conditions team (Feb -- Dec 2025):} modernized bol.com's first Go application, the service managing supplier commissions and agreements such as rebates, allowances, and promotions (REST APIs, Pub/Sub consumers, cronjobs, BigQuery pipelines).}
         \resumeItem{Cut direct dependencies from 45 to 25 and removed over 100k lines of code while increasing test coverage and code quality; fixed data races and other latent bugs, and added CI checks (\texttt{-race}, \texttt{-shuffle}) to prevent regressions and improve resilience.}
         \resumeItem{Introduced RFC 7807 structured errors across all endpoints, tracing, Prometheus metrics, Kubernetes CronJobs in place of in-app scheduling, integration tests against real and ephemeral PostgreSQL databases, and a consolidated GitLab CI pipeline.}
-        \resumeItem{Added AI-assisted commands using Gemini that keep OpenAPI documentation and test code up to date.}
+        \resumeItem{Added AI-assisted commands to keep OpenAPI documentation and test code up to date.}
         \resumeItem{Presented the work as \textit{\href{https://henvic.dev/talks/drying-up-go.pdf}{Drying Up the Architecture of a Go Application}} at bol $\times$ ING Tech Talks, Amsterdam, March 2026.}
       \resumeItemListEnd
 
@@ -153,7 +153,7 @@ Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maint
         \resumeItem{Built the Prometheus and Grafana observability stack from scratch, including LLM token, cost, and latency metrics per customer, with alerting that has caught incidents before customers had even a chance to notice them.}
         \resumeItem{Security: Cloudflare Access (Zero Trust) and Google Cloud IAM for internal services; CSP violation reporting.}
         \resumeItem{CI: overhauled the integration tests, fixed flaky and expensive LLM tests and gated them behind cheaper checks, and made linting and type checking up to 15x faster, bringing a CI bill that was on track to grow tenfold back under control.}
-        \resumeItem{Built product features such as agents that browse websites to extract data and act on the user's behalf, and dashboards of customer usage and limits that keep AI costs under control; kick-started the chat-assistant prototype.}
+        \resumeItem{Built product features such as agents that browse websites using headless browsers to extract data and act on the user's behalf, and dashboards of customer usage and limits that keep AI costs under control; kick-started the chat-assistant prototype.}
       \resumeItemListEnd
 
     \resumeSubheading
