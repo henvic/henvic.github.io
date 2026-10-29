@@ -12,13 +12,14 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{multicol}
+\usepackage{needspace}
 \input{glyphtounicode}
 
 \usepackage[default]{sourcesanspro}
 \usepackage[T1]{fontenc}
 
 \pagestyle{fancy}
-\fancyhf{} 
+\fancyhf{}
 \fancyfoot{}
 \setlength{\footskip}{4.5pt}
 \renewcommand{\headrulewidth}{0pt}
@@ -71,6 +72,22 @@
     \end{tabular*}\vspace{-7pt}
 }
 
+% A client or sub-engagement inside an item list: bold name left, dates right, no bullet.
+\newcommand{\resumeClient}[2]{
+  \vspace{2pt}\item[]
+    \begin{tabular*}{0.97\linewidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+    \end{tabular*}\vspace{-2pt}
+}
+
+% A lead paragraph inside an item list, without a bullet.
+\newcommand{\resumeLead}[1]{
+  \vspace{2pt}\item[] {#1 \vspace{-2pt}}
+}
+
+% Open item for the author; renders red so it cannot ship unnoticed. Delete once resolved.
+\newcommand{\todo}[1]{\textcolor{red}{\textit{[#1]}}}
+
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
@@ -81,74 +98,133 @@
 \begin{document}
 
 {\LARGE \scshape Henrique Vicente de Oliveira Pinto}\\
-\href{mailto:henriquevicente@gmail.com}{henriquevicente@gmail.com}\\
+The Hague, Netherlands \textperiodcentered{} \href{mailto:henriquevicente@gmail.com}{henriquevicente@gmail.com}\\
 \vspace{1em}
 Website: \href{https://henvic.dev/}{https://henvic.dev}\\
 GitHub: \href{https://github.com/henvic}{https://github.com/henvic}\\
 LinkedIn: \href{https://linkedin.com/in/henvic}{https://linkedin.com/in/henvic}
 
-%-----------EXPERIENCE-----------
+%-----------SUMMARY-----------
 \vspace{1em}
-\textbf{Summary:} Software engineer with 15 years of professional experience working in the software development industry, with an \href{https://henvic.dev/portfolio/}{portfolio of several products and projects}.
-Seasoned {\href{https://henvic.dev/opensource/}{open-source software contributor}} with experience \href{https://henvic.dev/talks/}{speaking} at diverse events in Europe, South, and North America.
+\textbf{Summary:} Software engineer working with Go since 2015 and with web services since 2009.
+Most recently at bol.com, modernizing the architecture of the Go service that handles all traffic ingress (peaks over 15k req/s), among other work.
+Earlier, payment processing at Form3, and at PVH an infrastructure modernization and database migration that cut recurring costs by over 90\%.
+Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maintainer of \href{https://henvic.dev/opensource/}{open-source libraries and programs}.
 
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \item{\textbf{Core:} Go (\#golang), PostgreSQL, Kubernetes, Docker, Google Cloud (GCP), AWS, Pulumi, gRPC, GraphQL, Prometheus, OpenTelemetry, Elasticsearch, Redis, TypeScript.} \\
+    \item{\textbf{AI/LLM:} RAG over PostgreSQL (pgvector, AlloyDB ScaNN), Gemini via Vertex AI, Vercel AI SDK, agent tooling (web browsing via Gemini URL Context and headless browsers), per-tenant LLM cost and latency monitoring; AI-assisted development with Claude Code, Cursor, and Gemini CLI.}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Senior Software Engineer}{Nov 2023 -- Present}
+      {Go Engineer (contractor)}{Feb 2025 -- Oct 2026}
+      {bol.com}{Utrecht, The Netherlands}
+      \resumeItemListStart
+        \resumeLead{bol.com is the largest online retailer in the Netherlands and Belgium. Brought in for Go expertise to modernize the company's first Go application, then joined the Core Backend team to promote Go knowledge and raise the quality of its main application, the ingress router.}
+
+        \resumeLead{\textbf{Core Backend team (Jan -- Oct 2026):} the Go ingress service for all of bol.com's traffic (web, app, and AI streaming), with peaks over 15k req/s. It sits behind Akamai and Google Cloud Armor and fans out requests through the GraphQL router to its internal services.}
+        \resumeItem{Implemented bot protection against the scalping of hot products, based on consumer trustworthiness data.}
+        \resumeItem{Reduced CPU usage, memory allocations, and network overhead through profiling with pprof and AI-assisted analysis.}
+        \resumeItem{Worked on acceptance and integration tests, metrics, request header enrichment, JWT authentication, rate limiting, and Content Security Policy; reviewed bol.com's implementation of the \href{https://netflixtechblog.com/edge-authentication-and-token-agnostic-identity-propagation-514e47e0b602}{Token-Agnostic Identity (Passport)} pattern for performance gains.}
+        \resumeItem{Evaluated GraphQL federation routers, WunderGraph Cosmo (Go) and Hive Router (Rust), on the effort of extending them with plugins and sidecars and on how their built-in protections compare with \href{https://github.com/ldebruijn/graphql-protect}{graphql-protect}.}
+        \resumeItem{Wrote runbooks and ADRs, and discovered and documented technical details that had never been written down.}
+        \resumeItem{Helped the team adopt Go idioms and good practices through pair programming and code reviews.}
+
+        \resumeLead{\textbf{Supplier \& Financial Conditions team (Feb -- Dec 2025):} modernized bol.com's first Go application, the service managing supplier commissions and agreements such as rebates, allowances, and promotions (REST APIs, Pub/Sub consumers, cronjobs, BigQuery pipelines).}
+        \resumeItem{Cut direct dependencies from 45 to 25 and removed over 100k lines of code while increasing test coverage and code quality; fixed data races and other latent bugs, and added CI checks (\texttt{-race}, \texttt{-shuffle}) to prevent regressions and improve resilience.}
+        \resumeItem{Introduced RFC 7807 structured errors across all endpoints, tracing, Prometheus metrics, Kubernetes CronJobs in place of in-app scheduling, integration tests against real and ephemeral PostgreSQL databases, and a consolidated GitLab CI pipeline.}
+        \resumeItem{Added AI-assisted commands using Gemini that keep OpenAPI documentation and test code up to date.}
+        \resumeItem{Presented the work as \textit{\href{https://henvic.dev/talks/drying-up-go.pdf}{Drying Up the Architecture of a Go Application}} at bol $\times$ ING Tech Talks, Amsterdam, March 2026.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Founding Engineer}{Aug 2025 -- Present}
+      {Docana}{Remote}
+      \resumeItemListStart
+        \resumeLead{\href{https://docana.com/}{Docana} builds enterprise AI agents, workflows, and chat assistants that integrate with a company's documents and systems and keep an audit trail. Built in TypeScript (Next.js, Node.js).}
+        \resumeItem{Scaled the production PostgreSQL database for growth: zero-downtime major-version upgrades and the migration from Cloud SQL to AlloyDB, provisioned with Pulumi.}
+        \resumeItem{Cut the p95 latency of RAG knowledge search by over 50x, moving vector indexes from HNSW to ScaNN on AlloyDB and fixing bottlenecks found through query plans and production telemetry.}
+        \resumeItem{Built the Prometheus and Grafana observability stack from scratch, including LLM token, cost, and latency metrics per customer, with alerting that has caught incidents before customers had even a chance to notice them.}
+        \resumeItem{Security: Cloudflare Access (Zero Trust) and Google Cloud IAM for internal services; CSP violation reporting.}
+        \resumeItem{CI: overhauled the integration tests, fixed flaky and expensive LLM tests and gated them behind cheaper checks, and made linting and type checking up to 15x faster, bringing a CI bill that was on track to grow tenfold back under control.}
+        \resumeItem{Built product features such as agents that browse websites to extract data and act on the user's behalf, and dashboards of customer usage and limits that keep AI costs under control; kick-started the chat-assistant prototype.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Senior Software Engineer}{Nov 2023 -- Dec 2024}
       {Self-employed contractor}{Remote}
       \resumeItemListStart
-        \resumeItem{Contractor with over 15 years of software engineering experience and 9 years with the Go programming language. Worked with clients such as FerretDB, OCCRP, and Bol.com}
-        \resumeItem{Work with technologies such as Go, PostgreSQL, Elasticsearch/OpenSearch, Kubernetes, CI/CD, authorization with OAuth, authentication with OpenID, CI/CD, monitoring distributed systems with OpenTelemetry, Grafana, Terraform, Google Cloud, and Amazon Web Services.}
-        \resumeItem{Implementation of new solutions adopting Go to match existing implementations to spec using reverse engineering.}
+        \resumeItem{\textbf{FerretDB}, Nov 2023 -- Apr 2024: work on an open-source MongoDB-compatible database that uses PostgreSQL as its backend.}
+        \resumeItem{\textbf{OCCRP} (investigative-journalism network), Sep 2024 -- Dec 2024: work on an application for indexing investigative-journalism documents.}
       \resumeItemListEnd
-      \resumeSubheading
+
+    \resumeSubheading
       {Senior Software Engineer}{Aug 2022 -- Apr 2023}
-      {Form3}{Remote}
+      {Form3}{Remote (London)}
       \resumeItemListStart
-        \resumeItem{Worked in the Core Data team of the London-based Cloud-native Payment Processing Platform Form3 on internal services that handle payment and payment returns.}
-        \resumeItem{Experience with Go, gRPC, NATS, PostgreSQL, Kubernetes, Terraform, and multi-cloud environments.}
+        \resumeLead{Cloud-native payment processing platform for banks and fintechs.}
+        \resumeItem{Core Data team: built and maintained the internal services that process payments and payment returns, in Go with gRPC, NATS, PostgreSQL, Kubernetes, and Terraform across cloud providers.}
       \resumeItemListEnd
-      \resumeSubheading
+
+    \resumeSubheading
       {Senior Software Engineer}{Feb 2021 -- Jul 2022}
       {Stitch, PVH Corp.}{The Netherlands}
       \resumeItemListStart
-        \resumeItem{Led a comprehensive project to enhance developer experience, ensure reliability, improve efficiency, and reduce operational costs by planning and implementing a robust automated testing infrastructure with fast integration tests (2s on average for the entire test suite) and replacing a non-relational database with PostgreSQL and Elasticsearch/OpenSearch.}
-        \resumeItem{As part of the preceding goal, we yield a remarkable impact: a lasting expense reduction of over 90\% of our recurring database cloud computing and licensing expenses and enhanced software development efficiency throughout multiple teams.}
-        \resumeItem{Worked on multiple web services with API development with Go, Kubernetes, Terraform, and other technologies.}
-        \resumeItem{Worked on data migration of media assets from renowned fashion brands, including internal clients such as Tommy Hilfiger and Calvin Klein and external ones such as Havaianas and Scotch \& Soda.}
-        \resumeItem{Experience with Go, gRPC, GraphQL, Kubernetes, Terraform, and Amazon Web Services.}
+        \resumeLead{PVH's digital showroom used by the sales team of Tommy Hilfiger and Calvin Klein to present the garments of their seasonal collections to shops and business buyers.}
+        \resumeItem{Replaced a proprietary non-relational database with PostgreSQL and Elasticsearch/OpenSearch, shrinking recurring database and licensing costs by over 90\% and increasing development speed across multiple teams.}
+        \resumeItem{Designed the automated testing infrastructure, bringing the full integration suite from minutes to about 2 seconds.}
+        \resumeItem{Consolidated gRPC and GraphQL microservices into fewer services aligned with business domains, cutting the operational burden on developers.}
       \resumeItemListEnd
-      \newpage
+
     \resumeSubheading
       {Senior Software Engineer}{Jun 2019 -- Jan 2021}
-      {HousingAnywhere}{The Netherlands}
+      {HousingAnywhere}{Rotterdam, The Netherlands}
       \resumeItemListStart
-        \resumeItem{On the platform team, worked public-facing RESTful APIs, internal services, and integration with affiliate partners.}
-        \resumeItem{Worked on the payment system and payouts infrastructure with Stripe.}
-        \resumeItem{Experience with Go, gRPC, Google Cloud Platform, Kubernetes, and microservices.}
-    \resumeItemListEnd
+        \resumeItem{Platform team: public REST APIs, internal services, and affiliate-partner integrations in Go on Google Cloud and Kubernetes.}
+        \resumeItem{Payments team: worked on the Stripe integration for payments and on the payout infrastructure.}
+      \resumeItemListEnd
+
+    \needspace{6\baselineskip}
     \resumeSubheadingExtra
       {Senior Software Engineer}{Jan 2018 -- May 2019}
     \resumeSubheading
       {Software Engineer}{Mar 2014 -- Dec 2017}
       {Liferay, Inc.}{Brazil}
       \resumeItemListStart
-        \resumeItem{As a key member of WeDeploy / Liferay DXP in its early days, led the development of its CLI tool, which was the primary client developers utilized to access and use the platform.}
-        \resumeItem{Developed sophisticated solutions using Go and JavaScript for front and backend libraries and applications, such as reverse-engineering the socket.io protocol to use it for emulating an SSH connection.}
-        \resumeItem{Worked on multiple front-end open-source programs, libraries, and frameworks maintained by the company for internal and external use.}
-        \resumeItem{Experience with deploying desktop applications to end-users on multiple platforms (macOS, Linux, and Windows).}
-        \resumeItem{Experience with function and integration tests for a diverse range of applications (web-based and desktop-based CLI tools for internal and external developers).}
-        \resumeItem{Led the development of a CLI tool for managing GitHub very similar to today’s GitHub CLI tool many years before an official tool had been released.}
-    \resumeItemListEnd
+        \resumeItem{Led the development of the Go CLI for WeDeploy and Liferay DXP Cloud, the primary way developers accessed the platform. Under the hood: git as the deployment transport, SSH-like remote shell into containers over WebSocket (reverse-engineered the socket.io protocol for it), anonymized usage telemetry, and release pipelines for macOS, Linux, and Windows with automatic delta updates.}
+        \resumeItem{Wrote the kubeapply microservice to overcome Kubernetes API limitations and helped plan the migration from Docker Swarm to Kubernetes.}
+        \resumeItem{Worked on Liferay's open-source JavaScript GUI frameworks and libraries, such as AlloyUI.}
+        \resumeItem{Core maintainer of NodeGH, an open-source GitHub CLI that predated GitHub's official tool.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Backend Engineer}{Oct 2012 -- Jul 2013}
+      {MGR Tecnologia}{Brazil}
+      \resumeItemListStart
+        \resumeItem{Cahier, a B2B corporate social network: built its real-time chat on socket.io and Node.js with a PHP backend; profiled and fixed SQL performance bottlenecks in legacy code.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Founder}{2009 -- 2011}
+      {Plifk (file sharing), Vehikel (marketplace for used vehicles), and more --- see \href{https://henvic.dev/portfolio}{henvic.dev/portfolio}}{}
+
   \resumeSubHeadingListEnd
 
-\parbox[t]{\dimexpr\linewidth-0.95em}{
-  \hspace{0.95em}\parbox[t]{\dimexpr\linewidth-0.95em}{
-    {\textbf{Important:} For an extensive look at greenfield projects I've initiated independently or collaborated on during previous employment, as well as insights into my significant career, please visit my \href{https://henvic.dev/portfolio}{portfolio page} on my website.}
-  }
-}
+%-----------OPEN SOURCE & TALKS-----------
+\section{Open Source \& Talks}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \item{
+      \textbf{Go standard library}{: proposed and implemented \href{https://github.com/golang/go/issues/37255}{\texttt{signal.NotifyContext}} (Go 1.16).} \\
+      \textbf{Maintainer}{: \href{https://github.com/henvic/httpretty}{httpretty} (HTTP request/response inspector for Go clients and servers), \href{https://github.com/henvic/pgtools}{pgtools} (PostgreSQL library to make working with pgx, tern, and scany much easier, in particular with its \texttt{sqltest}), \href{https://github.com/henvic/pgq}{pgq} (PostgreSQL query builder), and \href{https://github.com/henvic/pgxtutorial}{pgxtutorial} (reference Go service with PostgreSQL and gRPC).} \\
+      \textbf{Talks}{: \textit{Integration Tests: Writing Good Automated Tests in Go}, lightning talk at \href{https://www.youtube.com/watch?v=m1qXKZHI_m4}{GopherCon 2023}, San Diego \textperiodcentered{} \textit{Drying Up the Architecture of a Go Application}, bol $\times$ ING Tech Talks, Amsterdam 2026 \textperiodcentered{} \textit{From Squirrel to pgq}, Go meetup Rotterdam 2024 \textperiodcentered{} Go meetups Amsterdam 2022--2023. Full list at \href{https://henvic.dev/talks/}{henvic.dev/talks}.}
+    }
+ \end{itemize}
 
 %-----------EDUCATION-----------
 \section{Education}
@@ -161,13 +237,4 @@ Seasoned {\href{https://henvic.dev/opensource/}{open-source software contributor
       {Cloud Infrastructure and Services}{}
   \resumeSubHeadingListEnd
 
-%-----------Highlights-----------
-\section{Hightlights}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \item{
-     \textbf{Interests}{: Open-source software, Software Engineering, Photography, Nature, Skiing, Drones, Homelab, Airplanes, Industrial Design, Electric Vehicles (EV), piano, music.} \\
-      \textbf{Keywords}{: gRPC, Protobuf, HTTP(S), REST API, Go, JavaScript, Java, Unix scripting, cloud computing, Kubernetes, CI, CD, SQL, PostgreSQL, OpenSearch, Elasticsearch, Terraform, Grafana, Security, dev tools, DNS, networking, Linux, macOS, FreeBSD, VMware ESXi, golang.}
-    }
- \end{itemize}
- 
 \end{document}
