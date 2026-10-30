@@ -13,10 +13,10 @@
 \usepackage{tabularx}
 \usepackage{multicol}
 \usepackage{needspace}
-\input{glyphtounicode}
 
 \usepackage[default]{sourcesanspro}
 \usepackage[T1]{fontenc}
+\input{glyphtounicode}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -96,8 +96,8 @@
 \newcommand{\resumeItemListEnd}{\end{itemize}}
 
 \begin{document}
-
-{\LARGE \scshape Henrique Vicente de Oliveira Pinto}\\
+{\LARGE \textbf{Henrique Vicente de Oliveira Pinto}}\\
+Software Engineer | Go, PostgreSQL, Kubernetes, Cloud Computing, AI\\
 The Hague, Netherlands \textperiodcentered{} \href{mailto:henriquevicente@gmail.com}{henriquevicente@gmail.com}\\
 \vspace{1em}
 Website: \href{https://henvic.dev/}{https://henvic.dev}\\
@@ -129,18 +129,18 @@ Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maint
         \resumeLead{bol.com is the largest online retailer in the Netherlands and Belgium. Brought in for Go expertise to modernize the company's first Go application, then joined the Core Backend team to promote Go knowledge and raise the quality of its main application, the ingress router.}
 
         \resumeLead{\textbf{Core Backend team (Jan -- Oct 2026):} the Go ingress service for all of bol.com's traffic (web, app, and AI streaming), with peaks over 15k req/s. It sits behind Akamai and Google Cloud Armor and fans out requests through the GraphQL router to its internal services.}
-        \resumeItem{Implemented bot protection against the scalping of hot products, based on consumer trustworthiness data.}
+        \resumeItem{Implemented bot protection against the scalping of high-demand products using consumer trustworthiness signals.}
         \resumeItem{Reduced CPU usage, memory allocations, and network overhead through profiling with pprof and AI-assisted analysis.}
         \resumeItem{Worked on acceptance and integration tests, metrics, request header enrichment, JWT authentication, rate limiting, and Content Security Policy; reviewed bol.com's implementation of the \href{https://netflixtechblog.com/edge-authentication-and-token-agnostic-identity-propagation-514e47e0b602}{Token-Agnostic Identity (Passport)} pattern for performance gains.}
-        \resumeItem{Evaluated GraphQL federation routers, WunderGraph Cosmo (Go) and Hive Router (Rust), on the effort of extending them with plugins and sidecars and on how their built-in protections compare.}
-        \resumeItem{Wrote runbooks and ADRs, and discovered and documented technical details that had never been written down.}
-        \resumeItem{Helped the team adopt Go idioms and good practices through pair programming and code reviews.}
+        \resumeItem{Evaluated GraphQL federation routers, WunderGraph Cosmo (Go) and Hive Router (Rust), in terms of effort to extend them with plugins and sidecars and how their built-in protections compare.}
+        \resumeItem{Discovered and documented previously technical details that had never been written down.}
+        \resumeItem{Raised the team's Go practices through pair programming and code reviews, and wrote runbooks, ADRs, and technical documentation.}
 
         \resumeLead{\textbf{Supplier \& Financial Conditions team (Feb -- Dec 2025):} modernized bol.com's first Go application, the service managing supplier commissions and agreements such as rebates, allowances, and promotions (REST APIs, Pub/Sub consumers, cronjobs, BigQuery pipelines).}
-        \resumeItem{Cut direct dependencies from 45 to 25 and removed over 100k lines of code while increasing test coverage and code quality; fixed data races and other latent bugs, and added CI checks to prevent regressions and improve resilience.}
-        \resumeItem{Introduced RFC 7807 structured errors across all endpoints, tracing, Prometheus metrics, Kubernetes CronJobs in place of in-app scheduling, integration tests against real and ephemeral PostgreSQL databases, and a consolidated GitLab CI pipeline.}
+        \resumeItem{Cut direct dependencies from 45 to 25 and deleted over 100k lines of code, keeping every feature and raising test coverage; fixed data races and other latent bugs, and added CI checks to prevent regressions and improve resilience.}
+        \resumeItem{Introduced RFC 7807-structured errors across all endpoints, tracing, Prometheus metrics, Kubernetes CronJobs in place of in-app scheduling, integration tests against real ephemeral PostgreSQL databases, and a consolidated GitLab CI pipeline.}
         \resumeItem{Added AI-assisted commands to keep OpenAPI documentation and test code up to date.}
-        \resumeItem{Presented the work as \textit{\href{https://henvic.dev/talks/drying-up-go.pdf}{Drying Up the Architecture of a Go Application}} at bol $\times$ ING Tech Talks, Amsterdam, March 2026.}
+        \resumeItem{Presented the work as \textit{\href{https://henvic.dev/talks/drying-up-go.pdf}{Drying Up the Architecture of a Go Application}} at bol $\times$ ING Tech Talks.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -150,8 +150,8 @@ Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maint
         \resumeLead{\href{https://docana.com/}{Docana} builds enterprise AI agents, workflows, and chat assistants that integrate with a company's documents and systems and keep an audit trail. Built in TypeScript (Next.js, Node.js).}
         \resumeItem{Scaled the production PostgreSQL database for growth: zero-downtime major-version upgrades and the migration from Cloud SQL to AlloyDB, provisioned with Pulumi.}
         \resumeItem{Cut the p95 latency of RAG knowledge search by over 50x, moving vector indexes from HNSW to ScaNN on AlloyDB and fixing bottlenecks found through query plans and production telemetry.}
-        \resumeItem{Built the Prometheus and Grafana observability stack from scratch, including LLM token, cost, and latency metrics per customer, with alerting that has caught incidents before customers had even a chance to notice them.}
-        \resumeItem{Security: Cloudflare Access (Zero Trust) and Google Cloud IAM for internal services; CSP violation reporting.}
+        \resumeItem{Built the Prometheus and Grafana observability stack from scratch, including LLM token, cost, and latency metrics per customer, with alerting that has caught incidents before customers even had a chance to notice.}
+        \resumeItem{Security: Cloudflare Access (Zero Trust) and Google Cloud IAM for its services; CSP violation reporting.}
         \resumeItem{CI: overhauled the integration tests, fixed flaky and expensive LLM tests and gated them behind cheaper checks, and made linting and type checking up to 15x faster, bringing a CI bill that was on track to grow tenfold back under control.}
         \resumeItem{Built product features such as agents that browse websites using headless browsers to extract data and act on the user's behalf, and dashboards of customer usage and limits that keep AI costs under control; kick-started the chat-assistant prototype.}
       \resumeItemListEnd
@@ -160,8 +160,8 @@ Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maint
       {Senior Software Engineer}{Nov 2023 -- Dec 2024}
       {Self-employed contractor}{Remote}
       \resumeItemListStart
-        \resumeItem{\textbf{FerretDB}, Nov 2023 -- Apr 2024: work on an open-source MongoDB-compatible database that uses PostgreSQL as its backend.}
-        \resumeItem{\textbf{OCCRP} (investigative-journalism network), Sep 2024 -- Dec 2024: work on an application for indexing investigative-journalism documents.}
+        \resumeItem{\textbf{FerretDB}, Nov 2023 -- Apr 2024: worked on an open-source MongoDB-compatible database that uses PostgreSQL as its backend.}
+        \resumeItem{\textbf{OCCRP} (investigative-journalism network), Sep 2024 -- Dec 2024: worked on an application for indexing investigative-journalism documents.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -178,8 +178,8 @@ Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maint
       \resumeItemListStart
         \resumeLead{PVH's digital showroom used by the sales team of Tommy Hilfiger and Calvin Klein to present the garments of their seasonal collections to shops and business buyers.}
         \resumeItem{Led a comprehensive project to enhance the developer experience, ensure reliability, improve efficiency, and reduce operational costs by consolidating microservices (heavy on gRPC and GraphQL) and aligning them with business domains.}
-        \resumeItem{Replaced a proprietary non-relational database with PostgreSQL and Elasticsearch/OpenSearch, shrinking recurring database and licensing costs by over 90\% and increasing development speed across multiple teams.}
-        \resumeItem{Designed the automated testing infrastructure, bringing the full integration suite from minutes to about 2 seconds.}
+        \resumeItem{Replaced a proprietary non-relational database with PostgreSQL and Elasticsearch/OpenSearch, shrinking recurring database and licensing costs by over 90\% and accelerating development across multiple teams.}
+        \resumeItem{Redesigned the testing infrastructure, cutting the integration test duration from minutes to about 2 seconds.}
         \resumeItem{Experience with Go, gRPC, GraphQL, Kubernetes, Terraform, and Amazon Web Services.}
       \resumeItemListEnd
 
@@ -188,7 +188,7 @@ Contributor to the Go standard library (\texttt{signal.NotifyContext}) and maint
       {HousingAnywhere}{Rotterdam, The Netherlands}
       \resumeItemListStart
         \resumeItem{Platform team: public REST APIs, internal services, and affiliate-partner integrations in Go on Google Cloud and Kubernetes.}
-        \resumeItem{Payments team: worked on the Stripe integration for payments and on the payout infrastructure.}
+        \resumeItem{Payments team: worked on the Stripe payment integration and the payout infrastructure.}
         \resumeItem{Experience with Go, gRPC, Google Cloud Platform, Kubernetes, and microservices.}
       \resumeItemListEnd
 
